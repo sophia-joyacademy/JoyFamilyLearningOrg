@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mango Street · 词汇训练 v3</title>
+<style>
+:root {
+  --ink:#1e2a22; --sage:#4a7c5e; --sage-lt:#7aab8a; --sage-pale:#e8f2ec;
+  --gold:#c89a3a; --gold-lt:#fdf3dc; --paper:#faf8f3; --white:#ffffff;
+  --muted:#7a8a7e; --border:#d4ddd6; --red:#c0392b; --red-lt:#fdecea;
+  --green:#27795a; --green-lt:#e6f4ee; --radius:12px;
+  --shadow:0 2px 12px rgba(30,42,34,0.09);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,serif;background:var(--paper);color:var(--ink);min-height:100vh;}
+
+/* TOPBAR */
+.topbar{background:var(--sage);color:#fff;padding:0 28px;display:flex;align-items:center;
+  justify-content:space-between;height:58px;box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  position:sticky;top:0;z-index:100;}
+.topbar-title{font-size:1rem;font-weight:bold;}
+.topbar-title span{opacity:0.7;font-weight:normal;font-size:0.8rem;margin-left:8px;}
+
+/* TABS */
+.tab-bar{display:flex;gap:4px;background:var(--sage-pale);padding:10px 28px;
+  border-bottom:1px solid var(--border);overflow-x:auto;}
+.tab{padding:8px 18px;border-radius:20px;font-size:0.85rem;cursor:pointer;border:none;
+  background:transparent;color:var(--sage);font-family:Georgia,serif;transition:all 0.18s;white-space:nowrap;}
+.tab:hover{background:rgba(74,124,94,0.12);}
+.tab.active{background:var(--sage);color:#fff;font-weight:bold;}
+
+/* MAIN */
+.main{padding:28px;max-width:900px;margin:0 auto;}
+.section{display:none;}
+.section.visible{display:block;}
+
+/* CARD */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;margin-bottom:20px;box-shadow:var(--shadow);}
+.card-title{font-size:1rem;color:var(--sage);font-weight:bold;margin-bottom:16px;
+  padding-bottom:10px;border-bottom:2px solid var(--sage-pale);display:flex;align-items:center;gap:8px;}
+
+/* GROUP GRID */
+.group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;margin-bottom:14px;}
+.group-btn{padding:10px 12px;border:2px solid var(--border);border-radius:8px;background:var(--white);
+  cursor:pointer;font-size:0.8rem;color:var(--ink);text-align:left;transition:all 0.15s;font-family:Georgia,serif;}
+.group-btn:hover{border-color:var(--sage-lt);background:var(--sage-pale);}
+.group-btn.selected{border-color:var(--sage);background:var(--sage);color:#fff;}
+.group-btn .g-label{font-weight:bold;display:block;margin-bottom:2px;}
+.group-btn .g-count{font-size:0.72rem;opacity:0.75;}
+
+/* VOCAB TABLE */
+.vocab-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+.vocab-table th{background:var(--sage-pale);color:var(--sage);padding:8px 12px;text-align:left;
+  font-size:0.78rem;letter-spacing:0.5px;text-transform:uppercase;}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid #f0f0ec;vertical-align:top;}
+.vocab-table tr:hover td{background:#f8fcf9;}
+.vocab-table td:first-child{font-weight:bold;color:var(--sage);}
+.vocab-table td:nth-child(2){color:var(--muted);font-style:italic;font-size:0.8rem;}
+.custom-badge{display:inline-block;background:var(--gold);color:#fff;font-size:0.65rem;
+  padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle;}
+.del-btn{background:none;border:none;cursor:pointer;color:#ccc;font-size:0.85rem;
+  padding:2px 6px;border-radius:4px;transition:all 0.15s;}
+.del-btn:hover{color:var(--red);background:var(--red-lt);}
+
+/* ADD FORM */
+.add-form{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--gold-lt);
+  border:1px solid #e8d08a;border-radius:var(--radius);padding:16px;margin-bottom:20px;}
+.add-form label{font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;}
+.add-form input,.add-form select{padding:8px 12px;border:1px solid var(--border);border-radius:8px;
+  font-size:0.88rem;font-family:Georgia,serif;background:var(--white);color:var(--ink);
+  outline:none;transition:border-color 0.15s;}
+.add-form input:focus,.add-form select:focus{border-color:var(--sage);}
+.f-word{flex:0 0 140px;} .f-pos{flex:0 0 100px;} .f-def{flex:1 1 200px;} .f-grp{flex:0 0 160px;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;
+  font-size:0.88rem;font-family:Georgia,serif;cursor:pointer;border:none;transition:all 0.15s;font-weight:bold;}
+.btn-primary{background:var(--sage);color:#fff;}
+.btn-primary:hover{background:#3a6a4e;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:#b8882a;}
+.btn-outline{background:transparent;border:2px solid var(--sage);color:var(--sage);}
+.btn-outline:hover{background:var(--sage-pale);}
+.btn-sm{padding:7px 14px;font-size:0.8rem;}
+
+/* FLEX ROW */
+.flex-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.count-badge{background:var(--sage-pale);color:var(--sage);padding:6px 14px;border-radius:20px;font-size:0.82rem;}
+.hint-text{font-size:0.8rem;color:var(--muted);font-style:italic;}
+.divider{height:1px;background:var(--border);margin:18px 0;}
+.tag{display:inline-block;background:var(--sage-pale);color:var(--sage);font-size:0.75rem;
+  padding:3px 10px;border-radius:20px;border:1px solid var(--border);}
+
+/* SPELLING TEST */
+.test-progress{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.progress-bar-wrap{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--sage);border-radius:4px;transition:width 0.3s;}
+.progress-label{font-size:0.82rem;color:var(--muted);white-space:nowrap;}
+
+.word-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:32px;
+  text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
+.word-card::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(74,124,94,0.3) 0%,transparent 60%);}
+.word-card .prompt-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;opacity:0.6;margin-bottom:10px;}
+.word-card .zh-def{font-size:1.5rem;font-weight:bold;position:relative;margin-bottom:6px;}
+.word-card .pos-hint{font-size:0.82rem;opacity:0.6;font-style:italic;position:relative;}
+
+.spell-input{width:100%;font-size:1.4rem;text-align:center;padding:14px;
+  border:3px solid var(--border);border-radius:var(--radius);font-family:'Courier New',monospace;
+  background:var(--white);color:var(--ink);outline:none;transition:border-color 0.2s;
+  letter-spacing:2px;margin-bottom:12px;}
+.spell-input:focus{border-color:var(--sage);}
+.spell-input.correct{border-color:var(--green);background:var(--green-lt);}
+.spell-input.wrong{border-color:var(--red);background:var(--red-lt);}
+
+.feedback-box{text-align:center;padding:12px;border-radius:8px;font-size:0.95rem;
+  margin-bottom:12px;display:none;}
+.feedback-box.show{display:block;}
+.feedback-box.correct{background:var(--green-lt);color:var(--green);}
+.feedback-box.wrong{background:var(--red-lt);color:var(--red);}
+
+/* MATCH TEST */
+.match-area{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.match-col-title{font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;
+  color:var(--muted);margin-bottom:10px;text-align:center;}
+.match-items{display:flex;flex-direction:column;gap:8px;}
+.match-item{padding:11px 16px;border:2px solid var(--border);border-radius:8px;cursor:pointer;
+  font-size:0.88rem;background:var(--white);transition:all 0.15s;text-align:center;min-height:52px;
+  display:flex;flex-direction:column;justify-content:center;}
+.match-item:hover{border-color:var(--sage-lt);background:var(--sage-pale);}
+.match-item.selected{border-color:var(--gold);background:var(--gold-lt);font-weight:bold;}
+.match-item.matched-correct{border-color:var(--green);background:var(--green-lt);color:var(--green);cursor:default;}
+.match-item.matched-wrong{border-color:var(--red);background:var(--red-lt);color:var(--red);}
+.match-item.disabled{opacity:0.45;cursor:default;pointer-events:none;}
+.match-word{font-weight:bold;color:var(--sage);}
+.match-pos{font-size:0.72rem;color:var(--muted);font-style:italic;}
+
+/* RESULTS */
+.score-hero{text-align:center;padding:32px;
+  background:linear-gradient(135deg,var(--ink) 0%,#2a4a3a 100%);
+  border-radius:var(--radius);color:#fff;margin-bottom:20px;}
+.score-number{font-size:4rem;font-weight:bold;line-height:1;}
+.score-label{font-size:0.85rem;opacity:0.7;margin-top:4px;}
+.score-stars{font-size:2rem;margin:12px 0 4px;}
+.score-msg{font-size:1rem;opacity:0.9;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-bottom:20px;}
+.stat-box{background:var(--sage-pale);border-radius:10px;padding:16px;text-align:center;}
+.stat-num{font-size:2rem;font-weight:bold;color:var(--sage);}
+.stat-lbl{font-size:0.75rem;color:var(--muted);margin-top:2px;}
+.result-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--border);font-size:0.88rem;}
+.result-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+.result-word{font-weight:bold;color:var(--sage);}
+.result-your{color:var(--red);text-decoration:line-through;}
+.result-correct{color:var(--green);font-weight:bold;}
+.result-def{color:var(--muted);font-size:0.82rem;}
+
+/* PRINT */
+@media print {
+  .topbar,.tab-bar,.no-print{display:none!important;}
+  .main{padding:0;max-width:100%;}
+  .print-only{display:block!important;}
+  .section{display:none!important;}
+  #sec-result{display:block!important;}
+  .score-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .card{box-shadow:none;break-inside:avoid;}
+}
+.print-only{display:none;}
+
+/* SPEAK BUTTON */
+.speak-btn{background:none;border:none;cursor:pointer;padding:3px 6px;border-radius:6px;
+  color:var(--sage-lt);font-size:1rem;transition:all 0.15s;line-height:1;vertical-align:middle;}
+.speak-btn:hover{color:var(--sage);background:var(--sage-pale);}
+.speak-btn.speaking{color:var(--gold);animation:pulse 0.6s ease infinite alternate;}
+@keyframes pulse{from{opacity:1;transform:scale(1);}to{opacity:0.5;transform:scale(1.15);}}
+
+/* word-card speak */
+.wc-speak{position:relative;z-index:1;margin-top:10px;}
+.wc-speak-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;border-radius:20px;padding:6px 16px;cursor:pointer;font-size:0.82rem;
+  transition:all 0.15s;display:inline-flex;align-items:center;gap:6px;}
+.wc-speak-btn:hover{background:rgba(255,255,255,0.25);}
+.wc-speak-btn.speaking{background:rgba(200,154,58,0.4);border-color:var(--gold);}
+
+/* TOAST */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  background:var(--ink);color:#fff;padding:10px 22px;border-radius:20px;
+  font-size:0.85rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:999;}
+#toast.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">🌿 Mango Street Vocab <span>词汇训练系统</span></div>
+  <div id="total-badge" style="font-size:0.8rem;opacity:0.8;"></div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab active" onclick="showTab('sec-browse')">📚 词汇库</button>
+  <button class="tab" onclick="showTab('sec-add')">➕ 添加单词</button>
+  <button class="tab" onclick="showTab('sec-spelling')">✏️ Spelling Test</button>
+  <button class="tab" onclick="showTab('sec-match')">🔗 Match Test</button>
+  <button class="tab" id="tab-result" style="display:none" onclick="showTab('sec-result')">📊 测试结果</button>
+</div>
+
+<div class="main">
+
+<!-- BROWSE -->
+<div id="sec-browse" class="section visible">
+  <div class="card">
+    <div class="card-title">📖 选择词汇组（不选 = 显示全部）</div>
+    <div class="group-grid" id="gg-browse"></div>
+    <div class="flex-row">
+      <button class="btn btn-outline btn-sm" onclick="selAll('browse')">全选</button>
+      <button class="btn btn-outline btn-sm" onclick="selNone('browse')">清除</button>
+      <span class="count-badge" id="cnt-browse">共 0 词</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="justify-content:space-between">
+      <span>📋 词汇列表</span>
+      <span class="hint-text">金色标签 = 你自己添加的</span>
+    </div>
+    <table class="vocab-table">
+      <thead><tr><th>发音</th><th>单词</th><th>词性</th><th>中文释义</th><th>分组</th><th></th></tr></thead>
+      <tbody id="browse-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ADD -->
+<div id="sec-add" class="section">
+  <div class="card">
+    <div class="card-title">⭐ 添加自己的单词</div>
+    <p class="hint-text" style="margin-bottom:18px">遇到不会的词就加进来！永久保存在这台电脑上，标记为"我的词"。</p>
+    <div class="add-form">
+      <div class="f-word"><label>单词 *</label><input id="inp-word" type="text" placeholder="e.g. resilient" autocomplete="off"></div>
+      <div class="f-pos"><label>词性</label>
+        <select id="inp-pos">
+          <option value="adj.">adj. 形容词</option>
+          <option value="n.">n. 名词</option>
+          <option value="v.">v. 动词</option>
+          <option value="adv.">adv. 副词</option>
+          <option value="phr.">phr. 短语</option>
+          <option value="prep.">prep. 介词</option>
+          <option value="conj.">conj. 连词</option>
+        </select>
+      </div>
+      <div class="f-def"><label>中文释义 *</label><input id="inp-def" type="text" placeholder="e.g. 有韧性的，不屈不挠的"></div>
+      <div class="f-grp"><label>加入分组</label><select id="inp-grp"></select></div>
+      <div><label>&nbsp;</label><button class="btn btn-gold" onclick="addWord()">＋ 添加</button></div>
+    </div>
+    <div class="card-title">⭐ 我添加的单词</div>
+    <p id="no-custom" class="hint-text" style="display:none;margin-bottom:10px">还没有添加过自己的词汇。读书时遇到不会的，随时加进来！</p>
+    <table class="vocab-table">
+      <thead><tr><th>发音</th><th>单词</th><th>词性</th><th>中文释义</th><th>分组</th><th>删除</th></tr></thead>
+      <tbody id="custom-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SPELLING -->
+<div id="sec-spelling" class="section">
+  <div class="card" id="spell-config">
+    <div class="card-title">✏️ Spelling Test · 拼写测试</div>
+    <p class="hint-text" style="margin-bottom:16px">看中文释义，拼写出对应的英文单词（大小写均可）</p>
+    <div class="group-grid" id="gg-spell"></div>
+    <div class="flex-row" style="margin-top:8px">
+      <button class="btn btn-outline btn-sm" onclick="selAll('spell')">全选</button>
+      <button class="btn btn-outline btn-sm" onclick="selNone('spell')">清除</button>
+      <span class="count-badge" id="cnt-spell">已选 0 词</span>
+      <label class="hint-text" style="display:flex;align-items:center;gap:6px;font-style:normal">
+        <input type="checkbox" id="spell-custom-only"> 只测我的词
+      </label>
+    </div>
+    <div class="divider"></div>
+    <button class="btn btn-primary" onclick="startSpell()">开始测试 →</button>
+  </div>
+  <div id="spell-area" style="display:none">
+    <div class="test-progress">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="spell-bar" style="width:0%"></div></div>
+      <div class="progress-label" id="spell-prog">1 / 0</div>
+    </div>
+    <div class="word-card">
+      <div class="prompt-label">请拼写这个单词</div>
+      <div class="zh-def" id="spell-zh">—</div>
+      <div class="pos-hint" id="spell-pos"></div>
+      <div class="wc-speak">
+        <button class="wc-speak-btn" id="spell-speak-btn" onclick="speakCurrent()" title="听发音（答题后）">
+          🔊 听发音
+        </button>
+      </div>
+    </div>
+    <input class="spell-input" id="spell-inp" type="text" placeholder="在这里输入英文单词…"
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+      onkeydown="spellKey(event)">
+    <div class="feedback-box" id="spell-fb"></div>
+    <div class="flex-row" style="justify-content:center;gap:12px">
+      <button class="btn btn-primary" id="spell-submit" onclick="submitSpell()">提交 / Enter</button>
+      <button class="btn btn-outline" id="spell-next" style="display:none" onclick="nextSpell()">下一题 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MATCH -->
+<div id="sec-match" class="section">
+  <div class="card" id="match-config">
+    <div class="card-title">🔗 Match Test · 连线匹配</div>
+    <p class="hint-text" style="margin-bottom:16px">点击左侧单词，再点击右侧对应的中文释义（每轮最多8对）</p>
+    <div class="group-grid" id="gg-match"></div>
+    <div class="flex-row" style="margin-top:8px">
+      <button class="btn btn-outline btn-sm" onclick="selAll('match')">全选</button>
+      <button class="btn btn-outline btn-sm" onclick="selNone('match')">清除</button>
+      <span class="count-badge" id="cnt-match">已选 0 词</span>
+      <label class="hint-text" style="display:flex;align-items:center;gap:6px;font-style:normal">
+        <input type="checkbox" id="match-custom-only"> 只测我的词
+      </label>
+    </div>
+    <div class="divider"></div>
+    <button class="btn btn-primary" onclick="startMatch()">开始测试 →</button>
+  </div>
+  <div id="match-area" style="display:none">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <span class="count-badge" id="match-round-lbl">第 1 轮</span>
+        <span class="count-badge" id="match-live">✅ 0  ❌ 0</span>
+      </div>
+      <div class="match-area">
+        <div><div class="match-col-title">英文单词</div><div class="match-items" id="match-left"></div></div>
+        <div><div class="match-col-title">中文释义</div><div class="match-items" id="match-right"></div></div>
+      </div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn btn-primary" id="match-next-btn" style="display:none" onclick="nextMatchRound()">下一轮 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="sec-result" class="section">
+  <div class="score-hero">
+    <div class="score-number" id="res-pct">—</div>
+    <div class="score-label" id="res-frac"></div>
+    <div class="score-stars" id="res-stars">⭐</div>
+    <div class="score-msg" id="res-msg"></div>
+  </div>
+  <div class="print-only" id="print-hdr" style="margin-bottom:20px;padding:16px;border:2px solid #1e2a22;border-radius:8px">
+    <div style="font-size:1.1rem;font-weight:bold">Mango Street Vocabulary Test Report</div>
+    <div id="print-meta" style="font-size:0.85rem;color:#666;margin-top:4px"></div>
+  </div>
+  <div class="card no-print">
+    <div class="stats-grid" id="res-stats"></div>
+    <div class="flex-row">
+      <button class="btn btn-gold" onclick="window.print()">🖨️ 打印 / 存为 PDF</button>
+      <button class="btn btn-outline" onclick="resetTest()">🔄 再来一次</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" id="res-detail-title">详细结果</div>
+    <div id="res-detail"></div>
+  </div>
+</div>
+
+</div><!-- .main -->
+<div id="toast"></div>
+
+<script>
+// ============================================================
+// VOCAB DATA
+// ============================================================
+const GROUPS = [
+  {id:'g1',name:'家与居所',tag:'第1–2课',words:[
+    {w:'crumble',pos:'v.',def:'崩碎，坍塌'},
+    {w:'swollen',pos:'adj.',def:'肿胀膨胀的'},
+    {w:'landlord',pos:'n.',def:'房东'},
+    {w:'temporary',pos:'adj.',def:'暂时的'},
+    {w:'basement',pos:'n.',def:'地下室'},
+    {w:'inherit',pos:'v.',def:'继承（财产、房子）'},
+    {w:'rent',pos:'n./v.',def:'租金；租用'},
+    {w:'dilapidated',pos:'adj.',def:'破旧失修的'},
+    {w:'cramped',pos:'adj.',def:'狭小局促的'},
+    {w:'boarded up',pos:'phr.',def:'用木板封起来'},
+    {w:'shabby',pos:'adj.',def:'破旧的，寒酸的'},
+    {w:'threshold',pos:'n.',def:'门槛；新阶段的起点'},
+    {w:'refuge',pos:'n.',def:'庇护所，避难处'},
+    {w:'attic',pos:'n.',def:'阁楼'},
+    {w:'porch',pos:'n.',def:'门廊'},
+    {w:'yard',pos:'n.',def:'院子'},
+    {w:'curb',pos:'n.',def:'路缘石（马路牙子）'},
+    {w:'apartment',pos:'n.',def:'公寓单元'},
+    {w:'laundromat',pos:'n.',def:'自助洗衣店'},
+    {w:'neighborhood',pos:'n.',def:'街区，社区'},
+  ]},
+  {id:'g2',name:'身份与名字',tag:'第1–2课',words:[
+    {w:'identity',pos:'n.',def:'身份认同'},
+    {w:'belong',pos:'v.',def:'属于，归属'},
+    {w:'ashamed',pos:'adj.',def:'感到羞耻的'},
+    {w:'embarrassed',pos:'adj.',def:'尴尬的，窘迫的'},
+    {w:'heritage',pos:'n.',def:'文化传承，遗产'},
+    {w:'outsider',pos:'n.',def:'局外人，外来者'},
+    {w:'nickname',pos:'n.',def:'昵称，绰号'},
+    {w:'stereotype',pos:'n.',def:'刻板印象'},
+    {w:'prejudice',pos:'n.',def:'偏见'},
+    {w:'origin',pos:'n.',def:'起源，出身'},
+    {w:'label',pos:'n./v.',def:'标签；给…贴标签'},
+    {w:'define',pos:'v.',def:'定义，界定'},
+    {w:'self-worth',pos:'n.',def:'自我价值感'},
+    {w:'dignity',pos:'n.',def:'尊严'},
+    {w:'humiliation',pos:'n.',def:'羞辱，屈辱'},
+    {w:'unique',pos:'adj.',def:'独特的'},
+    {w:'authentic',pos:'adj.',def:'真实的，不做作的'},
+    {w:'conform',pos:'v.',def:'顺从，随大流'},
+    {w:'resist',pos:'v.',def:'抵抗，拒绝'},
+    {w:'invisible',pos:'adj.',def:'看不见的，被忽视的'},
+  ]},
+  {id:'g3',name:'社区与他人',tag:'第2–3课',words:[
+    {w:'poverty',pos:'n.',def:'贫穷，贫困'},
+    {w:'community',pos:'n.',def:'社区，群体'},
+    {w:'immigrant',pos:'n.',def:'移民'},
+    {w:'bystander',pos:'n.',def:'旁观者'},
+    {w:'witness',pos:'n./v.',def:'见证者；目击'},
+    {w:'neglect',pos:'v./n.',def:'忽视，忽略'},
+    {w:'empathy',pos:'n.',def:'共情，同理心'},
+    {w:'compassion',pos:'n.',def:'悲悯，慈悲'},
+    {w:'discrimination',pos:'n.',def:'歧视'},
+    {w:'privilege',pos:'n.',def:'特权'},
+    {w:'inequality',pos:'n.',def:'不平等'},
+    {w:'gossip',pos:'n./v.',def:'八卦；传闲话'},
+    {w:'rumor',pos:'n.',def:'谣言，传言'},
+    {w:'solidarity',pos:'n.',def:'团结，同舟共济'},
+    {w:'stranger',pos:'n.',def:'陌生人'},
+    {w:'encounter',pos:'n./v.',def:'邂逅，遭遇'},
+    {w:'linger',pos:'v.',def:'徘徊，逗留'},
+    {w:'wander',pos:'v.',def:'漫游，游荡'},
+    {w:'observe',pos:'v.',def:'观察，注意到'},
+    {w:'outcast',pos:'n.',def:'被排斥的人，弃儿'},
+  ]},
+  {id:'g4',name:'女性与成长',tag:'第3–5课',words:[
+    {w:'trapped',pos:'adj.',def:'被困的，走投无路的'},
+    {w:'confined',pos:'adj.',def:'被限制在某处的'},
+    {w:'independent',pos:'adj.',def:'独立的'},
+    {w:'obedient',pos:'adj.',def:'顺从的，听话的'},
+    {w:'rebel',pos:'v./n.',def:'反抗；叛逆者'},
+    {w:'domestic',pos:'adj.',def:'家庭的，家务的'},
+    {w:'burden',pos:'n.',def:'负担，重担'},
+    {w:'sacrifice',pos:'n./v.',def:'牺牲，舍弃'},
+    {w:'potential',pos:'n./adj.',def:'潜力；有潜力的'},
+    {w:'ambition',pos:'n.',def:'抱负，野心'},
+    {w:'stifle',pos:'v.',def:'压制，扼杀'},
+    {w:'fragile',pos:'adj.',def:'脆弱的，易碎的'},
+    {w:'fierce',pos:'adj.',def:'凶猛的，强烈的'},
+    {w:'persistent',pos:'adj.',def:'坚持不懈的'},
+    {w:'adolescence',pos:'n.',def:'青春期，少年时代'},
+    {w:'longing',pos:'n.',def:'渴望，强烈的思念'},
+    {w:'desire',pos:'n.',def:'欲望，渴望'},
+    {w:'agency',pos:'n.',def:'自主性，行动能力'},
+    {w:'autonomy',pos:'n.',def:'自主权，独立自决'},
+    {w:'graceful',pos:'adj.',def:'优雅的'},
+  ]},
+  {id:'g5',name:'情感与内心',tag:'第3–4课',words:[
+    {w:'melancholy',pos:'n./adj.',def:'忧郁；忧郁的'},
+    {w:'nostalgia',pos:'n.',def:'对过去的怀念，乡愁'},
+    {w:'resentment',pos:'n.',def:'怨恨，不满'},
+    {w:'grief',pos:'n.',def:'悲痛，哀伤'},
+    {w:'regret',pos:'n./v.',def:'遗憾；后悔'},
+    {w:'envy',pos:'n./v.',def:'嫉妒，羡慕'},
+    {w:'admire',pos:'v.',def:'钦佩，欣赏'},
+    {w:'curious',pos:'adj.',def:'好奇的'},
+    {w:'confused',pos:'adj.',def:'困惑的'},
+    {w:'content',pos:'adj.',def:'满足的（平静的满足）'},
+    {w:'restless',pos:'adj.',def:'躁动不安的'},
+    {w:'determined',pos:'adj.',def:'坚定的，下定决心的'},
+    {w:'hesitate',pos:'v.',def:'犹豫，踌躇'},
+    {w:'vulnerable',pos:'adj.',def:'脆弱的，容易受伤的'},
+    {w:'courageous',pos:'adj.',def:'勇敢的'},
+    {w:'numb',pos:'adj.',def:'麻木的'},
+    {w:'overwhelmed',pos:'adj.',def:'不堪重负的'},
+    {w:'reassure',pos:'v.',def:'安慰，使放心'},
+    {w:'anticipate',pos:'v.',def:'预期，期待'},
+    {w:'dread',pos:'v./n.',def:'强烈的恐惧和忧虑'},
+  ]},
+  {id:'g6',name:'语言与写作',tag:'第7课',words:[
+    {w:'vignette',pos:'n.',def:'小品文，短篇印象记'},
+    {w:'imagery',pos:'n.',def:'意象，形象化描写'},
+    {w:'metaphor',pos:'n.',def:'隐喻'},
+    {w:'simile',pos:'n.',def:'明喻（用like/as）'},
+    {w:'symbolism',pos:'n.',def:'象征手法'},
+    {w:'narrator',pos:'n.',def:'叙述者'},
+    {w:'perspective',pos:'n.',def:'视角，观点'},
+    {w:'prose',pos:'n.',def:'散文（相对于诗歌）'},
+    {w:'vivid',pos:'adj.',def:'生动的，栩栩如生的'},
+    {w:'sensory',pos:'adj.',def:'感官的（视觉听觉触觉）'},
+    {w:'tone',pos:'n.',def:'语气，基调'},
+    {w:'theme',pos:'n.',def:'主题'},
+    {w:'motif',pos:'n.',def:'反复出现的主题意象'},
+    {w:'evoke',pos:'v.',def:'唤起（情感、记忆）'},
+    {w:'convey',pos:'v.',def:'传达，表达'},
+    {w:'imply',pos:'v.',def:'暗示，含蓄表达'},
+    {w:'contrast',pos:'n./v.',def:'对比，反差'},
+    {w:'juxtapose',pos:'v.',def:'并列对比两个事物'},
+    {w:'rhythm',pos:'n.',def:'节奏'},
+    {w:'voice',pos:'n.',def:'作者的声音与风格'},
+  ]},
+  {id:'g7',name:'梦想与逃离',tag:'第5–7课',words:[
+    {w:'escape',pos:'v./n.',def:'逃离，逃脱'},
+    {w:'aspire',pos:'v.',def:'渴望，有志于'},
+    {w:'strive',pos:'v.',def:'努力，奋斗'},
+    {w:'pursue',pos:'v.',def:'追求，追逐'},
+    {w:'achieve',pos:'v.',def:'实现，达成'},
+    {w:'opportunity',pos:'n.',def:'机会'},
+    {w:'obstacle',pos:'n.',def:'障碍，阻碍'},
+    {w:'shortcut',pos:'n.',def:'捷径'},
+    {w:'persevere',pos:'v.',def:'坚持到底，百折不挠'},
+    {w:'discipline',pos:'n.',def:'纪律，自律'},
+    {w:'wistful',pos:'adj.',def:'惆怅的，若有所思的渴望'},
+    {w:'yearn',pos:'v.',def:'渴望，向往（深切的）'},
+    {w:'horizon',pos:'n.',def:'地平线；视野，眼界'},
+    {w:'liberate',pos:'v.',def:'解放，使自由'},
+    {w:'constrain',pos:'v.',def:'限制，束缚'},
+    {w:'inevitable',pos:'adj.',def:'不可避免的'},
+    {w:'transform',pos:'v.',def:'深刻地改变'},
+    {w:'overcome',pos:'v.',def:'克服，战胜'},
+    {w:'empower',pos:'v.',def:'赋权，使有能力'},
+    {w:'endure',pos:'v.',def:'忍耐，坚持经历'},
+  ]},
+  {id:'g8',name:'描写人物',tag:'全书适用',words:[
+    {w:'timid',pos:'adj.',def:'胆怯的，羞涩的'},
+    {w:'bold',pos:'adj.',def:'大胆的，无畏的'},
+    {w:'resourceful',pos:'adj.',def:'足智多谋的'},
+    {w:'naive',pos:'adj.',def:'天真的，单纯的'},
+    {w:'shrewd',pos:'adj.',def:'精明的，有洞察力的'},
+    {w:'resilient',pos:'adj.',def:'有韧性的，不屈不挠的'},
+    {w:'cynical',pos:'adj.',def:'愤世嫉俗的'},
+    {w:'compassionate',pos:'adj.',def:'有同情心的'},
+    {w:'ruthless',pos:'adj.',def:'冷酷无情的'},
+    {w:'dignified',pos:'adj.',def:'有尊严的，庄重的'},
+    {w:'reckless',pos:'adj.',def:'鲁莽的，不计后果的'},
+    {w:'meek',pos:'adj.',def:'温顺的，逆来顺受的'},
+    {w:'witty',pos:'adj.',def:'机智风趣的'},
+    {w:'melancholic',pos:'adj.',def:'忧郁的，哀愁的'},
+    {w:'stoic',pos:'adj.',def:'坚忍的，不动声色的'},
+    {w:'charismatic',pos:'adj.',def:'有魅力的，有感召力的'},
+    {w:'impulsive',pos:'adj.',def:'冲动的，一时兴起的'},
+    {w:'thoughtful',pos:'adj.',def:'体贴的；深思熟虑的'},
+    {w:'manipulative',pos:'adj.',def:'善于操控别人的'},
+    {w:'principled',pos:'adj.',def:'有原则的'},
+  ]},
+  {id:'g9',name:'描写环境感官',tag:'写作必备',words:[
+    {w:'dingy',pos:'adj.',def:'昏暗肮脏的，灰暗的'},
+    {w:'grimy',pos:'adj.',def:'积满污垢的'},
+    {w:'cluttered',pos:'adj.',def:'杂乱堆满的'},
+    {w:'stifling',pos:'adj.',def:'令人窒息的（热或压抑）'},
+    {w:'musty',pos:'adj.',def:'发霉的，陈腐的（气味）'},
+    {w:'damp',pos:'adj.',def:'潮湿的'},
+    {w:'vibrant',pos:'adj.',def:'充满活力的'},
+    {w:'faint',pos:'adj.',def:'微弱的（声音、气味、光）'},
+    {w:'hollow',pos:'adj.',def:'空洞的，中空的'},
+    {w:'rustle',pos:'v./n.',def:'沙沙作响'},
+    {w:'flicker',pos:'v./n.',def:'闪烁（光或希望）'},
+    {w:'loom',pos:'v.',def:'隐约出现（威胁性地逼近）'},
+    {w:'sprawl',pos:'v./n.',def:'蔓延，摊开'},
+    {w:'gleam',pos:'v./n.',def:'闪光，发光'},
+    {w:'creak',pos:'v./n.',def:'嘎吱作响'},
+    {w:'tattered',pos:'adj.',def:'破烂的（衣物）'},
+    {w:'worn',pos:'adj.',def:'磨损的，疲惫的'},
+    {w:'tangled',pos:'adj.',def:'缠绕的，混乱的'},
+    {w:'shimmer',pos:'v./n.',def:'波光粼粼地闪动'},
+    {w:'permeate',pos:'v.',def:'渗透，弥漫'},
+  ]},
+  {id:'g10',name:'课堂讨论表达',tag:'全程适用',words:[
+    {w:'argue',pos:'v.',def:'论证，主张（非吵架）'},
+    {w:'suggest',pos:'v.',def:'暗示，建议'},
+    {w:'reflect',pos:'v.',def:'反思，映射'},
+    {w:'represent',pos:'v.',def:'代表，象征'},
+    {w:'demonstrate',pos:'v.',def:'表明，证明'},
+    {w:'consider',pos:'v.',def:'考虑，认为'},
+    {w:'conclude',pos:'v.',def:'得出结论'},
+    {w:'contradict',pos:'v.',def:'矛盾，与…相悖'},
+    {w:'analyze',pos:'v.',def:'分析'},
+    {w:'interpret',pos:'v.',def:'解读，诠释'},
+    {w:'evaluate',pos:'v.',def:'评价，衡量'},
+    {w:'compare',pos:'v.',def:'比较'},
+    {w:'relate to',pos:'phr.',def:'与…相关；产生共鸣'},
+    {w:'in contrast',pos:'phr.',def:'相比之下，与此相反'},
+    {w:'furthermore',pos:'adv.',def:'此外，而且'},
+    {w:'therefore',pos:'adv.',def:'因此，所以'},
+    {w:'nevertheless',pos:'adv.',def:'尽管如此，然而'},
+    {w:'significant',pos:'adj.',def:'有意义的，重要的'},
+    {w:'subtle',pos:'adj.',def:'微妙的，不明显的'},
+    {w:'complex',pos:'adj.',def:'复杂的，多层次的'},
+  ]},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let customWords = [];
+const sel = {browse: new Set(), spell: new Set(), match: new Set()};
+
+// test state
+let testType = '';       // 'spell' | 'match'
+let testWords = [];
+let testIdx = 0;
+let testResults = [];
+
+// match round state
+let matchPool = [];
+let matchRound = 0;
+let matchCorrectCount = 0;
+let matchWrongCount = 0;
+let mLeft = null;        // selected left pair-index
+let mRight = null;       // selected right pair-index (= origIdx)
+let mPairs = [];         // [{word, done, correctlyMatched}]
+let mRightOrder = [];    // shuffled origIdx array for display
+let mRoundDone = 0;
+
+// ============================================================
+// STORAGE
+// ============================================================
+function saveCustom() { localStorage.setItem('ms_custom', JSON.stringify(customWords)); }
+function loadCustom() {
+  try { customWords = JSON.parse(localStorage.getItem('ms_custom')) || []; }
+  catch(e) { customWords = []; }
+}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+function getWordsForContext(ctx) {
+  // ctx = 'browse' | 'spell' | 'match'
+  const groupSet = sel[ctx];
+  const customOnly = ctx !== 'browse' && document.getElementById(ctx+'-custom-only') &&
+                     document.getElementById(ctx+'-custom-only').checked;
+
+  const words = [];
+  const seen = new Set();
+
+  function add(w) {
+    const key = w.w.toLowerCase();
+    if (!seen.has(key)) { seen.add(key); words.push(w); }
+  }
+
+  if (!customOnly) {
+    GROUPS.forEach(g => {
+      if (groupSet.size === 0 || groupSet.has(g.id)) {
+        g.words.forEach(wd => add({...wd, groupId: g.id, groupName: g.name, isCustom: false}));
+      }
+    });
+  }
+
+  customWords.forEach(cw => {
+    if (customOnly || groupSet.size === 0 || groupSet.has(cw.groupId) || groupSet.has('custom')) {
+      add({...cw, groupName: cw.groupName || groupNameById(cw.groupId), isCustom: true});
+    }
+  });
+
+  return words;
+}
+
+function groupNameById(id) {
+  if (id === 'custom') return '我的词';
+  const g = GROUPS.find(x => x.id === id);
+  return g ? g.name : '我的词';
+}
+
+// ============================================================
+// TAB NAV
+// ============================================================
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('visible');
+  const tabs = document.querySelectorAll('.tab');
+  const labels = ['sec-browse','sec-add','sec-spelling','sec-match','sec-result'];
+  tabs.forEach((t,i) => { if (labels[i] === id) t.classList.add('active'); });
+}
+
+// ============================================================
+// GROUP GRIDS
+// ============================================================
+function renderGrid(ctx) {
+  const containerId = 'gg-' + ctx;
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  const groupSet = sel[ctx];
+
+  GROUPS.forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'group-btn' + (groupSet.has(g.id) ? ' selected' : '');
+    btn.innerHTML = `<span class="g-label">${g.name}</span><span class="g-count">${g.tag} · ${g.words.length}词</span>`;
+    btn.addEventListener('click', () => {
+      if (groupSet.has(g.id)) groupSet.delete(g.id); else groupSet.add(g.id);
+      renderGrid(ctx);
+      updateCountBadge(ctx);
+      if (ctx === 'browse') renderBrowseTable();
+    });
+    container.appendChild(btn);
+  });
+
+  if (customWords.length > 0) {
+    const btn = document.createElement('button');
+    btn.className = 'group-btn' + (groupSet.has('custom') ? ' selected' : '');
+    btn.innerHTML = `<span class="g-label">⭐ 我的词</span><span class="g-count">${customWords.length}词</span>`;
+    btn.addEventListener('click', () => {
+      if (groupSet.has('custom')) groupSet.delete('custom'); else groupSet.add('custom');
+      renderGrid(ctx);
+      updateCountBadge(ctx);
+      if (ctx === 'browse') renderBrowseTable();
+    });
+    container.appendChild(btn);
+  }
+
+  updateCountBadge(ctx);
+}
+
+function updateCountBadge(ctx) {
+  const el = document.getElementById('cnt-' + ctx);
+  if (!el) return;
+  const words = getWordsForContext(ctx);
+  el.textContent = ctx === 'browse'
+    ? (sel.browse.size === 0 ? `共 ${words.length} 词（全部）` : `已选 ${words.length} 词`)
+    : `已选 ${words.length} 词`;
+}
+
+function selAll(ctx) {
+  GROUPS.forEach(g => sel[ctx].add(g.id));
+  if (customWords.length) sel[ctx].add('custom');
+  renderGrid(ctx);
+  if (ctx === 'browse') renderBrowseTable();
+}
+
+function selNone(ctx) {
+  sel[ctx].clear();
+  renderGrid(ctx);
+  updateCountBadge(ctx);
+  if (ctx === 'browse') renderBrowseTable();
+}
+
+// ============================================================
+// SPEECH (Web Speech API — built into all modern browsers)
+// ============================================================
+function speak(word, btnEl) {
+  if (!window.speechSynthesis) { toast('您的浏览器不支持发音功能'); return; }
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(word);
+  utt.lang = 'en-US';
+  utt.rate = 0.88;
+  utt.pitch = 1;
+  if (btnEl) {
+    btnEl.classList.add('speaking');
+    utt.onend = () => btnEl.classList.remove('speaking');
+    utt.onerror = () => btnEl.classList.remove('speaking');
+  }
+  window.speechSynthesis.speak(utt);
+}
+
+// called from spelling test word card button
+function speakCurrent() {
+  const btn = document.getElementById('spell-speak-btn');
+  const word = testWords[testIdx] ? testWords[testIdx].w : '';
+  if (word) speak(word, btn);
+}
+
+// ============================================================
+// BROWSE TABLE
+// ============================================================
+function renderBrowseTable() {
+  const words = getWordsForContext('browse').sort((a,b) => a.w.toLowerCase().localeCompare(b.w.toLowerCase()));
+  updateCountBadge('browse');
+  const tbody = document.getElementById('browse-body');
+  if (!words.length) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:20px">请选择词汇组</td></tr>';
+    return;
+  }
+  tbody.innerHTML = words.map(w => `
+    <tr>
+      <td style="width:44px;text-align:center">
+        <button class="speak-btn" data-word="${escHtml(w.w)}" title="点击听发音">🔊</button>
+      </td>
+      <td>${escHtml(w.w)}${w.isCustom ? '<span class="custom-badge">我的词</span>' : ''}</td>
+      <td>${escHtml(w.pos)}</td>
+      <td>${escHtml(w.def)}</td>
+      <td><span class="tag">${escHtml(w.groupName||'')}</span></td>
+      <td>${w.isCustom ? `<button class="del-btn" data-del="${escHtml(w.w)}">✕</button>` : ''}</td>
+    </tr>
+  `).join('');
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ============================================================
+// ADD CUSTOM WORDS
+// ============================================================
+function populateGroupSel() {
+  const sel = document.getElementById('inp-grp');
+  sel.innerHTML = GROUPS.map(g => `<option value="${g.id}">${g.name}</option>`).join('')
+    + `<option value="custom">我的词（单独分组）</option>`;
+}
+
+function addWord() {
+  const w = document.getElementById('inp-word').value.trim();
+  const pos = document.getElementById('inp-pos').value;
+  const def = document.getElementById('inp-def').value.trim();
+  const gid = document.getElementById('inp-grp').value;
+  if (!w) { toast('请填写单词'); return; }
+  if (!def) { toast('请填写中文释义'); return; }
+  if (customWords.some(x => x.w.toLowerCase() === w.toLowerCase())) { toast('"' + w + '" 已存在'); return; }
+  const gname = groupNameById(gid);
+  customWords.push({w, pos, def, groupId: gid, groupName: gname, isCustom: true});
+  saveCustom();
+  document.getElementById('inp-word').value = '';
+  document.getElementById('inp-def').value = '';
+  renderCustomTable();
+  renderGrid('browse');
+  renderGrid('spell');
+  renderGrid('match');
+  renderBrowseTable();
+  updateTotalBadge();
+  toast('✅ "' + w + '" 已添加！继续加油 🌟');
+}
+
+function deleteCustom(word) {
+  if (!confirm('确定删除 "' + word + '"？')) return;
+  customWords = customWords.filter(x => x.w !== word);
+  saveCustom();
+  renderCustomTable();
+  renderGrid('browse');
+  renderGrid('spell');
+  renderGrid('match');
+  renderBrowseTable();
+  updateTotalBadge();
+  toast('已删除 "' + word + '"');
+}
+
+function renderCustomTable() {
+  const tbody = document.getElementById('custom-body');
+  const noEl = document.getElementById('no-custom');
+  if (!customWords.length) {
+    tbody.innerHTML = '';
+    noEl.style.display = 'block';
+    return;
+  }
+  noEl.style.display = 'none';
+  tbody.innerHTML = customWords.map(cw => `
+    <tr>
+      <td style="width:44px;text-align:center">
+        <button class="speak-btn" data-word="${escHtml(cw.w)}" title="点击听发音">🔊</button>
+      </td>
+      <td>${escHtml(cw.w)}</td>
+      <td>${escHtml(cw.pos)}</td>
+      <td>${escHtml(cw.def)}</td>
+      <td><span class="tag">${escHtml(cw.groupName||groupNameById(cw.groupId))}</span></td>
+      <td><button class="del-btn" data-del="${escHtml(cw.w)}">✕</button></td>
+    </tr>
+  `).join('');
+}
+
+function updateTotalBadge() {
+  const total = GROUPS.reduce((s,g) => s + g.words.length, 0) + customWords.length;
+  document.getElementById('total-badge').textContent = '共 ' + total + ' 词';
+}
+
+// ============================================================
+// SPELLING TEST
+// ============================================================
+function startSpell() {
+  const words = getWordsForContext('spell');
+  if (words.length < 3) { toast('请至少选择 3 个单词再开始'); return; }
+  testType = 'spell';
+  testWords = shuffle(words);
+  testIdx = 0;
+  testResults = [];
+  document.getElementById('spell-config').style.display = 'none';
+  document.getElementById('spell-area').style.display = 'block';
+  showSpellQ();
+}
+
+function showSpellQ() {
+  const w = testWords[testIdx];
+  const pct = Math.round(testIdx / testWords.length * 100);
+  document.getElementById('spell-bar').style.width = pct + '%';
+  document.getElementById('spell-prog').textContent = (testIdx+1) + ' / ' + testWords.length;
+  document.getElementById('spell-zh').textContent = w.def;
+  document.getElementById('spell-pos').textContent = w.pos;
+
+  const inp = document.getElementById('spell-inp');
+  inp.value = '';
+  inp.className = 'spell-input';
+  inp.disabled = false;
+  inp.focus();
+
+  const fb = document.getElementById('spell-fb');
+  fb.className = 'feedback-box';
+  fb.textContent = '';
+
+  // speak button: hidden until answer submitted
+  const speakBtn = document.getElementById('spell-speak-btn');
+  speakBtn.style.visibility = 'hidden';
+  speakBtn.classList.remove('speaking');
+  window.speechSynthesis && window.speechSynthesis.cancel();
+
+  document.getElementById('spell-submit').style.display = 'inline-flex';
+  document.getElementById('spell-next').style.display = 'none';
+}
+
+function spellKey(e) {
+  if (e.key !== 'Enter') return;
+  const nextBtn = document.getElementById('spell-next');
+  if (nextBtn.style.display !== 'none') nextSpell();
+  else submitSpell();
+}
+
+function submitSpell() {
+  const inp = document.getElementById('spell-inp');
+  const answer = inp.value.trim();
+  const correct = testWords[testIdx].w;
+  const isOk = answer.toLowerCase() === correct.toLowerCase();
+
+  inp.disabled = true;
+  inp.className = 'spell-input ' + (isOk ? 'correct' : 'wrong');
+
+  const fb = document.getElementById('spell-fb');
+  fb.className = 'feedback-box show ' + (isOk ? 'correct' : 'wrong');
+  fb.innerHTML = isOk ? '✅ 正确！' : '❌ 正确答案是：<strong>' + escHtml(correct) + '</strong>';
+
+  testResults.push({word: correct, pos: testWords[testIdx].pos, def: testWords[testIdx].def,
+    correct: isOk, yourAnswer: answer});
+
+  // reveal speak button and auto-play pronunciation
+  const speakBtn = document.getElementById('spell-speak-btn');
+  speakBtn.style.visibility = 'visible';
+  speak(correct, speakBtn);
+
+  document.getElementById('spell-submit').style.display = 'none';
+
+  if (testIdx < testWords.length - 1) {
+    document.getElementById('spell-next').style.display = 'inline-flex';
+  } else {
+    setTimeout(showResultsPage, 1200);
+  }
+}
+
+function nextSpell() {
+  testIdx++;
+  showSpellQ();
+}
+
+// ============================================================
+// MATCH TEST
+// ============================================================
+function startMatch() {
+  const words = getWordsForContext('match');
+  if (words.length < 4) { toast('请至少选择 4 个单词再开始'); return; }
+  testType = 'match';
+  matchPool = shuffle(words);
+  matchRound = 0;
+  matchCorrectCount = 0;
+  matchWrongCount = 0;
+  testResults = [];
+  document.getElementById('match-config').style.display = 'none';
+  document.getElementById('match-area').style.display = 'block';
+  renderMatchRound();
+}
+
+function renderMatchRound() {
+  const start = matchRound * 8;
+  const slice = matchPool.slice(start, start + 8);
+  if (!slice.length) { showResultsPage(); return; }
+
+  mPairs = slice.map(w => ({word: w, done: false, correctlyMatched: false}));
+  mLeft = null;
+  mRight = null;
+  mRoundDone = 0;
+  mRightOrder = shuffle(mPairs.map((_,i) => i));
+
+  document.getElementById('match-round-lbl').textContent = '第 ' + (matchRound+1) + ' 轮 · ' + slice.length + ' 对';
+  document.getElementById('match-live').textContent = '✅ ' + matchCorrectCount + '  ❌ ' + matchWrongCount;
+  document.getElementById('match-next-btn').style.display = 'none';
+
+  // Left: words in order 0..n
+  document.getElementById('match-left').innerHTML = mPairs.map((p, i) => `
+    <div class="match-item" id="ml${i}" data-li="${i}">
+      <div class="match-word">${escHtml(p.word.w)}</div>
+      <div class="match-pos">${escHtml(p.word.pos)}</div>
+    </div>
+  `).join('');
+
+  // Right: definitions in shuffled order; data-ri = original pair index
+  document.getElementById('match-right').innerHTML = mRightOrder.map(origIdx => `
+    <div class="match-item" id="mr${origIdx}" data-ri="${origIdx}">
+      ${escHtml(mPairs[origIdx].word.def)}
+    </div>
+  `).join('');
+
+  // Attach listeners
+  mPairs.forEach((_, i) => {
+    document.getElementById('ml'+i).addEventListener('click', () => clickLeft(i));
+  });
+  mRightOrder.forEach(origIdx => {
+    document.getElementById('mr'+origIdx).addEventListener('click', () => clickRight(origIdx));
+  });
+}
+
+function clickLeft(i) {
+  if (mPairs[i].done) return;
+  // deselect all left
+  mPairs.forEach((_,j) => {
+    const el = document.getElementById('ml'+j);
+    if (el && !mPairs[j].done) el.classList.remove('selected');
+  });
+  mLeft = i;
+  document.getElementById('ml'+i).classList.add('selected');
+  if (mRight !== null) evaluateMatch();
+}
+
+function clickRight(origIdx) {
+  if (mPairs[origIdx].done) return;
+  // deselect all right
+  mRightOrder.forEach(oi => {
+    const el = document.getElementById('mr'+oi);
+    if (el && !mPairs[oi].done) el.classList.remove('selected');
+  });
+  mRight = origIdx;
+  document.getElementById('mr'+origIdx).classList.add('selected');
+  if (mLeft !== null) evaluateMatch();
+}
+
+function evaluateMatch() {
+  const li = mLeft, ri = mRight;
+  mLeft = null; mRight = null;
+
+  const isOk = li === ri;
+  const lEl = document.getElementById('ml'+li);
+  const rEl = document.getElementById('mr'+ri);
+
+  if (isOk) {
+    lEl.className = 'match-item matched-correct';
+    rEl.className = 'match-item matched-correct';
+    mPairs[li].done = true;
+    mPairs[li].correctlyMatched = true;
+    matchCorrectCount++;
+    mRoundDone++;
+    testResults.push({word: mPairs[li].word.w, pos: mPairs[li].word.pos,
+      def: mPairs[li].word.def, correct: true, yourAnswer: mPairs[li].word.w});
+  } else {
+    lEl.className = 'match-item matched-wrong';
+    rEl.className = 'match-item matched-wrong';
+    matchWrongCount++;
+    testResults.push({word: mPairs[li].word.w, pos: mPairs[li].word.pos,
+      def: mPairs[li].word.def, correct: false, yourAnswer: mPairs[ri].word.w});
+    setTimeout(() => {
+      if (!mPairs[li].done) lEl.className = 'match-item';
+      if (!mPairs[ri].done) rEl.className = 'match-item';
+    }, 700);
+  }
+
+  document.getElementById('match-live').textContent = '✅ ' + matchCorrectCount + '  ❌ ' + matchWrongCount;
+
+  if (mRoundDone === mPairs.length) {
+    const btn = document.getElementById('match-next-btn');
+    btn.style.display = 'inline-flex';
+    const hasMore = matchPool.slice((matchRound+1)*8).length > 0;
+    btn.textContent = hasMore ? '下一轮 →' : '查看结果 →';
+  }
+}
+
+function nextMatchRound() {
+  matchRound++;
+  const hasMore = matchPool.slice(matchRound*8).length > 0;
+  if (hasMore) renderMatchRound();
+  else showResultsPage();
+}
+
+// ============================================================
+// RESULTS
+// ============================================================
+function showResultsPage() {
+  const total = testResults.length;
+  const correct = testResults.filter(r => r.correct).length;
+  const pct = total > 0 ? Math.round(correct / total * 100) : 0;
+
+  let stars, msg;
+  if      (pct >= 95) { stars = '⭐⭐⭐'; msg = '完美！你是词汇达人！'; }
+  else if (pct >= 80) { stars = '⭐⭐';   msg = '很棒！继续保持这个势头！'; }
+  else if (pct >= 60) { stars = '⭐';     msg = '不错的开始！错的词再练一遍就好。'; }
+  else                { stars = '💪';     msg = '没关系，每次练习都是进步。专注错题！'; }
+
+  document.getElementById('res-pct').textContent  = pct + '%';
+  document.getElementById('res-frac').textContent = correct + ' / ' + total + ' 题正确';
+  document.getElementById('res-stars').textContent = stars;
+  document.getElementById('res-msg').textContent   = msg;
+
+  document.getElementById('res-stats').innerHTML = `
+    <div class="stat-box"><div class="stat-num">${total}</div><div class="stat-lbl">总题数</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--green)">${correct}</div><div class="stat-lbl">答对</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--red)">${total-correct}</div><div class="stat-lbl">答错</div></div>
+    <div class="stat-box"><div class="stat-num">${pct}%</div><div class="stat-lbl">正确率</div></div>
+  `;
+
+  const typeLabel = testType === 'spell' ? 'Spelling Test 拼写测试' : 'Match Test 连线匹配';
+  document.getElementById('res-detail-title').textContent = '📋 详细结果 — ' + typeLabel;
+  document.getElementById('print-meta').textContent =
+    typeLabel + ' · ' + new Date().toLocaleDateString('zh-CN') + ' · 得分：' + pct + '% (' + correct + '/' + total + ')';
+
+  document.getElementById('res-detail').innerHTML = testResults.map(r => `
+    <div class="result-row">
+      <div class="result-icon">${r.correct ? '✅' : '❌'}</div>
+      <div>
+        <span class="result-word">${escHtml(r.word)}</span>
+        <span style="color:var(--muted);font-size:0.8rem;font-style:italic"> ${escHtml(r.pos)}</span>
+        ${!r.correct ? `<div style="margin-top:3px">
+          <span class="result-your">你的答案：${escHtml(r.yourAnswer||'(空)')}</span>
+          &rarr; <span class="result-correct">正确：${escHtml(r.word)}</span>
+        </div>` : ''}
+        <div class="result-def">${escHtml(r.def)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('tab-result').style.display = 'inline-block';
+  showTab('sec-result');
+}
+
+function resetTest() {
+  // restore config panels
+  document.getElementById('spell-config').style.display = 'block';
+  document.getElementById('spell-area').style.display = 'none';
+  document.getElementById('match-config').style.display = 'block';
+  document.getElementById('match-area').style.display = 'none';
+  testResults = [];
+  showTab(testType === 'spell' ? 'sec-spelling' : 'sec-match');
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  loadCustom();
+  populateGroupSel();
+  updateTotalBadge();
+  renderGrid('browse');
+  renderGrid('spell');
+  renderGrid('match');
+  renderBrowseTable();
+  renderCustomTable();
+
+  // Event delegation for speak + delete buttons in both tables
+  // Bind to stable card containers (not tbody, which gets innerHTML-replaced)
+  document.getElementById('sec-browse').addEventListener('click', function(e) {
+    const speakBtn = e.target.closest('.speak-btn[data-word]');
+    if (speakBtn) { speak(speakBtn.getAttribute('data-word'), speakBtn); return; }
+    const delBtn = e.target.closest('.del-btn[data-del]');
+    if (delBtn) { deleteCustom(delBtn.getAttribute('data-del')); }
+  });
+
+  document.getElementById('sec-add').addEventListener('click', function(e) {
+    const speakBtn = e.target.closest('.speak-btn[data-word]');
+    if (speakBtn) { speak(speakBtn.getAttribute('data-word'), speakBtn); return; }
+    const delBtn = e.target.closest('.del-btn[data-del]');
+    if (delBtn) { deleteCustom(delBtn.getAttribute('data-del')); }
+  });
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Comprehension — Edna's Ruthie to What Sally Said</title>
+<style>
+:root{
+  --ink:#1c2820;--sage:#4a7c5e;--sage-lt:#7aab8a;--sage-pale:#e8f2ec;
+  --gold:#b8882a;--gold-lt:#fdf3dc;--paper:#faf8f3;--white:#ffffff;
+  --muted:#7a8a7e;--border:#d4ddd6;--green:#27795a;--green-lt:#e6f4ee;
+  --red:#b83232;--red-lt:#fdecea;--radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.8;}
+.banner{background:var(--ink);color:#fff;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:200;}
+.banner-title{font-size:.95rem;font-weight:bold;letter-spacing:.4px;}
+.banner-sub{font-size:.75rem;opacity:.6;margin-top:2px;}
+.banner-name{font-size:.8rem;background:rgba(255,255,255,.12);padding:4px 14px;border-radius:20px;opacity:.85;}
+.tab-bar{display:flex;gap:0;background:var(--sage-pale);border-bottom:2px solid var(--border);overflow-x:auto;padding:0 16px;}
+.tab{padding:11px 15px;font-size:.76rem;font-family:Georgia,serif;cursor:pointer;border:none;background:transparent;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap;}
+.tab:hover{color:var(--sage);}
+.tab.active{color:var(--sage);font-weight:bold;border-bottom-color:var(--sage);background:var(--white);}
+.main{padding:28px 20px;max-width:820px;margin:0 auto;}
+.section{display:none;}
+.section.active{display:block;}
+.vig-header{border-left:6px solid var(--sage);padding:16px 20px;margin-bottom:22px;background:var(--white);border-radius:0 var(--radius) var(--radius) 0;box-shadow:0 1px 6px rgba(0,0,0,.05);}
+.vig-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--sage-lt);margin-bottom:5px;}
+.vig-title{font-size:1.3rem;color:var(--ink);margin-bottom:5px;}
+.vig-meta{font-size:.78rem;color:var(--muted);}
+.instruction{background:var(--gold-lt);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:12px 16px;margin-bottom:22px;font-size:.87rem;color:#6a4a0a;}
+.instruction strong{display:block;margin-bottom:3px;color:#4a2a00;font-size:.88rem;}
+.q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:12px;box-shadow:0 1px 5px rgba(0,0,0,.04);}
+.q-num{display:inline-block;background:var(--sage);color:#fff;font-size:.68rem;font-weight:bold;padding:3px 9px;border-radius:20px;margin-bottom:9px;letter-spacing:.5px;text-transform:uppercase;}
+.q-type-tag{display:inline-block;font-size:.66rem;padding:2px 7px;border-radius:10px;margin-left:5px;vertical-align:middle;}
+.q-type-mc{background:#e8f0ff;color:#3050a0;}
+.q-type-open{background:var(--gold-lt);color:#7a4a00;}
+.q-text{font-size:.93rem;margin-bottom:14px;line-height:1.75;color:var(--ink);}
+.option-label{display:flex;align-items:flex-start;gap:10px;padding:8px 11px;border-radius:8px;cursor:pointer;font-size:.88rem;margin-bottom:5px;border:1px solid transparent;transition:all .13s;line-height:1.5;}
+.option-label:hover{background:var(--sage-pale);border-color:var(--sage-lt);}
+.option-label input{margin-top:3px;flex-shrink:0;accent-color:var(--sage);}
+.answer-area{width:100%;min-height:82px;padding:11px 13px;border:2px solid var(--border);border-radius:8px;font-family:Georgia,serif;font-size:.88rem;color:var(--ink);background:var(--paper);resize:vertical;outline:none;transition:border-color .18s;line-height:1.7;}
+.answer-area:focus{border-color:var(--sage);}
+.btn-row{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap;}
+.btn{padding:6px 16px;border-radius:20px;font-size:.78rem;font-family:Georgia,serif;cursor:pointer;border:none;transition:all .15s;font-weight:bold;}
+.btn-check{background:var(--sage);color:#fff;}
+.btn-check:hover{background:#3a6a4e;}
+.btn-show{background:transparent;border:2px solid var(--sage);color:var(--sage);}
+.btn-show:hover{background:var(--sage-pale);}
+.feedback{display:none;margin-top:9px;padding:9px 13px;border-radius:8px;font-size:.86rem;line-height:1.65;}
+.feedback.show{display:block;}
+.feedback.correct{background:var(--green-lt);color:var(--green);border-left:3px solid var(--green);}
+.feedback.wrong{background:var(--red-lt);color:var(--red);border-left:3px solid var(--red);}
+.answer-key{display:none;margin-top:9px;padding:10px 14px;background:var(--sage-pale);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;font-size:.86rem;color:#1e3a28;line-height:1.65;}
+.answer-key.show{display:block;}
+.answer-key strong{display:block;margin-bottom:4px;color:var(--sage);}
+.score-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:16px 22px;margin-top:24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.score-num{font-size:2rem;font-weight:bold;color:var(--sage);line-height:1;}
+.score-lbl{font-size:.76rem;color:var(--muted);margin-top:2px;}
+.btn-submit{padding:9px 26px;border-radius:8px;border:none;cursor:pointer;font-size:.86rem;font-family:Georgia,serif;font-weight:bold;background:var(--gold);color:#fff;transition:all .15s;}
+.btn-submit:hover{background:#9a6a10;}
+@media print{.banner,.tab-bar,.btn-row,.btn-submit,.score-bar{display:none!important;}.section{display:block!important;}.section:not(.active){display:none!important;}.q-card{box-shadow:none;border:1px solid #ccc;}.answer-area{border:1px solid #ccc;min-height:55px;background:white;}.answer-key,.feedback{display:none!important;}}
+
+.btn-send{padding:9px 26px;border-radius:8px;border:none;cursor:pointer;font-size:.86rem;font-family:Georgia,serif;font-weight:bold;background:var(--sage);color:#fff;transition:all .15s;margin-left:10px;}
+.btn-send:hover{background:#2a4a38;}
+
+</style>
+</head>
+<body>
+<div class="banner">
+  <div>
+    <div class="banner-title">The House on Mango Street</div>
+    <div class="banner-sub">Reading Comprehension · Vignettes 26–37 · Edna's Ruthie → What Sally Said</div>
+  </div>
+  <div class="banner-name">Nancy</div>
+</div>
+<div class="tab-bar">
+<button class="tab active" onclick="showTab(0)">1. Edna's Ruthie</button>
+<button class="tab" onclick="showTab(1)">2. The Earl of Tennessee</button>
+<button class="tab" onclick="showTab(2)">3. Sire</button>
+<button class="tab" onclick="showTab(3)">4. Four Skinny Trees</button>
+<button class="tab" onclick="showTab(4)">5. No Speak English</button>
+<button class="tab" onclick="showTab(5)">6. Rafaela Who Drinks Coconut & Papaya Juice on Tuesdays</button>
+<button class="tab" onclick="showTab(6)">7. Sally</button>
+<button class="tab" onclick="showTab(7)">8. Minerva Writes Poems</button>
+<button class="tab" onclick="showTab(8)">9. Bums in the Attic</button>
+<button class="tab" onclick="showTab(9)">10. Beautiful & Cruel</button>
+<button class="tab" onclick="showTab(10)">11. A Smart Cookie</button>
+<button class="tab" onclick="showTab(11)">12. What Sally Said</button>
+</div>
+<div class="main">
+<div class="section active" id="sec-0">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 26</div>
+    <div class="vig-title">Edna's Ruthie</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 67–69 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-0"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-0">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(0)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(0)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-1">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 27</div>
+    <div class="vig-title">The Earl of Tennessee</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 70–71 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-1"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-1">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(1)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(1)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-2">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 28</div>
+    <div class="vig-title">Sire</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 72–73 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-2"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-2">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(2)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(2)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-3">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 29</div>
+    <div class="vig-title">Four Skinny Trees</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 74–75 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-3"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-3">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(3)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(3)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-4">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 30</div>
+    <div class="vig-title">No Speak English</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 76–78 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-4"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-4">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(4)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(4)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-5">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 31</div>
+    <div class="vig-title">Rafaela Who Drinks Coconut & Papaya Juice on Tuesdays</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 79–80 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-5"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-5">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(5)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(5)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-6">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 32</div>
+    <div class="vig-title">Sally</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 81–83 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-6"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-6">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(6)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(6)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-7">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 33</div>
+    <div class="vig-title">Minerva Writes Poems</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 84–85 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-7"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-7">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(7)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(7)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-8">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 34</div>
+    <div class="vig-title">Bums in the Attic</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 86–87 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-8"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-8">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(8)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(8)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-9">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 35</div>
+    <div class="vig-title">Beautiful & Cruel</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 88–89 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-9"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-9">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(9)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(9)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-10">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 36</div>
+    <div class="vig-title">A Smart Cookie</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 90–91 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-10"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-10">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(10)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(10)">📤 Send to Teacher</button>
+  </div>
+</div>
+<div class="section" id="sec-11">
+  <div class="vig-header">
+    <div class="vig-label">Vignette 37</div>
+    <div class="vig-title">What Sally Said</div>
+    <div class="vig-meta">Date: ___________________ &nbsp;·&nbsp; pp. 92–93 &nbsp;·&nbsp; 10 Questions &nbsp;·&nbsp; MC + Open Response</div>
+  </div>
+  <div class="instruction">
+    <strong>📖 Before you answer:</strong>
+    Go back to the text. Find the exact words the author uses. There is a difference between what
+    the author <em>actually writes</em> and what you <em>think</em> she means. Answer based on
+    facts in the text first, then explain your thinking.
+  </div>
+  <div id="qs-11"></div>
+  <div class="score-bar">
+    <div><div class="score-num" id="score-11">—</div><div class="score-lbl">MC Score</div></div>
+    <button class="btn-submit" onclick="submitSection(11)">Check All MC Answers</button>
+    <button class="btn-send" onclick="sendToTeacher(11)">📤 Send to Teacher</button>
+  </div>
+</div>
+</div>
+<script>
+const SECTIONS = [
+  [
+    {type:"mc", q:"How does the author first describe Ruthie\'s appearance?", opts:["Neat and well-dressed, like a schoolteacher", "Tall and skinny with red lipstick and a blue babushka, one blue sock and one green because she forgot", "Small and quiet with plain gray clothes", "Large and cheerful with bright yellow hair"], ans:1, key:"The author introduces Ruthie specifically: tall skinny lady with red lipstick and blue babushka, one blue sock and one green because she forgot. The mismatched socks establish her character immediately."},
+    {type:"mc", q:"Whose daughter is Ruthie, and where does she live?", opts:["She is Esperanza\'s aunt who rents from Edna", "She is Edna\'s daughter — Edna owns the building next door with three apartments front and back", "She is a neighbor who rents from Edna", "She is a widow who inherited the building from her husband"], ans:1, key:"Ruthie is Edna\'s daughter. Edna owns the big building next door, three apartments front and back. Every week Edna is screaming at somebody."},
+    {type:"mc", q:"What is Ruthie described as doing that no other grown-up on the block does?", opts:["Playing cards with the children", "She is the only grown-up they know who likes to play — she takes her dog Bobo for a walk and laughs all by herself", "Telling stories to the neighborhood children", "Teaching the children how to cook"], ans:1, key:"Ruthie is the only grown-up they know who likes to play. She takes her dog Bobo for a walk and laughs all by herself — she doesn\'t need anybody to laugh with."},
+    {type:"mc", q:"What happens when friends of Edna\'s come to take Ruthie to play bingo?", opts:["She goes happily and wins", "She stands on the steps wondering whether to go, asks her mother who doesn\'t care, and after fifteen minutes the car leaves without her", "She refuses immediately and goes back inside", "She goes, then calls to be picked up early"], ans:1, key:"Ruthie stands on the steps wondering whether to go. She asks the gray shadow behind the screen — her mother says do what you want. Ruthie looks at the ground, can\'t decide, and the car leaves without her. The girls bring out a deck of cards and let Ruthie deal."},
+    {type:"open", q:"The author says Ruthie \'sees lovely things everywhere\' — she stops mid-sentence to say \'The moon is beautiful like a balloon\' or points to clouds saying \'Look, Marlon Brando.\' What does this tell us about how Ruthie moves through the world?", key:"Ruthie is entirely present in a sensory way — she notices beauty and makes connections that others miss. This could be the mark of an artist or of someone whose mind doesn\'t follow ordinary social logic. Her perception is vivid and her world is full of surprising connections."},
+    {type:"mc", q:"What does Ruthie say when Esperanza reads her \'The Walrus and the Carpenter\' all the way to the end?", opts:["She recites the poem back from memory", "She cries because it is too sad", "She takes a long time looking at Esperanza, then says \'You have the most beautiful teeth I have ever seen,\' and goes inside", "She asks Esperanza to read it again from the beginning"], ans:2, key:"After listening to the whole poem, Ruthie takes a long time looking at Esperanza, then says \'You have the most beautiful teeth I have ever seen\' — and goes inside. It is a response that is both completely off-topic and somehow deeply personal."},
+    {type:"open", q:"Ruthie used to have lots of job offers when she was young — she can sing, dance, write children\'s books. But she never took the offers. What does this tell us about the life she might have had — and the life she ended up with?", key:"Ruthie had real talent and real options. She didn\'t take them — she got married instead and moved away to a pretty house. Now she is sleeping on a couch in her mother\'s living room saying she is \'just visiting.\' The gap between who she could have been and who she is now is the tragedy of the vignette."},
+    {type:"mc", q:"Ruthie says she \'used to write children\'s books once.\' When Esperanza shows her library books, what does Ruthie say?", opts:["She asks to keep the books", "She says books are wonderful, runs her hand over them as if reading in braille, then says she gets headaches and can\'t read anymore", "She reads aloud beautifully from memory", "She says they are boring compared to the books she used to write"], ans:1, key:"\'Books are wonderful,\' Ruthie says, and runs her hand over them as if reading in braille. They\'re wonderful, wonderful — but she can\'t read anymore. She gets headaches. She needs to go to the eye doctor next week. She always says next week."},
+    {type:"open", q:"Ruthie says her husband is going to take her home next weekend. But the weekends come and go and Ruthie stays. What does the author suggest about Ruthie\'s marriage and her real situation?", key:"The husband seems to not be coming. \'The weekends come and go and Ruthie stays.\' Her marriage — once an escape from her mother\'s building — may have been something else entirely. Now she is back where she started, saying \'just visiting,\' but the visits never end. Her life has looped back."},
+    {type:"open", q:"Ruthie is described as someone who could have been many things. In this book, the author shows several women whose potential was never realized. What do Ruthie, Marin, and Alicia have in common — and how are they different in the choices available to them?", key:"All three have potential and desire that life has constrained. Ruthie chose marriage over job offers and ended up back at her mother\'s. Marin is waiting for a man to change her life. Alicia is actively fighting through education. The difference is agency: Alicia is the only one building her own exit. Ruthie and Marin are waiting or have already stopped."},
+  ],
+  [
+    {type:"mc", q:"Where does Earl live and when does he work?", opts:["He lives upstairs in Edna\'s building and works days", "He lives in Edna\'s basement apartment behind the flower boxes, and he works nights", "He lives in a house down the block and works the morning shift", "He lives across the street and does odd jobs during the day"], ans:1, key:"Earl lives next door in Edna\'s basement apartment, behind the flower boxes Edna paints green each year, behind the dusty geraniums. His blinds are always closed during the day because he works nights."},
+    {type:"mc", q:"What is Earl\'s profession?", opts:["He is a night security guard at a warehouse", "He is a jukebox repairman who learned his trade in the South", "He is a cook at a late-night diner", "He is a musician who plays in bars"], ans:1, key:"Earl is a jukebox repairman. He learned his trade in the South. He speaks with a Southern accent, smokes fat cigars, and wears a felt hat winter or summer."},
+    {type:"mc", q:"What two things does Earl always have with him?", opts:["A newspaper and a bottle of soda", "Two little black dogs that leap and somersault like an apostrophe and a comma", "A guitar and a canvas bag", "A cigar and a thermos of coffee"], ans:1, key:"Earl has two little black dogs that go everywhere with him. They don\'t walk like ordinary dogs — they leap and somersault like an apostrophe and a comma."},
+    {type:"open", q:"The author compares Earl\'s dogs to \'an apostrophe and a comma.\' What does this comparison tell us about the author\'s way of seeing ordinary things? What does it make you picture?", key:"It turns the dogs into punctuation — small, quick, essential marks that give rhythm to a sentence. It is a poet\'s observation: finding in two leaping dogs the shape of written language. It makes you picture two small dark shapes bouncing along beside a tall man with a felt hat."},
+    {type:"mc", q:"What does Earl give away to the neighborhood children?", opts:["Candy from the store", "Records — all his 45s except the country and western", "Books he has collected over the years", "Old tools from his jukebox work"], ans:1, key:"Earl has boxes and boxes of 45 records, moldy and damp. He gives them all away — except the country and western, which he keeps."},
+    {type:"mc", q:"What is the mystery about Earl\'s wife?", opts:["Nobody has ever seen her and he never mentions her", "Different neighbors report having seen her completely differently — blond and pale, or tall and red-headed with tight pink pants — and they never agree on what she looks like", "She died before Earl moved to Mango Street", "She is rumored to live in Tennessee and never visits"], ans:1, key:"Everyone has seen her differently: Edna says blond and pale like salamanders; Mama says skinny; the boys across the street say tall and red-headed with tight pink pants and green glasses. Nobody agrees — and they all say they saw her, just once."},
+    {type:"open", q:"The author never resolves the mystery of what Earl\'s wife actually looks like. Why do you think she leaves this detail unresolved? What effect does the uncertainty create?", key:"The unresolved description makes Earl\'s wife — and by extension Earl himself — mysterious and slightly unknowable. It also shows how unreliable observation is: people see what they expect or remember incorrectly. The uncertainty is true to life."},
+    {type:"mc", q:"How does Earl behave when his wife visits?", opts:["He introduces her to all the neighbors happily", "He holds her tight by the crook of the arm, they walk fast into the apartment, lock the door, and never stay long", "He sits on the flower boxes and talks to the neighborhood children with her", "He invites people in for coffee"], ans:1, key:"When she arrives, he holds her tight by the crook of the arm. They walk fast into the apartment and lock the door behind them. They never stay long."},
+    {type:"open", q:"The author describes Earl\'s apartment door opening as \'a breath of mold and dampness, like books that have been left out in the rain.\' What mood does this image create? What does it tell us about Earl\'s life inside?", key:"Mold and dampness suggest age, enclosure, and things left behind. \'Like books left out in the rain\' adds a note of ruin — something that once had value but has been damaged by exposure or neglect. Earl\'s inner life is private and somewhat decayed, preserved in darkness."},
+    {type:"open", q:"Earl is one of several men in this book who remains mysterious and slightly threatening — Joe the baby-grabber, Sire, the man in the coatroom. What does the way the author presents male figures like Earl tell us about the world Esperanza is growing up in?", key:"Male figures in this book are often opaque: they work at night, lock their doors, have unknown pasts. The world Esperanza navigates is one where men are powerful and unknowable — you watch them from a distance, piece together what you can. Even the harmless ones (like Earl giving away records) keep their inner lives sealed."},
+  ],
+  [
+    {type:"mc", q:"Who is Sire?", opts:["A boy at Esperanza\'s school who is her friend", "A boy from the neighborhood who watches Esperanza every time she walks past — him and his friends on bikes, pitching pennies", "A cousin of Louie who visits on weekends", "A man who works at the corner store"], ans:1, key:"Sire is a neighborhood boy who sits on his bike in front of his house with his friends, pitching pennies. He watches Esperanza every time she walks by."},
+    {type:"mc", q:"How does Esperanza try to respond to being watched by Sire?", opts:["She crosses to the other side of the street like other girls do", "She looks straight ahead, straight eyes, doesn\'t cross the street — she has to prove she isn\'t scared of anybody\'s eyes, not even his", "She waves and smiles to show she isn\'t afraid", "She walks very fast and never looks back"], ans:1, key:"\'I don\'t cross the street like other girls. Straight ahead, straight eyes.\' She has to prove to herself she isn\'t scared of anybody\'s eyes — including Sire\'s."},
+    {type:"mc", q:"What mistake does Esperanza make when Sire rides his bike past her?", opts:["She trips and falls in front of him", "She looks too long — she wanted to be brave but looked into the dusty cat fur of his eyes and looked too long", "She says hello and then regrets it", "She drops her books and he picks them up"], ans:1, key:"She looked too long — she wanted to look back hard, just once, like he was glass. But she looked because she wanted to be brave, straight into the dusty cat fur of his eyes, and she looked too long. And something happened."},
+    {type:"open", q:"Esperanza says she looked \'too long\' and something happened. The author does not say what that something is. What do you think she means?", key:"Something shifted — she felt something she wasn\'t expecting. The prolonged eye contact created a connection she didn\'t plan. It may have been attraction, or vulnerability, or simply the realization that looking back at someone who is watching you changes the nature of the watching. She stopped being invisible."},
+    {type:"mc", q:"What is Sire\'s girlfriend Lois like, according to the author?", opts:["She is tough and confident and doesn\'t need anyone", "She is tiny and pretty and smells like baby\'s skin — barefoot, with big girl hands and bones like ladies\' bones, but she doesn\'t know how to tie her shoes", "She is older and serious, always reading or studying", "She is loud and laughs a lot with all the neighbors"], ans:1, key:"Lois is tiny and pretty, smells like baby\'s skin. She is sometimes barefoot, with pale pink toenails all painted pink like seashells. She has big girl hands and bones like ladies\' bones — but she doesn\'t know how to tie her shoes."},
+    {type:"open", q:"Mama says girls like Lois \'are the ones that go into alleys.\' What does this mean, and what does it reveal about the way women on Mango Street are judged?", key:"Mama is warning Esperanza that girls who are barefoot, who look like Lois, who let boys hold their hands in the street — they end up in dangerous or compromising situations. But the judgment is also harsh: it blames Lois for being attractive and visible, rather than questioning Sire\'s behavior."},
+    {type:"mc", q:"What does Esperanza want for herself that she sees Lois has?", opts:["Nice clothes and shoes", "She wants to sit out bad at night with a boy around her neck and the wind under her skirt — to feel all new and shiny", "A job downtown like Marin wants", "A best friend who will keep her company"], ans:1, key:"Esperanza wants to be all new and shiny. She wants to sit out bad at night, a boy around her neck and the wind under her skirt. She is not content to just watch — she wants that experience of being held, of being chosen."},
+    {type:"mc", q:"Where does Esperanza say she is, while Sire and Lois live their lives outside?", opts:["At school studying", "Every evening talking to the trees, leaning out her window, imagining what she can\'t see", "On the roof watching the neighborhood", "At Lucy and Rachel\'s house"], ans:1, key:"\'Not this way, every evening talking to the trees, leaning out my window, imagining what I can\'t see.\' She is inside, watching, imagining — not yet living the life she wants."},
+    {type:"open", q:"Esperanza says at the end: \'A boy held me once so hard, I swear, I felt the grip and weight of his arms, but it was a dream.\' What does this tell us about her inner world compared to her outer life?", key:"Her inner life is rich with desire and imagination — she has felt things that haven\'t happened yet, only in dreams. Her outer life is constrained (inside, leaning out windows). The gap between the dream and the reality is where she lives right now."},
+    {type:"open", q:"\'Sire\' is the title of this vignette. A \'sire\' is an old word for a father or lord — someone with authority. Why might the author have chosen this as the boy\'s name?", key:"The name gives the boy an air of ownership and authority over the space he occupies. He \'rules\' the front of his house, watches the street, claims Lois. Using \'Sire\' as a name is ironic — he is just a neighborhood boy, but he has the posture and power of someone who expects to be looked at and obeyed."},
+  ],
+  [
+    {type:"mc", q:"What physical feature do the four trees share with Esperanza?", opts:["They have round dark leaves like her eyes", "They have skinny necks and pointy elbows like hers", "They grow near water just as she was born near a river", "They are the same height as she is"], ans:1, key:"The trees have skinny necks and pointy elbows like Esperanza\'s. This physical likeness is the starting point of the identification between her and the trees."},
+    {type:"mc", q:"According to the author, what do the four trees and Esperanza have in common beyond appearance?", opts:["They both love the summer", "They both do not belong here but are here — four raggedy excuses planted by the city", "They are both beautiful in unexpected ways", "They both grow quietly without anyone noticing"], ans:1, key:"\'Four who do not belong here but are here. Four raggedy excuses planted by the city.\' They were placed here by someone else\'s plan, in a place not their own. Esperanza identifies with this completely."},
+    {type:"open", q:"The author writes that the trees\' \'strength is secret.\' What does this mean? What kind of strength is she describing?", key:"The trees\' power is underground — ferocious roots that nobody sees. They grow up and grow down, grab the earth between their hairy toes, bite the sky with violent teeth. Their survival is in what is hidden, not in what is visible. This mirrors Esperanza\'s inner life: the strength she is developing is not yet visible to anyone on Mango Street."},
+    {type:"mc", q:"The author writes: \'Let one forget his reason for being, they\'d all droop like tulips in a glass, each with their arms around the other.\' What is each tree\'s reason for being?", opts:["To give shade to the neighborhood", "To be and be — to reach and not forget to reach", "To produce flowers each spring", "To mark the boundary between houses"], ans:1, key:"\'Four whose only reason is to be and be.\' Their reason for existence is simply to persist, to reach upward and downward simultaneously, never quitting. Forgetting this purpose would make them collapse."},
+    {type:"open", q:"Esperanza says: \'When I am too sad and too skinny to keep keeping, when I am a tiny thing against so many bricks, then it is I look at trees.\' Why do the trees help her in these moments?", key:"The trees survive despite the concrete — they persist in a place that doesn\'t want them, in conditions that should make them impossible. When Esperanza feels like giving up, the trees model persistence without promise of reward. They are proof that surviving in a hostile place is possible."},
+    {type:"mc", q:"The trees \'grow up and they grow down and grab the earth between their hairy toes and bite the sky with violent teeth and never quit their anger.\' What does the word \'anger\' suggest about how the author sees the trees?", opts:["They are angry at being planted in the wrong place", "They are violent and dangerous to the neighborhood", "Their survival requires something fierce — a refusal to accept their situation that looks like anger", "They are dying slowly and this is their final resistance"], ans:2, key:"The anger is the energy of refusal — a fierce insistence on surviving in a place that doesn\'t accommodate them. The trees don\'t grow peacefully; they grow with something like violence. This is the kind of energy Esperanza will need to escape Mango Street."},
+    {type:"open", q:"This vignette is addressed directly to the trees: \'They are the only ones who understand me. I am the only one who understands them.\' Why does Esperanza find understanding with trees rather than with the people around her?", key:"On Mango Street, people have their own struggles and don\'t fully see Esperanza. The trees don\'t belong there and neither does she. They share the same condition: planted in the wrong place, surviving anyway. The trees don\'t need language to communicate — they simply are what she feels."},
+    {type:"mc", q:"The author writes that Nenny \'just sleeps and doesn\'t appreciate these things.\' Why does she include this detail about Nenny?", opts:["To show that Nenny is lazy", "To show that even the person closest to Esperanza shares only part of her inner world", "To set up a conflict between the sisters", "To show Nenny is younger and therefore less sensitive"], ans:1, key:"Even the person she shares a room with cannot share this experience. Nenny is asleep — the trees speak only to those awake enough and lonely enough to hear them. This deepens Esperanza\'s essential aloneness."},
+    {type:"open", q:"\'Four Skinny Trees\' is often said to be the most poetic vignette in the book. What makes it feel different from the other vignettes you have read?", key:"It is addressed directly to the trees (second person implied), uses the most compressed and rhythmic language in the book, contains almost no plot, and is almost entirely about inner feeling. The author abandons narrative entirely here — this is pure lyric prose, closer to a poem than a story."},
+    {type:"open", q:"At the end, Esperanza says: \'Keep, keep, keep, trees say when I sleep. They teach.\' What do the trees teach? What lesson does Esperanza take from them?", key:"Keep: keep going, keep reaching, keep existing. The trees\' lesson is endurance and directed purpose — grow toward something, dig roots deep, never quit. This is what Esperanza is slowly learning about her own life: that the way out is not given but grown, slowly and fiercely, from the inside."},
+  ],
+  [
+    {type:"mc", q:"Who is Mamacita and how does she arrive on Mango Street?", opts:["She is an old woman who has lived there for years", "She is the big mama of the man across the street — she arrives one day in a yellow taxi, enormous and beautiful, carried up three flights of stairs by her husband", "She is a new teacher at Esperanza\'s school who doesn\'t speak English", "She is Edna\'s cousin who comes to visit and never leaves"], ans:1, key:"Mamacita is the big mama of the man across the street, third-floor front. She arrives one day in a yellow taxi — tiny pink shoe, thick ankle, fuchsia roses and green perfume — and the man had to pull her and the taxicab driver had to push. Then she disappeared upstairs."},
+    {type:"mc", q:"How did the man bring Mamacita to America?", opts:["She came on her own because she wanted to", "He saved his money by working two jobs, coming home late and leaving early, every day, until he had enough", "She was brought by relatives who paid for her ticket", "She won a lottery that paid for her passage"], ans:1, key:"The man saved and saved — he worked two jobs, came home late, left early, every single day — because she was alone in that country with the baby boy. He saved until he could bring her here."},
+    {type:"open", q:"After arriving, Mamacita never comes down from the third-floor apartment. The author gives three possible reasons. What are they, and which does the author seem to believe?", key:"Three reasons given: she is too fat for the stairs; she is afraid to speak English; she cannot climb because of the three flights. The author seems to believe the second most strongly — she \'only knows eight words\' and she is afraid. The other reasons may be true but fear of language is the deepest cage."},
+    {type:"mc", q:"What eight words does Mamacita know in English?", opts:["Hello, goodbye, please, thank you, yes, no, sorry, help", "\'He not here,\' \'No speak English,\' and \'Holy smokes\'", "One, two, three, four, five, six, seven, eight", "Milk, bread, water, please, thank you, stop, go, help"], ans:1, key:"She knows: \'He not here\' for when the landlord comes, \'No speak English\' if anybody else comes, and \'Holy smokes.\' The author says she doesn\'t know where she learned that last one — she heard it once and it surprised her."},
+    {type:"open", q:"Mamacita\'s husband paints the apartment walls pink, but she still cries for her pink house in her home country. What does this tell us about the difference between a house and a home?", key:"A house can be painted to look like home, but it cannot become home. Home is not a color — it is a language, a smell, a history, a feeling of belonging that cannot be reproduced by paint. The husband tries to give her home; what she has lost cannot be given back that way."},
+    {type:"mc", q:"What does Mamacita do all day in the apartment?", opts:["She cooks and cleans and takes care of the baby", "She sits by the window playing the Spanish radio show and singing all the homesick songs about her country in a voice like a seagull", "She sleeps most of the day", "She sews and waits for her husband to come home"], ans:1, key:"She sits all day by the window playing the Spanish radio show and singing all the homesick songs about her country in a voice that sounds like a seagull."},
+    {type:"open", q:"The husband shouts at Mamacita: \'¡Ay, caray! We are home. This is home. Here I am and here I stay. Speak English. Speak English. Christ!\' What is the conflict between them, and who do you feel more sympathy for?", key:"He has built a life here and needs her to accept it; she cannot accept a home she doesn\'t recognize as home. Both are in pain. He is frustrated that she won\'t adapt; she is grief-stricken that what she loves is gone. There is no villain — only two people on different sides of a loss."},
+    {type:"mc", q:"What breaks Mamacita\'s heart at the end of the vignette?", opts:["The husband stops speaking Spanish to her", "The baby boy, who has begun to talk, sings a Pepsi commercial in English — the language that sounds like tin to her", "The landlord threatens to evict them", "The Spanish radio station stops broadcasting"], ans:1, key:"The baby boy has begun to talk. He sings the Pepsi commercial he heard on T.V. — in English. The language that sounds like tin. To Mamacita, her own child is already speaking the language that erases her. She says \'No speak English, no speak English\' and bubbles into tears."},
+    {type:"open", q:"The author says Mamacita\'s husband \'yells at her\' but also calls the Spanish songs \'the only skinny thread that kept her alive, the only road out to that country.\' What does this image of a \'skinny thread\' tell us about what language means to Mamacita?", key:"Language is not just communication — it is identity, memory, and connection to everyone and everything she has lost. Spanish is the only thing still connecting her to her real self and her real home. If the thread breaks, she has nothing. The baby singing in English is that thread starting to snap."},
+    {type:"open", q:"This vignette appears right after \'Four Skinny Trees.\' Both are about surviving in a place where you don\'t belong. How do the two vignettes speak to each other?", key:"The trees survive by growing roots and never quitting. Mamacita survives by holding on to Spanish — her own kind of root. But unlike the trees, Mamacita cannot grow in this soil; she can only mourn what she left behind. The juxtaposition asks: is it possible to truly take root somewhere that doesn\'t want you?"},
+  ],
+  [
+    {type:"mc", q:"Why is Rafaela locked inside her apartment on Tuesdays?", opts:["She is ill and needs to rest", "Her husband locks her in because he plays dominoes on Tuesday nights and is afraid she will run away since she is too beautiful to look at", "She chooses to stay inside because she is shy", "She works from home and needs quiet to concentrate"], ans:1, key:"On Tuesdays Rafaela\'s husband comes home late because that\'s the night he plays dominoes. He locks her indoors because he is afraid Rafaela will run away since she is too beautiful to look at."},
+    {type:"mc", q:"What does Rafaela do while locked inside?", opts:["She watches television and makes phone calls", "She leans out the window on her elbow and dreams her hair is like Rapunzel\'s — she can hear the music from the bar and wishes she could go there and dance", "She reads books from the library", "She knits and listens to the radio"], ans:1, key:"Rafaela leans out the window, leans on her elbow, and dreams her hair is like Rapunzel\'s. On the corner there is music from the bar, and Rafaela wishes she could go there and dance before she gets old."},
+    {type:"open", q:"The author writes that Rafaela is \'still young but getting old from leaning out the window so much.\' What does this image tell us about what is happening to Rafaela?", key:"She is aging from inactivity, from watching life rather than living it. The window is her only contact with the world — but watching from a window is not living. The irony is that her husband locks her away to preserve her beauty, but the imprisonment itself is what is aging her."},
+    {type:"mc", q:"How do Rafaela and the girls communicate?", opts:["She yells down to them from her window", "She throws a crumpled dollar down to them and they send coconut or papaya juice up in a paper shopping bag on a clothesline", "She sends notes through a neighbor", "She calls to them through the building intercom"], ans:1, key:"Rafaela throws a crumpled dollar down from the window, always asks for coconut or sometimes papaya juice, and the girls send it up in a paper shopping bag on a clothesline she lets down."},
+    {type:"open", q:"Rafaela drinks coconut and papaya juice — sweet tropical drinks — while locked in her apartment. At the bar down the street, there are \'sweeter drinks\' offered to women. What do these \'sweeter drinks\' represent?", key:"The sweeter drinks represent freedom, pleasure, and the life being denied to her — dancing, socializing, being treated as a person rather than a possession. The coconut juice is a pale substitute for the real sweetness she is locked away from."},
+    {type:"mc", q:"The author ends with: \'And always there is someone offering sweeter drinks, someone promising to keep them on a silver string.\' What does \'silver string\' suggest?", opts:["A beautiful piece of jewelry Rafaela admires from her window", "A new kind of cage — another person promising freedom who would actually just replace one form of control with another", "The clothesline she uses to send down the dollar", "The telephone cord she uses to call her husband"], ans:1, key:"A silver string is still a string — still a leash. The author is warning that the \'freedom\' offered at the bar might just be another form of control, another man promising to keep a woman tied to him in a different way."},
+    {type:"open", q:"The author compares Rafaela to Rapunzel. How does this fairy tale reference work, and how does it change the familiar story?", key:"In the fairy tale, Rapunzel is locked in a tower and rescued by a prince. Here, Rafaela is locked in by her husband — her prince is her captor. There is no rescuer coming. The fairy tale is inverted: the marriage that was supposed to be the happy ending has become the tower."},
+    {type:"mc", q:"The vignette is titled with Rafaela\'s full activity — \'who drinks coconut & papaya juice on Tuesdays.\' Why does the author include this specific detail in the title?", opts:["Because it is a funny and unusual image", "Because the juice is the only act of small freedom and pleasure Rafaela has — it defines her Tuesday, her only interaction with the world outside", "Because she wants us to know what the girl drinks", "Because it sets up the contrast with the sweeter drinks at the bar"], ans:1, key:"The juice-drinking is her only small act of agency and connection. On Tuesdays, that crumpled dollar and the bag on the clothesline are her contact with the world. It defines her Tuesday — and by extension, her life."},
+    {type:"open", q:"This vignette describes a woman imprisoned by her husband\'s jealousy. How does Rafaela\'s situation compare to Esperanza\'s great-grandmother in \'My Name\'? What has changed, and what hasn\'t?", key:"The great-grandmother was carried off by force. Rafaela is locked in by a husband who calls it love (he is afraid she will run away). The method is different — open violence versus controlling \'protection\' — but the result is the same: a woman at a window, unable to live her life. Decades apart, nothing has fundamentally changed."},
+    {type:"open", q:"Rafaela wants to dance before she gets old. She can hear the music from her window. What does this image say about time, freedom, and what it means to wait too long?", key:"Time passes whether or not Rafaela is allowed to live it. The music plays whether or not she can hear it from the floor rather than the window. The author is saying: waiting for permission to live your life is a way of losing it. By the time she might be free, she may be too old — or too broken — to dance."},
+  ],
+  [
+    {type:"mc", q:"How does the author describe Sally\'s appearance?", opts:["Plain and quiet with dark clothes and no makeup", "Eyes like Egypt and nylons the color of smoke — beautiful, with shiny black hair like raven feathers that she flicks back like a satin shawl when she laughs", "Small and plain with brown eyes and straight hair", "Tall and athletic, like a runner"], ans:1, key:"Sally has eyes like Egypt and nylons the color of smoke. Her hair is shiny black like raven feathers and when she laughs she flicks it back like a satin shawl over her shoulders."},
+    {type:"mc", q:"Why can\'t Sally go out, according to the author?", opts:["Her mother is ill and needs her home", "Her father is very strict in his religion — he is afraid that to be this beautiful is trouble, and he remembers his sisters, so Sally can\'t go out", "She has too much homework every evening", "She is grounded for something that happened at school"], ans:1, key:"Her father says to be this beautiful is trouble. They are very strict in his religion — not supposed to dance. He remembers his sisters and is sad. So Sally can\'t go out."},
+    {type:"open", q:"The author writes: \'Sally, who taught you to paint your eyes like Cleopatra?\' What does this question reveal about how Esperanza sees Sally — and what Sally represents to her?", key:"Sally is glamorous and slightly transgressive — she wears makeup, she knows how to make herself beautiful in a way that breaks her father\'s rules. To Esperanza, Sally represents a kind of freedom and power she is drawn to but doesn\'t fully understand yet."},
+    {type:"mc", q:"What happened between Sally and Cheryl?", opts:["They are best friends who had a fight but made up", "Cheryl made Sally\'s ear bleed in a fight, and since then Sally has no best friend to lean against the schoolyard fence with", "Cheryl borrowed Sally\'s clothes and never returned them", "They competed for the same boy and stopped speaking"], ans:1, key:"Last Tuesday before Easter, Cheryl made Sally\'s ear bleed and bit a hole in her arm. Since then Sally has no best friend to lean against the schoolyard fence with."},
+    {type:"open", q:"The author describes two different Sallys: the one at school, and the one who goes straight home. \'You become a different Sally. You pull your skirt straight, you rub the blue paint off your eyelids. You don\'t laugh, Sally.\' What does this split identity tell us about Sally\'s life?", key:"Sally performs herself at school — the makeup, the hair, the laugh. Then she has to erase herself to go home. She lives in two worlds that cannot touch. The split is not just about clothes; it is about having to deny yourself every time you cross the threshold of your house."},
+    {type:"mc", q:"What do the boys in the coatroom say about Sally, according to the author?", opts:["That she is the kindest girl in school", "\'The stories the boys tell in the coatroom, they\'re not true\' — the author directly contradicts them", "That she is the best dancer", "That she always helps people with their homework"], ans:1, key:"The author directly states: \'The stories the boys tell in the coatroom, they\'re not true.\' This directly challenges the rumors that follow a beautiful girl who is known to lean against fences alone."},
+    {type:"open", q:"The author writes a long imagined paragraph about a house where Sally could live — trees, blue sky, no motorcycles, no sheets and laundry. \'And you could laugh, Sally.\' What does this imagined house represent?", key:"It is a house where Sally would be free — from her father\'s rules, from the boys\' stories, from needing permission. It represents the life every constrained woman in this book is denied: a space of her own where no one controls who she is."},
+    {type:"mc", q:"What does Mama say about Sally that reveals how the community judges her?", opts:["That she is the most beautiful girl on the block", "That wearing black so young is dangerous — \'my mother says to wear black so young is dangerous\'", "That Sally is hardworking and should be admired", "That Sally has better manners than most girls"], ans:1, key:"Mama says to wear black so young is dangerous. This is the community\'s verdict: Sally\'s beauty and her way of presenting herself are treated as provocations, not as her right."},
+    {type:"open", q:"The vignette ends: \'all you wanted, all you wanted, Sally, was to love and to love and to love and to love, and no one could call that crazy.\' Why does the author repeat \'to love and to love\' four times?", key:"The repetition insists on the simplicity and innocence of the desire. Sally doesn\'t want power or revenge — she just wants to love and be loved. The fourfold repetition says: this is not complicated, this is not shameful, this is only human. The phrase \'no one could call that crazy\' is the author defending Sally against everyone who has judged her."},
+    {type:"open", q:"Sally appears in several later vignettes — \'What Sally Said,\' \'The Monkey Garden,\' and \'Red Clowns.\' Based on what you know about her here, what kind of future do you predict for her? What is the author setting up?", key:"Sally is trapped between a controlling father and a world that has already assigned her a reputation she didn\'t choose. She wants to love and be free. The author is setting up a character whose search for love and freedom will lead somewhere painful — one who will make desperate choices because the safe choices have been closed off."},
+  ],
+  [
+    {type:"mc", q:"How old is Minerva relative to Esperanza, and what is her situation?", opts:["She is the same age and still in school", "She is only a little bit older than Esperanza but already has two kids and a husband who left", "She is much older — in her thirties — and works at the school", "She is younger than Esperanza but more mature"], ans:1, key:"Minerva is only a little bit older than Esperanza but already has two kids and a husband who left. Her mother raised her kids alone and it looks like her daughters will go that way too."},
+    {type:"mc", q:"What does Minerva do after her children fall asleep?", opts:["She watches television until she falls asleep herself", "She writes poems on little pieces of paper that she folds over and over and holds in her hands a long time — little pieces of paper that smell like a dime", "She calls her friends on the phone", "She reads the Bible"], ans:1, key:"After she feeds the kids their pancake dinner and they fall asleep, Minerva writes poems on little pieces of paper. She folds them over and over and holds them in her hands a long time. The paper smells like a dime."},
+    {type:"open", q:"The author describes Minerva\'s poems as written on \'little pieces of paper that smell like a dime.\' What does this specific sensory detail tell us about Minerva\'s life and her writing?", key:"The smell of metal — a dime — suggests poverty, utility, the small change of a hard life. Her poems are not written on beautiful paper in a comfortable room; they are written on whatever scraps are available, folded small, held close. The smell says: this is writing that costs everything and has almost nothing."},
+    {type:"mc", q:"What does Minerva share with Esperanza, and what does Esperanza share with her?", opts:["They share food when times are hard", "She lets Esperanza read her poems; Esperanza lets her read hers", "They share childcare responsibilities", "They share a job at the same place"], ans:1, key:"She lets Esperanza read her poems. Esperanza lets her read her own poems. Two young writers, trading their private work — it is one of the most intimate connections in the book."},
+    {type:"open", q:"The author says Minerva \'is always sad like a house on fire — always something wrong.\' What does this image mean? How can someone be like a house on fire?", key:"A house on fire looks alive but is being destroyed from the inside. Minerva\'s sadness is not still or quiet — it is active, consuming, always burning. Something is always going wrong: the husband comes back, breaks a window, she lets him in. The fire never goes out because new fuel keeps arriving."},
+    {type:"mc", q:"What is Minerva\'s \'big trouble,\' according to the author?", opts:["She has too many children and not enough money", "Her husband who left and keeps leaving — he goes, she kicks him out, he throws a rock through the window, she lets him back in", "Her mother who interferes in her life", "Her landlord who threatens to evict her"], ans:1, key:"The big trouble is her husband who left and keeps leaving. One day she decides enough is enough, puts his clothes out the window, locks the door. He comes back, throws a rock through the window. He is sorry. She opens the door again. Same story."},
+    {type:"mc", q:"What does Minerva do after he throws a rock through the window and is sorry?", opts:["She calls the police", "She moves out with the children", "She opens the door again — same story", "She refuses to speak to him and goes to stay with her mother"], ans:2, key:"He is sorry, he comes back, she opens the door again. \'Same story.\' The two-word summary is the author\'s most compressed and devastating judgment."},
+    {type:"open", q:"Minerva comes to Esperanza \'black and blue\' asking what she can do. Esperanza says: \'Minerva. I don\'t know which way she\'ll go. There is nothing I can do.\' What does this ending mean?", key:"Esperanza is acknowledging her own powerlessness — and Minerva\'s. Minerva may leave him permanently, or she may keep letting him back. Esperanza cannot save her. \'I don\'t know which way she\'ll go\' is the author\'s honest statement: some situations don\'t resolve neatly."},
+    {type:"open", q:"Minerva writes poems but is trapped in a violent, repeating cycle. What does her story suggest about the relationship between artistic talent and life circumstances?", key:"Talent alone does not free you. Minerva has a gift — she writes, she shares, she feels deeply. But her circumstances (young motherhood, an abusive husband, poverty) do not loosen their grip because she can write. Art can witness a life without being able to change it."},
+    {type:"open", q:"Esperanza and Minerva both write poems. How are their situations similar and how are they different? What does this comparison suggest about where Esperanza might be headed?", key:"Both are writers, both are on Mango Street. But Minerva already has two children and a husband who hurts her. Esperanza is still at the beginning. The comparison is a warning: Minerva\'s life could be Esperanza\'s if she doesn\'t get out. Writing is something they share — but writing alone may not be enough."},
+  ],
+  [
+    {type:"mc", q:"Where does Papa work, and what does the family do on Sundays?", opts:["Papa works at a factory; they visit Mama\'s mother on Sundays", "Papa works at a garden on a hill with big houses; they used to drive there on Sundays — Papa\'s day off — but Esperanza doesn\'t go anymore", "Papa works downtown; they go to church on Sundays", "Papa works at a school; they spend Sundays at the park"], ans:1, key:"Papa works at a garden — one of the gardens of the houses on a hill. They used to go on Sundays, Papa\'s day off. Esperanza doesn\'t go anymore."},
+    {type:"mc", q:"Why does Esperanza stop going to look at the houses on the hill?", opts:["She got too busy with school", "She is tired of looking at what she can\'t have", "The family got a car and doesn\'t need to drive past anymore", "Papa stopped working there"], ans:1, key:"She says: \'You don\'t like to go out with us, Papa says. Getting too old? Getting too stuck-up, says Nenny.\' But the real reason she tells us: \'I don\'t tell them I am ashamed — all of us staring out the window like the hungry. I am tired of looking at what we can\'t have.\'"},
+    {type:"open", q:"Esperanza says she is \'tired of looking at what we can\'t have.\' What does this moment tell us about how she is changing from the girl we met at the beginning of the book?", key:"She is no longer able to simply wish and dream in the passive way she once did. The longing has become painful enough that she has to stop feeding it. This is a kind of growing up — not toward acceptance, but toward the refusal to keep suffering over what is out of reach."},
+    {type:"mc", q:"What does Esperanza say she will do when she one day owns a house on a hill?", opts:["She will invite nobody — she wants complete privacy", "She will invite her family first", "She won\'t forget who she is or where she came from — she will let passing bums into the attic because she knows what it is to be without a house", "She will sell it immediately and buy on Mango Street"], ans:2, key:"She says: \'One day I\'ll own my own house, but I won\'t forget who I am or where I came from. Passing bums will ask, Can I come in? I\'ll offer them the attic, ask them to stay, because I know how it is to be without a house.\'"},
+    {type:"open", q:"Esperanza imagines letting bums stay in the attic of her future house. Her guests will ask \'Rats?\' when they hear noises, and she will say \'Bums\' and be happy. What does this image reveal about what kind of person Esperanza wants to become?", key:"She wants to be someone who uses privilege generously — who remembers suffering rather than escaping into comfort. The specific detail of the bums (not \'guests\' or \'poor people\') shows she is thinking about the most invisible, most dismissed people. She wants to be the person who includes them."},
+    {type:"mc", q:"The author writes: \'People who live on hills sleep so close to the stars they forget those of us who live too much on earth.\' What does this mean?", opts:["Hill people are dreamers who don\'t pay attention to reality", "Wealthy people who live above the rest of the world lose perspective — they forget the people below them who are struggling", "Hill people sleep better than street-level people", "It literally means they are closer to the stars because of altitude"], ans:1, key:"Those who live on hills (the wealthy) are so elevated — literally and figuratively — that they lose sight of the people below. They are \'content to live on hills\' and don\'t look down. This is an observation about class and empathy."},
+    {type:"open", q:"Mama begins to say \'When we win the lottery...\' and Esperanza stops listening. What does this tell us about how Mama and Esperanza are beginning to differ in how they think about the future?", key:"Mama\'s hope is passive — she waits for luck (a lottery). Esperanza has moved past that. She is already planning what she will do when she has a house of her own — not if, and not by luck. She is beginning to take ownership of her future in a way Mama has not."},
+    {type:"mc", q:"The vignette is short, but it is one of the clearest statements of Esperanza\'s character. Which of the following best describes what the author is showing us about her?", opts:["She is becoming selfish and wants to leave everyone behind", "She is developing a social conscience — she wants to escape Mango Street but not abandon its values", "She is resentful of wealthy people and wants revenge", "She is content with her life and just needs a small improvement"], ans:1, key:"She wants a house on a hill — an escape — but not at the cost of who she is. The bums in the attic are her promise to herself: she will get out, but she will not forget. This is the tension that drives the book\'s ending."},
+    {type:"open", q:"The word \'bums\' appears three times in this short vignette. Why does the author use this specific word rather than \'homeless people\' or \'the poor\'?", key:"\'Bums\' is the raw, street-level word — it is what people on Mango Street would actually say. Using it without apology places Esperanza firmly in the world she comes from. It also dignifies the bums by including them in her future home without renaming them into something more palatable."},
+    {type:"open", q:"How does \'Bums in the Attic\' connect to the first vignette, \'The House on Mango Street\'? What has changed in Esperanza\'s relationship to the idea of home?", key:"In the first vignette, the house on Mango Street is a shame and a disappointment — a gap between promise and reality. Here, Esperanza is already planning her own house and thinking about what kind of person she will be inside it. She has moved from shame about where she is to vision about where she is going — while keeping the lesson of what it means to be without."},
+  ],
+  [
+    {type:"mc", q:"How does Esperanza describe herself at the start of this vignette?", opts:["The most beautiful girl in the family", "The ugly daughter — the one nobody comes for", "The smartest daughter who everyone admires", "The youngest daughter who is still growing into her looks"], ans:1, key:"\'I am an ugly daughter. I am the one nobody comes for.\' She opens with a blunt self-assessment that is also a position she is beginning to fight against."},
+    {type:"mc", q:"What two ways of escaping does the author say other women have used — and what does Nenny want instead?", opts:["Running away or getting a job; Nenny wants to study", "Having a baby or waiting for a husband; Nenny doesn\'t want to go that route — she wants to pick and choose and have things all her own", "Moving to another city or getting married; Nenny wants to stay on Mango Street", "Getting an education or winning a lottery; Nenny wants both"], ans:1, key:"Nenny says she won\'t wait her whole life for a husband, and Minerva\'s sister left her mother\'s house by having a baby — Nenny doesn\'t want to go that way either. She wants things all her own, to pick and choose."},
+    {type:"open", q:"Esperanza says she has \'decided not to grow up tame like the others who lay their necks on the threshold waiting for the ball and chain.\' What does this image mean?", key:"\'Tame\' = subdued, domesticated, accepting constraint. \'Necks on the threshold\' = submissively waiting for a man to put the chain on. The \'ball and chain\' = marriage as imprisonment. She is refusing the passive feminine role — the one that waits to be claimed."},
+    {type:"mc", q:"What is the \'one with red red lips\' in the movies that Esperanza is drawn to?", opts:["A quiet, humble woman who is kind to everyone", "The one who is beautiful and cruel — who drives men crazy and laughs them all away, whose power is her own and she will not give it away", "A tragic heroine who suffers for love", "A strong woman who fights for justice"], ans:1, key:"In the movies there is always one with red red lips who is beautiful and cruel. She drives the men crazy and laughs them all away. Her power is her own. She will not give it away."},
+    {type:"open", q:"Why is Esperanza drawn to the \'beautiful and cruel\' woman in movies rather than to the kind or self-sacrificing woman? What does this preference tell us about what she is becoming?", key:"The beautiful and cruel woman has power that is entirely hers — she does not give it away, does not need a man, does not wait. She is cruel not from malice but from self-possession. Esperanza is drawn to the idea of keeping one\'s own power, especially after watching so many women on Mango Street lose theirs."},
+    {type:"mc", q:"What is Esperanza\'s \'own quiet war,\' and how does she fight it?", opts:["She refuses to speak at family dinners", "She leaves the table like a man — without putting back the chair or picking up the plate", "She argues with her father every day", "She runs away from home on weekends"], ans:1, key:"\'I have begun my own quiet war. Simple. Sure. I am the one who leaves the table like a man, without putting back the chair or picking up the plate.\' Small acts of refusal in domestic space."},
+    {type:"open", q:"The act of leaving the table without clearing it is very small. Why does the author frame this tiny act as \'war\'?", key:"Because the domestic space is where the battle for women\'s freedom is fought in miniature. Every plate cleared and chair pushed in is a small capitulation — a confirmation that women\'s role is to clean up after men. Refusing these small acts is refusing the larger system that assigns them."},
+    {type:"open", q:"Esperanza says \'I am the ugly daughter.\' But this vignette is about her claiming power. Is she really ugly, or is she using the word differently? What does she mean?", key:"She is \'ugly\' by the standard that values girls for their ability to attract men — she is not the pretty one that boys come for. But she is repurposing that label: if nobody is coming for her, she is free to go herself. Her \'ugliness\' becomes her independence."},
+    {type:"mc", q:"Which of the following best summarizes what Esperanza decides in this vignette?", opts:["She decides to leave Mango Street immediately", "She decides to keep her own power — not to give herself away in exchange for security, and to refuse the domestic role quietly and deliberately", "She decides to become more beautiful to attract better attention", "She decides to accept her situation and find happiness within it"], ans:1, key:"She decides to keep her power. She models herself on the beautiful and cruel woman who does not give herself away. She begins her quiet war at the dinner table. She is claiming herself."},
+    {type:"open", q:"\'Beautiful & Cruel\' is one of the key turning-point vignettes of the book. How does the person we see here compare to the Esperanza at the beginning of the book?", key:"At the beginning, Esperanza is ashamed and passive — she wants a house, a friend, to belong. Here she is beginning to define herself on her own terms: ugly but free, unbeautiful but unbound. She has moved from wanting to be accepted to deciding to claim herself. This is the book\'s central transformation beginning."},
+  ],
+  [
+    {type:"mc", q:"What skills does Mama say she has?", opts:["She can cook and sew and keep a perfect house", "She can speak two languages, sing an opera, fix a T.V., and draw — but she doesn\'t know which subway train to take downtown", "She can read four languages and has a college degree", "She can manage money and run a household efficiently"], ans:1, key:"Mama lists her real skills: she can speak two languages, sing an opera, fix a T.V. She used to draw. But she doesn\'t know which subway train to take to get downtown."},
+    {type:"open", q:"Mama can speak two languages and sing opera, but she doesn\'t know which subway train goes downtown. What does this contradiction reveal about how her life has been limited?", key:"She has real intelligence and real gifts — but she has never been allowed or required to use them in the world outside her home. Her knowledge is deep but domestic. The subway is a small thing but it represents everything she never had reason to navigate: the wider world."},
+    {type:"mc", q:"What does Mama say while stirring the oatmeal?", opts:["\'We are doing the best we can and you should be grateful\'", "\'I could\'ve been somebody, you know? Shame is a bad thing. You want to know why I quit school? Because I didn\'t have nice clothes. No clothes, but I had brains. I was a smart cookie then\'", "\'You children just don\'t understand how hard life is\'", "\'Study hard and you will have a better life than me\'"], ans:1, key:"Stirring the oatmeal, Mama says: \'I could\'ve been somebody, you know? Shame is a bad thing, you know? It keeps you down. You want to know why I quit school? Because I didn\'t have nice clothes. No clothes, but I had brains. Yup, I was a smart cookie then.\'"},
+    {type:"open", q:"Mama says she quit school because of shame — she didn\'t have nice clothes. What does this tell us about how shame works as a force in people\'s lives?", key:"Shame stopped her not from the outside (she wasn\'t kicked out) but from the inside. She removed herself from a place where she could have grown because she felt she didn\'t belong there. The shame of poverty — of visible material lack — was enough to cut off her future. This is one of the most important revelations in the book."},
+    {type:"mc", q:"What famous opera character does Mama compare herself to?", opts:["Tosca", "Carmen", "Madame Butterfly", "Violetta"], ans:2, key:"She is Madame Butterfly today, stirring the oatmeal, until she sighs and points the wooden spoon: \'I could\'ve been somebody.\'"},
+    {type:"mc", q:"Who are the comadres Mama mentions as warnings?", opts:["Old women from the neighborhood who gossip", "Izaura whose husband left and Yolanda whose husband is dead — women who have to take care of all their own", "Her own sisters who married well", "Women from church who pray together"], ans:1, key:"Mama\'s comadres are Izaura, whose husband left, and Yolanda, whose husband is dead. They have to take care of all their own. Mama uses them as a warning — these are the lives waiting if you are not smart."},
+    {type:"open", q:"Mama points the wooden spoon at Esperanza and says: \'Esperanza, you go to school. Study hard. That Madame Butterfly was a fool.\' What is Mama really saying to her daughter in this moment?", key:"She is saying: don\'t be me. Don\'t let shame stop you. Don\'t give yourself to a man and end up like Madame Butterfly (who is abandoned). Don\'t waste what I wasted. The wooden spoon pointed at Esperanza is not just kitchen gesture — it is a mother\'s instruction born from her own regret."},
+    {type:"mc", q:"Why does Mama hold Esperanza\'s hand tight while they wait for the right train?", opts:["She is afraid of the subway crowds", "She doesn\'t know which train to take and is nervous — she needs Esperanza to show her", "She wants Esperanza to feel loved", "She is worried Esperanza will get lost"], ans:1, key:"She holds Esperanza\'s hand very tight while they wait for the right train to arrive — because she doesn\'t know which one it is. The daughter and the mother are switching positions: Esperanza knows something Mama doesn\'t."},
+    {type:"open", q:"The title \'A Smart Cookie\' is the last thing Mama says about herself. Is she being proud, sad, ironic, or all three? Explain using details from the vignette.", key:"All three. Proud: she knows she had brains — she was smart. Sad: she also knows she wasted it, quit school for the wrong reason. Ironic: she is a smart cookie who made an unwise choice. The phrase is Mama\'s complete self-assessment in four words — it holds everything she has understood and still regrets."},
+    {type:"open", q:"This vignette is told entirely through Mama\'s voice. What does the author achieve by stepping back and letting Mama speak for herself rather than narrating about her?", key:"We hear Mama\'s intelligence, humor, and pain directly. She is not filtered through Esperanza\'s child-eye view — she becomes fully human, with her own story of loss and potential. It is one of the most intimate moments between mother and daughter in the book."},
+  ],
+  [
+    {type:"mc", q:"What does Sally say about her father hitting her?", opts:["She denies it — she says her father never touches her", "She admits it but says it doesn\'t hurt much", "She says \'He never hits me hard\' — and at school she says she fell, that\'s where the bruises come from", "She doesn\'t say anything — she just cries"], ans:2, key:"Sally says \'He never hits me hard.\' At school she says she fell. That\'s where all the blue places come from. That\'s why her skin is always scarred."},
+    {type:"open", q:"Sally\'s explanations for her bruises (\'I fell,\' \'He never hits me hard\') are contradictions. What do these two statements together tell us about her situation?", key:"The first is a lie told to the world (she fell). The second is a truth that minimizes: he hits her, but she tells herself it isn\'t bad. Both statements are forms of denial — one outward (protecting her father from blame) and one inward (protecting herself from the full weight of what is happening)."},
+    {type:"mc", q:"What does Sally\'s father say his reason is for hitting her?", opts:["That she spends too much money", "That she is ruining the family\'s reputation by talking to boys — \'He thinks I\'m going to run away like his sisters who made the family ashamed\'", "That she failed her exams", "That she stays out too late"], ans:1, key:"Sally tells Esperanza: he thinks she\'ll run away like his sisters who made the family ashamed. Just because she is a daughter, and then she doesn\'t finish the sentence."},
+    {type:"open", q:"Sally\'s father beats her because he fears she will \'run away like his sisters.\' What does this tell us about how the cycle of control and violence in families works?", key:"He is repeating a pattern: his sisters\' choices shamed him, so he controls his daughter to prevent the same shame. He is punishing Sally for something she has not done — punishing her for what women in his life once did. This is how cycles continue: fear and shame become control become violence."},
+    {type:"mc", q:"Sally comes to stay with Esperanza\'s family. What does she bring?", opts:["Only the clothes she is wearing", "A sack full of clothes and a paper bag of sweetbread her mama sent", "A small suitcase with everything she owns", "Nothing — she arrives empty-handed"], ans:1, key:"One Thursday Sally came finally with a sack full of clothes and a paper bag of sweetbread her mama sent. She would\'ve stayed too — except when the dark came her father knocked on the door crying, said \'this is the last time,\' and she said \'Daddy\' and went home."},
+    {type:"open", q:"Sally\'s father comes crying to Esperanza\'s door saying \'please come back, this is the last time.\' Sally says \'Daddy\' and goes home. What makes this moment so complicated and painful?", key:"She loves him. Despite the violence, despite the bruises, he is her father. The word \'Daddy\' contains everything: love, hope that this time will really be the last time, and the impossibility of fully separating from the person who hurts you when he is also the person you need. This is the reality of abuse within families."},
+    {type:"mc", q:"What finally causes Sally\'s father to hurt her so badly that the situation becomes extreme?", opts:["She fails her exams", "He catches her talking to a boy — and the next day she doesn\'t come to school. \'He just forgot he was her father between the buckle and the belt\'", "She comes home very late one night", "She is caught smoking with friends"], ans:1, key:"Sally\'s father catches her talking to a boy. The next day she doesn\'t come to school. And the next. Until the way Sally tells it, \'he just forgot he was her father between the buckle and the belt.\' He beat her with his belt buckle."},
+    {type:"open", q:"The author writes: \'he just forgot he was her father between the buckle and the belt.\' What does this phrase mean? What has he lost?", key:"In the act of violence, he forgot the relationship — he forgot who she was to him and who he was to her. Between the buckle and the belt is a space where the father disappears and something else takes over. The phrase is chilling in its specificity and its suggestion of total loss of self."},
+    {type:"mc", q:"At the very end, the author writes: \'You\'re not my daughter, you\'re not my daughter. And then he broke into his hands.\' What does \'broke into his hands\' mean?", opts:["He clapped his hands in anger", "He dissolved into weeping, hiding his face in his hands", "He punched something with his hands", "He fell to the floor and hurt his hands"], ans:1, key:"He broke into his hands = he collapsed into weeping. His rage dissolved into grief. This does not make what he did acceptable — but it shows that he too has something broken inside him."},
+    {type:"open", q:"This vignette is very short and told entirely in reported speech — \'Sally said,\' \'she said.\' Why does the author tell this story through what Sally said, rather than through direct scene?", key:"Using Sally\'s own words keeps the distance of the way these things are actually told — not witnessed directly but reported, whispered, passed on. It also puts the burden of truth on Sally herself: we only know what she said, which means we understand both what is happening and the limits of what she will admit."},
+    {type:"open", q:"Sally\'s vignettes build throughout the book. What does the author seem to be preparing for in Sally\'s story? What do you think will happen to her?", key:"The author is building toward a crisis — a girl trapped between a violent father and a world that already judges her by her beauty. Her story will likely culminate in an escape that turns out to be another trap. The pattern (violence, denial, return, worse violence) is escalating. Something will break."},
+  ],
+];
+
+function render(){
+  SECTIONS.forEach((qs,si)=>{
+    const container=document.getElementById('qs-'+si);
+    qs.forEach((q,qi)=>{
+      const card=document.createElement('div');
+      card.className='q-card';
+      const typeTag=q.type==='mc'
+        ?'<span class="q-type-tag q-type-mc">Multiple Choice</span>'
+        :'<span class="q-type-tag q-type-open">Open Response</span>';
+      let inner=`<div><span class="q-num">Q${qi+1}</span>${typeTag}</div><div class="q-text" style="margin-top:10px">${q.q}</div>`;
+      if(q.type==='mc'){
+        inner+=q.opts.map((o,oi)=>`<label class="option-label"><input type="radio" name="q${si}_${qi}" value="${oi}"><span>${o}</span></label>`).join('');
+        inner+=`<div class="btn-row"><button class="btn btn-check" onclick="checkMC(${si},${qi})">Check</button><button class="btn btn-show" onclick="toggleKey(${si},${qi})">Show Answer</button></div>
+        <div class="feedback" id="fb-${si}-${qi}"></div>
+        <div class="answer-key" id="key-${si}-${qi}"><strong>Answer:</strong> ${q.key}</div>`;
+      }else{
+        inner+=`<textarea class="answer-area" id="ans-${si}-${qi}" placeholder="Write your answer here…"></textarea>
+        <div class="btn-row"><button class="btn btn-show" onclick="toggleKey(${si},${qi})">Show Model Points</button></div>
+        <div class="answer-key" id="key-${si}-${qi}"><strong>Things to look for:</strong> ${q.key}</div>`;
+      }
+      card.innerHTML=inner;
+      container.appendChild(card);
+    });
+  });
+}
+function checkMC(si,qi){
+  const q=SECTIONS[si][qi];
+  const sel=document.querySelector(`input[name="q${si}_${qi}"]:checked`);
+  const fb=document.getElementById(`fb-${si}-${qi}`);
+  if(!sel){fb.className='feedback show wrong';fb.textContent='Please select an answer first.';return;}
+  const ok=parseInt(sel.value)===q.ans;
+  fb.className='feedback show '+(ok?'correct':'wrong');
+  fb.innerHTML=ok?'✅ Correct!':`❌ Not quite. Correct answer: <strong>${q.opts[q.ans]}</strong>`;
+}
+function toggleKey(si,qi){document.getElementById(`key-${si}-${qi}`).classList.toggle('show');}
+function submitSection(si){
+  let correct=0,total=0;
+  SECTIONS[si].forEach((q,qi)=>{
+    if(q.type!=='mc')return;
+    total++;
+    checkMC(si,qi);
+    const sel=document.querySelector(`input[name="q${si}_${qi}"]:checked`);
+    if(sel&&parseInt(sel.value)===q.ans)correct++;
+  });
+  document.getElementById(`score-${si}`).textContent=correct+' / '+total;
+}
+function showTab(idx){
+  document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function sendToTeacher(si){
+  const tabNames=["Edna's Ruthie","The Earl of Tennessee","Sire","Four Skinny Trees",
+    "No Speak English","Rafaela","Sally","Minerva Writes Poems",
+    "Bums in the Attic","Beautiful & Cruel","A Smart Cookie","What Sally Said"];
+  const vignette=tabNames[si]||("Section "+(si+1));
+  const answers=[];
+  SECTIONS[si].forEach((q,qi)=>{
+    if(q.type!=='open')return;
+    const ta=document.getElementById('ans-'+si+'-'+qi);
+    const text=ta?ta.value.trim():'';
+    answers.push({q:q.q.slice(0,80)+'…', a:text||'(no answer)'});
+  });
+  const body=answers.map((r,i)=>`Q${i+1}: ${r.q}\n→ ${r.a}`).join('\n\n');
+  const payload={
+    _subject:`Mango Street — ${vignette} — Nancy`,
+    student:'Nancy',
+    vignette:vignette,
+    message:body
+  };
+  fetch('https://formsubmit.co/ajax/sophia@joyacademyonline.com',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(r=>r.json()).then(d=>{
+    if(d.success==='true'||d.success===true){
+      alert('✅ Answers sent to Ms. Su!');
+    }else{
+      alert('⚠️ Could not send. Please check your internet connection.');
+    }
+  }).catch(()=>alert('⚠️ Network error. Please try again.'));
+}
+
+</script>
+</body>
+</html>

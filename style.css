@@ -1,4 +1,4 @@
-/* ===== Joy Family Learning / 美嘉溪边书房 — Shared Stylesheet =====
+/* ===== Joy Family Learning / 美嘉河畔书房 — Shared Stylesheet =====
    Unified with the Joy Academy Online (joyacademy.online) design system. */
 
 :root {
@@ -43,8 +43,8 @@ nav {
   padding: 0 1.5rem;
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 3rem;
 }
 
 .nav-logo {
@@ -121,7 +121,7 @@ nav ul li a.active {
   background: var(--gold-light);
   border-bottom: 1px solid #e8dfc4;
   color: var(--navy);
-  padding: 2.5rem 1.5rem 2rem;
+  padding: 2rem 1.5rem 1.5rem;
   text-align: center;
 }
 
@@ -333,12 +333,67 @@ details summary::after {
   transition: transform 0.2s;
 }
 
-details[open] summary::after { content: "－"; }
+details[open] > summary::after { content: "－"; }
 
 details .faq-body {
   padding: 0 1.2rem 1rem;
   color: var(--text);
   font-size: 0.95rem;
+}
+
+/* ===== 首页：可展开的大段落折叠块 ===== */
+.section-toggle {
+  margin: 2rem 0;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.section-toggle summary {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.section-toggle .faq-body {
+  padding: 0 1.2rem 1.2rem;
+}
+
+.section-toggle .faq-body > *:first-child {
+  margin-top: 0;
+}
+
+/* ===== 信息表格 ===== */
+.info-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.88rem;
+}
+
+.info-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.65rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+  font-family: 'Arial', sans-serif;
+}
+
+.info-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.info-table tbody tr:nth-child(even) td {
+  background: var(--bg);
 }
 
 /* ===== 资源卡片 ===== */
@@ -384,6 +439,14 @@ details .faq-body {
 
 .btn:hover { background: var(--blue); text-decoration: none; }
 
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+}
+
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
 /* ===== 页脚 ===== */
 footer {
   background: #EAF2FB;
@@ -398,7 +461,7 @@ footer {
   max-width: 900px;
   margin: 0 auto 1.5rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 1.5rem;
   align-items: start;
 }
@@ -474,4 +537,6 @@ footer {
   .mission-grid { grid-template-columns: 1fr; }
   .resource-card { flex-direction: column; align-items: flex-start; }
   .footer-inner { grid-template-columns: 1fr; }
+  .info-table { font-size: 0.8rem; }
+  .info-table th, .info-table td { padding: 0.5rem 0.7rem; }
 }

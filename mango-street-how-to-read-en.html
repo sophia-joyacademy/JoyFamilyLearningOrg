@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Read a Novel — 4 Levels of Reading</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #f9f5f0;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 36px 20px 60px;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .header .eyebrow {
+    font-size: 0.72em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2em;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header .subtitle {
+    font-size: 0.95em;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Lora', serif;
+    font-style: italic;
+  }
+
+  /* Level cards */
+  .level-card {
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .level-card::before {
+    content: attr(data-num);
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    font-size: 5em;
+    font-weight: 900;
+    opacity: 0.08;
+    line-height: 1;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* Level colors */
+  .level-1 { background: #fff3e0; border-left: 6px solid #f4a030; }
+  .level-2 { background: #e8f5e9; border-left: 6px solid #4caf80; }
+  .level-3 { background: #e3f2fd; border-left: 6px solid #1e88e5; }
+  .level-4 { background: #f3e5f5; border-left: 6px solid #9c27b0; }
+
+  .level-badge {
+    display: inline-block;
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .level-1 .level-badge { background: #f4a030; color: #fff; }
+  .level-2 .level-badge { background: #4caf80; color: #fff; }
+  .level-3 .level-badge { background: #1e88e5; color: #fff; }
+  .level-4 .level-badge { background: #9c27b0; color: #fff; }
+
+  .level-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+  }
+
+  .level-tagline {
+    font-size: 0.88em;
+    color: #555;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-family: 'Lora', serif;
+  }
+
+  .level-desc {
+    font-size: 0.93em;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 18px;
+  }
+
+  /* Questions section */
+  .q-label {
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .q-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .q-list li {
+    font-size: 0.88em;
+    color: #333;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.65);
+    border-radius: 8px;
+    line-height: 1.5;
+  }
+
+  .q-list li::before {
+    content: "→ ";
+    font-weight: 700;
+    opacity: 0.5;
+  }
+
+  /* Example from book */
+  .book-example {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.82em;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #444;
+    background: rgba(255,255,255,0.5);
+    border-left: 3px solid rgba(0,0,0,0.15);
+  }
+  .book-example strong {
+    font-style: normal;
+    font-size: 0.85em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* Tip box */
+  .tip-box {
+    margin-top: 32px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 28px;
+    border: 1.5px solid #e0d8d0;
+  }
+  .tip-box h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+  }
+  .tip-box p {
+    font-size: 0.88em;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .tip-box p:last-child { margin-bottom: 0; }
+
+  /* Levels summary strip */
+  .summary-strip {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .strip-chip {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #fff;
+  }
+  .strip-chip span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.88em;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+  .chip-1 { background: #f4a030; }
+  .chip-2 { background: #4caf80; }
+  .chip-3 { background: #1e88e5; }
+  .chip-4 { background: #9c27b0; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.75em;
+    color: #aaa;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="eyebrow">Joy Family Learning · 美嘉河畔书房 &nbsp;·&nbsp; Reading Skills</p>
+    <h1>How to Read a Novel</h1>
+    <p class="subtitle">Reading is not just recognizing words on a page. Every good book gives you four different things — if you know how to look for them.</p>
+  </div>
+
+  <!-- LEVEL 1 -->
+  <div class="level-card level-1" data-num="1">
+    <span class="level-badge">Level 1</span>
+    <h2 class="level-title">The Feelings Level</h2>
+    <p class="level-tagline">What did you feel?</p>
+    <p class="level-desc">
+      This is where everyone starts. When you read, your gut reacts first: this is sad, this is funny, this makes me angry, this is boring. Those feelings are real and they matter. Good readers pay attention to them — and then ask: <em>why</em> do I feel this way? What in the text caused this feeling?
+    </p>
+    <p class="q-label">Ask yourself:</p>
+    <ul class="q-list">
+      <li>How did this part of the book make me feel?</li>
+      <li>Was there a moment that surprised me, scared me, or made me sad?</li>
+      <li>Did anything remind me of my own life or someone I know?</li>
+      <li>Did I like this character? Did I feel sorry for them? Did they annoy me?</li>
+      <li>What was the mood of this chapter — dark, hopeful, tense, funny?</li>
+    </ul>
+    <div class="book-example">
+      <strong>From The House on Mango Street:</strong><br>
+      When Esperanza describes the house she is ashamed of, many readers feel a mix of sadness for her and discomfort — almost like they shared her embarrassment. What feeling did <em>you</em> have in that moment?
+    </div>
+  </div>
+
+  <!-- LEVEL 2 -->
+  <div class="level-card level-2" data-num="2">
+    <span class="level-badge">Level 2</span>
+    <h2 class="level-title">The Knowledge Level</h2>
+    <p class="level-tagline">What did you learn?</p>
+    <p class="level-desc">
+      Every book is a door into a different world. When you read, you pick up new vocabulary, encounter new ideas, see how other people live. You also learn things about history, culture, or human nature that you didn't know before. A good reader collects these like treasures. The more you notice, the richer your reading becomes.
+    </p>
+    <p class="q-label">Ask yourself:</p>
+    <ul class="q-list">
+      <li>Did I encounter any words I didn't know? What do they mean?</li>
+      <li>Did I learn something new about a place, a culture, or a way of life?</li>
+      <li>Is there an analogy, comparison, or image the author used that is creative or surprising?</li>
+      <li>What is different about this world from my world?</li>
+      <li>Did this book introduce me to an experience I have never had?</li>
+    </ul>
+    <div class="book-example">
+      <strong>From The House on Mango Street:</strong><br>
+      Words like <em>vignette</em>, names like <em>Marin</em> and <em>Alicia</em>, places like <em>Pilsen</em> — and ideas like what it means to grow up female and poor in a neighborhood where everyone speaks Spanish. What was new to you?
+    </div>
+  </div>
+
+  <!-- LEVEL 3 -->
+  <div class="level-card level-3" data-num="3">
+    <span class="level-badge">Level 3</span>
+    <h2 class="level-title">The Comprehension Level</h2>
+    <p class="level-tagline">What is the author saying — and how and why?</p>
+    <p class="level-desc">
+      This is the deepest level of reading. It is not just about what happens in the story — it is about <em>how</em> the author wrote it and <em>why</em>. Why does the author choose these exact words? Why is this chapter so short? Why does the author repeat certain images? When you read at this level, you start to understand not just the characters in the book — you start to understand people and the world around you better.
+    </p>
+    <p class="q-label">Ask yourself:</p>
+    <ul class="q-list">
+      <li>What is the author actually trying to say — what is the deeper message?</li>
+      <li>Why did the author write this scene, or this sentence, in this particular way?</li>
+      <li>What does this character's behavior tell us about people in general?</li>
+      <li>Is there a FACT in this passage, or is it the narrator's IMPRESSION? How can you tell?</li>
+      <li>What does this moment in the book help you understand about yourself or someone in your own life?</li>
+    </ul>
+    <div class="book-example">
+      <strong>From The House on Mango Street:</strong><br>
+      The author titles one vignette "Linoleum Roses." She could have called it "Sally's Marriage." Why did she choose that image instead? What does the title tell you before you've read a single sentence?
+    </div>
+  </div>
+
+  <!-- LEVEL 4 -->
+  <div class="level-card level-4" data-num="4">
+    <span class="level-badge">Level 4</span>
+    <h2 class="level-title">The Takeaway Level</h2>
+    <p class="level-tagline">What will you remember?</p>
+    <p class="level-desc">
+      After you close the book, most of the plot will fade. What stays with you — a line, an image, a feeling, a character, an idea — that is your takeaway. Good readers know what their takeaway is and can explain why it hit them so hard. Your takeaway is unique to you. It reveals something about what you care about.
+    </p>
+    <p class="q-label">Ask yourself:</p>
+    <ul class="q-list">
+      <li>What one moment, image, or line from this reading will I still remember next month?</li>
+      <li>What left the strongest impression on me — and why that particular thing?</li>
+      <li>Did this book change the way I think about anything?</li>
+      <li>If I had to explain this book to a friend in two sentences, what would I say?</li>
+      <li>Is there a lesson here — for me, or for people in general?</li>
+    </ul>
+    <div class="book-example">
+      <strong>From The House on Mango Street:</strong><br>
+      One student remembered this line years later: <em>"I make it mine even in my going away."</em> Another remembered the image of the four skinny trees that no one expected to survive. What was your moment?
+    </div>
+  </div>
+
+  <!-- Tip Box -->
+  <div class="tip-box">
+    <h3>Why does all this matter?</h3>
+    <p>
+      Most people only read at Level 1 — they finish a book and say "it was sad" or "it was good." That kind of reading takes time and gives you very little back.
+    </p>
+    <p>
+      When you read at all four levels, every book becomes a conversation. You come away with new words, new ideas, a sharper understanding of how people think and why they do what they do — and a better understanding of yourself. The same amount of time. Four times the reward.
+    </p>
+    <p>
+      You don't have to answer every question above for every chapter. Even asking one question from each level turns a passive reading experience into an active one. That is the difference between reading and <em>really</em> reading.
+    </p>
+
+    <div class="summary-strip">
+      <div class="strip-chip chip-1">Level 1 — Feelings<span>What did I feel?</span></div>
+      <div class="strip-chip chip-2">Level 2 — Knowledge<span>What did I learn?</span></div>
+      <div class="strip-chip chip-3">Level 3 — Comprehension<span>What is the author saying?</span></div>
+      <div class="strip-chip chip-4">Level 4 — Takeaway<span>What will I remember?</span></div>
+    </div>
+  </div>
+
+  <footer>Joy Family Learning · 美嘉河畔书房 &nbsp;·&nbsp; The House on Mango Street Reading Program</footer>
+
+</div>
+</body>
+</html>

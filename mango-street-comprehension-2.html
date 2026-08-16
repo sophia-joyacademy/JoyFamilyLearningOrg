@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The House on Mango Street — Vignettes 38–44 Reading Comprehension</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #fdf6ee; color: #2c1a0e; }
+  header { background: #7b3f1e; color: #fdf6ee; padding: 18px 30px; }
+  header h1 { font-size: 1.3em; font-weight: bold; letter-spacing: 0.03em; }
+  header p { font-size: 0.88em; margin-top: 4px; opacity: 0.85; }
+
+  /* Tab bar */
+  .tab-bar { display: flex; flex-wrap: wrap; background: #5a2d0c; padding: 0 20px; gap: 2px; }
+  .tab-btn {
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    color: #f5dfc5;
+    font-size: 0.8em;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { background: rgba(255,255,255,0.08); }
+  .tab-btn.active { background: #fdf6ee; color: #7b3f1e; border-bottom-color: #c0622a; font-weight: bold; }
+
+  /* Content */
+  .tab-content { display: none; padding: 30px; max-width: 860px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  .vignette-title {
+    font-size: 1.5em;
+    color: #7b3f1e;
+    border-bottom: 2px solid #c0622a;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .vignette-num { font-size: 0.8em; color: #999; margin-bottom: 20px; }
+
+  /* Section headers */
+  .section-header {
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c0622a;
+    margin: 28px 0 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e8d5c0;
+  }
+
+  /* MC Questions */
+  .mc-question { margin-bottom: 22px; }
+  .mc-question p.q-text {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .mc-options label {
+    display: block;
+    padding: 7px 12px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.15s;
+  }
+  .mc-options label:hover { background: #fef0e0; }
+  .mc-options input[type="radio"] { margin-right: 8px; }
+  .mc-options label.correct { background: #d4edda; border-color: #5a9e6f; color: #1a5c33; }
+  .mc-options label.wrong { background: #f8d7da; border-color: #c07080; color: #6b1a25; }
+  .check-btn {
+    margin-top: 8px;
+    padding: 6px 18px;
+    background: #7b3f1e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+  }
+  .check-btn:hover { background: #5a2d0c; }
+  .feedback { font-size: 0.85em; margin-top: 6px; font-style: italic; }
+
+  /* Open Response */
+  .or-question { margin-bottom: 24px; }
+  .or-question p.q-text {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .or-question textarea {
+    width: 100%;
+    min-height: 90px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: Georgia, serif;
+    font-size: 0.9em;
+    resize: vertical;
+    background: #fff;
+  }
+  .or-question textarea:focus { outline: 2px solid #c0622a; }
+  .hint-toggle {
+    margin-top: 6px;
+    background: none;
+    border: 1px solid #c0622a;
+    color: #c0622a;
+    padding: 4px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  .hint-box {
+    display: none;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: #fff8f0;
+    border-left: 3px solid #c0622a;
+    font-size: 0.85em;
+    line-height: 1.5;
+    color: #5a2d0c;
+  }
+
+  /* Progress bar */
+  .progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .progress-bar-wrap { flex: 1; height: 8px; background: #e8d5c0; border-radius: 4px; }
+  .progress-bar { height: 100%; background: #c0622a; border-radius: 4px; transition: width 0.3s; }
+  .progress-label { font-size: 0.78em; color: #999; white-space: nowrap; }
+
+  /* Score */
+  .score-display {
+    display: inline-block;
+    background: #fef0e0;
+    border: 1px solid #e8c090;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 0.85em;
+    color: #7b3f1e;
+    margin-bottom: 16px;
+  }
+
+.send-btn {
+  display: block;
+  margin: 24px auto 8px;
+  padding: 10px 30px;
+  background: #5a8f6e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88em;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+.send-btn:hover { background: #3d6b50; }
+.send-confirm { text-align:center; font-size:0.82em; color:#3d6b50; margin-top:6px; display:none; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>The House on Mango Street — Reading Comprehension</h1>
+  <p>Vignettes 38–44 &nbsp;·&nbsp; Fact vs. Impression &nbsp;·&nbsp; Always return to the text.</p>
+</header>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('v38')">38. The Monkey Garden</button>
+  <button class="tab-btn" onclick="switchTab('v39')">39. Red Clowns</button>
+  <button class="tab-btn" onclick="switchTab('v40')">40. Linoleum Roses</button>
+  <button class="tab-btn" onclick="switchTab('v41')">41. The Three Sisters</button>
+  <button class="tab-btn" onclick="switchTab('v42')">42. Alicia &amp; I Talking</button>
+  <button class="tab-btn" onclick="switchTab('v43')">43. A House of My Own</button>
+  <button class="tab-btn" onclick="switchTab('v44')">44. Mango Says Goodbye</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 38 — THE MONKEY GARDEN
+═══════════════════════════════════════════════ -->
+<div id="v38" class="tab-content active">
+  <h2 class="vignette-title">The Monkey Garden</h2>
+  <p class="vignette-num">Vignette 38</p>
+
+  <div class="score-display" id="score-v38">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v38" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v38">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">1. What did the garden originally belong to, according to the author?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q1" value="a"> A. A family that kept a dog</label>
+      <label><input type="radio" name="v38q1" value="b"> B. A family that kept a monkey</label>
+      <label><input type="radio" name="v38q1" value="c"> C. An old woman who grew vegetables</label>
+      <label><input type="radio" name="v38q1" value="d"> D. The city, which built it as a park</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">2. The author describes the garden as full of which of the following?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q2" value="a"> A. Blooming rose bushes and fruit trees</label>
+      <label><input type="radio" name="v38q2" value="b"> B. Colorful flowers planted by neighbors</label>
+      <label><input type="radio" name="v38q2" value="c"> C. Weeds, old cars, and wild overgrowth</label>
+      <label><input type="radio" name="v38q2" value="d"> D. Neatly trimmed grass and garden paths</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">3. Why do Tito's friends take Sally's keys?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q3" value="a"> A. They want to lock her out of her house</label>
+      <label><input type="radio" name="v38q3" value="b"> B. As part of a game — they will only return the keys if she kisses them</label>
+      <label><input type="radio" name="v38q3" value="c"> C. They are stealing them to sell</label>
+      <label><input type="radio" name="v38q3" value="d"> D. They think the keys belong to Esperanza</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">4. What does Esperanza do when she realizes what is happening with Sally and the boys?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q4" value="a"> A. She joins in with the boys' game</label>
+      <label><input type="radio" name="v38q4" value="b"> B. She walks away and goes home</label>
+      <label><input type="radio" name="v38q4" value="c"> C. She tries to get adult help and then rushes back to confront the boys</label>
+      <label><input type="radio" name="v38q4" value="d"> D. She calls the police from a neighbor's house</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">5. How does Sally react when Esperanza tries to rescue her?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q5" value="a"> A. She is grateful and thanks Esperanza</label>
+      <label><input type="radio" name="v38q5" value="b"> B. She is angry and embarrassed by Esperanza</label>
+      <label><input type="radio" name="v38q5" value="c"> C. She cries and asks for help escaping</label>
+      <label><input type="radio" name="v38q5" value="d"> D. She ignores Esperanza and keeps playing</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v38">
+    <p class="q-text">6. After the incident with Sally, what does Esperanza do in the garden?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v38q6" value="a"> A. She plants flowers to make it beautiful</label>
+      <label><input type="radio" name="v38q6" value="b"> B. She lies down under a tree and tries to make herself feel nothing</label>
+      <label><input type="radio" name="v38q6" value="c"> C. She runs home and tells her mother everything</label>
+      <label><input type="radio" name="v38q6" value="d"> D. She builds a fort and refuses to leave</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v38')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. At the beginning of the vignette, the author describes the garden as a magical, exciting place for the neighborhood children. By the end, what has the garden become for Esperanza? Use details from the text to support your answer.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what happens to Esperanza's feelings about the garden after the Sally incident. What does she do there at the end? The author says she "didn't feel so good" — what does the garden represent at that point?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. Esperanza runs to get an adult to help Sally, but her mother does not understand why she is upset. What does this tell us about the gap between what Esperanza sees and what the adults around her see?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what Esperanza is trying to explain. Why might her mother not understand? What does this moment show about the difference between Esperanza's world and the adult world?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. Sally is not upset about what happened with the boys — she is embarrassed by Esperanza. What does Sally's reaction tell us about the different ways the two girls understand what "growing up" means?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Sally chooses to stay with the boys. She doesn't want to be rescued. What does Sally want? What does Esperanza want for her? Why are they different?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. The author titled this vignette "The Monkey Garden," but the monkey itself is only mentioned briefly. Why do you think the author chose this title? What does the garden represent in this vignette? Refer to what the author actually writes.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what the garden used to be (the monkey's owner left) and what it becomes (overgrown, wild, a place where bad things happen). What kind of place is it for children at the start vs. the end?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v38')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v38"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 39 — RED CLOWNS
+═══════════════════════════════════════════════ -->
+<div id="v39" class="tab-content">
+  <h2 class="vignette-title">Red Clowns</h2>
+  <p class="vignette-num">Vignette 39</p>
+
+  <div class="score-display" id="score-v39">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v39" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v39">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">1. Where are Esperanza and Sally when this vignette takes place?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q1" value="a"> A. At school</label>
+      <label><input type="radio" name="v39q1" value="b"> B. At a carnival or fair</label>
+      <label><input type="radio" name="v39q1" value="c"> C. At Sally's apartment</label>
+      <label><input type="radio" name="v39q1" value="d"> D. At the monkey garden</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">2. What does Sally do that leaves Esperanza alone?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q2" value="a"> A. Sally goes home without telling Esperanza</label>
+      <label><input type="radio" name="v39q2" value="b"> B. Sally goes off with a boy, leaving Esperanza to wait alone</label>
+      <label><input type="radio" name="v39q2" value="c"> C. Sally gets on a ride and Esperanza can't follow</label>
+      <label><input type="radio" name="v39q2" value="d"> D. Sally is taken away by her father</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">3. The author writes that Esperanza called out for Sally. What does this detail show about how Esperanza feels during the assault?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q3" value="a"> A. She is angry at Sally for being so popular</label>
+      <label><input type="radio" name="v39q3" value="b"> B. She is frightened and feels abandoned and betrayed</label>
+      <label><input type="radio" name="v39q3" value="c"> C. She wants Sally to come enjoy the carnival</label>
+      <label><input type="radio" name="v39q3" value="d"> D. She wants Sally to help her find her mother</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">4. Esperanza says that what happened was "not what you said at all." Who is she talking to, and what had they told her?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q4" value="a"> A. She is talking to her mother, who told her the neighborhood was safe</label>
+      <label><input type="radio" name="v39q4" value="b"> B. She is talking to Sally, who told her romantic stories about love and boys</label>
+      <label><input type="radio" name="v39q4" value="c"> C. She is talking to her teacher, who assigned a book about growing up</label>
+      <label><input type="radio" name="v39q4" value="d"> D. She is talking to Alicia, who warned her about carnivals</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">5. The author addresses Sally directly throughout this vignette. What is the overall tone of Esperanza's words to Sally?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q5" value="a"> A. Forgiving and understanding</label>
+      <label><input type="radio" name="v39q5" value="b"> B. Calm and matter-of-fact</label>
+      <label><input type="radio" name="v39q5" value="c"> C. Accusatory and full of pain — Sally lied and wasn't there</label>
+      <label><input type="radio" name="v39q5" value="d"> D. Cheerful, as if nothing serious happened</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v39">
+    <p class="q-text">6. The red clowns are mentioned in the title and appear in the background of this vignette. What contrast do they create with what happens to Esperanza?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v39q6" value="a"> A. They are scary, matching the horror of the assault</label>
+      <label><input type="radio" name="v39q6" value="b"> B. They are cheerful and silly, contrasting sharply with Esperanza's trauma</label>
+      <label><input type="radio" name="v39q6" value="c"> C. They warn Esperanza about danger but she ignores them</label>
+      <label><input type="radio" name="v39q6" value="d"> D. They represent the community that protects Esperanza</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v39')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. Esperanza says the women and Sally told her stories about love and boys that turned out to be lies. What does this suggest about how girls in the book are prepared — or not prepared — for the real dangers they face?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what stories Esperanza heard and what actually happened. The author is showing a gap between what girls are told and what they experience. What is dangerous about that gap?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. The author writes this vignette in the second person — Esperanza speaks directly to Sally as "you." How does this choice of voice affect the reader? Why might the author have written it this way instead of just describing what happened?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Read the vignette again and notice every time Esperanza says "you" to Sally. What feeling does that create? Is it like an accusation, a confession, a cry for help? How would the vignette feel different if Esperanza just said "Sally wasn't there"?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. This is one of the most painful vignettes in the book. The author does not describe the assault in direct detail — she uses indirect language. What effect does this have? Is it more powerful or less powerful than a direct description? Explain using specific words from the text.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">The author writes things like "not what you said at all" and "I called your name." She never states exactly what happened. Think about why a writer might make this choice. What does the reader fill in?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. "Red Clowns" and "The Monkey Garden" both involve Sally leaving Esperanza in a dangerous or painful situation. What does Sally represent for Esperanza across these two vignettes? Use evidence from both.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">In both vignettes, where is Sally when Esperanza needs her? What did Esperanza expect from Sally? What did she actually get? Think about trust and friendship.</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v39')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v39"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 40 — LINOLEUM ROSES
+═══════════════════════════════════════════════ -->
+<div id="v40" class="tab-content">
+  <h2 class="vignette-title">Linoleum Roses</h2>
+  <p class="vignette-num">Vignette 40</p>
+
+  <div class="score-display" id="score-v40">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v40" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v40">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">1. Who does Sally marry, according to the author?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q1" value="a"> A. A boy from her school</label>
+      <label><input type="radio" name="v40q1" value="b"> B. A marshmallow salesman she met at the carnival</label>
+      <label><input type="radio" name="v40q1" value="c"> C. One of Tito's friends from the neighborhood</label>
+      <label><input type="radio" name="v40q1" value="d"> D. An older man her father chose for her</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">2. When did Sally get married?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q2" value="a"> A. After she graduated from high school</label>
+      <label><input type="radio" name="v40q2" value="b"> B. Before she finished eighth grade</label>
+      <label><input type="radio" name="v40q2" value="c"> C. On her eighteenth birthday</label>
+      <label><input type="radio" name="v40q2" value="d"> D. The summer after ninth grade</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">3. The author writes that Sally's husband "doesn't let her" do certain things. Which of the following does the text say he will not allow?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q3" value="a"> A. He won't let her talk to her old friends or look out the window</label>
+      <label><input type="radio" name="v40q3" value="b"> B. He won't let her read books or watch television</label>
+      <label><input type="radio" name="v40q3" value="c"> C. He won't let her cook or clean the house</label>
+      <label><input type="radio" name="v40q3" value="d"> D. He won't let her see her mother on weekends</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'a','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">4. Why did Sally want to get married, according to the author?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q4" value="a"> A. She was deeply in love and couldn't wait</label>
+      <label><input type="radio" name="v40q4" value="b"> B. She wanted to escape her father</label>
+      <label><input type="radio" name="v40q4" value="c"> C. Her mother arranged the marriage</label>
+      <label><input type="radio" name="v40q4" value="d"> D. She wanted to move to a new city</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">5. The title "Linoleum Roses" refers to what Sally looks at in her new home. What does this image suggest about Sally's life?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q5" value="a"> A. Her home is beautiful and well-decorated, showing her husband's love</label>
+      <label><input type="radio" name="v40q5" value="b"> B. Her world has shrunk to looking at fake roses on the floor — beauty that is not real or alive</label>
+      <label><input type="radio" name="v40q5" value="c"> C. She has learned to be content with simple things</label>
+      <label><input type="radio" name="v40q5" value="d"> D. She has a talent for interior decorating</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v40">
+    <p class="q-text">6. How does the author describe Sally's feelings about her new life?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v40q6" value="a"> A. Sally says she is very happy and feels free</label>
+      <label><input type="radio" name="v40q6" value="b"> B. Sally complains constantly about her husband</label>
+      <label><input type="radio" name="v40q6" value="c"> C. Sally says she is happy but the details the author gives suggest she is trapped</label>
+      <label><input type="radio" name="v40q6" value="d"> D. Sally refuses to speak to Esperanza about her marriage</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v40')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. Sally married to escape her father, but the author shows her in a marriage where her husband also controls her. In your own words, explain the trap the author is describing. Use specific details from the text.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Sally's father controlled her before marriage. Now her husband controls her after marriage. What changed? What stayed the same? What is the author showing about the options available to Sally?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. The author lists the things in Sally's apartment — the pots and pans, the pictures on the wall, the floors. Why does the author spend time on these objects? What do they tell us about Sally's life?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what Sally is allowed to do in her apartment. These objects — the things she looks at, counts, arranges — are her entire world now. What does that world look like? Is it enough?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. Compare Sally's situation to Mama's situation in "A Smart Cookie." What do these two women have in common? What is different about their circumstances?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what each woman wanted, what stopped her, and what her daily life looks like. Both are women who had potential — what happened to it?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. The title uses the word "roses" — a symbol of beauty and love — but puts the word "linoleum" before it. Linoleum is a hard, cheap floor covering. What do you think the author is saying about Sally's marriage by combining these two words?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">A real rose is alive and fragrant. A linoleum rose is flat, printed, and cannot grow. What does each kind of rose represent? What is the author saying about the difference between what Sally hoped for and what she got?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v40')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v40"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 41 — THE THREE SISTERS
+═══════════════════════════════════════════════ -->
+<div id="v41" class="tab-content">
+  <h2 class="vignette-title">The Three Sisters</h2>
+  <p class="vignette-num">Vignette 41</p>
+
+  <div class="score-display" id="score-v41">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v41" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v41">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">1. Why are the three sisters present in this vignette?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q1" value="a"> A. They are neighbors visiting for a birthday party</label>
+      <label><input type="radio" name="v41q1" value="b"> B. They came from Mexico for the funeral of Lucy and Rachel's baby sister</label>
+      <label><input type="radio" name="v41q1" value="c"> C. They are teachers at Esperanza's school</label>
+      <label><input type="radio" name="v41q1" value="d"> D. They are selling things door to door on the street</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">2. How does the author describe the three sisters — what is unusual about them?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q2" value="a"> A. They are very loud and tell jokes all evening</label>
+      <label><input type="radio" name="v41q2" value="b"> B. They are mysterious, old, and seem to have a gift for knowing things about people</label>
+      <label><input type="radio" name="v41q2" value="c"> C. They are beautifully dressed and very wealthy</label>
+      <label><input type="radio" name="v41q2" value="d"> D. They argue with each other constantly</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">3. One of the three sisters calls Esperanza aside. What does she tell Esperanza about her future?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q3" value="a"> A. That Esperanza will become a teacher and help her community</label>
+      <label><input type="radio" name="v41q3" value="b"> B. That Esperanza will marry young like Sally</label>
+      <label><input type="radio" name="v41q3" value="c"> C. That Esperanza is special and will go far</label>
+      <label><input type="radio" name="v41q3" value="d"> D. That Esperanza will never leave Mango Street</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">4. The sister gives Esperanza a specific instruction about leaving. What is it?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q4" value="a"> A. She tells Esperanza to leave as fast as she can and never look back</label>
+      <label><input type="radio" name="v41q4" value="b"> B. She tells Esperanza that when she leaves, she must remember to come back for those who cannot leave</label>
+      <label><input type="radio" name="v41q4" value="c"> C. She tells Esperanza to save money until she can afford a better house</label>
+      <label><input type="radio" name="v41q4" value="d"> D. She tells Esperanza to write to her family every week after she goes</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">5. The sister says: "You will always be Mango Street." What does Esperanza think of this at the time?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q5" value="a"> A. She is thrilled — she is proud of where she comes from</label>
+      <label><input type="radio" name="v41q5" value="b"> B. She doesn't fully understand it yet, but she feels the weight of the words</label>
+      <label><input type="radio" name="v41q5" value="c"> C. She is angry and argues with the old woman</label>
+      <label><input type="radio" name="v41q5" value="d"> D. She laughs and ignores the comment</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v41">
+    <p class="q-text">6. The three sisters smell of "roses and peppermint candy." What effect does this detail create?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v41q6" value="a"> A. It makes them seem like ordinary grandmothers from the neighborhood</label>
+      <label><input type="radio" name="v41q6" value="b"> B. It gives them a magical, almost otherworldly quality — sweet and strange</label>
+      <label><input type="radio" name="v41q6" value="c"> C. It shows that they work in a flower shop</label>
+      <label><input type="radio" name="v41q6" value="d"> D. It suggests they are too old to take care of themselves properly</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v41')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. The three sisters seem to know things about Esperanza that she has not told them. What do you think the author wants us to understand about these women? Are they simply wise elders, or does the author give them a more mysterious role?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about how they are described — their age, their smell, how they look at Esperanza. What gifts do they seem to have? Why might the author make them seem magical rather than ordinary?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. The sister tells Esperanza to "come back" for the ones who cannot leave. Who are "the ones who cannot leave"? Name at least two characters from earlier in the book who fit this description and explain why they cannot leave.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about the women in the book who are stuck — trapped by husbands, fathers, poverty, or circumstances. Mamacita, Sally, Rafaela, Minerva — what stops each of them from leaving?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. This is the first time in the book that someone outside Esperanza's family tells her directly that she is destined for something. How does this moment feel different from other moments in the book when adults speak to Esperanza?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about how other adults in the book treat Esperanza — do they see her future? Do they encourage her? How is this moment different from, say, the moment with her mother in "A Smart Cookie"?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. This vignette takes place at a funeral — a baby has died. Why do you think the author placed this important prophecy inside a scene of grief? What does the combination of death and promise mean?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">A baby's death means an end — a life that never got to begin. But the three sisters give Esperanza a message about her future. What is the author saying about endings and beginnings? About what gets lost and what might survive?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v41')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v41"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 42 — ALICIA & I TALKING ON EDNA'S STEPS
+═══════════════════════════════════════════════ -->
+<div id="v42" class="tab-content">
+  <h2 class="vignette-title">Alicia &amp; I Talking on Edna's Steps</h2>
+  <p class="vignette-num">Vignette 42</p>
+
+  <div class="score-display" id="score-v42">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v42" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v42">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">1. What does Esperanza tell Alicia she does NOT have?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q1" value="a"> A. A family who loves her</label>
+      <label><input type="radio" name="v42q1" value="b"> B. A house — she doesn't claim Mango Street as hers</label>
+      <label><input type="radio" name="v42q1" value="c"> C. Any friends who understand her</label>
+      <label><input type="radio" name="v42q1" value="d"> D. A plan for the future</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">2. What is Alicia's response when Esperanza denies that Mango Street is her home?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q2" value="a"> A. Alicia agrees — she says Mango Street is a terrible place</label>
+      <label><input type="radio" name="v42q2" value="b"> B. Alicia says Mango Street belongs to Esperanza whether she likes it or not</label>
+      <label><input type="radio" name="v42q2" value="c"> C. Alicia tells Esperanza to move away as quickly as possible</label>
+      <label><input type="radio" name="v42q2" value="d"> D. Alicia ignores Esperanza and changes the subject</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">3. Esperanza says she will not come back to Mango Street unless someone makes it better. Who does Alicia suggest might do that?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q3" value="a"> A. The mayor of the city</label>
+      <label><input type="radio" name="v42q3" value="b"> B. The government</label>
+      <label><input type="radio" name="v42q3" value="c"> C. The question is left open — but the implication is Esperanza herself</label>
+      <label><input type="radio" name="v42q3" value="d"> D. A local charity organization</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'c','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">4. Alicia is described earlier in the book as a girl who goes to university and works hard. How does her situation make her an appropriate person to have this conversation with Esperanza?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q4" value="a"> A. Alicia is not appropriate — she doesn't understand Esperanza at all</label>
+      <label><input type="radio" name="v42q4" value="b"> B. Alicia is also trying to leave her circumstances through education, so she understands Esperanza's desire to escape</label>
+      <label><input type="radio" name="v42q4" value="c"> C. Alicia is wealthy and can help Esperanza move away</label>
+      <label><input type="radio" name="v42q4" value="d"> D. Alicia grew up somewhere else and doesn't feel connected to the neighborhood</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">5. The vignette is very short. The author ends it with Alicia's question hanging in the air without a clear answer. What effect does this create?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q5" value="a"> A. It shows the conversation was unimportant</label>
+      <label><input type="radio" name="v42q5" value="b"> B. It leaves the reader — and Esperanza — with the weight of the unanswered question about who will take responsibility</label>
+      <label><input type="radio" name="v42q5" value="c"> C. It means the author ran out of things to say</label>
+      <label><input type="radio" name="v42q5" value="d"> D. It signals that Alicia and Esperanza are no longer friends</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v42">
+    <p class="q-text">6. Earlier in the book, Esperanza says she is ashamed of where she lives. In this vignette, Alicia challenges that shame. What does Alicia seem to believe about one's responsibility to one's home?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v42q6" value="a"> A. You should leave and never feel guilty about it</label>
+      <label><input type="radio" name="v42q6" value="b"> B. You cannot escape where you come from, and those who leave still carry their home with them</label>
+      <label><input type="radio" name="v42q6" value="c"> C. It is better to stay and never risk leaving</label>
+      <label><input type="radio" name="v42q6" value="d"> D. Home is wherever you choose to live — the past doesn't matter</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v42')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. Esperanza says she doesn't have a house and doesn't want one on Mango Street. But is she telling the whole truth? Based on what you've read in the book, what does Esperanza actually want — and is that different from what she says here?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about the vignette "A House of My Own." What kind of house does Esperanza dream of? How is that different from rejecting Mango Street? Is it possible to want to leave AND still care about where you come from?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. Alicia tells Esperanza that Mango Street is her home "whether she likes it or not." Do you agree with Alicia? Can a place be your home even if you are ashamed of it or want to escape it? Use details from the book to support your view.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about how the book began — Esperanza's shame about the house on Mango Street. But also think about the three sisters' words. What does it mean to "belong" to a place?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. Alicia's final implied question — who will make Mango Street better if not Esperanza? — connects to what the three sisters told Esperanza. How do these two conversations together help us understand what the author wants Esperanza (and the reader) to feel responsible for?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">The three sisters said "come back for those who cannot leave." Alicia says "who's going to make it better?" Are these the same message? What is the author saying about people who are able to escape — what do they owe to those left behind?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. This vignette is only a few sentences long. Yet it carries enormous meaning. Why do you think the author made it so short? What is the effect of compressing this important conversation into such a brief space?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what's said and what's NOT said. Short doesn't mean unimportant — in fact, the brevity might make it hit harder. What hangs in the silence after the last line?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v42')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v42"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 43 — A HOUSE OF MY OWN
+═══════════════════════════════════════════════ -->
+<div id="v43" class="tab-content">
+  <h2 class="vignette-title">A House of My Own</h2>
+  <p class="vignette-num">Vignette 43</p>
+
+  <div class="score-display" id="score-v43">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v43" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v43">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">1. In this vignette, Esperanza describes the house she wants. She specifically says it is NOT whose house?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q1" value="a"> A. Not her mother's and not her sister's</label>
+      <label><input type="radio" name="v43q1" value="b"> B. Not a man's house and not a daddy's house</label>
+      <label><input type="radio" name="v43q1" value="c"> C. Not a rich person's house and not a stranger's house</label>
+      <label><input type="radio" name="v43q1" value="d"> D. Not the house on Mango Street and not any house on that block</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">2. The author describes the house as "quiet as snow." What does this image suggest about what Esperanza wants from her house?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q2" value="a"> A. She wants a house in a cold climate far from Chicago</label>
+      <label><input type="radio" name="v43q2" value="b"> B. She wants peace, stillness, and space to think — quiet she can control</label>
+      <label><input type="radio" name="v43q2" value="c"> C. She wants a house with white walls and white furniture</label>
+      <label><input type="radio" name="v43q2" value="d"> D. She wants to live alone without any heating</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">3. The author writes that the house should be "clean as paper before the poem." What does "before the poem" mean here?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q3" value="a"> A. The house should smell like a library</label>
+      <label><input type="radio" name="v43q3" value="b"> B. A blank page holds infinite possibility — the house represents creative freedom yet to come</label>
+      <label><input type="radio" name="v43q3" value="c"> C. The house should be decorated with poems on the walls</label>
+      <label><input type="radio" name="v43q3" value="d"> D. She will write a poem about the house once she finds it</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">4. This is one of the shortest vignettes in the book. What does the author seem to be saying by keeping it so brief and poetic?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q4" value="a"> A. The author ran out of ideas</label>
+      <label><input type="radio" name="v43q4" value="b"> B. The dream doesn't need many words — it is simple, pure, and clear</label>
+      <label><input type="radio" name="v43q4" value="c"> C. The house itself is very small</label>
+      <label><input type="radio" name="v43q4" value="d"> D. Esperanza doesn't care very much about having her own house</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">5. The house Esperanza describes is "only mine." Why is the word "only" important here?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q5" value="a"> A. She means a small, modest house — not a mansion</label>
+      <label><input type="radio" name="v43q5" value="b"> B. She is emphasizing that it belongs to no one else — not a father, husband, or anyone — just her</label>
+      <label><input type="radio" name="v43q5" value="c"> C. She will not share it with her siblings</label>
+      <label><input type="radio" name="v43q5" value="d"> D. She will only live there for a short time</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v43">
+    <p class="q-text">6. The author places this vignette near the end of the book, just before "Mango Says Goodbye Sometimes." Why is this an important position for this vignette?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v43q6" value="a"> A. It balances a later vignette that is very long</label>
+      <label><input type="radio" name="v43q6" value="b"> B. It states Esperanza's core dream clearly before the book closes — the reader carries it into the final pages</label>
+      <label><input type="radio" name="v43q6" value="c"> C. The author needed to fill space before the ending</label>
+      <label><input type="radio" name="v43q6" value="d"> D. It introduces a new character who appears in the last vignette</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v43')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. The house Esperanza wants is defined by what it is NOT: not a man's, not a daddy's. Why does the author define the house by its negative — what it isn't — rather than just describing what it is? What does this tell us about Esperanza's life so far?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about whose houses Esperanza has lived in and near throughout the book. Think about the women you've read about — Sally, Rafaela, Mamacita. What has defined all of their houses? What is Esperanza rejecting?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. "Clean as paper before the poem." The author connects the idea of a house to the idea of writing. What does this suggest about what a house of her own means for Esperanza beyond just having a place to live?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">A blank page is where stories and poems begin. If the house is "clean as paper before the poem," what can happen in it? What does having her own space allow Esperanza to do or become?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. Think about the house on Mango Street that Esperanza has been ashamed of throughout the book, and compare it to the house she describes in this vignette. What are the key differences — not just physical, but emotional?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">At the start of the book, the author describes the house on Mango Street in detail — the red bricks, the tight stairs, the small windows. How does Esperanza feel about that house? How does she feel about the imagined house in this vignette?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. This vignette is written like a poem more than a story. How does the author's use of images — snow, paper, poetry — change the way the reader understands Esperanza's dream? Would the vignette be as powerful if it were written in plain, factual sentences?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Try rewriting the first sentence in plain language: "I want a house that belongs only to me." Now read the author's version. What does the author's language add that the plain version doesn't have?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v43')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v43"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIGNETTE 44 — MANGO SAYS GOODBYE SOMETIMES
+═══════════════════════════════════════════════ -->
+<div id="v44" class="tab-content">
+  <h2 class="vignette-title">Mango Says Goodbye Sometimes</h2>
+  <p class="vignette-num">Vignette 44</p>
+
+  <div class="score-display" id="score-v44">Score: 0 / 6 MC answered</div>
+  <div class="progress-row">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="pb-v44" style="width:0%"></div></div>
+    <span class="progress-label" id="pl-v44">0 of 6</span>
+  </div>
+
+  <div class="section-header">Part A — Multiple Choice</div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">1. At the beginning of this vignette, what does Esperanza say she likes to do?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q1" value="a"> A. She likes to draw pictures of the neighborhood</label>
+      <label><input type="radio" name="v44q1" value="b"> B. She likes to tell stories</label>
+      <label><input type="radio" name="v44q1" value="c"> C. She likes to go for walks alone</label>
+      <label><input type="radio" name="v44q1" value="d"> D. She likes to cook for her family</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">2. The author writes that Esperanza will leave Mango Street but will come back. Who does she say she is coming back for?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q2" value="a"> A. For her parents, who are getting older</label>
+      <label><input type="radio" name="v44q2" value="b"> B. For the ones she left behind — the ones who cannot leave as easily</label>
+      <label><input type="radio" name="v44q2" value="c"> C. For herself — because she will miss the neighborhood</label>
+      <label><input type="radio" name="v44q2" value="d"> D. For Sally, who is still trapped in her marriage</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">3. The author writes: "I make it mine even in my going away." What does "it" refer to?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q3" value="a"> A. Her possessions, which she will take with her</label>
+      <label><input type="radio" name="v44q3" value="b"> B. Mango Street — she claims it as part of who she is even as she leaves</label>
+      <label><input type="radio" name="v44q3" value="c"> C. Her family's sadness about her leaving</label>
+      <label><input type="radio" name="v44q3" value="d"> D. The book she has been writing</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">4. The final vignette echoes the very first vignette, "The House on Mango Street." The author returns to the same place and the same house. What does this circular structure suggest?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q4" value="a"> A. Esperanza has not changed and is stuck where she started</label>
+      <label><input type="radio" name="v44q4" value="b"> B. Mango Street is the beginning and the center of everything — leaving is not escaping but understanding</label>
+      <label><input type="radio" name="v44q4" value="c"> C. The author forgot she had already written that vignette</label>
+      <label><input type="radio" name="v44q4" value="d"> D. The story is meant to be read on a loop with no real ending</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">5. The author has Esperanza say she will not always be here but "the house, the street, the town" will always be inside her. This connects to what the three sisters told her. What did the three sisters say that this echoes?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q5" value="a"> A. "You will become a great writer someday"</label>
+      <label><input type="radio" name="v44q5" value="b"> B. "You will always be Mango Street"</label>
+      <label><input type="radio" name="v44q5" value="c"> C. "Never forget to call your mother"</label>
+      <label><input type="radio" name="v44q5" value="d"> D. "A house requires a family to make it a home"</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mc-question" data-vignette="v44">
+    <p class="q-text">6. The title is "Mango Says Goodbye Sometimes." Why does the author say "sometimes" — not "always" or "forever"?</p>
+    <div class="mc-options">
+      <label><input type="radio" name="v44q6" value="a"> A. Because Esperanza is not sure if she will ever leave</label>
+      <label><input type="radio" name="v44q6" value="b"> B. Because "goodbye" is temporary — she will go but she will return; the connection is never fully broken</label>
+      <label><input type="radio" name="v44q6" value="c"> C. Because the street has bad and good days</label>
+      <label><input type="radio" name="v44q6" value="d"> D. Because "sometimes" rhymes better than "forever" in Spanish</label>
+    </div>
+    <button class="check-btn" onclick="checkMC(this,'b','v44')">Check</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="section-header">Part B — Open Response</div>
+
+  <div class="or-question">
+    <p class="q-text">7. The book begins and ends on Mango Street. Esperanza is ashamed of the street at the beginning. By the end, does she still feel only shame — or something more complicated? Use specific words from the final vignette to support your answer.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Look at what Esperanza says about leaving AND coming back. She says she "makes it mine." Is that shame? Is it pride? Or is it something else — acceptance? Responsibility? Find the words that show how she feels.</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">8. The three sisters told Esperanza to come back for those who cannot leave. In this final vignette, Esperanza says she will come back. But she says "they will not know I have gone away to come back." What does this mysterious line mean? How can coming back happen without people knowing you left?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about what Esperanza does — she writes stories. She tells stories of the people on Mango Street. Is writing a way of "coming back"? Can you come back through your writing even if you are physically far away?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">9. The author has written a book about Mango Street from beginning to end. At the end, Esperanza says she likes to tell stories and then tells the story of the house on Mango Street. Is the author suggesting that Esperanza and the author are the same person? What does this moment reveal about what writing means in the book?</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">The book you've been reading IS the story of Mango Street. And now in the final vignette, Esperanza says she is going to tell "the story of the house on Mango Street." What does that mean about who is telling this story, and why?</div>
+  </div>
+
+  <div class="or-question">
+    <p class="q-text">10. You have now read all 44 vignettes of The House on Mango Street. Looking back at the whole book: what is the most important thing Esperanza learned about herself? Use evidence from at least two different vignettes — not just the final one — to support your answer.</p>
+    <textarea placeholder="Write your answer here..."></textarea>
+    <button class="hint-toggle" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint-box">Think about who Esperanza was at the beginning (ashamed, uncertain) and who she is at the end (claiming her story, her house, her responsibility). What changed? What moments in the book caused that change?</div>
+  </div>
+</div>
+
+
+  <button class="send-btn" onclick="sendToTeacher('v44')">📤 Send My Answers to Teacher</button>
+  <div class="send-confirm" id="confirm-v44"></div>
+
+<script>
+// ── Tab switching ──
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx = ['v38','v39','v40','v41','v42','v43','v44'].indexOf(id);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+}
+
+// ── Score tracking ──
+const scores = { v38:0, v39:0, v40:0, v41:0, v42:0, v43:0, v44:0 };
+const answered = { v38:0, v39:0, v40:0, v41:0, v42:0, v43:0, v44:0 };
+
+function updateProgress(vig) {
+  const pct = (answered[vig] / 6) * 100;
+  document.getElementById('pb-' + vig).style.width = pct + '%';
+  document.getElementById('pl-' + vig).textContent = answered[vig] + ' of 6';
+  document.getElementById('score-' + vig).textContent =
+    'Score: ' + scores[vig] + ' / ' + answered[vig] + ' MC answered';
+}
+
+// ── MC Check ──
+function checkMC(btn, correct, vig) {
+  const block = btn.closest('.mc-question');
+  const labels = block.querySelectorAll('label');
+  const radios = block.querySelectorAll('input[type="radio"]');
+  const feedback = block.querySelector('.feedback');
+
+  // Find selected
+  let selected = null;
+  radios.forEach(r => { if (r.checked) selected = r.value; });
+  if (!selected) { feedback.textContent = 'Please choose an answer first.'; return; }
+
+  // Disable
+  radios.forEach(r => r.disabled = true);
+  btn.disabled = true;
+
+  labels.forEach(l => {
+    const val = l.querySelector('input').value;
+    if (val === correct) l.classList.add('correct');
+    else if (val === selected && selected !== correct) l.classList.add('wrong');
+  });
+
+  if (selected === correct) {
+    feedback.textContent = '✓ Correct!';
+    feedback.style.color = '#1a5c33';
+    scores[vig]++;
+  } else {
+    feedback.textContent = '✗ Not quite. The correct answer is highlighted in green.';
+    feedback.style.color = '#6b1a25';
+  }
+  answered[vig]++;
+  updateProgress(vig);
+}
+
+// ── Hint toggle ──
+function toggleHint(btn) {
+  const box = btn.nextElementSibling;
+  if (box.style.display === 'block') {
+    box.style.display = 'none';
+    btn.textContent = 'Show Hint';
+  } else {
+    box.style.display = 'block';
+    btn.textContent = 'Hide Hint';
+  }
+}
+
+function sendToTeacher(vig) {
+  const names = {
+    v38:'The Monkey Garden', v39:'Red Clowns', v40:'Linoleum Roses',
+    v41:'The Three Sisters', v42:'Alicia & I Talking on Edna\'s Steps',
+    v43:'A House of My Own', v44:'Mango Says Goodbye Sometimes'
+  };
+  const section = document.getElementById(vig);
+  const answers = [];
+  section.querySelectorAll('.or-question').forEach((block, i) => {
+    const qtext = block.querySelector('.q-text');
+    const ta = block.querySelector('textarea');
+    if (qtext && ta) {
+      answers.push({
+        q: qtext.textContent.trim().slice(0, 80) + '…',
+        a: ta.value.trim() || '(no answer)'
+      });
+    }
+  });
+  const body = answers.map((r,i) => `Q${i+1}: ${r.q}\n→ ${r.a}`).join('\n\n');
+  const payload = {
+    _subject: `Mango Street — ${names[vig]} — Nancy`,
+    student: 'Nancy',
+    vignette: names[vig],
+    message: body
+  };
+  fetch('https://formsubmit.co/ajax/sophia@joyacademyonline.com', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r => r.json()).then(d => {
+    const ok = d.success === 'true' || d.success === true;
+    const confirm = document.getElementById('confirm-' + vig);
+    if (ok) {
+      confirm.textContent = '✅ Answers sent to Ms. Su!';
+      confirm.style.display = 'block';
+    } else {
+      alert('⚠️ Could not send. Please check your internet connection.');
+    }
+  }).catch(() => alert('⚠️ Network error. Please try again.'));
+}
+
+</script>
+</body>
+</html>

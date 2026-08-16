@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The House on Mango Street — 教学指南</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Noto Serif SC', serif;
+    background: #faf8f4;
+    color: #2c2c2c;
+    line-height: 1.8;
+    padding: 40px 20px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  h1 {
+    font-size: 2rem;
+    color: #3a5a4a;
+    border-bottom: 3px solid #3a5a4a;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    color: #7a7a6a;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    color: #3a5a4a;
+    margin: 48px 0 20px;
+    padding-left: 14px;
+    border-left: 5px solid #8fbc8f;
+  }
+
+  /* Session cards */
+  .session {
+    background: #fff;
+    border: 1px solid #ddd8cc;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .session-header {
+    background: #3a5a4a;
+    color: #fff;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .session-header .num {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .session-header h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .session-header .pages {
+    font-size: 0.85rem;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .session-body { padding: 20px 22px; }
+
+  .vignettes {
+    background: #f0f5f0;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    color: #3a5a4a;
+  }
+  .vignettes strong { display: block; margin-bottom: 4px; color: #2c4a3a; }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8fbc8f;
+    margin: 16px 0 8px;
+  }
+
+  .theme-tag {
+    display: inline-block;
+    background: #e8f0e8;
+    color: #3a5a4a;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 0 4px 4px 0;
+    border: 1px solid #c8dcc8;
+  }
+
+  .questions ol { padding-left: 20px; }
+  .questions li {
+    margin-bottom: 10px;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+  .questions li .intent {
+    display: block;
+    font-size: 0.8rem;
+    color: #9a8a6a;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .writing-prompt {
+    background: #fff8ee;
+    border-left: 4px solid #d4a84a;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .writing-prompt strong { color: #b8860b; }
+
+  /* Vocab section */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .vocab-group {
+    background: #fff;
+    border: 1px solid #ddd8cc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .vocab-group-header {
+    background: #5a7a6a;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .vocab-group-header span {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: normal;
+    margin-left: 8px;
+  }
+  .vocab-table { width: 100%; border-collapse: collapse; }
+  .vocab-table tr:nth-child(even) { background: #f8f6f2; }
+  .vocab-table td {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  .vocab-table td:first-child {
+    font-weight: bold;
+    color: #3a5a4a;
+    width: 38%;
+    white-space: nowrap;
+  }
+  .vocab-table td:nth-child(2) {
+    color: #5a5a4a;
+    width: 22%;
+    font-style: italic;
+    font-size: 0.78rem;
+  }
+  .vocab-table td:last-child { color: #444; }
+
+  .week-divider {
+    text-align: center;
+    margin: 36px 0 20px;
+    position: relative;
+  }
+  .week-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: #c8d8c8;
+  }
+  .week-divider span {
+    position: relative;
+    background: #faf8f4;
+    padding: 0 16px;
+    color: #5a8a6a;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tip-box {
+    background: #f0f5f0;
+    border: 1px solid #c8dcc8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.88rem;
+    color: #3a5a3a;
+  }
+  .tip-box strong { display: block; margin-bottom: 6px; color: #2a4a2a; }
+
+  @media print {
+    body { background: white; padding: 20px; }
+    .session { break-inside: avoid; box-shadow: none; }
+    .vocab-group { break-inside: avoid; }
+    h2 { break-before: page; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>The House on Mango Street</h1>
+<p class="subtitle">教学指南 · 10次课 · 5周完成 · 适用于14岁英语学习者<br>
+Sandra Cisneros 著 · 含章节安排、讨论问题、200核心词汇</p>
+
+<div class="tip-box">
+  <strong>📌 使用说明</strong>
+  每次课结构建议：复习词汇（10分钟）→ 朗读选段（15分钟）→ 自由阅读（25分钟）→ 讨论问题（50分钟）→ 写作布置（20分钟）。
+  问题不必全问，跟着她的反应走，停在有火花的地方。
+</div>
+
+<!-- =================== WEEK 1 =================== -->
+<div class="week-divider"><span>第一周</span></div>
+
+<!-- Session 1 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第一课</div>
+      <h3>我从哪里来，我是谁</h3>
+    </div>
+    <div class="pages">约第 1–12 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节（vignettes）：</strong>
+      The House on Mango Street · Hairs · Boys &amp; Girls · My Name · Cathy Queen of Cats · Our Good Day · Laughter
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">身份认同</span>
+      <span class="theme-tag">名字的意义</span>
+      <span class="theme-tag">家与羞耻感</span>
+      <span class="theme-tag">梦想 vs. 现实</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          Esperanza的家和她梦想中的家差距很大。她的父母说"temporary"（暂时的）。<br>
+          你有没有一件事，别人说"暂时的"，但你心里觉得根本不是？
+          <span class="intent">→ 打开她对"被安慰"和"真实处境"之间落差的感知</span>
+        </li>
+        <li>
+          Esperanza不喜欢自己的名字，她说它代表"等待"和"悲伤"。她想改名叫 Zeze the X。<br>
+          你怎么理解自己的名字？有没有哪个标签或称呼，是别人给你贴的，但你不认同？
+          <span class="intent">→ 让她开始质疑被定义这件事</span>
+        </li>
+        <li>
+          她观察到：女孩和男孩在这条街上活在不同的世界里。你觉得在你的生活里，有没有类似的"隐形规则"，规定了谁可以做什么？
+          <span class="intent">→ 引导性别意识，但不急着给答案</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Write a short vignette about your name — where it comes from, what it means to you, and whether it fits who you are. 
+      You can also write about a name you <em>wish</em> you had, and why.
+    </div>
+  </div>
+</div>
+
+<!-- Session 2 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第二课</div>
+      <h3>看见那些被忽视的人</h3>
+    </div>
+    <div class="pages">约第 13–24 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      Gil's Furniture Bought &amp; Sold · Meme Ortiz · Louie, His Cousin &amp; His Other Cousin · Marin · Those Who Don't · There Was an Old Woman She Had So Many Children She Didn't Know What to Do · Alicia Who Sees Mice
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">被忽视的人</span>
+      <span class="theme-tag">女性的困境</span>
+      <span class="theme-tag">教育是出路吗</span>
+      <span class="theme-tag">偏见与恐惧</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          "Those Who Don't"里，外人走进Mango Street会感到害怕，但Esperanza说住在那里的人也害怕走出去。<br>
+          你平时"看不见"哪些人或哪些地方？是因为他们不存在，还是因为你从来没有往那个方向看？
+          <span class="intent">→ 触动她对自己生活半径的意识</span>
+        </li>
+        <li>
+          Alicia每天早起学习，因为她知道只有读书才能离开。但她的父亲不认为这重要。<br>
+          你觉得学习对你来说是"必须"还是"选择"？这个答案对不同的人来说一样吗？
+          <span class="intent">→ 最直接的一击，但包在Alicia身上说</span>
+        </li>
+        <li>
+          Marin总是在等——等一个男人来改变她的生活。你觉得这是她的问题，还是她所处环境的问题？两者都有的话，各占几分？
+          <span class="intent">→ 培养结构性思维，不简单归咎于个人</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Write a vignette about someone you see regularly but never really <em>looked at</em> — a guard, a cleaner, a neighbor, a classmate. 
+      What do you think their life is like? What do you actually know about them?
+    </div>
+  </div>
+</div>
+
+<!-- =================== WEEK 2 =================== -->
+<div class="week-divider"><span>第二周</span></div>
+
+<!-- Session 3 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第三课</div>
+      <h3>美与渴望</h3>
+    </div>
+    <div class="pages">约第 25–38 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      Darius &amp; the Clouds · And Some More · The Family of Little Feet · A Rice Sandwich · Chanclas · Hips · The First Job
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">身体与自我意识</span>
+      <span class="theme-tag">渴望被看见</span>
+      <span class="theme-tag">羞耻与骄傲</span>
+      <span class="theme-tag">成长的代价</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          Esperanza穿上高跟鞋之后，感受到了一种新的力量，但同时也吸引了不舒服的目光。<br>
+          你有没有过这样的经历：想要某种"被看见"，但那种注意力又让你不安？
+          <span class="intent">→ 身体意识与自我价值的入口</span>
+        </li>
+        <li>
+          她在学校里想要吃canteen的饭，被拒绝时非常羞耻。但她的家庭其实并不穷到买不起。<br>
+          你觉得"羞耻"这个感觉，来自什么？是真正的不足，还是和别人比较之后的感觉？
+          <span class="intent">→ 帮她解构"比较心"的来源</span>
+        </li>
+        <li>
+          Darius看着云说了一句有哲学意味的话，Esperanza对此印象深刻。<br>
+          你有没有在意想不到的人身上听到过意想不到的智慧？那个人是谁，说了什么？
+          <span class="intent">→ 打破"聪明人才有智慧"的偏见</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Describe a moment when you felt ashamed of something — a place, an object, a family situation, or yourself. 
+      Looking back now, what do you think about that feeling? Was it fair?
+    </div>
+  </div>
+</div>
+
+<!-- Session 4 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第四课</div>
+      <h3>爱与陷阱</h3>
+    </div>
+    <div class="pages">约第 39–52 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      Papa Who Wakes Up Tired in the Dark · Born Bad · Elenita, Cards, Palm, Water · Geraldo No Last Name · Edna's Ruthie · The Earl of Tennessee · Sire
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">死亡与失去</span>
+      <span class="theme-tag">无名之人</span>
+      <span class="theme-tag">浪漫化危险</span>
+      <span class="theme-tag">被困住的生命</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          Geraldo没有人知道他的姓，他死了，没有档案，没有人认领。Esperanza感到愤怒。<br>
+          为什么一个人的死可以"消失"得这么彻底？你觉得这公平吗？今天还有这样的人吗？
+          <span class="intent">→ 社会结构意识，引发道德感</span>
+        </li>
+        <li>
+          Esperanza悄悄观察Sire，她对他有一种说不清的向往。但Sire的女友最后是什么处境？<br>
+          你觉得"喜欢一个危险的人"这件事，背后是什么在起作用？
+          <span class="intent">→ 引导她审视romantic idealization</span>
+        </li>
+        <li>
+          Ruthie曾经有机会做更多，但她选择（或者被迫）留在了那条街上。<br>
+          你认为一个人"选择"不努力，和一个人"被迫"放弃机会，区别在哪里？你怎么判断是哪种？
+          <span class="intent">→ 针对她"不肯踏实"的间接对话</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Write about someone who "disappeared" — not necessarily through death, but someone who was forgotten, overlooked, or whose story was never told. 
+      Why did they disappear? What do you wish people knew about them?
+    </div>
+  </div>
+</div>
+
+<!-- =================== WEEK 3 =================== -->
+<div class="week-divider"><span>第三周</span></div>
+
+<!-- Session 5 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第五课</div>
+      <h3>女性的窗与锁</h3>
+    </div>
+    <div class="pages">约第 53–66 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      Four Skinny Trees · No Speak English · Rafaela Who Drinks Coconut and Papaya Juice on Tuesdays · Sally · Minerva Writes Poems · Bums in the Attic
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">被关在房间里的女人</span>
+      <span class="theme-tag">语言与权力</span>
+      <span class="theme-tag">根的意象</span>
+      <span class="theme-tag">逃离的方式</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          这一节里出现了很多被"关住"的女性——Rafaela被丈夫锁在家里，Mamacita不愿说英语，Sally被父亲管制。<br>
+          她们被什么困住了？这些"困"在今天还存在吗？换了什么形式？
+          <span class="intent">→ 把历史性问题拉回当下</span>
+        </li>
+        <li>
+          Four Skinny Trees是整本书里最有力量的一章。树长在不属于它们的地方，但它们的根很深。<br>
+          你觉得"根"对Esperanza意味着什么？你自己的"根"是什么？
+          <span class="intent">→ 身份认同与归属感</span>
+        </li>
+        <li>
+          Bums in the Attic里，Esperanza说将来她有了房子，会让无家的人住在阁楼里。<br>
+          你觉得一个人"成功了"之后，对那些还在原地的人有责任吗？为什么？
+          <span class="intent">→ 个人成功与社会责任的核心问题</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Choose a woman in your life — mother, grandmother, teacher, neighbor. 
+      Write about one thing she gave up, and one thing she kept for herself. 
+      What does her life teach you?
+    </div>
+  </div>
+</div>
+
+<!-- Session 6 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第六课</div>
+      <h3>表面之下</h3>
+    </div>
+    <div class="pages">约第 67–80 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      Beautiful &amp; Cruel · A Smart Cookie · What Sally Said · The Monkey Garden · Red Clowns · Linoleum Roses
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">美丽的代价</span>
+      <span class="theme-tag">母亲的悔恨</span>
+      <span class="theme-tag">失去童年</span>
+      <span class="theme-tag">捷径的真相</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          Esperanza的母亲说自己因为没有好衣服，羞于上学，就辍学了——但她本来非常聪明。<br>
+          你觉得这个决定是谁的错？如果你是她当时的朋友，你会怎么做？
+          <span class="intent">→ 让她代入，而不是旁观评判</span>
+        </li>
+        <li>
+          Sally用婚姻"逃"出了父亲的家，但结果是什么？<br>
+          你觉得"走捷径"和"走弯路"各有什么代价？书里有没有人走了捷径，结果反而更困？
+          <span class="intent">→ 最直接针对学习态度的间接对话</span>
+        </li>
+        <li>
+          Beautiful &amp; Cruel里，Esperanza说她不想成为那种等着被男人拯救的女人，她要做"cruel"的那个。<br>
+          你怎么理解"cruel"在这里的意思？你欣赏这种态度吗？有没有代价？
+          <span class="intent">→ 引导她思考女性自主与代价</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（150词以上）：</strong><br>
+      Think of something that looks good on the outside but is different on the inside — 
+      a relationship, a place, a goal, an image on social media. 
+      Write about the gap between the surface and the reality.
+    </div>
+  </div>
+</div>
+
+<!-- =================== WEEK 4 =================== -->
+<div class="week-divider"><span>第四周</span></div>
+
+<!-- Session 7 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第七课</div>
+      <h3>写作是一种力量</h3>
+    </div>
+    <div class="pages">约第 81–92 页</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>阅读章节：</strong>
+      The Three Sisters · Alicia &amp; I Talking on Edna's Steps · A House of My Own · Mango Says Goodbye Sometimes
+    </div>
+
+    <div class="section-label">核心主题</div>
+    <div>
+      <span class="theme-tag">写作与身份</span>
+      <span class="theme-tag">回望与出发</span>
+      <span class="theme-tag">属于自己的空间</span>
+      <span class="theme-tag">责任与自由</span>
+    </div>
+
+    <div class="section-label">讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          三个老女人告诉Esperanza：你离开了，但不能忘记回来。<br>
+          你觉得"离开"和"回来"可以同时成立吗？Esperanza最后真的回来了吗？用什么方式？
+          <span class="intent">→ 整本书最核心的张力</span>
+        </li>
+        <li>
+          A House of My Own里，Esperanza说她要的房子不是爸爸给的，不是丈夫给的，是她自己的。<br>
+          你觉得"属于自己"的东西，和"别人给你的"东西，感觉有什么不同？你有没有一件真正"属于自己"的东西？
+          <span class="intent">→ 自主性与独立意识</span>
+        </li>
+        <li>
+          Esperanza说，她把Mango Street写出来，就把它放下了。但她又说，Mango Street永远不会放下她。<br>
+          你怎么理解这句话？你觉得写作、画画、或任何一种表达，能帮你"放下"什么吗？
+          <span class="intent">→ 引导她找到自己的表达出口</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业</div>
+    <div class="writing-prompt">
+      <strong>✍️ 写作提示（200词以上）：</strong><br>
+      Write about a place that made you who you are — not necessarily a house, but any space: 
+      a classroom, a city, a grandparent's home, a summer camp. 
+      What did it give you? What do you want to take with you, and what do you want to leave behind?
+    </div>
+  </div>
+</div>
+
+<!-- Session 8 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第八课</div>
+      <h3>复习与深化——全书回望</h3>
+    </div>
+    <div class="pages">不新增阅读</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>本次课：</strong>
+      不读新章节。选2-3个她反应最强烈的章节重读片段，深化讨论。
+    </div>
+
+    <div class="section-label">综合讨论问题</div>
+    <div class="questions">
+      <ol>
+        <li>
+          如果Esperanza和你交换人生一年——她来过你的生活，你去过她的生活——<br>
+          你觉得她会怎么用你现在拥有的东西？你又会从她的生活里带走什么？
+          <span class="intent">→ 让书里的东西着陆到她自己的生活</span>
+        </li>
+        <li>
+          读完这本书，你对哪一个人物的评价变了？一开始你怎么看她，现在怎么看？
+          <span class="intent">→ 检验她的理解深度和共情能力</span>
+        </li>
+        <li>
+          这本书里的女性大多被困住了，但Esperanza选择了另一条路。你觉得她靠的是什么？<br>
+          那个东西，你有吗？如果没有，你觉得可以培养吗？
+          <span class="intent">→ 让她把问题带回自身</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section-label">写作作业（最终写作）</div>
+    <div class="writing-prompt">
+      <strong>✍️ 最终写作（300词以上）：</strong><br>
+      Write your own vignette in the style of Sandra Cisneros. 
+      Choose one moment, one place, or one person from your life. 
+      Use specific sensory details. Don't explain — show. 
+      Title it with a name, a place, or a single striking phrase.
+    </div>
+  </div>
+</div>
+
+<!-- =================== WEEK 5 =================== -->
+<div class="week-divider"><span>第五周</span></div>
+
+<!-- Session 9 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第九课</div>
+      <h3>分享与反馈</h3>
+    </div>
+    <div class="pages">写作课</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>本次课：</strong>
+      朗读并讨论她的最终写作。重点放在：她选了什么主题，她回避了什么，她展示出了什么能力。
+    </div>
+
+    <div class="section-label">讨论方向</div>
+    <div class="questions">
+      <ol>
+        <li>你读自己写的东西时，感觉如何？哪句话你最满意，哪句你觉得还不够？</li>
+        <li>你在写的时候，有没有决定不写某件事？为什么？</li>
+        <li>Cisneros说，她写作是为了让那些没有声音的人被听见。你写作是为了什么？</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Session 10 -->
+<div class="session">
+  <div class="session-header">
+    <div>
+      <div class="num">第十课</div>
+      <h3>收尾：方向与选择</h3>
+    </div>
+    <div class="pages">总结课</div>
+  </div>
+  <div class="session-body">
+    <div class="vignettes">
+      <strong>本次课：</strong>
+      自由讨论。可以用她这五周写过的文章，回看她的成长。
+    </div>
+
+    <div class="section-label">最终问题（留给她带走的）</div>
+    <div class="questions">
+      <ol>
+        <li>五周前你是什么样的读者，现在呢？有什么具体的变化？</li>
+        <li>这本书里，哪句话你觉得五年后还会记得？为什么？</li>
+        <li>Esperanza知道自己想要什么——一间属于自己的房子，一支笔，一个声音。<br>
+        你现在知道自己想要什么吗？哪怕只是一个模糊的方向也可以。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+<!-- =================== VOCABULARY =================== -->
+<h2>200核心词汇</h2>
+<p style="font-size:0.88rem; color:#7a7a6a; margin-bottom:20px;">
+按主题分组，每组20词，共10组。建议每课前专注一组，课后用造句或写作巩固。
+</p>
+
+<div class="vocab-grid">
+
+  <!-- Group 1 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第一组：家与居所 <span>第1–2课</span></div>
+    <table class="vocab-table">
+      <tr><td>crumble</td><td>v.</td><td>崩碎，坍塌（砖墙在风化）</td></tr>
+      <tr><td>swollen</td><td>adj.</td><td>肿胀的（门因湿气膨胀推不开）</td></tr>
+      <tr><td>landlord</td><td>n.</td><td>房东</td></tr>
+      <tr><td>temporary</td><td>adj.</td><td>暂时的</td></tr>
+      <tr><td>basement</td><td>n.</td><td>地下室</td></tr>
+      <tr><td>inherit</td><td>v.</td><td>继承（财产、房子）</td></tr>
+      <tr><td>rent</td><td>n./v.</td><td>租金；租用</td></tr>
+      <tr><td>dilapidated</td><td>adj.</td><td>破旧失修的</td></tr>
+      <tr><td>cramped</td><td>adj.</td><td>狭小局促的</td></tr>
+      <tr><td>boarded up</td><td>phr.</td><td>用木板封起来（废弃建筑）</td></tr>
+      <tr><td>shabby</td><td>adj.</td><td>破旧的，寒酸的</td></tr>
+      <tr><td>threshold</td><td>n.</td><td>门槛；新阶段的起点</td></tr>
+      <tr><td>refuge</td><td>n.</td><td>庇护所，避难处</td></tr>
+      <tr><td>attic</td><td>n.</td><td>阁楼</td></tr>
+      <tr><td>porch</td><td>n.</td><td>门廊</td></tr>
+      <tr><td>yard</td><td>n.</td><td>院子</td></tr>
+      <tr><td>curb</td><td>n.</td><td>路缘石（马路牙子）</td></tr>
+      <tr><td>apartment</td><td>n.</td><td>公寓单元</td></tr>
+      <tr><td>laundromat</td><td>n.</td><td>自助洗衣店</td></tr>
+      <tr><td>neighborhood</td><td>n.</td><td>街区，社区</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 2 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第二组：身份与名字 <span>第1–2课</span></div>
+    <table class="vocab-table">
+      <tr><td>inherit</td><td>v.</td><td>继承（性格、名字也可以）</td></tr>
+      <tr><td>identity</td><td>n.</td><td>身份认同</td></tr>
+      <tr><td>belong</td><td>v.</td><td>属于，归属</td></tr>
+      <tr><td>ashamed</td><td>adj.</td><td>感到羞耻的</td></tr>
+      <tr><td>embarrassed</td><td>adj.</td><td>尴尬的，窘迫的</td></tr>
+      <tr><td>heritage</td><td>n.</td><td>文化传承，遗产</td></tr>
+      <tr><td>outsider</td><td>n.</td><td>局外人，外来者</td></tr>
+      <tr><td>nickname</td><td>n.</td><td>昵称，绰号</td></tr>
+      <tr><td>stereotype</td><td>n.</td><td>刻板印象</td></tr>
+      <tr><td>prejudice</td><td>n.</td><td>偏见</td></tr>
+      <tr><td>origin</td><td>n.</td><td>起源，出身</td></tr>
+      <tr><td>label</td><td>n./v.</td><td>标签；给…贴标签</td></tr>
+      <tr><td>define</td><td>v.</td><td>定义，界定</td></tr>
+      <tr><td>self-worth</td><td>n.</td><td>自我价值感</td></tr>
+      <tr><td>dignity</td><td>n.</td><td>尊严</td></tr>
+      <tr><td>humiliation</td><td>n.</td><td>羞辱，屈辱</td></tr>
+      <tr><td>unique</td><td>adj.</td><td>独特的</td></tr>
+      <tr><td>authentic</td><td>adj.</td><td>真实的，不做作的</td></tr>
+      <tr><td>conform</td><td>v.</td><td>顺从，随大流</td></tr>
+      <tr><td>resist</td><td>v.</td><td>抵抗，拒绝</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 3 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第三组：社区与他人 <span>第2–3课</span></div>
+    <table class="vocab-table">
+      <tr><td>poverty</td><td>n.</td><td>贫穷，贫困</td></tr>
+      <tr><td>community</td><td>n.</td><td>社区，群体</td></tr>
+      <tr><td>immigrant</td><td>n.</td><td>移民</td></tr>
+      <tr><td>invisible</td><td>adj.</td><td>看不见的，被忽视的</td></tr>
+      <tr><td>bystander</td><td>n.</td><td>旁观者</td></tr>
+      <tr><td>witness</td><td>n./v.</td><td>见证者；目击</td></tr>
+      <tr><td>neglect</td><td>v./n.</td><td>忽视，忽略</td></tr>
+      <tr><td>empathy</td><td>n.</td><td>共情，同理心</td></tr>
+      <tr><td>compassion</td><td>n.</td><td>悲悯，慈悲</td></tr>
+      <tr><td>discrimination</td><td>n.</td><td>歧视</td></tr>
+      <tr><td>privilege</td><td>n.</td><td>特权</td></tr>
+      <tr><td>inequality</td><td>n.</td><td>不平等</td></tr>
+      <tr><td>gossip</td><td>n./v.</td><td>八卦；传闲话</td></tr>
+      <tr><td>rumor</td><td>n.</td><td>谣言，传言</td></tr>
+      <tr><td>solidarity</td><td>n.</td><td>团结，同舟共济</td></tr>
+      <tr><td>stranger</td><td>n.</td><td>陌生人</td></tr>
+      <tr><td>encounter</td><td>n./v.</td><td>邂逅，遭遇</td></tr>
+      <tr><td>linger</td><td>v.</td><td>徘徊，逗留</td></tr>
+      <tr><td>wander</td><td>v.</td><td>漫游，游荡</td></tr>
+      <tr><td>observe</td><td>v.</td><td>观察，注意到</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 4 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第四组：女性与成长 <span>第3–5课</span></div>
+    <table class="vocab-table">
+      <tr><td>trapped</td><td>adj.</td><td>被困的，走投无路的</td></tr>
+      <tr><td>confined</td><td>adj.</td><td>被限制在某处的</td></tr>
+      <tr><td>independent</td><td>adj.</td><td>独立的</td></tr>
+      <tr><td>obedient</td><td>adj.</td><td>顺从的，听话的</td></tr>
+      <tr><td>rebel</td><td>v./n.</td><td>反抗；叛逆者</td></tr>
+      <tr><td>domestic</td><td>adj.</td><td>家庭的，家务的</td></tr>
+      <tr><td>burden</td><td>n.</td><td>负担，重担</td></tr>
+      <tr><td>sacrifice</td><td>n./v.</td><td>牺牲，舍弃</td></tr>
+      <tr><td>potential</td><td>n./adj.</td><td>潜力；有潜力的</td></tr>
+      <tr><td>ambition</td><td>n.</td><td>抱负，野心</td></tr>
+      <tr><td>stifle</td><td>v.</td><td>压制，扼杀</td></tr>
+      <tr><td>fragile</td><td>adj.</td><td>脆弱的，易碎的</td></tr>
+      <tr><td>fierce</td><td>adj.</td><td>fierce 凶猛的，强烈的</td></tr>
+      <tr><td>graceful</td><td>adj.</td><td>优雅的</td></tr>
+      <tr><td>persistent</td><td>adj.</td><td>坚持不懈的</td></tr>
+      <tr><td>adolescence</td><td>n.</td><td>青春期，少年时代</td></tr>
+      <tr><td>longing</td><td>n.</td><td>渴望，强烈的思念</td></tr>
+      <tr><td>desire</td><td>n.</td><td>欲望，渴望</td></tr>
+      <tr><td>agency</td><td>n.</td><td>自主性，行动能力</td></tr>
+      <tr><td>autonomy</td><td>n.</td><td>自主权，独立自决</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 5 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第五组：情感与内心 <span>第3–4课</span></div>
+    <table class="vocab-table">
+      <tr><td>melancholy</td><td>n./adj.</td><td>忧郁；忧郁的</td></tr>
+      <tr><td>nostalgia</td><td>n.</td><td>对过去的怀念，乡愁</td></tr>
+      <tr><td>resentment</td><td>n.</td><td>怨恨，不满</td></tr>
+      <tr><td>grief</td><td>n.</td><td>悲痛，哀伤</td></tr>
+      <tr><td>regret</td><td>n./v.</td><td>遗憾；后悔</td></tr>
+      <tr><td>envy</td><td>n./v.</td><td>嫉妒，羡慕</td></tr>
+      <tr><td>admire</td><td>v.</td><td>钦佩，欣赏</td></tr>
+      <tr><td>curious</td><td>adj.</td><td>好奇的</td></tr>
+      <tr><td>confused</td><td>adj.</td><td>困惑的</td></tr>
+      <tr><td>content</td><td>adj.</td><td>满足的（≠ happy，更平静）</td></tr>
+      <tr><td>restless</td><td>adj.</td><td>躁动不安的，无法静下来的</td></tr>
+      <tr><td>determined</td><td>adj.</td><td>坚定的，下定决心的</td></tr>
+      <tr><td>hesitate</td><td>v.</td><td>犹豫，踌躇</td></tr>
+      <tr><td>vulnerable</td><td>adj.</td><td>脆弱的，容易受伤的</td></tr>
+      <tr><td>courageous</td><td>adj.</td><td>勇敢的</td></tr>
+      <tr><td>numb</td><td>adj.</td><td>麻木的</td></tr>
+      <tr><td>overwhelmed</td><td>adj.</td><td>不堪重负的，被淹没的</td></tr>
+      <tr><td>reassure</td><td>v.</td><td>安慰，使放心</td></tr>
+      <tr><td>anticipate</td><td>v.</td><td>预期，期待</td></tr>
+      <tr><td>dread</td><td>v./n.</td><td>害怕，恐惧（强烈的忧虑）</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 6 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第六组：语言与写作 <span>第7课</span></div>
+    <table class="vocab-table">
+      <tr><td>vignette</td><td>n.</td><td>小品文，短篇印象记</td></tr>
+      <tr><td>imagery</td><td>n.</td><td>意象，形象化描写</td></tr>
+      <tr><td>metaphor</td><td>n.</td><td>隐喻</td></tr>
+      <tr><td>simile</td><td>n.</td><td>明喻（用like/as）</td></tr>
+      <tr><td>symbolism</td><td>n.</td><td>象征手法</td></tr>
+      <tr><td>narrator</td><td>n.</td><td>叙述者</td></tr>
+      <tr><td>perspective</td><td>n.</td><td>视角，观点</td></tr>
+      <tr><td>prose</td><td>n.</td><td>散文（相对于诗歌）</td></tr>
+      <tr><td>vivid</td><td>adj.</td><td>生动的，栩栩如生的</td></tr>
+      <tr><td>sensory</td><td>adj.</td><td>感官的（视觉、听觉、触觉）</td></tr>
+      <tr><td>tone</td><td>n.</td><td>语气，基调</td></tr>
+      <tr><td>theme</td><td>n.</td><td>主题</td></tr>
+      <tr><td>motif</td><td>n.</td><td>主题反复出现的意象或元素</td></tr>
+      <tr><td>evoke</td><td>v.</td><td>唤起（情感、记忆）</td></tr>
+      <tr><td>convey</td><td>v.</td><td>传达，表达</td></tr>
+      <tr><td>imply</td><td>v.</td><td>暗示，含蓄表达</td></tr>
+      <tr><td>contrast</td><td>n./v.</td><td>对比，反差</td></tr>
+      <tr><td>juxtapose</td><td>v.</td><td>并列对比（两个截然不同的事物）</td></tr>
+      <tr><td>rhythm</td><td>n.</td><td>节奏（写作的节奏感）</td></tr>
+      <tr><td>voice</td><td>n.</td><td>声音（作者的独特风格）</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 7 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第七组：梦想与逃离 <span>第5–7课</span></div>
+    <table class="vocab-table">
+      <tr><td>escape</td><td>v./n.</td><td>逃离，逃脱</td></tr>
+      <tr><td>aspire</td><td>v.</td><td>渴望，有志于</td></tr>
+      <tr><td>strive</td><td>v.</td><td>努力，奋斗</td></tr>
+      <tr><td>pursue</td><td>v.</td><td>追求，追逐</td></tr>
+      <tr><td>achieve</td><td>v.</td><td>实现，达成</td></tr>
+      <tr><td>opportunity</td><td>n.</td><td>机会</td></tr>
+      <tr><td>obstacle</td><td>n.</td><td>障碍，阻碍</td></tr>
+      <tr><td>shortcut</td><td>n.</td><td>捷径</td></tr>
+      <tr><td>persevere</td><td>v.</td><td>坚持到底，百折不挠</td></tr>
+      <tr><td>discipline</td><td>n.</td><td>纪律，自律</td></tr>
+      <tr><td>sacrifice</td><td>n.</td><td>代价，牺牲</td></tr>
+      <tr><td>wistful</td><td>adj.</td><td>惆怅的，若有所思的渴望</td></tr>
+      <tr><td>yearn</td><td>v.</td><td>渴望，向往（深切的）</td></tr>
+      <tr><td>horizon</td><td>n.</td><td>地平线；视野，眼界</td></tr>
+      <tr><td>liberate</td><td>v.</td><td>解放，使自由</td></tr>
+      <tr><td>constrain</td><td>v.</td><td>限制，束缚</td></tr>
+      <tr><td>inevitable</td><td>adj.</td><td>不可避免的</td></tr>
+      <tr><td>transform</td><td>v.</td><td>改变，转变（深刻的）</td></tr>
+      <tr><td>overcome</td><td>v.</td><td>克服，战胜</td></tr>
+      <tr><td>empower</td><td>v.</td><td>赋权，使有能力</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 8 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第八组：描写人物的词 <span>全书适用</span></div>
+    <table class="vocab-table">
+      <tr><td>timid</td><td>adj.</td><td>胆怯的，羞涩的</td></tr>
+      <tr><td>bold</td><td>adj.</td><td>大胆的，无畏的</td></tr>
+      <tr><td>resourceful</td><td>adj.</td><td>足智多谋的</td></tr>
+      <tr><td>naive</td><td>adj.</td><td>天真的，单纯的</td></tr>
+      <tr><td>shrewd</td><td>adj.</td><td>精明的，有洞察力的</td></tr>
+      <tr><td>resilient</td><td>adj.</td><td>有韧性的，不屈不挠的</td></tr>
+      <tr><td>cynical</td><td>adj.</td><td>愤世嫉俗的，玩世不恭的</td></tr>
+      <tr><td>compassionate</td><td>adj.</td><td>有同情心的</td></tr>
+      <tr><td>ruthless</td><td>adj.</td><td>冷酷无情的</td></tr>
+      <tr><td>dignified</td><td>adj.</td><td>有尊严的，庄重的</td></tr>
+      <tr><td>reckless</td><td>adj.</td><td>鲁莽的，不计后果的</td></tr>
+      <tr><td>meek</td><td>adj.</td><td>温顺的，逆来顺受的</td></tr>
+      <tr><td>witty</td><td>adj.</td><td>机智风趣的</td></tr>
+      <tr><td>melancholic</td><td>adj.</td><td>忧郁的，哀愁的</td></tr>
+      <tr><td>stoic</td><td>adj.</td><td>坚忍的，不动声色的</td></tr>
+      <tr><td>charismatic</td><td>adj.</td><td>有魅力的，有感召力的</td></tr>
+      <tr><td>impulsive</td><td>adj.</td><td>冲动的，一时兴起的</td></tr>
+      <tr><td>thoughtful</td><td>adj.</td><td>体贴的；深思熟虑的</td></tr>
+      <tr><td>manipulative</td><td>adj.</td><td>善于操控别人的</td></tr>
+      <tr><td>principled</td><td>adj.</td><td>有原则的</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 9 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第九组：描写环境与感官 <span>写作必备</span></div>
+    <table class="vocab-table">
+      <tr><td>dingy</td><td>adj.</td><td>昏暗肮脏的，灰暗的</td></tr>
+      <tr><td>grimy</td><td>adj.</td><td>积满污垢的</td></tr>
+      <tr><td>cluttered</td><td>adj.</td><td>杂乱堆满的</td></tr>
+      <tr><td>stifling</td><td>adj.</td><td>令人窒息的（热或压抑）</td></tr>
+      <tr><td>musty</td><td>adj.</td><td>发霉的，陈腐的（气味）</td></tr>
+      <tr><td>damp</td><td>adj.</td><td>潮湿的</td></tr>
+      <tr><td>vibrant</td><td>adj.</td><td>充满活力的，色彩鲜艳的</td></tr>
+      <tr><td>faint</td><td>adj.</td><td>微弱的（声音、气味、光）</td></tr>
+      <tr><td>hollow</td><td>adj.</td><td>空洞的，中空的</td></tr>
+      <tr><td>rustle</td><td>v./n.</td><td>沙沙作响</td></tr>
+      <tr><td>flicker</td><td>v./n.</td><td>闪烁（光或希望）</td></tr>
+      <tr><td>loom</td><td>v.</td><td>隐约出现（威胁性地逼近）</td></tr>
+      <tr><td>sprawl</td><td>v./n.</td><td>蔓延，摊开</td></tr>
+      <tr><td>gleam</td><td>v./n.</td><td>闪光，发光</td></tr>
+      <tr><td>creak</td><td>v./n.</td><td>嘎吱作响</td></tr>
+      <tr><td>tattered</td><td>adj.</td><td>破烂的（衣物）</td></tr>
+      <tr><td>worn</td><td>adj.</td><td>磨损的，疲惫的</td></tr>
+      <tr><td>tangled</td><td>adj.</td><td>缠绕的，混乱的</td></tr>
+      <tr><td>shimmer</td><td>v./n.</td><td>波光粼粼地闪动</td></tr>
+      <tr><td>permeate</td><td>v.</td><td>渗透，弥漫（气味或影响）</td></tr>
+    </table>
+  </div>
+
+  <!-- Group 10 -->
+  <div class="vocab-group">
+    <div class="vocab-group-header">第十组：思考与讨论 <span>课堂表达必备</span></div>
+    <table class="vocab-table">
+      <tr><td>argue</td><td>v.</td><td>论证，主张（不是吵架）</td></tr>
+      <tr><td>suggest</td><td>v.</td><td>暗示，建议</td></tr>
+      <tr><td>reflect</td><td>v.</td><td>反思，映射</td></tr>
+      <tr><td>represent</td><td>v.</td><td>代表，象征</td></tr>
+      <tr><td>demonstrate</td><td>v.</td><td>表明，证明</td></tr>
+      <tr><td>consider</td><td>v.</td><td>考虑，认为</td></tr>
+      <tr><td>conclude</td><td>v.</td><td>得出结论</td></tr>
+      <tr><td>contradict</td><td>v.</td><td>矛盾，与…相悖</td></tr>
+      <tr><td>analyze</td><td>v.</td><td>分析</td></tr>
+      <tr><td>interpret</td><td>v.</td><td>解读，诠释</td></tr>
+      <tr><td>evaluate</td><td>v.</td><td>评价，衡量</td></tr>
+      <tr><td>compare</td><td>v.</td><td>比较</td></tr>
+      <tr><td>relate to</td><td>phr.</td><td>与…相关；产生共鸣</td></tr>
+      <tr><td>in contrast</td><td>phr.</td><td>相比之下，与此相反</td></tr>
+      <tr><td>furthermore</td><td>adv.</td><td>此外，而且（写作连接词）</td></tr>
+      <tr><td>therefore</td><td>adv.</td><td>因此，所以</td></tr>
+      <tr><td>nevertheless</td><td>adv.</td><td>尽管如此，然而</td></tr>
+      <tr><td>significant</td><td>adj.</td><td>有意义的，重要的</td></tr>
+      <tr><td>subtle</td><td>adj.</td><td>微妙的，不明显的</td></tr>
+      <tr><td>complex</td><td>adj.</td><td>复杂的，多层次的</td></tr>
+    </table>
+  </div>
+
+</div><!-- end vocab-grid -->
+
+<div style="margin-top:48px; padding:20px; background:#f0f5f0; border-radius:10px; font-size:0.85rem; color:#5a7a5a; text-align:center; line-height:2;">
+  <strong>Joy Family Learning · 美嘉河畔书房 · 教学参考材料</strong><br>
+  The House on Mango Street by Sandra Cisneros · 教学指南 · 10次课版本<br>
+  本材料仅供课堂教学使用
+</div>
+
+</div><!-- end container -->
+</body>
+</html>
