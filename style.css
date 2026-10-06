@@ -423,6 +423,232 @@ details .faq-body {
   color: var(--muted);
 }
 
+/* ===== 数学思维陪跑营 ===== */
+.math-camp {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--gold);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--gold-light), var(--white) 18rem);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.math-camp-resource {
+  background: var(--gold-light);
+  border-left: 5px solid var(--gold);
+}
+
+.math-camp-header {
+  max-width: 760px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.math-camp-eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.math-camp-header h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--navy);
+  font-size: 1.75rem;
+}
+
+.math-camp-tagline {
+  margin: 0.35rem 0 0.75rem;
+  color: var(--blue);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.math-camp-header > p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.math-camp-overview,
+.math-camp-seasons,
+.math-camp-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.math-camp-card,
+.math-camp-season,
+.math-camp-rules-grid > section {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.math-camp-card h3,
+.math-camp-season h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.math-camp-card p,
+.math-camp-season p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.math-camp-section-title {
+  margin: 1.7rem 0 0.75rem;
+  padding-left: 0.8rem;
+  border-left: 4px solid var(--gold);
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.math-camp-seasons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.math-camp-season {
+  border-left: 4px solid var(--green, var(--blue));
+}
+
+.season-spring { border-left-color: var(--green, #347854); }
+.season-growth { border-left-color: var(--blue); }
+.season-challenge { border-left-color: var(--gold); }
+.season-explore { border-left-color: var(--navy); }
+
+.math-camp-season-label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.math-camp-season p {
+  font-size: 0.9rem;
+}
+
+.math-camp-season .math-camp-season-motto {
+  margin: 0 0 0.35rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.math-camp-daily-note {
+  margin: 1rem 0 1.7rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  background: var(--gold-light);
+}
+
+.math-camp-rules {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: #F5F7FA;
+}
+
+.math-camp-rules > h2 {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  border: 0;
+  color: var(--navy);
+  font-size: 1.15rem;
+}
+
+.math-camp-rules-intro {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.math-camp-rules-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.math-camp-rules-grid > section {
+  padding: 0.9rem 1rem;
+}
+
+.math-camp-rules-grid h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 0.98rem;
+}
+
+.math-camp-rules-grid ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.math-camp-rules-grid li,
+.math-camp-rules-grid p {
+  margin-bottom: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.math-camp-rules-grid li:last-child {
+  margin-bottom: 0;
+}
+
+.math-camp-values {
+  background: var(--gold-light) !important;
+}
+
+.math-camp-closing {
+  margin: 1rem 0 0;
+  color: var(--green, var(--navy));
+  font-weight: 700;
+  text-align: center;
+}
+
+.math-camp-contact {
+  margin-top: 1.25rem;
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.math-camp-contact h2 {
+  margin: 0 0 0.2rem;
+  padding: 0;
+  border: 0;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.math-camp-contact p {
+  margin: 0 0 0.25rem;
+  color: #EAF2FB;
+}
+
+.math-camp-contact a {
+  color: #F8EED2;
+  font-weight: 700;
+}
+
+.math-camp-contact .math-camp-flyer-link {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #F8EED2;
+  border-radius: 6px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.math-camp-contact .math-camp-flyer-link:hover {
+  background: rgba(255,255,255,0.12);
+}
+
 /* ===== 按钮 ===== */
 .btn {
   display: inline-block;
@@ -536,6 +762,10 @@ footer {
   .hero .subtitle, .hero .motto { font-size: 0.85rem; letter-spacing: 0; }
   .mission-grid { grid-template-columns: 1fr; }
   .resource-card { flex-direction: column; align-items: flex-start; }
+  .math-camp { padding: 1rem; }
+  .math-camp-header h2 { font-size: 1.45rem; }
+  .math-camp-overview, .math-camp-seasons, .math-camp-rules-grid { grid-template-columns: 1fr; }
+  .math-camp-rules { padding: 1rem; }
   .footer-inner { grid-template-columns: 1fr; }
   .info-table { font-size: 0.8rem; }
   .info-table th, .info-table td { padding: 0.5rem 0.7rem; }
