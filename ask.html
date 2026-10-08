@@ -30,8 +30,20 @@
 
 <div class="hero">
   <div class="hero-text">
-    <p class="subtitle">你好，我是美嘉<span class="ai-badge">AI</span>，我会陪你一起想一想孩子的学习、习惯和成长。</p>
-    <p class="subtitle ask-examples">你可以问我：怎样培养孩子良好的学习习惯？ · 怎样陪孩子进行亲子阅读？ · 孩子怎样才能学好英语？ · 数学学不会，我该怎样帮助他？ · 有哪些好玩的数学游戏可以和孩子一起玩？ · 孩子遇到困难就想放弃怎么办？</p>
+    <p class="subtitle">你好，我是美嘉<span class="ai-badge">AI</span>，我会陪你一起想一想，怎样陪孩子成长，也怎样让自己成为更好的父母。</p>
+    <details class="subtitle ask-examples" id="ask-examples">
+      <summary>你可以问我：</summary>
+      <p>
+        我怎样帮助孩子养成良好的学习习惯？<br>
+        我怎样陪孩子进行亲子阅读？<br>
+        我怎样帮助孩子学好英语？<br>
+        孩子数学学不会，我可以怎样帮助他？<br>
+        孩子遇到困难想放弃，我可以怎样陪他走下去？
+      </p>
+    </details>
+    <script>
+      if (window.matchMedia('(min-width: 769px)').matches) document.getElementById('ask-examples').open = true;
+    </script>
   
   </div>
 </div>
@@ -52,6 +64,11 @@
     #chat-slot { height: clamp(680px, 100vh, 920px); }
     @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
     .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
+    .ask-examples summary { cursor: pointer; list-style: none; }
+    .ask-examples summary::-webkit-details-marker { display: none; }
+    .ask-examples summary::after { content: ' ▾'; }
+    .ask-examples[open] summary::after { content: ' ▴'; }
+    .ask-examples p { margin: 0.4rem 0 0; }
     #chat-slot .daily-prompt {
       margin: -0.5rem 1rem 0;
       padding: 0 0 0.5rem;
