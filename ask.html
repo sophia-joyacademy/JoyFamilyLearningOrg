@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问问美嘉AI — 美嘉河畔书房</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="美嘉河畔书房" class="nav-logo-img">
+      <span class="nav-logo-text">
+        <span class="nav-logo-name">美嘉河畔书房</span>
+        <span class="nav-logo-motto">柔和谦卑 · 静心学习 · 生命传承 · 做光做盐</span>
+      </span>
+    </a>
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="parentchild.html">亲子在家学习</a></li>
+      <li><a href="kidsgroupclass.html">儿童小组学习</a></li>
+      <li><a href="resources.html">资源分享</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="ask.html" class="active">问问美嘉 <span class="ai-badge">AI</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>问问美嘉AI</h1>
+    <p class="subtitle">你好，我是美嘉AI，我会陪你一起想一想孩子的学习、习惯和成长。</p>
+    <p class="subtitle ask-examples">你可以问我：怎样培养孩子良好的学习习惯？ · 怎样陪孩子进行亲子阅读？ · 孩子怎样才能学好英语？ · 数学学不会，我该怎样帮助他？ · 有哪些好玩的数学游戏可以和孩子一起玩？ · 孩子遇到困难就想放弃怎么办？</p>
+  
+  </div>
+</div>
+
+<div class="container">
+
+  <script
+    data-embed-id="131c1ed4-2863-4be6-a434-6a406fde1fd1"
+    data-base-api-url="https://ai.hearthandheight.org/api/embed"
+    data-open-on-load="on"
+    src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
+  </script>
+  <div id="chat-slot" style="margin-top:16px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
+  <style>
+    #chat-slot { height: clamp(680px, 100vh, 920px); }
+    @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
+    .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
+    #anything-llm-embed-chat-button-container { display: none !important; }
+    #chat-slot > div { height: 100%; }
+    #chat-slot #anything-llm-embed-chat-container {
+      position: relative !important; inset: auto !important; z-index: auto !important;
+      display: block !important; width: 100%; height: 100%;
+    }
+    #chat-slot [aria-label="Close"], #chat-slot #anything-llm-embed-chat-container button[id*="close" i] { display: none !important; }
+    #chat-slot #anything-llm-embed-chat-container > div {
+      position: static !important; inset: auto !important; transform: none !important;
+      width: 100% !important; max-width: 100% !important;
+      height: 100% !important; max-height: 100% !important;
+      border-radius: 0 !important; box-shadow: none !important; margin: 0 !important;
+    }
+  </style>
+  <script>
+    window.addEventListener('load', function () { setTimeout(function () { window.scrollTo(0, 0); }, 800); });
+    (function () {
+      var slot = document.getElementById('chat-slot');
+      function move() {
+        var c = document.getElementById('anything-llm-embed-chat-container');
+        // 移动整个 React 根节点（而非内部元素），否则事件委托失效，消息无法发送
+        if (c && c.parentNode.parentNode !== slot) slot.appendChild(c.parentNode);
+        return !!c;
+      }
+      if (!move()) {
+        var obs = new MutationObserver(function () { if (move()) obs.disconnect(); });
+        obs.observe(document.body, { childList: true, subtree: true });
+      }
+    })();
+  </script>
+
+  <p style="font-size:0.85rem; color: var(--muted); margin-top:16px;">回答由 AI 生成，仅供参考，不能替代专业意见。请不要输入孩子的真实姓名等个人隐私信息。</p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="美嘉河畔书房" class="footer-logo">
+      <div class="footer-brand-text">
+        <span class="footer-brand-name">美嘉河畔书房</span>
+        <span class="footer-brand-motto">柔和谦卑 · 静心学习 · 生命传承 · 做光做盐</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>快速链接</h4>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="parentchild.html">亲子在家学习</a></li>
+        <li><a href="kidsgroupclass.html">儿童小组学习</a></li>
+        <li><a href="resources.html">资源分享</a></li>
+        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="ask.html">问问美嘉 <span class="ai-badge">AI</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>更多</h4>
+      <ul>
+        <li><a href="privacy-policy.html">隐私政策</a></li>
+        <li><a href="https://hearthandheight.org" target="_blank" rel="noopener">美嘉旷野书房 · 父母生命成长</a></li>
+        <li><a href="https://joyacademy.online" target="_blank" rel="noopener">美嘉在线学堂 · 5-12年级AP学校</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-motto">愿每个孩子都成为各行各业的专业人才 · 做世上的光和盐</p>
+    <p>© 2025 Joy Family Learning · 美嘉河畔书房</p>
+  </div>
+</footer>
+
+</body>
+</html>
