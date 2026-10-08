@@ -49,6 +49,14 @@
     #chat-slot { height: clamp(680px, 100vh, 920px); }
     @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
     .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
+    #chat-slot .joyfamily-daily-prompt {
+      margin: -0.5rem 1rem 0;
+      padding: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      text-align: center;
+    }
     #anything-llm-embed-chat-button-container { display: none !important; }
     #chat-slot > div { height: 100%; }
     #chat-slot #anything-llm-embed-chat-container {
@@ -67,16 +75,109 @@
     window.addEventListener('load', function () { setTimeout(function () { window.scrollTo(0, 0); }, 800); });
     (function () {
       var slot = document.getElementById('chat-slot');
+      var emptyHistoryText = '今天想从哪里开始？';
+      var dailyPrompts = [
+        '今天，有什么值得感恩的事？',
+        '今天，想和孩子一起发现什么？',
+        '今天想和孩子学习些什么？',
+        '最近，和孩子一起读书的时光怎么样？',
+        '孩子最近在英语或数学学习上，有什么新的发现？',
+        '最近，孩子有什么让你惊喜的地方？',
+        '看着孩子一点点成长，最近有什么感受？',
+        '最近陪伴孩子，有什么事情让你有点困惑？',
+        '今天，想为孩子做些什么？',
+        '最近和孩子相处时，有什么温暖或不容易的时刻？',
+        '最近有没有什么事情想和美嘉聊聊？',
+        '今天，也给自己留一点时间。',
+        '最近有什么想和美嘉聊聊的？'
+      ];
+      function getDailyPrompt() {
+        var now = new Date();
+        var date = now.getFullYear() + '-' +
+          String(now.getMonth() + 1).padStart(2, '0') + '-' +
+          String(now.getDate()).padStart(2, '0');
+        var storageKey = 'joyfamily-ai-daily-prompt';
+        var saved = localStorage.getItem(storageKey);
+        var previousPrompt = '';
+        if (saved) {
+          var savedParts = saved.split('\n');
+          if (savedParts[0] === date && dailyPrompts.indexOf(savedParts[1]) !== -1) return savedParts[1];
+          previousPrompt = savedParts[1] || '';
+        }
+        var choices = dailyPrompts.filter(function (prompt) { return prompt !== previousPrompt; });
+        var prompt = choices[Math.floor(Math.random() * choices.length)];
+        localStorage.setItem(storageKey, date + '\n' + prompt);
+        return prompt;
+      }
+      var dailyPrompt = getDailyPrompt();
+      var dailyRefreshTimer;
+      function refreshDailyPrompt() {
+        var nextPrompt = getDailyPrompt();
+        if (nextPrompt !== dailyPrompt) {
+          dailyPrompt = nextPrompt;
+          localizeChat();
+        }
+        var nextMidnight = new Date();
+        nextMidnight.setHours(24, 0, 0, 0);
+        window.clearTimeout(dailyRefreshTimer);
+        dailyRefreshTimer = window.setTimeout(refreshDailyPrompt, nextMidnight.getTime() - Date.now());
+      }
+
+      function localizeChat() {
+        var chat = slot.querySelector('#anything-llm-embed-chat-container');
+        if (!chat) return;
+        chat.querySelectorAll('textarea, input').forEach(function (input) {
+          if (input.getAttribute('placeholder') === 'Send a message') {
+            input.setAttribute('placeholder', '今天想和美嘉聊些什么？');
+          }
+        });
+        var emptyMessage = Array.prototype.find.call(chat.querySelectorAll('p'), function (paragraph) {
+          return paragraph.textContent === 'Send a chat to get started.' ||
+            paragraph.textContent === emptyHistoryText;
+        });
+        if (emptyMessage) {
+          if (emptyMessage.textContent !== emptyHistoryText) emptyMessage.textContent = emptyHistoryText;
+          var promptElement = emptyMessage.parentElement.querySelector('.joyfamily-daily-prompt');
+          if (!promptElement) {
+            promptElement = document.createElement('p');
+            promptElement.className = 'joyfamily-daily-prompt';
+            emptyMessage.insertAdjacentElement('afterend', promptElement);
+          }
+          if (promptElement.textContent !== dailyPrompt) promptElement.textContent = dailyPrompt;
+        } else {
+          chat.querySelectorAll('.joyfamily-daily-prompt').forEach(function (promptElement) {
+            promptElement.remove();
+          });
+        }
+      }
+
       function move() {
         var c = document.getElementById('anything-llm-embed-chat-container');
         // 移动整个 React 根节点（而非内部元素），否则事件委托失效，消息无法发送
         if (c && c.parentNode.parentNode !== slot) slot.appendChild(c.parentNode);
         return !!c;
       }
-      if (!move()) {
-        var obs = new MutationObserver(function () { if (move()) obs.disconnect(); });
+      function watchChat() {
+        if (!move()) return false;
+        localizeChat();
+        return true;
+      }
+      if (watchChat()) {
+        var chatObserver = new MutationObserver(localizeChat);
+        chatObserver.observe(slot, { childList: true, subtree: true, attributes: true, attributeFilter: ['placeholder'] });
+      } else {
+        var obs = new MutationObserver(function () {
+          if (watchChat()) {
+            obs.disconnect();
+            obs.observe(slot, { childList: true, subtree: true, attributes: true, attributeFilter: ['placeholder'] });
+          }
+        });
         obs.observe(document.body, { childList: true, subtree: true });
       }
+      refreshDailyPrompt();
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) refreshDailyPrompt();
+      });
     })();
   </script>
 
