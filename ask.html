@@ -42,6 +42,9 @@
     data-embed-id="3b686367-56e0-4223-9e13-46e3694a1981"
     data-base-api-url="https://ai.hearthandheight.org/api/embed"
     data-open-on-load="on"
+    data-no-sponsor="true"
+    data-send-message-text="今天想和美嘉聊些什么？"
+    data-reset-chat-text="开始新的对话"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
   <div id="chat-slot" style="margin-top:16px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
@@ -49,11 +52,11 @@
     #chat-slot { height: clamp(680px, 100vh, 920px); }
     @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
     .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
-    #chat-slot .joyfamily-daily-prompt {
+    #chat-slot .daily-prompt {
       margin: -0.5rem 1rem 0;
       padding: 0 0 0.5rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       line-height: 1.6;
       text-align: center;
     }
@@ -77,37 +80,37 @@
       var slot = document.getElementById('chat-slot');
       var emptyHistoryText = '今天想从哪里开始？';
       var dailyPrompts = [
-        '今天，有什么值得感恩的事？',
-        '今天，想和孩子一起发现什么？',
-        '今天想和孩子学习些什么？',
-        '最近，和孩子一起读书的时光怎么样？',
-        '孩子最近在英语或数学学习上，有什么新的发现？',
-        '最近，孩子有什么让你惊喜的地方？',
-        '看着孩子一点点成长，最近有什么感受？',
-        '最近陪伴孩子，有什么事情让你有点困惑？',
-        '今天，想为孩子做些什么？',
-        '最近和孩子相处时，有什么温暖或不容易的时刻？',
-        '最近有没有什么事情想和美嘉聊聊？',
-        '今天，也给自己留一点时间。',
-        '最近有什么想和美嘉聊聊的？'
+        '今天，有什么值得我们感恩？',
+        '今天，大自然里有什么让我们惊叹的美好？',
+        '这个世界有许多奥秘，今天想和孩子一起发现什么？',
+        '面对大自然和生命，我们可以学习怎样保持一颗敬畏、谦卑的心？',
+        '今天，想和孩子一起发现学习的美好在哪里？',
+        '学习不只是为了知道更多，也是为了更好地认识这个世界。',
+        '今天，有什么可以亲手做一做、试一试？',
+        '有些答案，需要在实践中慢慢发现。今天，想尝试什么？',
+        '今天，让孩子多一点探索，也多一点自己动手的机会。',
+        '好奇是一份珍贵的礼物。今天，有什么问题值得我们一起寻找答案？',
+        '最近，孩子有什么新的发现，让你感到欣喜？',
+        '最近，孩子在哪一个小地方悄悄长大了？',
+        '孩子的每一个小进步，都值得被看见，也值得感恩。',
+        '今天，让我们少一点催促，多一点耐心，看见孩子正在成为怎样的人。',
+        '学习不仅是为了自己，也可以成为帮助别人的力量。',
+        '今天，有没有一个机会，让孩子用自己的双手去帮助别人？',
+        '服务别人，也是在学习爱与责任。今天，我们可以为谁做些什么？',
+        '愿孩子在探索世界的同时，也学会谦卑、感恩和珍惜。',
+        '愿我们在生活中学习，在实践中成长，在服务中学习爱。',
+        '今天，让我们一起发现美好、认真学习、乐意付出，也珍惜每一点成长。'
       ];
       function getDailyPrompt() {
         var now = new Date();
         var date = now.getFullYear() + '-' +
           String(now.getMonth() + 1).padStart(2, '0') + '-' +
           String(now.getDate()).padStart(2, '0');
-        var storageKey = 'joyfamily-ai-daily-prompt';
-        var saved = localStorage.getItem(storageKey);
-        var previousPrompt = '';
-        if (saved) {
-          var savedParts = saved.split('\n');
-          if (savedParts[0] === date && dailyPrompts.indexOf(savedParts[1]) !== -1) return savedParts[1];
-          previousPrompt = savedParts[1] || '';
+        var hash = 0;
+        for (var i = 0; i < date.length; i += 1) {
+          hash = (hash * 31 + date.charCodeAt(i)) >>> 0;
         }
-        var choices = dailyPrompts.filter(function (prompt) { return prompt !== previousPrompt; });
-        var prompt = choices[Math.floor(Math.random() * choices.length)];
-        localStorage.setItem(storageKey, date + '\n' + prompt);
-        return prompt;
+        return dailyPrompts[hash % dailyPrompts.length];
       }
       var dailyPrompt = getDailyPrompt();
       var dailyRefreshTimer;
@@ -137,15 +140,15 @@
         });
         if (emptyMessage) {
           if (emptyMessage.textContent !== emptyHistoryText) emptyMessage.textContent = emptyHistoryText;
-          var promptElement = emptyMessage.parentElement.querySelector('.joyfamily-daily-prompt');
+          var promptElement = emptyMessage.parentElement.querySelector('.daily-prompt');
           if (!promptElement) {
             promptElement = document.createElement('p');
-            promptElement.className = 'joyfamily-daily-prompt';
+            promptElement.className = 'daily-prompt';
             emptyMessage.insertAdjacentElement('afterend', promptElement);
           }
           if (promptElement.textContent !== dailyPrompt) promptElement.textContent = dailyPrompt;
         } else {
-          chat.querySelectorAll('.joyfamily-daily-prompt').forEach(function (promptElement) {
+          chat.querySelectorAll('.daily-prompt').forEach(function (promptElement) {
             promptElement.remove();
           });
         }
