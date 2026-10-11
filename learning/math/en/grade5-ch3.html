@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grade 5 Chapter 3 — Multiplying and Dividing Fractions and Mixed Numbers | Joy Family Learning Math Study Guide</title>
+    <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:24px;align-items:start}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-weight:600}
+    .sl{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;margin-top:10px;font-weight:700}
+    .sl output{font-weight:850;color:var(--purple);text-align:right}
+    .katex{font-size:1.05em}
+    .calc{margin-top:10px;display:grid;gap:6px}
+    .calc div{padding:8px 12px;border-radius:12px;background:var(--purple-light);font-weight:500}
+    .calc div.ok{background:var(--teal-light)}
+    .calc div.bad{background:var(--orange-light)}
+    table.tb{border-collapse:collapse;margin-top:12px;font-weight:700;width:100%}
+    table.tb td,table.tb th{padding:6px 10px;text-align:center;border-bottom:1px solid var(--line)}
+    table.tb th{color:var(--purple)}
+    table.tb tr.hit td{background:var(--teal-light)}
+    canvas{width:100%;max-width:460px;aspect-ratio:1/1;background:#fff;border:2px solid var(--line);border-radius:16px;display:block;margin-top:12px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    /* place value chart */
+    .pv{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .period{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
+    .period .pn{font-size:.7rem;font-weight:850;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:4px}
+    .cells{display:flex;gap:4px}
+    .cell{width:38px;text-align:center}
+    .cell .d{display:grid;place-items:center;height:42px;border-radius:10px;background:#fff;border:2px solid var(--line);font-size:1.3rem;font-weight:900}
+    .cell .d.hl{background:var(--purple);color:#fff;border-color:var(--purple)}
+    .cell .d.nx{background:var(--orange-light);border-color:var(--orange)}
+    .cell .l{font-size:.58rem;color:var(--muted);font-weight:800;margin-top:2px;line-height:1.1}
+    .cell button.ar{display:block;width:100%;padding:0;margin:2px 0;border:0;background:var(--purple-light);color:var(--purple);border-radius:6px;font-size:.7rem;line-height:1.5}
+    .cell button.ar:hover{background:var(--purple);color:#fff}
+    .nl{width:100%;height:auto;display:block;background:#fbfdfb;border-radius:14px;border:1px solid var(--line)}
+    .eq{font-size:1.25rem;font-weight:850;margin:8px 0}
+    .eq.t{color:var(--teal);background:none}.eq.o{color:var(--orange);background:none}.eq.p{color:var(--purple);background:none}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=number],select{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:260px}
+    .out{font-weight:850;color:var(--purple)}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:260px}
+    .out{font-weight:850;color:var(--purple)}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}}
+    .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;font-weight:800;line-height:1.15}
+    .fr span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .big .fr,.big{font-size:1.25rem}
+    .stage{background:#fbfdfb;border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:12px;overflow-x:auto}
+    .stage svg{width:100%;height:auto;display:block}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="grade5.html">← Grade 5</a><a href="#map">Concept map</a><a href="#mf">Multiply fractions</a><a href="#mm">Mixed numbers</a><a href="#df">Divide a fraction</a><a href="#wu">Whole ÷ unit fraction</a><a href="#wp">Word problems</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Grade 5 · Chapter 3</span>
+    <h1><span>Multiplying and Dividing Fractions and Mixed Numbers</span></h1>
+    <p class="lead">Multiply fractions by whole numbers, fractions and mixed numbers, simplify before you multiply, divide a fraction by a whole number, and divide a whole number by a unit fraction.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map</h2>
+    <p class="sub">How the big ideas of Chapter 3 connect. Click any bubble to see the key idea and an example.</p>
+    <div class="card" style="padding:10px"><svg id="cmap" viewBox="0 0 1000 370" style="width:100%;height:auto;display:block"></svg></div>
+    <div class="card pill" id="lesson-info" style="background:var(--purple-light);color:var(--ink);margin-top:14px">Pick a bubble above 👆</div>
+  </section>
+
+  <section id="vocab">
+    <h2>📖 Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">"Of" means ×</span><p><span class="fr"><span>3</span><span>4</span></span> of 16 = <span class="fr"><span>3</span><span>4</span></span> × 16 = 12.</p></div>
+      <div class="card"><span class="tag t">Simplify first</span><p>Divide a numerator and a denominator by a common factor <i>before</i> multiplying. The numbers stay small.</p></div>
+      <div class="card"><span class="tag o">Product</span><p>The answer to a multiplication. Multiplying by a fraction less than 1 makes the product smaller than the other factor.</p></div>
+      <div class="card"><span class="tag p">Unit fraction</span><p>A fraction with numerator 1, like <span class="fr"><span>1</span><span>3</span></span>. Dividing by a unit fraction multiplies by its denominator: 4 ÷ <span class="fr"><span>1</span><span>3</span></span> = 4 × 3.</p></div>
+      <div class="card"><span class="tag t">Reciprocal</span><p>Flip a fraction: the reciprocal of <span class="fr"><span>1</span><span>8</span></span> is 8. Dividing by a whole number is the same as multiplying by its reciprocal.</p></div>
+      <div class="card"><span class="tag o">Improper fraction</span><p>Turn a mixed number into one before multiplying: 3<span class="fr"><span>5</span><span>9</span></span> = <span class="fr"><span>32</span><span>9</span></span>.</p></div>
+    </div>
+  </section>
+
+  <section id="mf">
+    <h2>✖️ Multiplying fractions step by step</h2>
+    <p class="sub">Multiply a fraction by a whole number, a proper fraction or an improper fraction. Type <b>1</b> as the second denominator to use a whole number. Choose a method and press <b>Next step</b>.</p>
+    <div class="card">
+      <div class="rw"><button id="mf-m1" class="on">Method 1: multiply, then simplify</button><button id="mf-m2">Method 2: simplify first</button></div>
+      <div class="rw big" id="mf-in"></div>
+      <div class="rw"><button id="mf-back">◀ Back</button><button id="mf-next">Next step ▶</button><button id="mf-reset">↺ Reset</button></div>
+      <div class="stage" id="mf-stage"><svg id="mf-svg" viewBox="0 0 680 250"></svg></div>
+      <div class="calc" id="mf-out"></div>
+    </div>
+  </section>
+
+  <section id="mm">
+    <h2>🧩 Multiplying mixed numbers</h2>
+    <p class="sub">Change mixed numbers to improper fractions, simplify, multiply, and change back. The area model shows the same answer as four smaller rectangles. Enter 0 as the numerator for a whole number.</p>
+    <div class="card">
+      <div class="rw big" id="mm-in"></div>
+      <div class="rw"><button id="mm-back">◀ Back</button><button id="mm-next">Next step ▶</button><button id="mm-reset">↺ Reset</button></div>
+      <div class="stage"><svg id="mm-svg" viewBox="0 0 680 280"></svg></div>
+      <div class="calc" id="mm-out"></div>
+    </div>
+  </section>
+
+  <section id="df">
+    <h2>➗ Dividing a fraction by a whole number</h2>
+    <p class="sub">Cut each piece into equal smaller pieces. Dividing by <b>n</b> is the same as multiplying by <span class="fr"><span>1</span><span>n</span></span>.</p>
+    <div class="card">
+      <div id="df-sl"></div>
+      <div class="stage"><svg id="df-svg" viewBox="0 0 680 110"></svg></div>
+      <div class="calc" id="df-out"></div>
+    </div>
+  </section>
+
+  <section id="wu">
+    <h2>🔢 Dividing a whole number by a unit fraction</h2>
+    <p class="sub">How many pieces of size <span class="fr"><span>1</span><span>d</span></span> fit into <b>n</b> wholes? Each whole holds <b>d</b> of them.</p>
+    <div class="card">
+      <div id="wu-sl"></div>
+      <div class="stage"><svg id="wu-svg" viewBox="0 0 680 100"></svg></div>
+      <div class="calc" id="wu-out"></div>
+    </div>
+  </section>
+
+  <section id="wp">
+    <h2>🛍️ Fraction word problems with bar models</h2>
+    <p class="sub">Ms. Nelson spends a fraction of her money on a coat, then a fraction of the <b>remainder</b> on boots. How much is left? Pick the numbers. If a share isn't a whole number of dollars, the page asks for a different total.</p>
+    <div class="card">
+      <div class="rw"><label style="margin:0">Total money <select id="wp-t" style="max-width:120px"></select></label>
+        <label style="margin:0">Coat (fraction of the total) <select id="wp-a" style="max-width:100px"></select></label>
+        <label style="margin:0">Boots (fraction of the remainder) <select id="wp-b" style="max-width:100px"></select></label></div>
+      <div class="stage"><svg id="wp-svg" viewBox="0 0 680 120"></svg></div>
+      <div class="calc" id="wp-out"></div>
+    </div>
+  </section>
+
+  <section id="err">
+    <h2>🚧 Common traps</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag o">Multiplying doesn't always make it bigger</span><p>Multiplying by a fraction less than 1 gives a smaller number: <span class="fr"><span>1</span><span>2</span></span> × 12 = 6. Multiplying by an improper fraction gives a bigger one.</p></div>
+      <div class="card"><span class="tag o">Don't cross-simplify across a + sign</span><p>You can only cancel in <i>multiplication</i>. Never cancel in an addition or subtraction.</p></div>
+      <div class="card"><span class="tag o">Dividing a fraction by a whole number</span><p><span class="fr"><span>1</span><span>7</span></span> ÷ 8 = <span class="fr"><span>1</span><span>56</span></span>, not 8 sevenths. The pieces get smaller, so the denominator grows.</p></div>
+      <div class="card"><span class="tag o">Whole number ÷ unit fraction</span><p>4 ÷ <span class="fr"><span>1</span><span>3</span></span> = 4 × 3 = 12, not <span class="fr"><span>4</span><span>3</span></span>. There are 12 thirds in 4 wholes.</p></div>
+      <div class="card"><span class="tag o">Keep the whole number</span><p>12 × 3<span class="fr"><span>5</span><span>9</span></span>: don't multiply only the fraction part. Change to <span class="fr"><span>32</span><span>9</span></span> first.</p></div>
+      <div class="card"><span class="tag o">"Of the remainder"</span><p>In a two-step problem, the second fraction is of what is <i>left</i>, not of the original total.</p></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Quick quiz</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="grade5.html">Grade 5</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const lines=(host,arr)=>{$(host).innerHTML=arr.map(([t,c])=>'<div class="'+(c||'')+'">'+t+'</div>').join('')};
+function sliders(host,defs,onchange){
+  const h=$(host);h.innerHTML='';
+  defs.forEach(([id,label,min,max,val,step])=>{
+    const d=document.createElement('div');d.className='sl';
+    d.innerHTML='<span>'+label+'</span><input type="range" id="'+id+'" min="'+min+'" max="'+max+'" step="'+(step||1)+'" value="'+val+'"><output id="'+id+'o"></output>';
+    h.appendChild(d)});
+  const run=()=>{defs.forEach(([id])=>{$(id+'o').textContent=$(id).value});onchange()};
+  h.querySelectorAll('input').forEach(i=>i.oninput=run);run();return run}
+const val=id=>+$(id).value;
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const F=(n,d)=>'<span class="fr"><span>'+n+'</span><span>'+d+'</span></span>';
+const S=(n,d)=>d===1?String(n):F(n,d);
+const M=(w,n,d)=>!n?String(w):(w?w:'')+F(n,d);
+const mixedOf=(n,d)=>{const w=Math.floor(n/d),r=n%d,g=r?gcd(r,d):1;return [w,r/g,r?d/g:1]};
+const NS='http://www.w3.org/2000/svg';
+const COL=['#7962cb','#087f79','#f07846','#3b82c4'];
+const rd=(id,min,max)=>{let v=Math.round(+$(id).value);if(isNaN(v))v=min;v=Math.max(min,Math.min(max,v));$(id).value=v;return v};
+const num=(id,v,min,max,w)=>'<input type="number" id="'+id+'" min="'+min+'" max="'+max+'" value="'+v+'" style="max-width:'+(w||62)+'px">';
+const done=(n,d)=>{const g=gcd(n,d),a=n/g,b=d/g,[w,r,dd]=mixedOf(a,b);return {a,b,g,txt:b===1?String(a):(a>b?F(a,b)+' = '+M(w,r,dd):F(a,b))}};
+
+function stepper(o){
+  let steps=[],cur=0;
+  const render=()=>{const s=steps[cur];if(o.view)o.view(s,cur);
+    lines(o.out,steps.slice(0,cur+1).map((x,i)=>['<span style="color:var(--muted)">Step '+i+'.</span> '+x.t,i===cur&&x.ok?'ok':'']));
+    $(o.back).disabled=cur===0;$(o.next).disabled=cur===steps.length-1};
+  const start=()=>{steps=o.build();cur=0;render()};
+  $(o.next).onclick=()=>{if(cur<steps.length-1){cur++;render()}};
+  $(o.back).onclick=()=>{if(cur>0){cur--;render()}};
+  $(o.reset).onclick=()=>{cur=0;render()};
+  return start}
+
+/* concept map */
+(function(){
+const svg=$('cmap');
+const col={c:['#7962cb','#f0edff'],t:['#087f79','#e3f5f0'],o:['#f07846','#fff0e6'],b:['#3b82c4','#e6f1fb'],y:['#d99a00','#fff6d6']};
+const N=[
+['top','MULTIPLYING AND DIVIDING\nFRACTIONS AND MIXED NUMBERS',500,45,'c','<b>Multiplying and dividing fractions and mixed numbers.</b><br>How do we multiply and divide fractions, mixed numbers, and whole numbers? How do the factors affect the product if one of the factors is a fraction?'],
+['mw','Multiplying fractions\nand whole numbers',90,170,'o','<b>Multiplying fractions and whole numbers</b><br>'+F(3,4)+' of 16 = '+F(3,4)+' × 16 = '+F('3 × 16',4)+' = '+F(48,4)+' = 12<br>'+F(5,2)+' × 3 = '+F('5 × 3',2)+' = '+F(15,2)+' = '+M(7,1,2)],
+['mp','Multiplying\nproper fractions',255,170,'t','<b>Multiplying proper fractions</b><br>'+F(3,5)+' × '+F(1,2)+' = '+F('3 × 1','5 × 2')+' = '+F(3,10)],
+['mi','Multiplying\nimproper fractions',420,170,'b','<b>Multiplying improper fractions</b><br>Method 1: multiply the numerators and denominators, then simplify.<br>Method 2: simplify before multiplying.'],
+['mm','Multiplying mixed\nnumbers and\nwhole numbers',585,170,'y','<b>Multiplying mixed numbers and whole numbers</b><br>12 × '+M(3,5,9)+' = 12 × '+F(32,9)+' = '+F('12 × 32',9)+' = '+F(384,9)+' = '+M(42,6,9)+' = '+M(42,2,3)+'<br>'+M(1,1,2)+' × 3 = '+F(3,2)+' × 3 = '+F(9,2)+' = '+M(4,1,2)],
+['df','Dividing a fraction\nby a whole number',750,170,'c','<b>Dividing a fraction by a whole number</b><br>'+F(1,7)+' ÷ 8 = '+F(1,7)+' ÷ '+F(8,1)+' = '+F(1,7)+' × '+F(1,8)+' = '+F(1,56)+'<br>'+F(4,7)+' ÷ 2 = '+F(4,7)+' × '+F(1,2)+' = '+F(2,7)],
+['wu','Dividing a whole\nnumber by a\nunit fraction',915,170,'o','<b>Dividing a whole number by a unit fraction</b><br>4 ÷ '+F(1,3)+' = 4 × 3 = 12'],
+['sf','Simplify before\nmultiplying',150,310,'t','<b>Simplify the fractions before multiplying</b><br>'+F(2,3)+' × '+F(5,6)+' = '+F('1 × 5','3 × 3')+' = '+F(5,9)+'<br>Divide 2 and 6 by 2, then multiply the numerators and the denominators.'],
+['m1','Method 1:\nmultiply, then simplify',340,310,'b','<b>Method 1</b><br>'+F(6,5)+' × '+F(3,4)+' = '+F(18,20)+' = '+F(9,10)+'<br>'+F(6,5)+' × '+F(3,2)+' = '+F(18,10)+' = '+F(9,5)+' = '+M(1,4,5)],
+['m2','Method 2:\nsimplify first',500,310,'b','<b>Method 2</b><br>'+F(9,4)+' × '+F(2,3)+' = '+F('3 × 1','2 × 1')+' = '+F(3,2)+' = '+M(1,1,2)+'<br>'+F(4,3)+' × '+F(9,8)+' = '+F(3,2)+' = '+M(1,1,2)],
+['ar','Area model for two\nmixed numbers',670,310,'y','<b>Use square tiles or area models to multiply two mixed numbers</b><br>'+M(1,1,2)+' × '+M(2,1,2)+' = '+F(3,2)+' × '+F(5,2)+' = '+F(15,4)+' = '+M(3,3,4)+'<br>'+M(1,2,3)+' × '+M(1,1,2)+' = (1 × 1) + (1 × '+F(1,2)+') + ('+F(2,3)+' × 1) + ('+F(2,3)+' × '+F(1,2)+') = 1 + '+F(1,2)+' + '+F(2,3)+' + '+F(1,3)+' = '+M(2,1,2)]
+];
+const E=[['top','mw'],['top','mp'],['top','mi'],['top','mm'],['top','df'],['top','wu'],['mp','sf'],['mi','m1'],['mi','m2'],['mm','ar']];
+const P={};N.forEach(n=>P[n[0]]=n);
+const mk=(p,t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+E.forEach(([a,b])=>{const p=P[a],q=P[b];mk(svg,'line',{x1:p[2],y1:p[3],x2:q[2],y2:q[3],stroke:'#b9c6c0','stroke-width':2.5})});
+const nodes={},SUB=['sf','m1','m2','ar'];
+N.forEach(n=>{const [id,txt,x,y,c,info]=n,big=id==='top',w=big?340:SUB.includes(id)?150:158,h=big?70:66;
+  const g=mk(svg,'g',{style:'cursor:pointer',tabindex:0});
+  const r=mk(g,'rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:big?26:18,fill:big?col[c][0]:col[c][1],stroke:col[c][0],'stroke-width':big?0:2.5});
+  const ln=txt.split('\n'),y0=y-(ln.length-1)*8;
+  ln.forEach((l,i)=>{const t=mk(g,'text',{x,y:y0+i*17+4,'text-anchor':'middle','font-size':big?15:12,'font-weight':800,fill:big?'#fff':'#172c3a'});t.textContent=l});
+  g.onclick=()=>{Object.values(nodes).forEach(q=>q.setAttribute('stroke-width',2.5));r.setAttribute('stroke-width',5);$('lesson-info').innerHTML=info};
+  nodes[id]=r});
+})();
+
+/* multiply fractions */
+let mfMethod=1;
+$('mf-in').innerHTML=num('a1',3,1,20)+' / '+num('b1',4,1,12)+' × '+num('a2',1,1,20)+' / '+num('b2',2,1,12);
+const mfStart=stepper({back:'mf-back',next:'mf-next',reset:'mf-reset',out:'mf-out',
+  build(){
+    const a=rd('a1',1,20),b=rd('b1',1,12),c=rd('a2',1,20),d=rd('b2',1,12);
+    const ex=S(a,b)+' × '+S(c,d),st=[{t:'<span class="big"><b>'+ex+'</b></span>'+(b>1&&d===1?'  ('+S(a,b)+' of '+c+' groups)':'')}];
+    const fin=(n,dd)=>{const r=done(n,dd);return r};
+    if(mfMethod===1){
+      const P=a*c,Q=b*d;
+      st.push({t:'Multiply the numerators and the denominators: '+F(a+' × '+c,b+' × '+d)+' = '+F(P,Q)});
+      const r=fin(P,Q);
+      st.push({t:r.g>1?'Simplify: divide '+P+' and '+Q+' by '+r.g+': '+F(P,Q)+' = '+S(r.a,r.b):'Already in simplest form: '+S(r.a,r.b)});
+      st.push({t:'<span class="big"><b>'+ex+' = '+r.txt+'</b></span>',ok:true});
+    }else{
+      const g1=gcd(a,d),g2=gcd(c,b);
+      if(g1===1&&g2===1)st.push({t:'Look for common factors between a numerator and the other fraction\'s denominator: none. Just multiply.'});
+      else st.push({t:'Simplify first. '+(g1>1?'Divide '+a+' and '+d+' by '+g1+'. ':'')+(g2>1?'Divide '+c+' and '+b+' by '+g2+'.':'')});
+      const A=a/g1,D=d/g1,C=c/g2,B=b/g2;
+      st.push({t:'Multiply the smaller numbers: '+F(A+' × '+C,B+' × '+D)+' = '+F(A*C,B*D)});
+      const r=fin(A*C,B*D);
+      st.push({t:'<span class="big"><b>'+ex+' = '+r.txt+'</b></span>',ok:true});
+    }
+    return st},
+  view(){
+    const a=val('a1'),b=val('b1'),c=val('a2'),d=val('b2'),svg=$('mf-svg');let h='';
+    if(a<=b&&c<=d&&b<=12&&d<=12){
+      const W=300,H=220,x0=20,y0=14,cw=W/b,ch=H/d;
+      for(let i=0;i<b;i++)for(let j=0;j<d;j++){const A=i<a,B=j<c;
+        h+='<rect x="'+(x0+i*cw)+'" y="'+(y0+j*ch)+'" width="'+cw+'" height="'+ch+'" fill="'+(A&&B?COL[0]:A?'#cfeee9':B?'#ffe1cf':'#fff')+'" stroke="#172c3a" stroke-width="1"/>'}
+      h+='<text x="350" y="60" font-size="15" font-weight="800" fill="#087f79">Teal columns: '+a+'/'+b+' of the width</text>';
+      h+='<text x="350" y="90" font-size="15" font-weight="800" fill="#f07846">Orange rows: '+c+'/'+d+' of the height</text>';
+      h+='<text x="350" y="120" font-size="15" font-weight="800" fill="#7962cb">Purple overlap: '+(a*c)+' of '+(b*d)+' small pieces</text>';
+      h+='<text x="350" y="150" font-size="13" font-weight="700" fill="#637681">Numerators: '+a+' × '+c+' = '+(a*c)+'. Denominators: '+b+' × '+d+' = '+(b*d)+'.</text>';
+    }else if(d===1&&c<=8&&b<=12&&a<=b){
+      const gw=Math.floor(620/c)-8;
+      for(let g=0;g<c;g++)for(let i=0;i<b;i++)h+='<rect x="'+(20+g*(gw+8)+i*gw/b)+'" y="40" width="'+(gw/b)+'" height="60" fill="'+(i<a?COL[0]:'#fff')+'" stroke="#172c3a" stroke-width="1"/>';
+      h+='<text x="20" y="28" font-size="14" font-weight="800" fill="#172c3a">'+c+' group'+(c>1?'s':'')+' of '+a+'/'+b+'</text>';
+    }else h='<text x="20" y="40" font-size="14" font-weight="700" fill="#637681">The picture shows proper fractions (or a fraction times a small whole number). Follow the steps below.</text>';
+    svg.innerHTML=h}});
+const mfGo=()=>mfStart();
+['a1','b1','a2','b2'].forEach(i=>$(i).onchange=mfGo);
+$('mf-m1').onclick=()=>{mfMethod=1;$('mf-m1').classList.add('on');$('mf-m2').classList.remove('on');mfGo()};
+$('mf-m2').onclick=()=>{mfMethod=2;$('mf-m2').classList.add('on');$('mf-m1').classList.remove('on');mfGo()};
+mfGo();
+
+/* multiply mixed numbers */
+$('mm-in').innerHTML=num('w1',1,0,5)+' '+num('n1',2,0,11)+' / '+num('d1',3,2,12)+' × '+num('w2',1,0,5)+' '+num('n2',1,0,11)+' / '+num('d2',2,2,12);
+const mmStart=stepper({back:'mm-back',next:'mm-next',reset:'mm-reset',out:'mm-out',
+  build(){
+    const w1=rd('w1',0,5),d1=rd('d1',2,12),n1=Math.min(rd('n1',0,11),d1-1),w2=rd('w2',0,5),d2=rd('d2',2,12),n2=Math.min(rd('n2',0,11),d2-1);
+    $('n1').value=n1;$('n2').value=n2;
+    const i1=w1*d1+n1,i2=w2*d2+n2,m1=M(w1,n1,d1)||'0',m2=M(w2,n2,d2)||'0';
+    if(!i1||!i2)return [{t:'One factor is 0, so the product is 0.',ok:true}];
+    const st=[{t:'<span class="big"><b>'+m1+' × '+m2+'</b></span>'}];
+    st.push({t:'Change each mixed number to an improper fraction: '+m1+' = '+F(i1,d1)+', '+m2+' = '+F(i2,d2)+'. Now '+F(i1,d1)+' × '+F(i2,d2)});
+    const g1=gcd(i1,d2),g2=gcd(i2,d1),A=i1/g1,D=d2/g1,C=i2/g2,B=d1/g2;
+    st.push({t:g1===1&&g2===1?'No common factors to simplify.':'Simplify first: '+(g1>1?'divide '+i1+' and '+d2+' by '+g1+'. ':'')+(g2>1?'divide '+i2+' and '+d1+' by '+g2+'.':'')});
+    st.push({t:'Multiply: '+F(A+' × '+C,B+' × '+D)+' = '+F(A*C,B*D)});
+    const r=done(A*C,B*D);
+    st.push({t:'<span class="big"><b>'+m1+' × '+m2+' = '+r.txt+'</b></span>',ok:true});
+    const terms=[];if(w1*w2)terms.push(w1*w2);if(w1*n2)terms.push(F(w1*n2,d2));if(n1*w2)terms.push(F(n1*w2,d1));if(n1*n2)terms.push(F(n1*n2,d1*d2));
+    st.push({t:'Check with the area model: '+terms.join(' + ')+' = '+r.txt});
+    return st},
+  view(){
+    const w1=val('w1'),d1=val('d1'),n1=val('n1'),w2=val('w2'),d2=val('d2'),n2=val('n2'),u=50,x0=90,y0=20;
+    const xs=[w1*u,n1/d1*u],ys=[w2*u,n2/d2*u];let h='',cx=x0;
+    const label=(x,y,w,hh,t)=>(w>26&&hh>16)?'<text x="'+(x+w/2)+'" y="'+(y+hh/2+4)+'" text-anchor="middle" font-size="11" font-weight="800" fill="#172c3a">'+t+'</text>':'';
+    const P=[[w1,w2,0,0],[n1/d1,w2,1,0],[w1,n2/d2,0,1],[n1/d1,n2/d2,1,1]];
+    const lab=[w1*w2,F(n1*w2,d1),F(w1*n2,d2),F(n1*n2,d1*d2)].map(String);
+    const cols=['#cfe3ff','#cfeee9','#ffe1cf','#e7defa'];
+    P.forEach(([a,b,i,j],k)=>{const x=x0+(i?xs[0]:0),y=y0+(j?ys[0]:0),w=xs[i],hh=ys[j];
+      if(w>0&&hh>0)h+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+hh+'" fill="'+cols[k]+'" stroke="#172c3a" stroke-width="1.5"/>'});
+    h+='<text x="'+(x0+(xs[0]+xs[1])/2)+'" y="14" text-anchor="middle" font-size="13" font-weight="800" fill="#172c3a">'+w1+(n1?' + '+n1+'/'+d1:'')+'</text>';
+    h+='<text x="'+(x0-6)+'" y="'+(y0+(ys[0]+ys[1])/2+4)+'" text-anchor="end" font-size="13" font-weight="800" fill="#172c3a">'+w2+(n2?' + '+n2+'/'+d2:'')+'</text>';
+    h+='<text x="'+(x0+xs[0]+xs[1]+30)+'" y="60" font-size="14" font-weight="800" fill="#637681">Area model: width × height is the product.</text>';
+    h+='<text x="'+(x0+xs[0]+xs[1]+30)+'" y="86" font-size="13" font-weight="700" fill="#637681">Four rectangles: whole × whole, whole × fraction,</text>';
+    h+='<text x="'+(x0+xs[0]+xs[1]+30)+'" y="106" font-size="13" font-weight="700" fill="#637681">fraction × whole, fraction × fraction.</text>';
+    $('mm-svg').setAttribute('viewBox','0 0 680 '+Math.max(120,y0+ys[0]+ys[1]+16));
+    $('mm-svg').innerHTML=h}});
+['w1','n1','d1','w2','n2','d2'].forEach(i=>$(i).onchange=()=>mmStart());
+mmStart();
+
+/* fraction / whole number */
+sliders('df-sl',[['dn','Numerator',1,8,4,1],['dd','Denominator',2,9,7,1],['dk','Divide by',2,8,2,1]],()=>{
+  let n=val('dn'),d=val('dd'),k=val('dk');
+  if(n>=d){n=d-1;$('dn').value=n;$('dno').textContent=n}
+  const W=640,pw=W/d,sw=pw/k;let h='';
+  for(let i=0;i<d;i++)for(let j=0;j<k;j++)h+='<rect x="'+(20+i*pw+j*sw)+'" y="18" width="'+sw+'" height="50" fill="'+(i<n?(j===0?COL[0]:'#ddd4f7'):'#fff')+'" stroke="#172c3a" stroke-width="1"/>';
+  for(let i=0;i<d;i++)h+='<rect x="'+(20+i*pw)+'" y="18" width="'+pw+'" height="50" fill="none" stroke="#172c3a" stroke-width="2.5"/>';
+  h+='<text x="20" y="92" font-size="13" font-weight="700" fill="#637681">'+n+'/'+d+' of a bar (shaded). Each '+F(1,d).replace(/<[^>]+>/g,'')+' piece is cut into '+k+' equal parts. One share is the dark part of each piece.</text>';
+  $('df-svg').innerHTML=h;
+  const r=done(n,d*k);
+  lines('df-out',[['<span class="big"><b>'+F(n,d)+' ÷ '+k+'</b></span>'],
+    ['Dividing by '+k+' is the same as multiplying by '+F(1,k)+': '+F(n,d)+' × '+F(1,k)+' = '+F(n,d*k)],
+    ['<span class="big"><b>'+F(n,d)+' ÷ '+k+' = '+r.txt.replace(/^(.*)$/,'$1')+'</b></span>','ok'],
+    [r.g>1?'Simplified by dividing '+n+' and '+(d*k)+' by '+r.g+'.':'It is already in simplest form.']])});
+
+/* whole / unit fraction */
+sliders('wu-sl',[['wn','Whole number',1,6,4,1],['wd','Unit fraction 1/',2,8,3,1]],()=>{
+  const n=val('wn'),d=val('wd'),gw=Math.floor(640/n)-8;let h='';
+  for(let w=0;w<n;w++)for(let i=0;i<d;i++)h+='<rect x="'+(20+w*(gw+8)+i*gw/d)+'" y="14" width="'+(gw/d)+'" height="46" fill="'+COL[w%4]+'" opacity=".8" stroke="#fff" stroke-width="1.5"/>';
+  h+='<text x="20" y="86" font-size="13" font-weight="700" fill="#637681">Each of the '+n+' wholes holds '+d+' pieces of size 1/'+d+'.</text>';
+  $('wu-svg').innerHTML=h;
+  lines('wu-out',[['<span class="big"><b>'+n+' ÷ '+F(1,d)+'</b></span>'],
+    ['One whole holds '+d+' pieces of '+F(1,d)+'. So '+n+' wholes hold '+n+' × '+d+' pieces.'],
+    ['<span class="big"><b>'+n+' ÷ '+F(1,d)+' = '+n+' × '+d+' = '+(n*d)+'</b></span>','ok']])});
+
+/* two-step fraction of remainder */
+const fa=['1/2','1/3','1/4','1/5','2/3','3/4','2/5'],fb=['1/2','1/3','1/4','1/5','2/3'];
+$('wp-t').innerHTML=[12,24,36,48,60,72,120].map(x=>'<option>'+x+'</option>').join('');
+$('wp-a').innerHTML=fa.map(x=>'<option>'+x+'</option>').join('');$('wp-b').innerHTML=fb.map(x=>'<option>'+x+'</option>').join('');
+$('wp-t').value=60;$('wp-a').value='1/4';$('wp-b').value='1/3';
+function wpUpdate(){
+  const T=+$('wp-t').value,[n1,d1]=$('wp-a').value.split('/').map(Number),[n2,d2]=$('wp-b').value.split('/').map(Number);
+  const coat=T*n1/d1,R=T-coat,boots=R*n2/d2;
+  if(!Number.isInteger(coat)||!Number.isInteger(boots)){$('wp-svg').innerHTML='';lines('wp-out',[['$'+T+' × '+F(n1,d1)+' = $'+coat.toFixed(2).replace(/\.00$/,'')+(Number.isInteger(coat)?' and the boots share is not a whole number of dollars. ':' is not a whole number of dollars. ')+'Pick a different total or different fractions.','bad']]);return}
+  const W=640,k=W/T;let h='';
+  h+='<rect x="20" y="30" width="'+coat*k+'" height="40" fill="'+COL[0]+'" opacity=".88" stroke="#172c3a" stroke-width="1.5"/>';
+  h+='<rect x="'+(20+coat*k)+'" y="30" width="'+boots*k+'" height="40" fill="'+COL[1]+'" opacity=".88" stroke="#172c3a" stroke-width="1.5"/>';
+  h+='<rect x="'+(20+(coat+boots)*k)+'" y="30" width="'+(R-boots)*k+'" height="40" fill="#fff" stroke="#172c3a" stroke-width="1.5"/>';
+  const tx=(x,w,t,c)=>'<text x="'+(20+x*k+w*k/2)+'" y="22" text-anchor="middle" font-size="13" font-weight="800" fill="'+c+'">'+t+'</text>';
+  h+=tx(0,coat,'coat $'+coat,COL[0])+tx(coat,boots,'boots $'+boots,COL[1])+tx(coat+boots,R-boots,'left $'+(R-boots),'#637681');
+  h+='<text x="20" y="100" font-size="13" font-weight="700" fill="#637681">Whole bar = $'+T+'. The boots are '+n2+'/'+d2+' of the remainder ($'+R+'), not of $'+T+'.</text>';
+  $('wp-svg').innerHTML=h;
+  lines('wp-out',[['Coat: '+F(n1,d1)+' × $'+T+' = $'+coat],['Remainder: $'+T+' − $'+coat+' = $'+R],['Boots: '+F(n2,d2)+' × $'+R+' = $'+boots],
+    ['Left: $'+R+' − $'+boots+' = <b>$'+(R-boots)+'</b>','ok']])}
+['wp-t','wp-a','wp-b'].forEach(i=>$(i).onchange=wpUpdate);wpUpdate();
+
+/* quiz */
+const Q=[
+['3/4 of 16 =',['12','4','48'],0],
+['5/2 × 3 =',['7 1/2','15/6','8/5'],0],
+['3/5 × 1/2 =',['3/10','4/7','3/7'],0],
+['2/3 × 5/6 =',['5/9','10/9','7/9'],0],
+['6/5 × 3/4 =',['9/10','18/9','2/9'],0],
+['6/5 × 3/2 =',['1 4/5','9/7','18/7'],0],
+['9/4 × 2/3 =',['1 1/2','2 1/4','3 1/4'],0],
+['12 × 3 5/9 =',['42 2/3','36 5/9','43 1/9'],0],
+['1 1/2 × 3 =',['4 1/2','3 1/2','4'],0],
+['1 1/2 × 2 1/2 =',['3 3/4','2 3/4','3 1/4'],0],
+['1/7 ÷ 8 =',['1/56','8/7','7/8'],0],
+['4/7 ÷ 2 =',['2/7','4/14 × 2','8/7'],0],
+['4 ÷ 1/3 =',['12','4/3','3/4'],0],
+['How many 1/5 are in 3?',['15','3/5','8'],0],
+['When you multiply a number by 1/2, the product is',['smaller than the number','larger than the number','equal to the number'],0],
+['Ali has $60. He spends 1/4 on a book, then 1/3 of the rest on lunch. How much is left?',['$30','$25','$20'],0]
+];
+Q.forEach((q,i)=>{const order=q[1].map((_,j)=>j).sort(()=>Math.random()-.5);const c=document.createElement('div');c.className='card';c.innerHTML='<h3>'+(i+1)+'. '+q[0]+'</h3>';
+  const fb=document.createElement('div');fb.className='fb';const bs=[];
+  order.forEach(j=>{const b=document.createElement('button');b.textContent=q[1][j];bs.push([b,j]);b.onclick=()=>{bs.forEach(([x,k])=>{x.disabled=true;if(k===q[2])x.classList.add('right')});
+    if(j!==q[2])b.classList.add('wrong');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c)});
+</script>
+</body>
+</html>

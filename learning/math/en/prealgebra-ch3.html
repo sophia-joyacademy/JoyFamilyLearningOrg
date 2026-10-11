@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 3 — Integers | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text],input[type=number]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    tr.hl td{background:var(--purple-light)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .pos{color:var(--purple)} .neg{color:var(--orange)}
+    .chiprow{display:flex;flex-wrap:wrap;gap:6px;min-height:40px;align-items:center;padding:8px;border-radius:14px;background:var(--paper);margin-top:6px}
+    .rowlab{font-size:.8rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase;margin-top:10px}
+    .chip{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;font-weight:900;color:#fff;font-size:1.1rem}
+    .chip.p{background:var(--purple)} .chip.n{background:var(--orange)}
+    .chip.neu{background:#e4e6e8;color:#8a949b}
+    .chip.new{outline:3px dashed var(--teal);outline-offset:1px}
+    .chip.gone{background:#fff;color:#b5bcc1;border:2px dashed #b5bcc1;text-decoration:line-through}
+    .big{font-size:1.35rem;font-weight:900}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#numline">Number line</a><a href="#add">Add</a><a href="#sub">Subtract</a><a href="#mult">Multiply &amp; divide</a><a href="#solve">Equations</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 3</span>
+    <h1><span>Integers</span></h1>
+    <p class="lead">Numbers below zero. Learn opposites and absolute value, then add, subtract, multiply and divide integers, and solve equations with them.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Integers</span>
+        <p>Counting numbers, their opposites, and zero: … −3, −2, −1, 0, 1, 2, 3 …</p></div>
+      <div class="card"><span class="tag o">Negative number</span>
+        <p>A number less than zero. It sits to the left of 0 on the number line.</p></div>
+      <div class="card"><span class="tag t">Opposites</span>
+        <p>Two numbers the same distance from 0 on opposite sides of 0, such as 5 and −5.</p></div>
+      <div class="card"><span class="tag p">Absolute value</span>
+        <p>The distance of a number from 0 on the number line. It is never negative: |−5| = 5 and |5| = 5.</p></div>
+      <div class="card"><span class="tag t">Positive counter</span>
+        <p><span class="chip p">+</span> stands for +1. It is purple in the labs below.</p></div>
+      <div class="card"><span class="tag o">Negative counter</span>
+        <p><span class="chip n">−</span> stands for −1. It is orange. One of each makes a <b>neutral pair</b> with value 0.</p></div>
+    </div>
+
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Notation</th><th>Say</th><th>Meaning</th></tr>
+      <tr><td>−a</td><td>the opposite of a</td><td>−(5) = −5, and −(−5) = 5</td></tr>
+      <tr><td>|n|</td><td>the absolute value of n</td><td>distance from 0; |n| ≥ 0 for every number</td></tr>
+      <tr><td>a − b = a + (−b)</td><td>subtraction property</td><td>subtracting is adding the opposite</td></tr>
+      <tr><td>a − (−b) = a + b</td><td>subtract a negative</td><td>subtracting a negative adds</td></tr>
+      <tr><td>−1 · a = −a</td><td>multiply by −1</td><td>gives the opposite</td></tr>
+      <tr><td>a ÷ (−1) = −a</td><td>divide by −1</td><td>gives the opposite</td></tr>
+    </table>
+  </section>
+
+  <section id="numline">
+    <h2>📏 Number line, opposites &amp; absolute value</h2>
+    <p class="sub">Pick an integer from −10 to 10. See its opposite and its distance from zero.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="n-in">Integer n = <b id="n-v">−7</b></label>
+        <input id="n-in" type="range" min="-10" max="10" step="1" value="-7">
+        <div style="margin-top:6px"><button class="nx">−7</button><button class="nx">4</button><button class="nx">0</button><button class="nx">−10</button></div>
+        <div class="pill" style="background:var(--purple-light)" id="n-opp"></div>
+        <div class="pill" style="background:var(--teal-light)" id="n-abs"></div>
+      </div>
+      <div class="card"><svg id="n-svg" viewBox="0 0 440 170" style="width:100%"></svg>
+        <p id="n-note" style="margin-top:0"></p></div>
+    </div>
+  </section>
+
+  <section id="add">
+    <h2>➕ Add integers</h2>
+    <p class="sub">Positive counters <span class="chip p" style="width:24px;height:24px;font-size:.9rem">+</span> and negative counters <span class="chip n" style="width:24px;height:24px;font-size:.9rem">−</span>. One of each cancels to 0 (a neutral pair). Enter two integers from −12 to 12, then step through.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="two"><div><label for="a-a">First number</label><input id="a-a" type="number" min="-12" max="12" value="-5"></div>
+        <div><label for="a-b">Second number</label><input id="a-b" type="number" min="-12" max="12" value="3"></div></div>
+        <div id="a-eq" class="big" style="margin:12px 0 0"></div>
+        <div class="rowlab pos">Positive counters</div><div class="chiprow" id="a-p"></div>
+        <div class="rowlab neg">Negative counters</div><div class="chiprow" id="a-n"></div>
+        <div style="margin-top:8px"><button id="a-reset">↺ Reset</button><button id="a-back">◀ Back</button><button id="a-next">Step 1 ▶</button></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="a-msg"></div>
+        <div class="pill" style="background:var(--purple-light)" id="a-res"></div>
+        <p id="a-rule" style="margin-top:12px"></p>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><span class="tag p">Same signs</span>
+        <ul><li>Add the absolute values.</li><li>Keep the sign. (−5) + (−3) = −8.</li></ul></div>
+      <div class="card"><span class="tag o">Different signs</span>
+        <ul><li>Subtract the smaller absolute value from the larger.</li><li>Use the sign of the number with the larger absolute value. −5 + 3 = −2.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="sub">
+    <h2>➖ Subtract integers</h2>
+    <p class="sub">Take counters away. If there aren’t enough of the right color, add neutral pairs first. They don’t change the value. Then see why a − b = a + (−b).</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="two"><div><label for="s-a">Start with</label><input id="s-a" type="number" min="-12" max="12" value="5"></div>
+        <div><label for="s-b">Subtract</label><input id="s-b" type="number" min="-12" max="12" value="-3"></div></div>
+        <div id="s-eq" class="big" style="margin:12px 0 0"></div>
+        <div class="rowlab pos">Positive counters</div><div class="chiprow" id="s-p"></div>
+        <div class="rowlab neg">Negative counters</div><div class="chiprow" id="s-n"></div>
+        <div style="margin-top:8px"><button id="s-reset">↺ Reset</button><button id="s-back">◀ Back</button><button id="s-next">Step 1 ▶</button></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="s-msg"></div>
+        <div class="pill" style="background:var(--purple-light)" id="s-res"></div>
+        <p id="s-rule" style="margin-top:12px"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mult">
+    <h2>✖️ Multiply &amp; divide integers</h2>
+    <p class="sub">Enter two integers from −12 to 12 and pick × or ÷. The sign rule is highlighted below.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="two"><div><label for="m-a">First number</label><input id="m-a" type="number" min="-12" max="12" value="-4"></div>
+        <div><label for="m-b">Second number</label><input id="m-b" type="number" min="-12" max="12" value="6"></div></div>
+        <div style="margin-top:8px"><button id="m-mul" class="on">× Multiply</button><button id="m-div">÷ Divide</button></div>
+        <div class="pill" style="background:var(--teal-light)" id="m-res"></div>
+        <p id="m-why"></p>
+      </div>
+      <div class="card">
+        <table id="m-tab">
+          <tr><th>Signs</th><th>Product / quotient</th></tr>
+          <tr data-k="++"><td>+ and +</td><td><b>Positive</b></td></tr>
+          <tr data-k="--"><td>− and −</td><td><b>Positive</b></td></tr>
+          <tr data-k="+-"><td>+ and −</td><td><b>Negative</b></td></tr>
+          <tr data-k="-+"><td>− and +</td><td><b>Negative</b></td></tr>
+        </table>
+        <p style="margin-top:12px">Same signs → positive. Different signs → negative.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="solve">
+    <h2>⚖️ Solve equations with integers</h2>
+    <p class="sub">Pick a type, enter the numbers, and step through the solution. Do the same thing to both sides. You can also test your own guess.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="q-t0" class="on">x + a = b</button><button id="q-t1">x − a = b</button><button id="q-t2">a · x = b</button><button id="q-t3">a · x + b = c</button></div>
+        <div style="display:flex;gap:12px"><div style="flex:1"><label for="q-a">a</label><input id="q-a" type="number" min="-20" max="20" value="5"></div>
+        <div style="flex:1"><label for="q-b">b</label><input id="q-b" type="number" min="-20" max="20" value="-2"></div>
+        <div id="q-cw" style="flex:1" hidden><label for="q-c">c</label><input id="q-c" type="number" min="-60" max="60" value="7"></div></div>
+        <div id="q-eq" class="big" style="margin:12px 0 0"></div>
+        <div style="display:flex;gap:18px;align-items:flex-start;margin-top:8px">
+          <div style="display:flex;flex-direction:column;align-items:stretch;flex:none"><button id="q-reset">↺ Reset</button><button id="q-next">Step 1 ▶</button><button id="q-back">◀ Back</button></div>
+          <ol class="steps" id="q-steps" style="flex:1;min-width:0"></ol>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Is it a solution?</h3>
+        <label for="q-g">Try x =</label>
+        <input id="q-g" type="number" value="0">
+        <button id="q-chk">Check</button>
+        <div class="pill" style="background:var(--purple-light)" id="q-gres">Substitute your number and see if the equation is true.</div>
+      </div>
+    </div>
+    <div class="grid3" style="margin-top:18px">
+      <div class="card"><span class="tag p">Addition Property</span><p>If a = b, then a + c = b + c.</p></div>
+      <div class="card"><span class="tag t">Subtraction Property</span><p>If a = b, then a − c = b − c.</p></div>
+      <div class="card"><span class="tag o">Division Property</span><p>If a = b and c ≠ 0, then a ÷ c = b ÷ c.</p></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Add integers</span>
+        <ol class="steps"><li>Same signs: add the absolute values and keep the sign.</li><li>Different signs: subtract the absolute values.</li><li>The answer takes the sign of the number with the larger absolute value.</li></ol></div>
+      <div class="card"><span class="tag o">Subtract integers</span>
+        <ol class="steps"><li>Change subtraction to adding the opposite: a − b = a + (−b).</li><li>Then follow the rules for adding.</li><li>Not enough counters to take away? Add neutral pairs.</li></ol></div>
+      <div class="card"><span class="tag t">Multiply &amp; divide</span>
+        <ol class="steps"><li>Multiply or divide the absolute values.</li><li>Same signs → positive. Different signs → negative.</li><li>Times or divided by −1 gives the opposite.</li></ol></div>
+      <div class="card"><span class="tag p">Is it a solution?</span>
+        <ol class="steps"><li>Substitute the number for the variable.</li><li>Simplify both sides.</li><li>True statement? It is a solution. False? It is not.</li></ol></div>
+      <div class="card"><span class="tag o">Solve a one-step equation</span>
+        <ol class="steps"><li>Find the operation done to x.</li><li>Do the opposite operation to both sides (add ↔ subtract, multiply ↔ divide).</li><li>Simplify, then check.</li></ol></div>
+      <div class="card"><span class="tag t">Application problems</span>
+        <ol class="steps"><li>Identify what you are asked to find.</li><li>Write a phrase that gives the information.</li><li>Translate the phrase to an expression.</li><li>Simplify the expression.</li><li>Answer with a complete sentence.</li></ol></div>
+    </div>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Algebra</th></tr>
+      <tr><td>the opposite of 8</td><td>−8</td></tr>
+      <tr><td>the absolute value of −6</td><td>|−6|</td></tr>
+      <tr><td>the sum of −3 and 9</td><td>−3 + 9</td></tr>
+      <tr><td>the difference of 4 and −7</td><td>4 − (−7)</td></tr>
+      <tr><td>subtract 8 from −2</td><td>−2 − 8</td></tr>
+      <tr><td>the product of −5 and 6</td><td>−5 · 6</td></tr>
+      <tr><td>the quotient of −20 and 4</td><td>−20 ÷ 4</td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const sg=n=>n<0?'−'+(-n):String(n);
+const pr=n=>n<0?`(${sg(n)})`:String(n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const rd=(el,lo,hi,def)=>{const v=parseInt(String(el.value).replace('−','-'),10);return isNaN(v)?def:Math.max(lo,Math.min(hi,v))};
+const chip=(t,c='')=>`<span class="chip ${t} ${c}">${t==='p'?'+':'−'}</span>`;
+
+/* ---------- number line ---------- */
+function drawLine(){
+  const n=rd($('n-in'),-10,10,0);$('n-v').textContent=sg(n);
+  const X=v=>20+(v+10)*20,Y=90;let s=`<line x1="12" y1="${Y}" x2="428" y2="${Y}" stroke="#172c3a" stroke-width="3"/>`;
+  for(let v=-10;v<=10;v++){s+=`<line x1="${X(v)}" y1="${Y-7}" x2="${X(v)}" y2="${Y+7}" stroke="#172c3a" stroke-width="2"/><text x="${X(v)}" y="${Y+26}" font-size="11" text-anchor="middle" font-weight="800" fill="${v<0?'#f07846':v>0?'#7962cb':'#172c3a'}">${sg(v)}</text>`}
+  const arc=(v,col)=>v===0?'':`<path d="M${X(0)} ${Y-10} Q${(X(0)+X(v))/2} ${Y-10-Math.abs(v)*5-8} ${X(v)} ${Y-10}" fill="none" stroke="${col}" stroke-width="3" stroke-dasharray="5 4"/>`;
+  s+=arc(n,'#7962cb')+arc(-n,'#f07846');
+  s+=`<circle cx="${X(n)}" cy="${Y}" r="9" fill="#7962cb"/><circle cx="${X(-n)}" cy="${Y}" r="9" fill="#f07846" ${n===0?'opacity="0"':''}/>`;
+  s+=`<text x="${X(n)}" y="${Y-Math.abs(n)*2.5-34}" font-size="12" font-weight="900" fill="#7962cb" text-anchor="middle">${sg(n)}</text>`;
+  if(n!==0)s+=`<text x="${X(-n)}" y="${Y-Math.abs(n)*2.5-34}" font-size="12" font-weight="900" fill="#f07846" text-anchor="middle">${sg(-n)}</text>`;
+  $('n-svg').innerHTML=s;
+  $('n-opp').innerHTML=`Opposite: −(${sg(n)}) = <b>${sg(-n)}</b>`;
+  $('n-abs').innerHTML=`Absolute value: |${sg(n)}| = <b>${Math.abs(n)}</b> (${Math.abs(n)} unit${Math.abs(n)===1?'':'s'} from 0)`;
+  $('n-note').textContent=n===0?'0 is its own opposite.':`${sg(n)} and ${sg(-n)} are opposites: the same distance from 0, on opposite sides.`;
+}
+$('n-in').oninput=drawLine;
+document.querySelectorAll('.nx').forEach(b=>b.onclick=()=>{$('n-in').value=b.textContent.replace('−','-');drawLine()});
+drawLine();
+
+/* ---------- counters (add and subtract) ---------- */
+function rows(pEl,nEl,ps,ns){
+  const mk=(list,t)=>list.map(c=>chip(t,c)).join('')||'<span style="color:var(--muted);font-size:.85rem">none</span>';
+  $(pEl).innerHTML=mk(ps,'p');$(nEl).innerHTML=mk(ns,'n');
+}
+function arr(n,c=''){return Array.from({length:n},()=>c)}
+
+/* add */
+let ast=0;
+function drawAdd(){
+  const a=rd($('a-a'),-12,12,0),b=rd($('a-b'),-12,12,0);
+  const pa=Math.max(a,0),na=Math.max(-a,0),pb=Math.max(b,0),nb=Math.max(-b,0);
+  $('a-eq').innerHTML=`${sg(a)} + ${pr(b)}`+(ast===3?` = ${sg(a+b)}`:' = ?');
+  let ps,ns,msg;
+  const k=Math.min(pa+pb,na+nb);
+  if(ast===0){ps=arr(pa);ns=arr(na);msg=`Start with ${sg(a)}: ${pa?pa+' positive':''}${pa&&na?' and ':''}${na?na+' negative':''}${!pa&&!na?'no':''} counter${Math.abs(a)===1?'':'s'}.`}
+  else if(ast===1){ps=[...arr(pa),...arr(pb,'new')];ns=[...arr(na),...arr(nb,'new')];msg=`Add ${sg(b)}: put in ${Math.abs(b)} ${b<0?'negative':'positive'} counter${Math.abs(b)===1?'':'s'} (dashed).`}
+  else if(ast===2){ps=arr(pa+pb).map((_,i)=>i<k?'neu':'');ns=arr(na+nb).map((_,i)=>i<k?'neu':'');msg=k?`Pair each positive with a negative. ${k} neutral pair${k===1?'':'s'} (gray) = 0.`:'No positives and negatives to pair: nothing cancels.'}
+  else{ps=arr(pa+pb-k);ns=arr(na+nb-k);msg=`Remove the neutral pairs. What is left is the answer.`}
+  rows('a-p','a-n',ps.map(c=>c),ns.map(c=>c));
+  $('a-msg').textContent=msg;
+  const same=(a>=0&&b>=0)||(a<=0&&b<=0);
+  $('a-res').innerHTML=ast===3?`${sg(a)} + ${pr(b)} = <b>${sg(a+b)}</b>`:'Result: ?';
+  $('a-rule').innerHTML=ast===3?(a===0||b===0?'Adding 0 changes nothing.':same?`Same signs: add the absolute values (${Math.abs(a)} + ${Math.abs(b)} = ${Math.abs(a)+Math.abs(b)}) and keep the sign.`:`Different signs: subtract the absolute values (${Math.max(Math.abs(a),Math.abs(b))} − ${Math.min(Math.abs(a),Math.abs(b))} = ${Math.abs(a+b)}). The sign comes from ${Math.abs(a)>Math.abs(b)?sg(a):sg(b)}, which has the larger absolute value.`):'';
+  $('a-back').disabled=ast===0;
+  $('a-next').disabled=ast===3;
+  $('a-next').textContent=['Step 1 ▶','Step 2 ▶','Step 3 ▶','Done'][ast];
+}
+$('a-next').onclick=()=>{ast++;drawAdd()};$('a-back').onclick=()=>{ast--;drawAdd()};$('a-reset').onclick=()=>{ast=0;drawAdd()};
+['a-a','a-b'].forEach(k=>$(k).addEventListener('input',()=>{ast=0;drawAdd()}));
+drawAdd();
+
+/* subtract */
+let sst=0;
+function drawSub(){
+  const a=rd($('s-a'),-12,12,0),b=rd($('s-b'),-12,12,0);
+  const P=Math.max(a,0),N=Math.max(-a,0),B=Math.abs(b);
+  const avail=b>=0?P:N,k=Math.max(0,B-avail);
+  $('s-eq').innerHTML=`${sg(a)} − ${pr(b)}`+(sst===3?` = ${sg(a-b)}`:' = ?');
+  let ps,ns,msg;
+  if(sst===0){ps=arr(P);ns=arr(N);msg=`Start with ${sg(a)}.`}
+  else if(sst===1){ps=[...arr(P),...arr(k,'new')];ns=[...arr(N),...arr(k,'new')];msg=k?`To take away ${B} ${b<0?'negative':'positive'} counter${B===1?'':'s'}, there are only ${avail}. Add ${k} neutral pair${k===1?'':'s'} (dashed): the value is still ${sg(a)}.`:(B===0?'Subtracting 0 changes nothing.':`There are enough ${b<0?'negative':'positive'} counters to take away. No neutral pairs needed.`)}
+  else{
+    const mark=(len,isTarget)=>arr(len).map((_,i)=>isTarget&&i<B?'gone':'');
+    const pl=P+k,nl=N+k;
+    ps=sst===2?(b>=0?mark(pl,true):arr(pl)):arr(pl-(b>=0?B:0));
+    ns=sst===2?(b<0?mark(nl,true):arr(nl)):arr(nl-(b<0?B:0));
+    msg=sst===2?`Take away ${B} ${b<0?'negative':'positive'} counter${B===1?'':'s'} (crossed out).`:'Count what is left. That is the answer.';
+  }
+  rows('s-p','s-n',ps,ns);
+  $('s-msg').textContent=msg;
+  $('s-res').innerHTML=sst===3?`${sg(a)} − ${pr(b)} = <b>${sg(a-b)}</b>`:'Result: ?';
+  $('s-rule').innerHTML=sst===3?`Same answer by adding the opposite: ${sg(a)} − ${pr(b)} = ${sg(a)} + ${pr(-b)} = <b>${sg(a-b)}</b>.`:'';
+  $('s-back').disabled=sst===0;$('s-next').disabled=sst===3;
+  $('s-next').textContent=['Step 1 ▶','Step 2 ▶','Step 3 ▶','Done'][sst];
+}
+$('s-next').onclick=()=>{sst++;drawSub()};$('s-back').onclick=()=>{sst--;drawSub()};$('s-reset').onclick=()=>{sst=0;drawSub()};
+['s-a','s-b'].forEach(k=>$(k).addEventListener('input',()=>{sst=0;drawSub()}));
+drawSub();
+
+/* multiply & divide */
+let mop='×';
+function drawMul(){
+  const a=rd($('m-a'),-12,12,0),b=rd($('m-b'),-12,12,0);
+  $('m-mul').className=mop==='×'?'on':'';$('m-div').className=mop==='÷'?'on':'';
+  document.querySelectorAll('#m-tab tr[data-k]').forEach(r=>r.className=r.dataset.k===(a<0?'-':'+')+(b<0?'-':'+')?'hl':'');
+  const res=$('m-res'),why=$('m-why');
+  if(mop==='×'){
+    const p=a*b;res.innerHTML=`${pr(a)} × ${pr(b)} = <b>${sg(p)}</b>`;
+    why.innerHTML=a===0||b===0?'Anything times 0 is 0.':`Multiply the absolute values: ${Math.abs(a)} × ${Math.abs(b)} = ${Math.abs(p)}. The signs are ${(a<0)===(b<0)?'the same, so the product is positive':'different, so the product is negative'}.`
+      +(b===-1||a===-1?' Multiplying by −1 gives the opposite.':'');
+  }else{
+    if(b===0){res.innerHTML=`${pr(a)} ÷ 0 = <b>undefined</b>`;why.textContent='You can never divide by 0.';return}
+    if(a%b!==0){const g=gcd(a,b),nu=a/g*(b<0?-1:1),de=Math.abs(b/g);res.innerHTML=`${pr(a)} ÷ ${pr(b)} = <b>${sg(nu)}/${de}</b>`;why.textContent=`${Math.abs(a)} does not divide evenly by ${Math.abs(b)}. This chapter uses whole-number answers. Try a multiple of ${Math.abs(b)}.`;return}
+    const q=a/b;res.innerHTML=`${pr(a)} ÷ ${pr(b)} = <b>${sg(q)}</b>`;
+    why.innerHTML=`Check: ${pr(q)} × ${pr(b)} = ${sg(q*b)}. Same signs give a positive quotient, different signs a negative one.`+(b===-1?' Dividing by −1 gives the opposite.':'');
+  }
+}
+$('m-mul').onclick=()=>{mop='×';drawMul()};$('m-div').onclick=()=>{mop='÷';drawMul()};
+['m-a','m-b'].forEach(k=>$(k).addEventListener('input',drawMul));
+drawMul();
+
+/* solve equations */
+let qt=0,qst=0;
+const coef=a=>a===1?'x':a===-1?'−x':`${sg(a)}x`;
+const addb=b=>b<0?`− ${-b}`:`+ ${b}`;
+const qlhs=(t,a,b)=>t===0?`x + ${pr(a)}`:t===1?`x − ${pr(a)}`:t===2?coef(a):`${coef(a)} ${addb(b)}`;
+const fs=([n,d])=>d===1?sg(n):`${sg(n)}/${d}`;
+const frac=(n,a)=>{const g=gcd(n,a)||1,s=a<0?-1:1;return[s*n/g,Math.abs(a)/g]};
+function qvals(){
+  const a0=rd($('q-a'),-20,20,1),a=qt>=2&&a0===0?1:a0;
+  if(qt===3)return{a,b:rd($('q-b'),-20,20,0),c:rd($('q-c'),-60,60,0)};
+  return{a,b:0,c:rd($('q-b'),-20,20,0)};
+}
+function drawQ(){
+  const {a,b,c}=qvals();
+  ['q-t0','q-t1','q-t2','q-t3'].forEach((k,i)=>$(k).className=i===qt?'on':'');
+  $('q-cw').hidden=qt!==3;
+  document.querySelector('label[for=q-b]').textContent=qt===3?'b':'b';
+  $('q-eq').textContent=`${qlhs(qt,a,b)} = ${sg(c)}`;
+  const L=[`Start: <b>${qlhs(qt,a,b)} = ${sg(c)}</b>`];
+  let sol;
+  if(qt===3){
+    const r=c-b;sol=frac(r,a);const s=fs(sol);
+    if(qst>=1)L.push(`Subtraction Property: ${b<0?'add '+(-b):'subtract '+b} on both sides. ${coef(a)} ${addb(b)} ${b<0?'+ '+(-b):'− '+b} = ${sg(c)} ${b<0?'+ '+(-b):'− '+b}`);
+    if(qst>=1)L.push(`Simplify: <b>${coef(a)} = ${sg(r)}</b>`);
+    if(qst>=2)L.push(`Division Property: divide by ${pr(a)} on both sides. ${coef(a)} ÷ ${pr(a)} = ${sg(r)} ÷ ${pr(a)}`);
+    if(qst>=2)L.push(`Simplify: <b>x = ${s}</b>`);
+    if(qst>=3)L.push(`Check: ${pr(a)}(${s}) ${addb(b)} = ${sg(c)} ✓`);
+  }else{
+    sol=qt===0?[c-a,1]:qt===1?[c+a,1]:frac(c,a);const s=fs(sol);
+    const op=qt===0?`subtract ${pr(a)}`:qt===1?`add ${pr(a)}`:`divide by ${pr(a)}`,sym=qt===0?'−':qt===1?'+':'÷';
+    if(qst>=1)L.push(qt===2?`Division Property: ${op} on both sides. ${coef(a)} ÷ ${pr(a)} = ${sg(c)} ÷ ${pr(a)}`:`${qt===0?'Subtraction':'Addition'} Property: ${op} on both sides. ${qlhs(qt,a,b)} ${sym} ${pr(a)} = ${sg(c)} ${sym} ${pr(a)}`);
+    if(qst>=2)L.push(`Simplify: <b>x = ${s}</b>`);
+    if(qst>=3)L.push(`Check: ${qt===2?`${pr(a)}(${s})`:`${s} ${qt===0?'+':'−'} ${pr(a)}`} = ${sg(c)} ✓`);
+  }
+  $('q-steps').innerHTML=L.map(x=>`<li>${x}</li>`).join('');
+  $('q-back').disabled=qst===0;$('q-next').disabled=qst===3;
+  $('q-next').textContent=['Step 1 ▶','Step 2 ▶','Step 3 ▶','Done'][qst];
+}
+['q-t0','q-t1','q-t2','q-t3'].forEach((k,i)=>$(k).onclick=()=>{qt=i;qst=0;drawQ();$('q-gres').textContent='Substitute your number and see if the equation is true.'});
+$('q-next').onclick=()=>{qst++;drawQ()};$('q-back').onclick=()=>{qst--;drawQ()};$('q-reset').onclick=()=>{qst=0;drawQ()};
+['q-a','q-b','q-c'].forEach(k=>$(k).addEventListener('input',()=>{qst=0;drawQ()}));
+$('q-chk').onclick=()=>{
+  const {a,b,c}=qvals(),g=rd($('q-g'),-999,999,0);
+  const v=qt===0?g+a:qt===1?g-a:qt===2?a*g:a*g+b;
+  const lhs=qt===0?`${sg(g)} + ${pr(a)}`:qt===1?`${sg(g)} − ${pr(a)}`:qt===2?`${pr(a)}(${sg(g)})`:`${pr(a)}(${sg(g)}) ${addb(b)}`;
+  $('q-gres').innerHTML=`Substitute: ${lhs} = ${sg(v)}. Is ${sg(v)} = ${sg(c)}? <b>${v===c?`Yes ✅ x = ${sg(g)} is a solution.`:`No ❌ x = ${sg(g)} is not a solution.`}</b>`;
+};
+drawQ();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['What is |−9|?',['−9','9','0'],1],
+ ['The opposite of −6 is…',['6','−6','0'],0],
+ ['−7 + 3 =',['−10','−4','4'],1],
+ ['−5 + (−8) =',['−13','13','−3'],0],
+ ['4 − 9 =',['5','−5','−13'],1],
+ ['−3 − (−7) =',['−10','4','10'],1],
+ ['(−6)(−4) =',['−24','24','−10'],1],
+ ['−28 ÷ 7 =',['4','−4','−21'],1],
+ ['Solve x + 8 = −2.',['x = 6','x = −10','x = 10'],1],
+ ['Solve −4x = 20.',['x = 5','x = −5','x = −16'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

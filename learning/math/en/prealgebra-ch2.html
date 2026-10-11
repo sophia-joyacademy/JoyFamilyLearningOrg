@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 2 — The Language of Algebra | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .eq{font-size:1.25rem;font-weight:850;margin:8px 0}
+    .eq.t{color:var(--teal);background:none}.eq.o{color:var(--orange);background:none}.eq.p{color:var(--purple);background:none}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text],input[type=number]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .chipbox{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .num{display:inline-grid;place-items:center;min-width:38px;height:34px;padding:0 6px;border-radius:10px;background:var(--paper);border:2px solid var(--line);font-weight:800}
+    .num.hit{background:var(--purple);border-color:var(--purple);color:#fff}
+    .num.fac{background:var(--teal-light);border-color:var(--teal);color:var(--teal)}
+    .scale{display:flex;align-items:center;justify-content:center;gap:12px;font-size:1.6rem;font-weight:900;padding:18px;border-radius:18px;background:var(--paper)}
+    .scale .side{padding:10px 18px;border-radius:14px;background:#fff;border:2px solid var(--purple)}
+    .scale .eqs{color:var(--orange)}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#order">Order of ops</a><a href="#like">Like terms</a><a href="#equations">Equations</a><a href="#factors">Factors</a><a href="#lcm">LCM</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 2</span>
+    <h1>The Language <span>of Algebra</span></h1>
+    <p class="lead">Variables, expressions and equations, plus the tools for working with them: order of operations, like terms, balanced equations, factors and multiples.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Expression vs equation</span>
+        <p><b>Expression:</b> numbers, variables and operations, with no equal sign. Example: <b>3x + 5</b>.</p>
+        <p><b>Equation:</b> two expressions joined by <b>=</b>. Example: <b>3x + 5 = 20</b>.</p>
+        <p><b>Evaluate:</b> replace the variable by a number and find the value.</p></div>
+      <div class="card"><span class="tag t">Parts of an expression</span>
+        <p>In <b>4x² + 7x + 9</b> the <b>terms</b> are 4x², 7x and 9.</p>
+        <p><b>Coefficient:</b> the number multiplying the variable (4 and 7). A <b>constant</b> has no variable (9).</p>
+        <p><b>Like terms:</b> constants, or terms with the same variable and exponent.</p></div>
+      <div class="card"><span class="tag o">Solutions</span>
+        <p>A <b>solution</b> of an equation is a value that makes it true when substituted.</p>
+        <p>Finding it is <b>solving</b> the equation.</p></div>
+      <div class="card"><span class="tag t">Factors &amp; multiples</span>
+        <p>If a · b = m, then a and b are <b>factors</b> of m and m is a <b>multiple</b> of each. “m is <b>divisible</b> by n” means m is a multiple of n.</p></div>
+      <div class="card"><span class="tag p">Prime &amp; composite</span>
+        <p><b>Prime:</b> counting number greater than 1 whose only factors are 1 and itself.</p>
+        <p><b>Composite:</b> counting number that is not prime (and greater than 1).</p></div>
+      <div class="card"><span class="tag o">Prime factorization &amp; LCM</span>
+        <p><b>Prime factorization:</b> a number written as a product of primes.</p>
+        <p><b>LCM:</b> the smallest number that is a multiple of both numbers.</p></div>
+    </div>
+
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Operation</th><th>Notation</th><th>Say</th><th>Result</th></tr>
+      <tr><td>Addition</td><td>a + b</td><td>a plus b</td><td>sum of a and b</td></tr>
+      <tr><td>Subtraction</td><td>a − b</td><td>a minus b</td><td>difference of a and b</td></tr>
+      <tr><td>Multiplication</td><td>a · b, ab, a(b), (a)(b)</td><td>a times b</td><td>product of a and b</td></tr>
+      <tr><td>Division</td><td>a ÷ b, a / b, a over b, b)a</td><td>a divided by b</td><td>quotient of a and b</td></tr>
+    </table>
+
+    <h3 style="margin-top:28px">Equality and inequality symbols</h3>
+    <table>
+      <tr><th>Symbol</th><th>Say</th><th>Symbol</th><th>Say</th></tr>
+      <tr><td><b>a = b</b></td><td>a is equal to b</td><td><b>a ≠ b</b></td><td>a is not equal to b</td></tr>
+      <tr><td><b>a &lt; b</b></td><td>a is less than b (a is left of b on the number line)</td><td><b>a &gt; b</b></td><td>a is greater than b (a is right of b)</td></tr>
+      <tr><td><b>a ≤ b</b></td><td>a is less than or equal to b</td><td><b>a ≥ b</b></td><td>a is greater than or equal to b</td></tr>
+    </table>
+    <div class="card" style="margin-top:18px"><span class="tag p">Exponents</span>
+      <div class="eq p">aⁿ = a · a · … · a (n factors)</div>
+      <p>Read “a to the nth power”. Examples: 2³ = 2 · 2 · 2 = 8, and 5² = 25 (“5 squared”).</p></div>
+  </section>
+
+  <section id="order">
+    <h2>🧮 Order of operations &amp; evaluate lab</h2>
+    <p class="sub">Type an expression with ( ), ^ for exponents, + − × ÷, and optionally the variable <b>x</b>. Slide x to evaluate. The lab solves it in the correct order, one step at a time.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="e-expr">Expression</label>
+        <input id="e-expr" type="text" value="3 + 2 × (x + 1)^2 − 8 ÷ 4">
+        <label>x = <b id="e-xv">3</b></label>
+        <input id="e-x" type="range" min="0" max="12" step="1" value="3">
+        <div id="e-btns"></div>
+        <div style="margin-top:8px"><button class="ex">2 + 3 × 4^2</button><button class="ex">(2 + 3 × 4)^2</button><button class="ex">5x + 7</button><button class="ex">20 − 2 × (x + 3)</button></div>
+        <div class="pill" style="background:var(--orange-light)" id="e-err" hidden></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="e-res"></div>
+        <ol class="steps" id="e-steps" style="margin-top:14px"></ol>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><span class="tag p">Order of operations (PEMDAS)</span>
+        <ol class="steps"><li><b>P</b>arentheses and other grouping symbols, innermost first.</li><li><b>E</b>xponents.</li><li><b>M</b>ultiplication and <b>D</b>ivision, left to right (equal priority).</li><li><b>A</b>ddition and <b>S</b>ubtraction, left to right (equal priority).</li></ol></div>
+      <div class="card"><span class="tag o">Watch out</span><ul><li>Multiplying does not always come before dividing: go left to right.</li><li>4² means 4 · 4 = 16, not 4 · 2.</li><li>3 + 2 × 4 = 11, not 20.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="like">
+    <h2>🧩 Combine like terms</h2>
+    <p class="sub">Type an expression with x terms and constants, such as <b>3x + 5 + 2x − 1</b>. Like terms get color-coded and combined.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="l-expr">Expression</label>
+        <input id="l-expr" type="text" value="7x + 4 + 3x − 2 + x">
+        <div style="margin-top:8px"><button class="lx">3x + 5 + 2x − 1</button><button class="lx">9 + 4x − 6 + x</button><button class="lx">x + x + x + 2 + 2</button></div>
+        <div class="pill" style="background:var(--orange-light)" id="l-err" hidden></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--purple-light)" id="l-group"></div>
+        <div class="pill" style="background:var(--teal-light)" id="l-res"></div>
+        <ol class="steps" style="margin-top:14px"><li>Identify like terms.</li><li>Rearrange so like terms are together.</li><li>Add the coefficients.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="equations">
+    <h2>⚖️ Equation balance lab</h2>
+    <p class="sub">Whatever you do to one side, do to the other. Add, subtract, multiply or divide both sides by the same number to get x alone.</p>
+    <div class="explorer">
+      <div class="card">
+        <p style="margin:0 0 6px;font-weight:700">Set up your equation <span style="font-weight:400;color:var(--muted)">(type any whole numbers, negatives allowed)</span></p>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-weight:800;font-size:1.1rem">
+          <input id="q-a" type="text" inputmode="numeric" value="1" style="width:64px;text-align:center">x +
+          <input id="q-b" type="text" inputmode="numeric" value="-6" style="width:64px;text-align:center"> =
+          <input id="q-c" type="text" inputmode="numeric" value="6" style="width:64px;text-align:center">
+        </div>
+        <div class="scale" style="margin-top:12px"><span class="side" id="q-left"></span><span class="eqs">=</span><span class="side" id="q-right"></span></div>
+        <label>Number to use: <input id="q-k" type="text" inputmode="numeric" value="2" style="max-width:100px"></label>
+        <div><button id="q-add">➕ Add</button><button id="q-sub">➖ Subtract</button><button id="q-mul">✖️ Multiply</button><button id="q-div">➗ Divide</button> <span style="color:var(--muted);font-size:.9rem">both sides</span></div>
+        <div><button id="q-new">🎲 New problem</button><button id="q-undo">↩ Undo</button></div>
+        <div class="pill" style="background:var(--purple-light)" id="q-msg"></div>
+        <ul class="steps" id="q-log" style="margin-top:12px"></ul>
+      </div>
+      <div class="card">
+        <span class="tag t">Is it a solution?</span>
+        <p>Try a value for x in the equation you are solving:</p>
+        <input id="q-try" type="text" inputmode="numeric" value="12" style="max-width:140px">
+        <div class="pill" style="background:var(--teal-light)" id="q-check"></div>
+        <table style="margin-top:14px">
+          <tr><th>Property</th><th>Rule</th></tr>
+          <tr><td>Subtraction Property of Equality</td><td>If a = b then a − c = b − c</td></tr>
+          <tr><td>Addition Property of Equality</td><td>If a = b then a + c = b + c</td></tr>
+          <tr><td>Multiplication Property of Equality</td><td>If a = b then a·c = b·c</td></tr>
+          <tr><td>Division Property of Equality</td><td>If a = b then a ÷ c = b ÷ c (c ≠ 0)</td></tr>
+        </table>
+        <ol class="steps" style="margin-top:14px"><li>Use a property to isolate the variable.</li><li>Simplify both sides.</li><li>Check by substituting.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="factors">
+    <h2>🔍 Factors, primes and divisibility</h2>
+    <p class="sub">Enter a counting number from 1 to 10,000. See divisibility tests, factor pairs, prime or composite, and the prime factorization.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="f-in">Number</label>
+        <input id="f-in" type="text" inputmode="numeric" value="360">
+        <h3 style="margin-top:16px">Divisibility tests</h3>
+        <table id="f-div"></table>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--purple-light)" id="f-type"></div>
+        <h3 style="margin-top:14px">Factor pairs</h3>
+        <div class="chipbox" id="f-pairs"></div>
+        <h3 style="margin-top:14px">All factors</h3>
+        <div class="chipbox" id="f-all"></div>
+        <h3 style="margin-top:14px">Prime factorization (ladder)</h3>
+        <div id="f-ladder"></div>
+        <div class="pill" style="background:var(--teal-light)" id="f-pf"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tree">
+    <h2>🌳 Prime factor tree</h2>
+    <p class="sub">Split a number into any two factors, then keep splitting until every branch ends in a prime.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="grid2"><label>Number (2 to 10,000)<input id="t2-n" type="text" inputmode="numeric" value="360"></label><label>First split<select id="t2-first" style="width:100%;font:inherit;font-weight:800;padding:10px;border:2px solid var(--line);border-radius:14px;background:#fff"></select></label></div>
+        <div style="margin-top:10px"><button id="t2-reset" type="button">↺ Reset</button><button id="t2-back" type="button">◀ Back</button><button id="t2-next" type="button">Split ▶</button><button id="t2-all" type="button">Show all</button></div>
+        <p id="t2-msg" style="margin:10px 0 0;font-weight:700;min-height:3em"></p>
+        <div id="t2-svg" style="text-align:center;overflow-x:auto"></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="t2-res"></div>
+        <ol class="steps" style="margin-top:14px"><li>Write the number at the top.</li><li>Split it into two factors (any pair works!).</li><li>Circle a factor when it is prime. It stops.</li><li>Keep splitting the others until all branches end in primes.</li><li>The circled primes, multiplied together, make the number.</li></ol>
+        <p style="font-size:.9rem;color:var(--muted)">Try different first splits for the same number. The tree changes shape but the primes at the bottom are always the same.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lcm">
+    <h2>🔁 Least common multiple lab</h2>
+    <p class="sub">Two numbers from 1 to 200. Compare their lists of multiples, then use the prime factors method.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="grid2"><label>First number<input id="m-a" type="text" inputmode="numeric" value="12"></label><label>Second number<input id="m-b" type="text" inputmode="numeric" value="18"></label></div>
+        <h3 style="margin-top:16px">Multiples</h3>
+        <div id="m-lists"></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="m-res"></div>
+        <h3 style="margin-top:14px">Prime factors method</h3>
+        <div id="m-pf"></div>
+        <ol class="steps" style="margin-top:14px"><li>Find the prime factorization of each number.</li><li>Line up matching primes in columns.</li><li>Bring down each column.</li><li>Multiply to get the LCM.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="ladder">
+    <h2>🪜 Ladder (short division): GCF and LCM of two numbers</h2>
+    <p class="sub">Divide both numbers by a common prime again and again, until the bottom numbers share no factor except 1.</p>
+    <div class="explorer">
+      <div class="card">
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px"><label>First number<input id="s-a" type="text" inputmode="numeric" value="24"></label><label>Second number<input id="s-b" type="text" inputmode="numeric" value="36"></label></div>
+        <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button id="s-reset" type="button">↺ Reset</button><button id="s-back" type="button">◀ Back</button><button id="s-next" type="button">Step 1 ▶</button></div>
+        <p id="s-msg" style="margin:12px 0 0;font-weight:700;min-height:4em"></p>
+        <div id="s-ladder" style="margin-top:6px;min-height:150px"></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="s-gcf"></div>
+        <div class="pill" style="background:var(--teal-light);margin-top:8px" id="s-lcm"></div>
+        <ol class="steps" style="margin-top:14px"><li>Write the two numbers side by side. Divide both by a common prime on the left.</li><li>Write the quotients underneath. Repeat.</li><li>Stop when the bottom numbers have no common factor except 1.</li><li><b style="color:var(--purple)">GCF</b> = multiply the purple divisors on the left.</li><li><b>LCM</b> = multiply the purple divisors <i>and</i> the <b style="color:#d6336c">red</b> bottom numbers.</li></ol>
+        <p id="s-check" style="font-size:.9rem;color:var(--muted)"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ladder3">
+    <h2>🪜 Ladder for 3 or 4 numbers</h2>
+    <p class="sub">Do the GCF first with divisors that fit every number. Then keep going with divisors that fit only some of them.</p>
+    <div class="explorer">
+      <div class="card">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px"><label>1st<input style="width:100%;min-width:0" id="t-a" type="text" inputmode="numeric" value="24"></label><label>2nd<input style="width:100%;min-width:0" id="t-b" type="text" inputmode="numeric" value="36"></label><label>3rd<input style="width:100%;min-width:0" id="t-c" type="text" inputmode="numeric" value="60"></label><label>4th (opt.)<input style="width:100%;min-width:0" id="t-d" type="text" inputmode="numeric" value="" placeholder="—"></label></div>
+        <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button id="t-reset" type="button">↺ Reset</button><button id="t-back" type="button">◀ Back</button><button id="t-next" type="button">Step 1 ▶</button></div>
+        <p id="t-msg" style="margin:12px 0 0;font-weight:700;min-height:4em"></p>
+        <div id="t-ladder" style="margin-top:6px;min-height:150px"></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="t-gcf"></div>
+        <div class="pill" style="background:var(--teal-light);margin-top:8px" id="t-lcm"></div>
+        <ol class="steps" style="margin-top:14px"><li>Write the numbers side by side.</li><li><b style="color:var(--purple)">GCF first:</b> divide by a prime that fits <b>every</b> number (purple). Repeat until none does.</li><li><b>GCF</b> = multiply the purple divisors.</li><li><b style="color:var(--teal)">Then LCM:</b> divide by a prime that fits <b>two or more</b> numbers (teal). Numbers it doesn’t fit come straight down.</li><li>Stop when no prime fits two numbers. The bottom numbers are <b style="color:#d6336c">red</b>.</li><li><b>LCM</b> = multiply purple, teal and red.</li></ol>
+        <p id="t-check" style="font-size:.9rem;color:var(--muted)"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag t">Is it a solution?</span>
+        <ol class="steps"><li>Substitute the number for the variable.</li><li>Simplify both sides.</li><li>True statement? It is a solution. False? It is not.</li></ol></div>
+      <div class="card"><span class="tag o">Solve with + or −</span>
+        <ol class="steps"><li>Use the Addition or Subtraction Property to isolate the variable (undo the operation).</li><li>Simplify both sides.</li><li>Check the solution.</li></ol></div>
+      <div class="card"><span class="tag p">Find all factors</span>
+        <ol class="steps"><li>Divide by 1, 2, 3 … until the quotient is smaller than the divisor.</li><li>A whole-number quotient gives a factor pair.</li><li>List all factors from smallest to largest.</li></ol></div>
+      <div class="card"><span class="tag t">Is it prime?</span>
+        <ol class="steps"><li>Test primes in order (2, 3, 5, 7, …).</li><li>Stop when you find a factor or when the quotient is smaller than the divisor.</li><li>A prime factor found → composite. None → prime.</li></ol></div>
+      <div class="card"><span class="tag o">Prime factorization</span>
+        <ul><li><b>Tree:</b> split into any factor pair; keep splitting until every branch is prime; multiply the primes.</li><li><b>Ladder:</b> divide by 2 until it no longer fits, then 3, then 5 … until the quotient is prime.</li></ul></div>
+      <div class="card"><span class="tag p">Find the LCM</span>
+        <ul><li><b>Listing:</b> list multiples of each; the smallest in both lists.</li><li><b>Prime factors:</b> factor each; bring down each column of primes; multiply.</li></ul></div>
+    </div>
+    <h3 style="margin-top:28px">Divisibility tests</h3>
+    <table>
+      <tr><th>A number is divisible by</th><th>if…</th></tr>
+      <tr><td>2</td><td>the last digit is 0, 2, 4, 6 or 8</td></tr>
+      <tr><td>3</td><td>the sum of the digits is divisible by 3</td></tr>
+      <tr><td>4</td><td>the last two digits form a number divisible by 4</td></tr>
+      <tr><td>5</td><td>the last digit is 0 or 5</td></tr>
+      <tr><td>6</td><td>it is divisible by both 2 and 3</td></tr>
+      <tr><td>9</td><td>the sum of the digits is divisible by 9</td></tr>
+      <tr><td>10</td><td>the last digit is 0</td></tr>
+    </table>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Algebra</th></tr>
+      <tr><td>the sum of x and 5</td><td>x + 5</td></tr>
+      <tr><td>7 less than y</td><td>y − 7</td></tr>
+      <tr><td>the product of 4 and n</td><td>4n</td></tr>
+      <tr><td>the quotient of m and 6</td><td>m ÷ 6</td></tr>
+      <tr><td>twice a number, increased by 3</td><td>2x + 3</td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=s=>String(s).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const MAXD=15;
+
+/* ---------- order of operations ---------- */
+const isOp=x=>typeof x==='string'&&'+−×÷^'.includes(x);
+const OPN={'+':'Add','−':'Subtract','×':'Multiply','÷':'Divide','^':'Exponent'};
+const show=t=>t.map(x=>typeof x==='bigint'?fmt(x):x).join(' ').replace(/\( /g,'(').replace(/ \)/g,')').replace(/ \^ /g,'^');
+function tokenize(str,xv){
+  const t=[];let i=0;str=str.replace(/,/g,'');
+  while(i<str.length){const c=str[i];
+    if(c===' '){i++;continue}
+    if(/\d/.test(c)){let n='';while(i<str.length&&/\d/.test(str[i]))n+=str[i++];if(n.length>12)throw 'Numbers can have at most 12 digits.';t.push(BigInt(n));continue}
+    if(c==='x'||c==='X'){if(xv===null)throw 'This expression uses x, but no value is set.';t.push(BigInt(xv));i++;continue}
+    if(c==='.')throw 'Whole numbers only: no decimal points yet.';
+    if(c==='('||c===')'){t.push(c);i++;continue}
+    if(c==='+'){t.push('+');i++;continue}
+    if('-−–'.includes(c)){t.push('−');i++;continue}
+    if('*×·'.includes(c)){t.push('×');i++;continue}
+    if('÷/'.includes(c)){t.push('÷');i++;continue}
+    if(c==='^'){t.push('^');i++;continue}
+    throw `I don’t understand “${c}”. Use digits, x, ( ), ^ + − × ÷.`}
+  const out=[];
+  t.forEach(x=>{const p=out[out.length-1];const isVal=v=>typeof v==='bigint'||v===')';
+    if(p!==undefined&&isVal(p)&&(typeof x==='bigint'||x==='('))out.push('×');
+    out.push(x)});
+  return out;
+}
+function validate(t){
+  let d=0;
+  for(let k=0;k<t.length;k++){const x=t[k],p=t[k-1],n=t[k+1];
+    if(x==='(')d++;
+    if(x===')'){d--;if(d<0)throw 'There is a ) without a matching (.'}
+    if(isOp(x)){if(p===undefined||p==='('||isOp(p))throw 'An operation sign needs a number before it.';
+      if(n===undefined||n===')'||isOp(n))throw 'An operation sign needs a number after it.'}
+    if(x==='('&&n===')')throw 'There is nothing inside a pair of parentheses.'}
+  if(d!==0)throw 'There is a ( without a matching ).';
+}
+function solve(t){
+  const steps=[];
+  while(t.length>1){
+    let lo=0,hi=t.length;const open=t.lastIndexOf('(');
+    if(open>=0){lo=open+1;hi=t.indexOf(')',open)}
+    const seg=t.slice(lo,hi);
+    if(seg.length===1){if(open>=0){t.splice(open,3,seg[0]);steps.push({text:show(t),note:'Parentheses done.'});continue}break}
+    let k=seg.lastIndexOf('^');
+    if(k<0)k=seg.findIndex(x=>x==='×'||x==='÷');
+    if(k<0)k=seg.findIndex(x=>x==='+'||x==='−');
+    const a=seg[k-1],o=seg[k],b=seg[k+1];let r;
+    if(o==='^'){if(b>200n)throw 'That exponent is too big for this lab.';r=a**b}
+    else if(o==='+')r=a+b;
+    else if(o==='−'){if(a<b)throw `${fmt(a)} − ${fmt(b)} is below 0, and whole numbers can’t go below 0.`;r=a-b}
+    else if(o==='×')r=a*b;
+    else{if(b===0n)throw 'Division by zero is undefined!';if(a%b!==0n)throw `${fmt(a)} ÷ ${fmt(b)} isn’t a whole number. Try numbers that divide evenly.`;r=a/b}
+    if(r.toString().length>MAXD)throw 'The answer is too large for this lab.';
+    t.splice(lo+k-1,3,r);
+    steps.push({text:show(t),note:`${OPN[o]}${open>=0?' (inside parentheses)':''}: ${fmt(a)} ${o==='^'?'^':o} ${fmt(b)} = ${fmt(r)}`});
+  }
+  return steps;
+}
+['(',')','^','+','−','×','÷','x'].forEach(k=>{const b=document.createElement('button');b.textContent=k;b.style.fontSize='1.1rem';
+  b.onclick=()=>{const e=$('e-expr'),st=e.selectionStart??e.value.length,en=e.selectionEnd??st;e.setRangeText(['(',')','^','x'].includes(k)?k:` ${k} `,st,en,'end');e.focus();drawE()};$('e-btns').appendChild(b)});
+document.querySelectorAll('button.ex').forEach(b=>b.onclick=()=>{$('e-expr').value=b.textContent;drawE()});
+function drawE(){
+  const src=$('e-expr').value,err=$('e-err'),steps=$('e-steps'),xv=$('e-x').value;
+  $('e-xv').textContent=xv;err.hidden=true;steps.innerHTML='';$('e-res').textContent='';
+  if(!src.trim())return;
+  try{
+    const t=tokenize(src,xv);validate(t);
+    const uses=/x/i.test(src);
+    const li0=document.createElement('li');li0.innerHTML=`Start: <b>${src.trim()}</b>`;steps.appendChild(li0);
+    if(uses){const li=document.createElement('li');li.innerHTML=`Substitute x = ${xv}: <b>${show(t)}</b>`;steps.appendChild(li)}
+    const st=solve(t.slice());
+    st.forEach(x=>{const li=document.createElement('li');li.innerHTML=`<b>${x.text}</b><br><span style="font-size:.85rem">${x.note}</span>`;steps.appendChild(li)});
+    const ans=st.length?st[st.length-1].text:show(t);
+    $('e-res').innerHTML=`${uses?`When x = ${xv}: `:''}value = <b>${ans}</b>`;
+  }catch(e){err.textContent='⚠️ '+(typeof e==='string'?e:'Check your expression.');err.hidden=false}
+}
+$('e-expr').addEventListener('input',drawE);$('e-x').addEventListener('input',drawE);drawE();
+
+/* ---------- like terms ---------- */
+function parseTerms(src){
+  const s=src.replace(/\s+/g,'').replace(/−|–/g,'-');
+  if(!s)throw 'Type an expression.';
+  if(!/^[-+]?(\d*x|\d+)([-+](\d*x|\d+))*$/.test(s))throw 'Use terms like 3x, x, or 5, joined by + or −.';
+  return (s.match(/[-+]?(\d*x|\d+)/g)).map(m=>{const sign=m[0]==='-'?-1:1;const b=m.replace(/^[-+]/,'');
+    return b.endsWith('x')?{x:true,c:sign*(b==='x'?1:+b.slice(0,-1))}:{x:false,c:sign*+b}});
+}
+const termStr=(t,first)=>{const a=Math.abs(t.c),body=t.x?(a===1?'x':a+'x'):String(a);return (t.c<0?(first?'−':' − '):(first?'':' + '))+body};
+function drawL(){
+  $('l-err').hidden=true;
+  try{
+    const ts=parseTerms($('l-expr').value);
+    const xs=ts.filter(t=>t.x),cs=ts.filter(t=>!t.x);
+    const grp=(a,color)=>a.map((t,i)=>`<span style="color:${color}">${termStr(t,i===0)}</span>`).join('');
+    $('l-group').innerHTML=`Rearranged: ${xs.length?'('+grp(xs,'#7962cb')+')':''}${xs.length&&cs.length?' + ':''}${cs.length?'('+grp(cs,'#f07846')+')':''}`.replace(/\+ \(/g,'+ (');
+    const X=xs.reduce((a,t)=>a+t.c,0),C=cs.reduce((a,t)=>a+t.c,0);
+    const out=[];if(xs.length&&X!==0)out.push(termStr({x:true,c:X},true));
+    if(cs.length&&(C!==0||!out.length)){out.push(out.length?termStr({x:false,c:C},false):(C<0?'−':'')+Math.abs(C))}
+    if(!out.length)out.push('0');
+    $('l-res').innerHTML=`Simplified: <b>${out.join('')}</b>`+(xs.length?`<br><span style="font-size:.85rem;font-weight:600">x terms: coefficients sum to ${X}${cs.length?`; constants sum to ${C}`:''}</span>`:'');
+  }catch(e){$('l-group').textContent='';$('l-res').textContent='';$('l-err').textContent='⚠️ '+e;$('l-err').hidden=false}
+}
+$('l-expr').addEventListener('input',drawL);document.querySelectorAll('button.lx').forEach(b=>b.onclick=()=>{$('l-expr').value=b.textContent;drawL()});drawL();
+
+/* ---------- equation balance ---------- */
+// ax + b = c with exact fractions [num, den]
+const fg=(x,y)=>y?fg(y,x%y):Math.abs(x);
+const fr=(n,d=1)=>{if(d<0){n=-n;d=-d}const g=fg(n,d)||1;return [n/g,d/g]};
+const fadd=(x,y)=>fr(x[0]*y[1]+y[0]*x[1],x[1]*y[1]),fmul=(x,y)=>fr(x[0]*y[0],x[1]*y[1]),fdiv=(x,y)=>fr(x[0]*y[1],x[1]*y[0]);
+const fs=x=>x[1]===1?`${x[0]}`.replace('-','−'):`${x[0]}/${x[1]}`.replace('-','−');
+const fabs=x=>[Math.abs(x[0]),x[1]];
+let eq,eq0,hist=[];
+const aTerm=a=>a[0]===1&&a[1]===1?'x':(a[0]===-1&&a[1]===1?'−x':(a[1]===1?`${fs(a)}x`:`(${fs(a)})x`));
+const eqStr=e=>`${aTerm(e.a)}${e.b[0]===0?'':(e.b[0]>0?' + ':' − ')+fs(fabs(e.b))} = ${fs(e.c)}`;
+const intIn=id=>{const el=$(id);let v=el.value.replace(/[^\d-]/g,'').replace(/(?!^)-/g,'');el.value=v;const n=parseInt(v,10);return isNaN(n)?null:n};
+function readEq(){const a=intIn('q-a'),b=intIn('q-b'),c=intIn('q-c');
+  if(a===null||b===null||c===null||a===0)return false;
+  eq={a:fr(a),b:fr(b),c:fr(c)};eq0={a:fr(a),b:fr(b),c:fr(c)};hist=[];drawQ('Get x by itself: undo the + or − first, then the multiplication.');return true}
+function startEq(){
+  const a=1+Math.floor(Math.random()*6),x=1+Math.floor(Math.random()*12),b=Math.floor(Math.random()*21)-10;
+  $('q-a').value=a;$('q-b').value=b;$('q-c').value=a*x+b;readEq();
+}
+function drawQ(msg){
+  $('q-left').innerHTML=eqStr({a:eq.a,b:eq.b,c:[0,1]}).replace(/ = .*/,'');$('q-right').textContent=fs(eq.c);
+  const done=eq.a[0]===1&&eq.a[1]===1&&eq.b[0]===0;
+  $('q-msg').textContent=done?`🎉 Solved: x = ${fs(eq.c)}. Test it in the box on the right.`:msg;
+  $('q-log').innerHTML=hist.map(h=>`<li style="padding-left:0"><b>${h.t}</b></li>`).join('');
+  $('q-log').style.listStyle='none';
+  if(done)$('q-try').value=fs(eq.c).replace('−','-');
+  checkQ();
+}
+function parseF(t){t=t.replace('−','-').trim();let m=t.match(/^(-?\d+)\/(\d+)$/);if(m&&+m[2])return +m[1]/+m[2];const v=parseFloat(t);return isNaN(v)?null:v}
+function checkQ(){
+  const raw=$('q-try').value,v=parseF(raw);
+  if(v===null){$('q-check').textContent='Type a number (a fraction like 3/2 is fine).';return}
+  const A=eq0.a[0]/eq0.a[1],B=eq0.b[0]/eq0.b[1],C=eq0.c[0]/eq0.c[1],lhs=A*v+B,ok=Math.abs(lhs-C)<1e-9;
+  const r=n=>+n.toFixed(4);
+  $('q-check').innerHTML=`Original: ${eqStr(eq0)}<br>x = ${raw}: ${r(A)} × ${r(v)} ${B<0?'−':'+'} ${r(Math.abs(B))} = ${r(lhs)} → <b>${ok?'true, a solution ✅':'false, not a solution ❌'}</b>`;
+}
+function apply(op){
+  const k=intIn('q-k');if(k===null||k===0&&(op==='mul'||op==='div')){$('q-msg').textContent=op==='div'?'You can’t divide by 0.':'Type a number to use (not 0 for × or ÷).';return}
+  const K=fr(k),before=eqStr(eq);hist.push({t:'',s:JSON.stringify(eq)});
+  const n={a:eq.a,b:eq.b,c:eq.c};let word;
+  if(op==='add'){n.b=fadd(eq.b,K);n.c=fadd(eq.c,K);word=`Add ${k} to`}
+  else if(op==='sub'){n.b=fadd(eq.b,fr(-k));n.c=fadd(eq.c,fr(-k));word=`Subtract ${k} from`}
+  else if(op==='mul'){n.a=fmul(eq.a,K);n.b=fmul(eq.b,K);n.c=fmul(eq.c,K);word=`Multiply by ${k} on`}
+  else{n.a=fdiv(eq.a,K);n.b=fdiv(eq.b,K);n.c=fdiv(eq.c,K);word=`Divide by ${k} on`}
+  eq=n;hist[hist.length-1].t=`${word} both sides: ${before}  →  ${eqStr(eq)}`;
+  drawQ('Keep going until x is alone.')}
+$('q-add').onclick=()=>apply('add');$('q-sub').onclick=()=>apply('sub');$('q-mul').onclick=()=>apply('mul');$('q-div').onclick=()=>apply('div');
+$('q-new').onclick=startEq;
+$('q-undo').onclick=()=>{if(!hist.length)return;eq=JSON.parse(hist.pop().s);drawQ('Undone.')};
+['q-a','q-b','q-c'].forEach(i=>$(i).addEventListener('input',()=>{if(!readEq())$('q-msg').textContent='Type whole numbers (the x coefficient can’t be 0).'}));
+$('q-k').addEventListener('input',()=>intIn('q-k'));
+$('q-try').addEventListener('input',checkQ);
+startEq();
+
+/* ---------- factors ---------- */
+const sieveFactors=n=>{const f=[];for(let d=1;d*d<=n;d++)if(n%d===0){f.push(d);if(d*d!==n)f.push(n/d)}return f.sort((a,b)=>a-b)};
+const primeFac=n=>{const out=[];let m=n;for(let p=2;p*p<=m;p++)while(m%p===0){out.push(p);m/=p}if(m>1)out.push(m);return out};
+const expForm=ps=>{const c={};ps.forEach(p=>c[p]=(c[p]||0)+1);return Object.keys(c).map(p=>c[p]>1?`${p}<sup>${c[p]}</sup>`:p).join(' · ')};
+function drawF(){
+  const el=$('f-in');let d=el.value.replace(/\D/g,'').slice(0,5);let n=Math.max(1,Math.min(10000,+d||1));
+  el.value=d?fmt(n):'';
+  const ds=String(n).split('').reduce((a,c)=>a+ +c,0);const tests=[[2,'last digit is 0, 2, 4, 6 or 8',`last digit is ${n%10}`,n%2===0],[3,'sum of the digits is divisible by 3',`digit sum is ${ds}`,n%3===0],[4,'last two digits form a number divisible by 4',`last two digits: ${n%100}`,n%4===0],[5,'last digit is 0 or 5',`last digit is ${n%10}`,n%5===0],[6,'divisible by both 2 and 3',`by 2: ${n%2===0?'yes':'no'}, by 3: ${n%3===0?'yes':'no'}`,n%6===0],[9,'sum of the digits is divisible by 9',`digit sum is ${ds}`,n%9===0],[10,'last digit is 0',`last digit is ${n%10}`,n%10===0]];
+  $('f-div').innerHTML='<tr><th>By</th><th>Divisibility rule</th><th>Test</th><th></th></tr>'+tests.map(([k,r,w,ok])=>`<tr><td><b>${k}</b></td><td>${r}</td><td>${w}</td><td>${ok?'✅':'❌'}</td></tr>`).join('');
+  const f=sieveFactors(n),ps=primeFac(n);
+  $('f-type').textContent=n===1?'1 is neither prime nor composite.':(f.length===2?`${fmt(n)} is PRIME (only factors 1 and ${fmt(n)}).`:`${fmt(n)} is COMPOSITE (${f.length} factors).`);
+  const pairs=f.filter(x=>x*x<=n).map(x=>`<span class="num">${x} × ${n/x}</span>`);
+  $('f-pairs').innerHTML=pairs.join('');
+  $('f-all').innerHTML=f.map(x=>`<span class="num fac">${x}</span>`).join('');
+  let ladder='',m=n;
+  if(n>1){ladder='<table><tr><th>Divide by</th><th>Quotient</th></tr>';const lst=primeFac(n);lst.forEach(p=>{m/=p;ladder+=`<tr><td><b>${p}</b></td><td>${m}</td></tr>`});ladder+='</table>'}
+  $('f-ladder').innerHTML=ladder||'<p>No prime factors for 1.</p>';
+  $('f-pf').innerHTML=n>1?`${fmt(n)} = ${ps.join(' · ')}${new Set(ps).size<ps.length?` = ${expForm(ps)}`:''}`:'1 has no prime factorization.';
+}
+$('f-in').addEventListener('input',drawF);drawF();
+
+/* ---------- prime factor tree ---------- */
+(function(){
+  let st=0;const NW=64,LH=76;
+  function build(n,first){
+    const isP=m=>m>1&&primeFac(m).length===1;
+    const mk=(m,lvl,f)=>{if(isP(m))return{v:m,prime:true,lvl,kids:[]};
+      let p=f||primeFac(m)[0];const q=m/p;return{v:m,prime:false,lvl,kids:[mk(p,lvl+1),mk(q,lvl+1)]}};
+    return mk(n,0,first);
+  }
+  const wid=t=>t.w=t.kids.length?t.kids.reduce((a,k)=>a+wid(k),0):NW;
+  const place=(t,x0)=>{if(!t.kids.length){t.x=x0+NW/2;return}let x=x0;t.kids.forEach(k=>{place(k,x);x+=k.w});t.x=(t.kids[0].x+t.kids[1].x)/2};
+  const depth=t=>t.kids.length?1+Math.max(...t.kids.map(depth)):0;
+  function draw(){
+    const el=$('t2-n');const d=el.value.replace(/\D/g,'').slice(0,5);const n=Math.max(2,Math.min(10000,+d||2));el.value=d?fmt(n):'';
+    const sel=$('t2-first');
+    if(sel.dataset.n!==String(n)){
+      const f=sieveFactors(n).filter(x=>x>1&&x*x<=n&&n/x>1);
+      sel.innerHTML=(f.length?f.map(x=>`<option value="${x}">${x} × ${n/x}</option>`).join(''):`<option value="0">${n} is prime</option>`);
+      sel.dataset.n=n;st=0;
+    }
+    const first=+sel.value||0,root=build(n,first||null),D=depth(root);
+    st=Math.max(0,Math.min(D,st));wid(root);place(root,0);
+    let svg='',stack=[root],primes=[];
+    const W=root.w,H=D*LH+50;
+    while(stack.length){const t=stack.pop();
+      if(t.lvl>st)continue;
+      const y=28+t.lvl*LH,show=!t.kids.length||t.lvl<st;
+      const splitting=t.kids.length&&t.lvl<st;
+      if(splitting)t.kids.forEach(k=>{svg+=`<line x1="${t.x}" y1="${y+16}" x2="${k.x}" y2="${28+k.lvl*LH-18}" stroke="#637681" stroke-width="2"/>`;stack.push(k)});
+      const showPrime=t.prime;
+      svg+=`<circle cx="${t.x}" cy="${y}" r="${showPrime?19:0}" fill="${showPrime?'#ede9fb':'none'}" stroke="${showPrime?'#7962cb':'none'}" stroke-width="2.5"/><text x="${t.x}" y="${y+6}" text-anchor="middle" font-weight="800" font-size="18" fill="${showPrime?'#7962cb':'#172c3a'}">${t.v}</text>`;
+      if(t.prime)primes.push(t.v);
+    }
+    $('t2-svg').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${Math.max(W,120)}" height="${H}" role="img" aria-label="prime factor tree of ${n}">${svg}</svg>`;
+    const all=primeFac(n);
+    let msg;
+    if(st===0)msg=all.length===1?`${fmt(n)} is prime, so it can’t be split. Its tree is just itself.`:`Start with ${fmt(n)}. Press <b>Split</b>.`;
+    else if(st>=D)msg='<b>Done!</b> Every branch ends in a circled prime.';
+    else msg=`<b>Level ${st}:</b> split every composite number into two factors. Primes (circled) stop.`;
+    $('t2-msg').innerHTML=msg;
+    $('t2-next').disabled=st>=D;$('t2-back').disabled=st<=0;$('t2-all').disabled=st>=D;
+    $('t2-res').innerHTML=st>=D?`${fmt(n)} = ${all.join(' · ')}${new Set(all).size<all.length?` = ${expForm(all)}`:''}`:`${fmt(n)} = ?`;
+  }
+  $('t2-n').addEventListener('input',()=>{$('t2-first').dataset.n='';draw()});
+  $('t2-first').addEventListener('change',()=>{st=0;draw()});
+  $('t2-next').onclick=()=>{st++;draw()};$('t2-back').onclick=()=>{st--;draw()};$('t2-reset').onclick=()=>{st=0;draw()};$('t2-all').onclick=()=>{st=99;draw()};
+  draw();
+})();
+
+/* ---------- LCM ---------- */
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+function drawM(){
+  const g=id=>{const v=$(id).value.replace(/\D/g,'').slice(0,3);const n=Math.max(1,Math.min(200,+v||1));$(id).value=v?String(n):'';return n};
+  const a=g('m-a'),b=g('m-b'),l=a*b/gcd(a,b);
+  const row=(n,name)=>{let h=`<p style="margin:8px 0 4px"><b>${n}</b>:</p><div class="chipbox">`;
+    const cnt=Math.max(10,Math.ceil(l/n));const shown=Math.min(cnt,40);
+    for(let i=1;i<=shown;i++){const v=n*i;const cls=v===l?'num hit':(v%a===0&&v%b===0?'num fac':'num');h+=`<span class="${cls}">${v}</span>`}
+    return h+'</div>'};
+  $('m-lists').innerHTML=row(a)+row(b)+'<p style="font-size:.85rem;color:var(--muted)">Purple = the LCM. Teal = other common multiples.</p>';
+  $('m-res').textContent=`LCM(${a}, ${b}) = ${l}`;
+  const pa=primeFac(a),pb=primeFac(b),all=[...new Set([...pa,...pb])].sort((x,y)=>x-y);
+  const cnt=(arr,p)=>arr.filter(x=>x===p).length;
+  let h=`<table><tr><th></th>${all.map(p=>`<th>${p}</th>`).join('')}</tr>`;
+  h+=`<tr><td><b>${a}</b></td>${all.map(p=>`<td>${cnt(pa,p)?`${p}${cnt(pa,p)>1?'<sup>'+cnt(pa,p)+'</sup>':''}`:''}</td>`).join('')}</tr>`;
+  h+=`<tr><td><b>${b}</b></td>${all.map(p=>`<td>${cnt(pb,p)?`${p}${cnt(pb,p)>1?'<sup>'+cnt(pb,p)+'</sup>':''}`:''}</td>`).join('')}</tr>`;
+  const mx=all.map(p=>[p,Math.max(cnt(pa,p),cnt(pb,p))]);
+  h+=`<tr><td><b>LCM</b></td>${mx.map(([p,e])=>`<td><b>${p}${e>1?'<sup>'+e+'</sup>':''}</b></td>`).join('')}</tr></table>`;
+  h+=`<p>${a===1&&b===1?'1':mx.map(([p,e])=>Array(e).fill(p).join(' · ')).join(' · ')} = <b>${l}</b></p>`;
+  $('m-pf').innerHTML=h;
+}
+$('m-a').addEventListener('input',drawM);$('m-b').addEventListener('input',drawM);drawM();
+
+/* ---------- ladder ---------- */
+function makeLadder(pre,ids,multi){
+  const PU='var(--purple)',TE='var(--teal)',RD='#d6336c';
+  const $$=k=>$(pre+'-'+k);let st=0;
+  const sp=(t,c)=>`<span style="color:${c};font-weight:800">${t}</span>`;
+  const col=d=>d.all?PU:TE;
+  function draw(){
+    const g=(k,opt)=>{const e=$$(k),v=e.value.replace(/\D/g,'').slice(0,4);if(!v&&opt){e.value='';return null}const n=Math.max(1,Math.min(1000,+v||1));e.value=v?String(n):'';return n};
+    const nums=ids.map((k,i)=>g(k,i>=(multi?3:2))).filter(x=>x!==null);
+    let cur=nums.slice();const rows=[cur.slice()],divs=[];
+    const run=need=>{for(;;){let f=0;for(let p=2;p<=Math.max(...cur);p++){if(cur.filter(x=>x%p===0).length>=need){f=p;break}}
+      if(!f)break;divs.push({p:f,all:cur.every(x=>x%f===0)});cur=cur.map(x=>x%f===0?x/f:x);rows.push(cur.slice())}};
+    if(multi){run(cur.length);run(2)}else run(2);
+    const D=divs.length,nP=divs.filter(d=>d.all).length,STOP=D+2,END=D+3;
+    st=Math.max(0,Math.min(END,st));
+    const sd=Math.max(0,Math.min(D,st-1)),sr=st>=1?sd+1:0;
+    let h='';
+    if(st>=1){
+      h='<table style="width:auto;margin:auto;font-size:1.15rem;border-collapse:collapse;text-align:center">';
+      for(let i=0;i<sr;i++){
+        const d=i<sd?divs[i]:null,last=st>=STOP&&i===sr-1;
+        h+=`<tr><td style="padding:4px 12px;font-weight:800;border:0;color:${d?col(d):'inherit'}">${d?d.p:''}</td>`;
+        rows[i].forEach((x,j)=>{h+=`<td style="padding:6px 16px;border:0;${d&&j===0?'border-left:3px solid var(--ink);':''}${d?'border-bottom:3px solid var(--ink);':''}${last?`color:${RD};font-weight:800`:''}">${x}</td>`});
+        h+='</tr>';
+      }
+      h+='</table>';
+    }
+    $$('ladder').innerHTML=h;
+    const gfD=divs.filter(d=>d.all),gf=gfD.reduce((x,d)=>x*d.p,1);
+    const gcfTxt=`${gfD.length>1?gfD.map(d=>sp(d.p,PU)).join(' × ')+' = ':''}${sp(gf,PU)}`;
+    const names=nums.join(', ');
+    let msg,next;
+    if(st===0){msg='Press <b>Step 1</b> to begin.'}
+    else if(st===1){msg='<b>Step 1:</b> write the numbers side by side.'+(multi?(nP===0?` No prime divides every number, so <b>GCF = 1</b>.`:' First look for primes that divide <b>every</b> number.'):'')}
+    else if(st<STOP){const k=st-1,d=divs[k-1];
+      let m=`<b>${st===2?'Step 2':'Repeat'}:</b> divide by ${sp(d.p,col(d))}`;
+      if(multi){
+        if(d.all)m+=' (fits every number).';
+        else m+=` (fits only some numbers; the others come straight down).`;
+        if(d.all&&k===nP)m+=` No prime divides every number now, so <b>GCF = ${gf}</b>. Next: primes that fit two or more numbers.`;
+        if(!d.all&&k===nP+1)m=`<b>LCM part:</b> `+m.replace(/^<b>[^<]*<\/b> /,'');
+      }else m+=' (divides both numbers).';
+      msg=m}
+    else if(st===STOP)msg=`<b>Stop:</b> ${multi?'no prime fits two of the bottom numbers':'the bottom numbers share no prime factor'}. They are ${sp('red',RD)}.`;
+    else msg='<b>Done!</b> GCF = purple divisors. LCM = all divisors × red numbers.';
+    const nx=st+1;
+    next=st>=END?'Done':nx===1?'Step 1 ▶':nx===2?'Step 2 ▶':nx<STOP?'Repeat ▶':nx===STOP?'Stop ▶':'Answers ▶';
+    if(D===0&&st===1)next='Stop ▶';
+    $$('msg').innerHTML=msg;$$('next').textContent=next;$$('next').disabled=st>=END;$$('back').disabled=st<=0;
+    const gcfShown=multi?st>=1+nP&&st>=1:st>=END;
+    $$('gcf').innerHTML=`GCF(${names}) = ${gcfShown?gcfTxt:'?'}`;
+    if(st<END){$$('lcm').innerHTML=`LCM(${names}) = ?`;$$('check').textContent='';return}
+    const rem=rows[rows.length-1],l=divs.reduce((x,d)=>x*d.p,1)*rem.reduce((x,y)=>x*y,1);
+    const parts=[...divs.map(d=>sp(d.p,col(d))),...rem.filter(x=>x!==1).map(x=>sp(x,RD))];
+    $$('lcm').innerHTML=`LCM(${names}) = ${parts.length?parts.join(' × ')+' = ':''}<b>${l}</b>`;
+    $$('check').textContent=nums.length===2?`Check: GCF × LCM = ${gf} × ${l} = ${gf*l}, and ${nums[0]} × ${nums[1]} = ${nums[0]*nums[1]}.`:'';
+  }
+  ids.forEach(k=>$$(k).addEventListener('input',()=>{st=0;draw()}));
+  $$('next').onclick=()=>{st++;draw()};$$('back').onclick=()=>{st--;draw()};$$('reset').onclick=()=>{st=0;draw()};
+  draw();
+}
+makeLadder('s',['a','b'],false);
+makeLadder('t',['a','b','c','d'],true);
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['Evaluate 3 + 4 × 2.',['14','11','10'],1],
+ ['Evaluate 2³.',['6','8','9'],1],
+ ['Is 7 a solution of x + 5 = 12?',['Yes','No'],0],
+ ['Solve x − 9 = 4.',['x = 5','x = 13','x = −5'],1],
+ ['Combine like terms: 4x + 3 + 2x − 1',['6x + 2','6x² + 2','8x'],0],
+ ['Which number is prime?',['21','27','29'],2],
+ ['Which number is divisible by 6?',['124','132','146'],1],
+ ['What is the LCM of 4 and 6?',['12','24','10'],0],
+ ['Prime factorization of 60:',['2 · 3 · 10','2² · 3 · 5','6 · 10'],1],
+ ['Translate “7 less than y”.',['7 − y','y − 7','7y'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

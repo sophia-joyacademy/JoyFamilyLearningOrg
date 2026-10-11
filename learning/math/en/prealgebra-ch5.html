@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 5 — Decimals | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text],input[type=number]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .kx .katex{font-size:1.1em}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .ov{text-decoration:overline;text-decoration-thickness:2px}
+    .rw{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1.3rem;font-weight:900}
+    .rw .di{width:130px} .rw .di input{text-align:center;padding:6px 8px}
+    .rw .sm{width:84px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .vt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:1.1rem;font-weight:800;background:var(--purple-light);border-radius:12px;padding:8px 14px;display:inline-block;line-height:1.4;white-space:pre;margin:6px 0;color:var(--ink);max-width:100%;overflow-x:auto;vertical-align:top}
+    .vt .pz{color:var(--orange)} .vt .pt{color:var(--teal)} .vt .df{background:#ffd9c4;border-radius:4px}
+    .pv{display:flex;gap:4px;align-items:flex-end;flex-wrap:wrap;margin-top:12px}
+    .pc{min-width:58px;text-align:center;border:2px solid var(--line);border-radius:12px;padding:4px 6px;background:#fff}
+    .pc small{display:block;font-size:.58rem;color:var(--muted);font-weight:800;text-transform:uppercase;line-height:1.1}
+    .pc b{font-size:1.5rem;color:var(--ink)}
+    .pc.hl{background:var(--purple-light);border-color:var(--purple)}
+    .pc.nx{background:var(--orange-light);border-color:var(--orange)}
+    .pdot{font-size:1.8rem;font-weight:900;align-self:flex-end;padding:0 2px}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script src="katex/katex.min.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#place">Place value</a><a href="#compare">Compare</a><a href="#addsub">+ −</a><a href="#mul">×</a><a href="#div">÷</a><a href="#frdec">Fraction→Decimal</a><a href="#circle">Circles</a><a href="#solve">Equations</a><a href="#stats">Averages</a><a href="#ratio">Ratios</a><a href="#sqrt">√</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 5</span>
+    <h1><span>Decimals</span></h1>
+    <p class="lead">Fractions with a power of 10 underneath. Read, compare and round decimals; add, subtract, multiply and divide them; convert to fractions; solve equations; find averages, ratios, unit prices and square roots.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Equivalent decimals</span>
+        <p>Decimals that name the same number, such as 0.5 = 0.50 = 0.500. Adding zeros at the end does not change the value.</p></div>
+      <div class="card"><span class="tag t">Repeating decimal</span>
+        <p>The last digit or group of digits repeats forever. 1/3 = 0.<span class="ov">3</span> and 1/11 = 0.<span class="ov">09</span>.</p></div>
+      <div class="card"><span class="tag o">Mean</span>
+        <p>The average: the sum of the values divided by how many values there are.</p></div>
+      <div class="card"><span class="tag p">Median</span>
+        <p>The middle value when the data is in order. Half the values are at or below it, half at or above.</p></div>
+      <div class="card"><span class="tag t">Mode</span>
+        <p>The value that appears most often.</p></div>
+      <div class="card"><span class="tag o">Ratio</span>
+        <p>Compares two numbers with the same unit. a to b, a:b, or <span class="fr"><span>a</span><span>b</span></span>.</p></div>
+      <div class="card"><span class="tag p">Rate &amp; unit rate</span>
+        <p>A rate compares different units (miles per hour). A <b>unit rate</b> has 1 in the denominator. A <b>unit price</b> is the price of 1 item.</p></div>
+      <div class="card"><span class="tag t">Circle</span>
+        <p><b>Radius</b> r: center to the circle. <b>Diameter</b> d = 2r. <b>Circumference</b>: the distance around.</p></div>
+      <div class="card"><span class="tag o">Square root</span>
+        <p>If m = n² and n ≥ 0, then <span class="kx">\sqrt{m}</span> = n. <span class="kx">\sqrt{25}</span> = 5 because 5² = 25.</p></div>
+    </div>
+
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Idea</th><th>Rule</th></tr>
+      <tr><td>Place values to the right</td><td>tenths · hundredths · thousandths · ten-thousandths …</td></tr>
+      <tr><td>Decimal to fraction</td><td>digits after the point over the place value of the last digit: 0.75 = 75/100 = 3/4</td></tr>
+      <tr><td>Multiply by 10, 100, 1,000</td><td>move the decimal point right 1, 2, 3 places</td></tr>
+      <tr><td>Divide by 10, 100, 1,000</td><td>move the decimal point left 1, 2, 3 places</td></tr>
+      <tr><td>Fraction to decimal</td><td>divide the numerator by the denominator</td></tr>
+      <tr><td>Circumference and area</td><td>C = 2πr &nbsp; A = πr²</td></tr>
+      <tr><td>Mean</td><td>sum of values ÷ number of values</td></tr>
+      <tr><td>Square root</td><td><span class="kx">\sqrt{n^2}</span> = n for n ≥ 0</td></tr>
+    </table>
+  </section>
+
+  <section id="place">
+    <h2>🔢 Place value, names, fractions and rounding</h2>
+    <p class="sub">Type any decimal (up to 6 places). See its place-value chart, how to read it, its fraction, and round it to a place you pick.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="di"><input id="p-n" type="text" inputmode="decimal" value="23.045"></span></div>
+        <div class="pv" id="p-chart"></div>
+        <div class="pill" style="background:var(--purple-light)" id="p-name"></div>
+        <div class="pill" style="background:var(--teal-light)" id="p-frac"></div>
+        <label>Round to the nearest…</label>
+        <div id="p-rb"></div>
+        <div class="pill" style="background:var(--orange-light)" id="p-round"></div>
+      </div>
+      <div class="card"><span class="tag p">Name a decimal</span>
+        <ol class="steps"><li>Say the whole-number part.</li><li>Say “and” for the decimal point.</li><li>Say the digits after the point as a whole number.</li><li>Finish with the place name of the last digit.</li></ol>
+        <span class="tag t" style="margin-top:12px">Round a decimal</span>
+        <ol class="steps"><li>Find the place you are rounding to.</li><li>Look at the digit right after it.</li><li>5 or more: add 1 to your digit. Less than 5: leave it.</li><li>Drop the digits after the place.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <h2>⚖️ Compare decimals</h2>
+    <p class="sub">Line up the decimal points, add zeros so both numbers have the same length, then compare from the left.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="di"><input id="c-a" type="text" inputmode="decimal" value="0.45"></span><span>vs</span><span class="di"><input id="c-b" type="text" inputmode="decimal" value="0.5"></span></div>
+        <div id="c-vt" style="margin-top:12px"></div>
+        <div class="pill" style="background:var(--purple-light)" id="c-msg"></div>
+      </div>
+      <div class="card"><span class="tag o">Watch out</span>
+        <p>More digits does not mean bigger. 0.45 has 2 places and 0.5 has 1, but 0.5 = 0.50 is bigger.</p>
+        <p>Orange zeros are placeholders. They do not change the value.</p></div>
+    </div>
+  </section>
+
+  <section id="addsub">
+    <h2>➕ Add &amp; subtract decimals</h2>
+    <p class="sub">Line up the decimal points, fill in zeros, add or subtract like whole numbers, and bring the point straight down.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="as-t0" class="on">Add</button><button id="as-t1">Subtract</button></div>
+        <div class="rw"><span class="di"><input id="as-a" type="text" inputmode="decimal" value="12.5"></span><span id="as-op">+</span><span class="di"><input id="as-b" type="text" inputmode="decimal" value="3.07"></span></div>
+        <div id="as-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="as-ctl"></div><ol class="steps" id="as-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Rules</span>
+        <ul><li>Point under point. Zeros are placeholders.</li><li>The decimal point in the answer is in line with the points above.</li><li>If you subtract a bigger number from a smaller one, the answer is negative.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="mul">
+    <h2>✖️ Multiply decimals</h2>
+    <p class="sub">Multiply as whole numbers, then count the decimal places in both factors to place the point.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="di"><input id="m-a" type="text" inputmode="decimal" value="2.4"></span><span>×</span><span class="di"><input id="m-b" type="text" inputmode="decimal" value="0.35"></span></div>
+        <div id="m-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="m-ctl"></div><ol class="steps" id="m-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag t">Shortcut: powers of 10</span>
+        <div class="rw"><span class="di"><input id="t-n" type="text" inputmode="decimal" value="4.25"></span></div>
+        <div id="t-b"></div>
+        <div class="pill" style="background:var(--teal-light)" id="t-res"></div>
+        <p>Multiply: move the point right. Divide: move it left. Add zeros when you run out of digits.</p></div>
+    </div>
+  </section>
+
+  <section id="div">
+    <h2>➗ Divide decimals</h2>
+    <p class="sub">Make the divisor a whole number by moving both decimal points the same number of places, then divide.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="di"><input id="d-a" type="text" inputmode="decimal" value="4.8"></span><span>÷</span><span class="di"><input id="d-b" type="text" inputmode="decimal" value="0.6"></span></div>
+        <div id="d-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="d-ctl"></div><ol class="steps" id="d-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag o">Rules</span>
+        <ul><li>Move the point in the divisor all the way right. Move the dividend’s point the same number of places.</li><li>The decimal point in the quotient sits right above the point in the dividend.</li><li>Same signs: positive. Different signs: negative.</li><li>A bar over digits means they repeat forever.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="frdec">
+    <h2>🔁 Fraction → decimal (long division)</h2>
+    <p class="sub">Divide the numerator by the denominator. If a remainder comes back, the decimal repeats.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="fin" style="display:inline-flex;flex-direction:column;gap:4px;width:84px"><input id="f-n" type="text" inputmode="numeric" value="3" style="text-align:center;padding:6px 4px"><i style="display:block;height:2px;background:var(--ink)"></i><input id="f-d" type="text" inputmode="numeric" value="8" style="text-align:center;padding:6px 4px"></span><span id="f-res"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="f-type"></div>
+        <div id="f-tab" style="margin-top:12px"></div>
+      </div>
+      <div class="card"><span class="tag p">Try these</span>
+        <div id="f-ex"></div>
+        <p>A fraction ends (terminates) only when its simplified denominator has no prime factors except 2 and 5.</p></div>
+    </div>
+  </section>
+
+  <section id="circle">
+    <h2>⭕ Circles: circumference and area</h2>
+    <p class="sub">Enter a radius. The diameter is twice the radius. Use π ≈ 3.14 for a quick answer.</p>
+    <div class="explorer">
+      <div class="card">
+        <label>Radius r</label>
+        <div class="rw"><span class="di"><input id="o-r" type="text" inputmode="decimal" value="5"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="o-d"></div>
+        <div class="pill" style="background:var(--teal-light)" id="o-c"></div>
+        <div class="pill" style="background:var(--orange-light)" id="o-a"></div>
+      </div>
+      <div class="card"><svg id="o-svg" viewBox="0 0 300 250" style="width:100%"></svg></div>
+    </div>
+  </section>
+
+  <section id="solve">
+    <h2>⚖️ Solve equations with decimals</h2>
+    <p class="sub">Same rules as before: do the same thing to both sides. Pick a type, enter the decimals and step through.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="q-t0" class="on">x + a = b</button><button id="q-t1">x − a = b</button><button id="q-t2">a·x = b</button><button id="q-t3">a·x + b = c</button></div>
+        <div class="rw"><small>a</small><span class="sm"><input id="q-a" type="text" inputmode="decimal" value="2.5"></span><small>b</small><span class="sm"><input id="q-b" type="text" inputmode="decimal" value="7.8"></span><small id="q-cl" hidden>c</small><span class="sm" id="q-cw" hidden><input id="q-c" type="text" inputmode="decimal" value="20.3"></span></div>
+        <div id="q-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="q-ctl"></div><ol class="steps" id="q-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Properties of equality</span>
+        <p>Add, subtract, multiply or divide both sides by the same number (not 0 for dividing). The equation stays true.</p>
+        <span class="tag t" style="margin-top:10px">Check</span>
+        <p>Put your answer back in the original equation. Both sides must match.</p></div>
+    </div>
+  </section>
+
+  <section id="stats">
+    <h2>📊 Mean, median and mode</h2>
+    <p class="sub">Type numbers separated by commas (up to 30). See the three averages and where they sit on a dot plot.</p>
+    <div class="explorer">
+      <div class="card">
+        <input id="st-in" type="text" value="8, 12, 15, 9, 6, 9">
+        <div class="pill" style="background:var(--purple-light)" id="st-sorted"></div>
+        <div class="pill" style="background:var(--teal-light)" id="st-mean"></div>
+        <div class="pill" style="background:var(--orange-light)" id="st-med"></div>
+        <div class="pill" style="background:var(--purple-light)" id="st-mode"></div>
+      </div>
+      <div class="card"><svg id="st-svg" viewBox="0 0 460 160" style="width:100%"></svg>
+        <p><b class="or">▲</b> mean &nbsp; <b class="pu">┆</b> median</p></div>
+    </div>
+
+    <h3 style="margin-top:30px">🎲 Probability</h3>
+    <p class="sub">Probability = favorable outcomes ÷ total outcomes. Fill the bag, then draw marbles and compare the results with the math.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><small>🔴</small><span class="sm"><input id="b-r" type="text" inputmode="numeric" value="3"></span><small>🔵</small><span class="sm"><input id="b-b" type="text" inputmode="numeric" value="5"></span><small>🟢</small><span class="sm"><input id="b-g" type="text" inputmode="numeric" value="2"></span></div>
+        <svg id="b-svg" viewBox="0 0 360 120" style="width:100%;margin-top:8px"></svg>
+        <div><button id="b-d1" type="button">Draw 1</button><button id="b-d100" type="button">Draw 100</button><button id="b-rs" type="button">↺ Reset</button></div>
+      </div>
+      <div class="card"><div id="b-out"></div></div>
+    </div>
+  </section>
+
+  <section id="ratio">
+    <h2>⚗️ Ratios, rates and unit price</h2>
+    <p class="sub">Write a ratio as a simplified fraction, then compare prices by finding the unit price.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>Ratio as a fraction</h3>
+        <div class="rw"><span class="di"><input id="r-a" type="text" inputmode="decimal" value="0.8"></span><span>to</span><span class="di"><input id="r-b" type="text" inputmode="decimal" value="0.05"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="r-out"></div>
+      </div>
+      <div class="card">
+        <h3>Which is the better buy?</h3>
+        <div class="rw"><small>A: $</small><span class="sm"><input id="u-pa" type="text" inputmode="decimal" value="4.50"></span><small>for</small><span class="sm"><input id="u-qa" type="text" inputmode="decimal" value="18"></span></div>
+        <div class="rw"><small>B: $</small><span class="sm"><input id="u-pb" type="text" inputmode="decimal" value="7.20"></span><small>for</small><span class="sm"><input id="u-qb" type="text" inputmode="decimal" value="32"></span></div>
+        <div class="pill" style="background:var(--teal-light)" id="u-out"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sqrt">
+    <h2><span class="kx">\sqrt{\ }</span> Square roots</h2>
+    <p class="sub">A square with area n has side <span class="kx">\sqrt{n}</span>. If n is a perfect square, the side is a whole number. Otherwise estimate between two whole numbers.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span>n =</span><span class="di"><input id="s-n" type="text" inputmode="numeric" value="50"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="s-msg"></div>
+        <div class="pill" style="background:var(--teal-light)" id="s-est"></div>
+        <div class="pill" style="background:var(--orange-light)" id="s-neg"></div>
+        <h3 style="margin-top:18px">Order of operations</h3>
+        <div class="rw"><span>a =</span><span class="sm"><input id="s-a" type="text" inputmode="numeric" value="9"></span><span>b =</span><span class="sm"><input id="s-b" type="text" inputmode="numeric" value="16"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="s-ord"></div>
+      </div>
+      <div class="card"><svg id="s-svg" viewBox="0 0 300 250" style="width:100%"></svg></div>
+    </div>
+    <h3 style="margin-top:24px">Perfect squares</h3>
+    <table class="lr">
+      <tr><th>n</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+      <tr><th>n²</th><td>1</td><td>4</td><td>9</td><td>16</td><td>25</td><td>36</td><td>49</td><td>64</td><td>81</td><td>100</td><td>121</td><td>144</td><td>169</td><td>196</td><td>225</td></tr>
+    </table>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Decimal → fraction</span>
+        <ol class="steps"><li>Whole-number part: zero means a proper fraction, otherwise a mixed number.</li><li>Numerator: the digits after the point.</li><li>Denominator: the place value of the last digit.</li><li>Simplify.</li></ol></div>
+      <div class="card"><span class="tag t">Add or subtract</span>
+        <ol class="steps"><li>Line up the decimal points.</li><li>Fill in zeros as placeholders.</li><li>Add or subtract as whole numbers.</li><li>Put the point straight down.</li></ol></div>
+      <div class="card"><span class="tag o">Multiply</span>
+        <ol class="steps"><li>Find the sign.</li><li>Multiply as whole numbers, ignoring the points.</li><li>Product decimal places = places in factor 1 + places in factor 2.</li><li>Use zeros as placeholders if needed.</li></ol></div>
+      <div class="card"><span class="tag p">Divide</span>
+        <ol class="steps"><li>Find the sign.</li><li>Move the divisor’s point to the right end; move the dividend’s point the same number of places.</li><li>Divide. Keep the point above the point.</li></ol></div>
+      <div class="card"><span class="tag t">Mean, median, mode</span>
+        <ol class="steps"><li>Mean: sum ÷ count. Check it is between the least and greatest values.</li><li>Median: order the list. Odd count: the middle. Even count: mean of the two middle values.</li><li>Mode: the most frequent value.</li></ol></div>
+      <div class="card"><span class="tag o">Best buy</span>
+        <ol class="steps"><li>Write price ÷ amount for each item.</li><li>Divide to get the unit price.</li><li>The lower unit price is the better buy.</li></ol></div>
+    </div>
+    <h3 style="margin-top:28px">Decimal operations at a glance</h3>
+    <table>
+      <tr><th>Operation</th><th>Decimal point</th></tr>
+      <tr><td>Add / subtract</td><td>line up the points; the answer’s point lines up too</td></tr>
+      <tr><td>Multiply</td><td>count places in both factors and add them</td></tr>
+      <tr><td>Divide</td><td>make the divisor whole; the quotient’s point is above the dividend’s</td></tr>
+      <tr><td>× or ÷ by 10, 100, 1,000</td><td>move the point right (×) or left (÷)</td></tr>
+    </table>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Algebra</th></tr>
+      <tr><td>the sum of 2.5 and 1.3</td><td>2.5 + 1.3</td></tr>
+      <tr><td>7.2 less than 10</td><td>10 − 7.2</td></tr>
+      <tr><td>the product of 0.4 and 12</td><td>0.4 · 12</td></tr>
+      <tr><td>the quotient of 9 and 0.3</td><td>9 ÷ 0.3</td></tr>
+      <tr><td>the ratio of 6 to 15</td><td>6/15 = 2/5</td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+
+/* ---------- exact decimal / rational helpers (BigInt) ---------- */
+const gcdB=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b]}return a};
+const R=(n,d=1n)=>{if(d<0n){n=-n;d=-d}const g=gcdB(n,d)||1n;return{n:n/g,d:d/g}};
+const rAdd=(x,y)=>R(x.n*y.d+y.n*x.d,x.d*y.d), rSub=(x,y)=>R(x.n*y.d-y.n*x.d,x.d*y.d);
+const rMul=(x,y)=>R(x.n*y.n,x.d*y.d), rDiv=(x,y)=>R(x.n*y.d,x.d*y.n);
+const rCmp=(x,y)=>{const t=x.n*y.d-y.n*x.d;return t<0n?-1:t>0n?1:0};
+const pd=(s,def='0')=>{
+  s=String(s).trim().replace('−','-').replace(/,/g,'');
+  const m=s.match(/^(-?)(\d*)\.?(\d*)$/);
+  if(!m||(m[2]===''&&m[3]==='')){return def===null?null:pd(def)}
+  const i=(m[2].replace(/^0+(?=\d)/,'')||'0').slice(0,9),f=m[3].slice(0,6);
+  return{neg:m[1]==='-'&&!/^0*$/.test(m[2]+m[3]),i,f};
+};
+const toR=p=>R(BigInt((p.neg?'-':'')+p.i+p.f),10n**BigInt(p.f.length));
+const fmtP=p=>`${p.neg?'−':''}${p.i}${p.f?'.'+p.f:''}`;
+const parenP=p=>p.neg?`(${fmtP(p)})`:fmtP(p);
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+function dec(r){
+  const neg=r.n<0n,n=neg?-r.n:r.n,d=r.d,ip=(n/d).toString();
+  let rem=n%d,rs=-1;const seen=new Map(),dig=[];
+  while(rem!==0n&&dig.length<40){const k=rem.toString();if(seen.has(k)){rs=seen.get(k);break}seen.set(k,dig.length);rem*=10n;dig.push((rem/d).toString());rem%=d}
+  const nr=rs<0?dig.join(''):dig.slice(0,rs).join(''),rp=rs<0?'':dig.slice(rs).join('');
+  const sg=neg&&n!==0n?'−':'',more=rs<0&&rem!==0n;
+  return{ip,nr,rp,sg,term:rs<0&&rem===0n,html:`${sg}${ip}${nr||rp||more?'.':''}${nr}${rp?`<span class="ov">${rp}</span>`:''}${more?'…':''}`};
+}
+const D=r=>dec(r).html;
+const RF=r=>r.d===1n?D(r):frH(r.n<0n?'−'+(-r.n):r.n,r.d);
+
+/* stepper: Reset / Step / Back on the left, steps on the right */
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  inputs.forEach(k=>$(k).addEventListener('input',()=>{st=0;draw()}));
+  return{reset(){st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const btns=(host,labels,get,set)=>{const h=$(host);h.innerHTML='';labels.forEach((l,i)=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.onclick=()=>{set(i)};h.appendChild(b)});};
+const mark=(host,cur)=>[...$(host).children].forEach((b,i)=>b.className=i===cur?'on':'');
+
+/* ---------- words for numbers ---------- */
+const ONES=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const TENS=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+const w3=n=>{const s=[];if(n>=100){s.push(ONES[Math.floor(n/100)]+' hundred');n%=100}if(n>=20)s.push(TENS[Math.floor(n/10)]+(n%10?'-'+ONES[n%10]:''));else if(n>0)s.push(ONES[n]);return s.join(' ')};
+const words=n=>{if(n===0)return'zero';const sc=['','thousand','million','billion'],p=[];let i=0;while(n>0){const c=n%1000;if(c)p.unshift(w3(c)+(sc[i]?' '+sc[i]:''));n=Math.floor(n/1000);i++}return p.join(' ')};
+const INT_NAMES=['ones','tens','hundreds','thousands','ten thousands','hundred thousands','millions','ten millions','hundred millions'];
+const FRAC_NAMES=['tenths','hundredths','thousandths','ten-thousandths','hundred-thousandths','millionths'];
+
+/* ---------- place value ---------- */
+let prk=2;
+btns('p-rb',['ones','tenths','hundredths','thousandths'],0,i=>{prk=i;drawP()});
+function drawP(){
+  const p=pd($('p-n').value,'0'),L=p.i.length,fl=p.f.length;
+  mark('p-rb',prk);
+  let hlI=-1,nxI=-1;
+  if(fl>prk){ if(prk===0){hlI=L-1;nxI=L}else{hlI=L+prk-1;nxI=L+prk} }
+  const cells=[];
+  for(let j=0;j<L;j++)cells.push({n:INT_NAMES[L-1-j],d:p.i[j]});
+  for(let j=0;j<fl;j++)cells.push({n:FRAC_NAMES[j],d:p.f[j]});
+  $('p-chart').innerHTML=cells.map((c,k)=>(k===L&&fl?'<span class="pdot">.</span>':'')+`<div class="pc ${k===hlI?'hl':k===nxI?'nx':''}"><small>${c.n}</small><b>${c.d}</b></div>`).join('');
+  const iv=parseInt(p.i,10),fv=fl?parseInt(p.f,10):0;
+  let nm=(p.neg?'negative ':'');
+  if(fl&&fv>0){
+    let fn=FRAC_NAMES[fl-1];if(fv===1)fn=fn.replace(/s$/,'');
+    nm+=(iv>0?words(iv)+' and ':'')+words(fv)+' '+fn;
+  }else nm+=words(iv);
+  $('p-name').innerHTML=`<b>Say it:</b> ${nm}`;
+  const den=10n**BigInt(fl);
+  if(fl&&fv>0){
+    const g=gcdB(BigInt(p.f),den),sn=BigInt(p.f)/g,sd=den/g;
+    const raw=`${frH(p.f.replace(/^0+(?=\d)/,''),den)}`,simp=frH(sn,sd);
+    $('p-frac').innerHTML=`<b>As a fraction:</b> ${p.neg?'−':''}${iv>0?iv+' ':''}${raw} ${g>1n?'= '+(iv>0?iv+' ':'')+simp:''} <small>(numerator = digits after the point, denominator = ${den.toString()} for the ${FRAC_NAMES[fl-1].replace(/s$/,'')} place)</small>`;
+  }else $('p-frac').innerHTML=`<b>As a fraction:</b> ${p.neg?'−':''}${iv} (a whole number)`;
+  const pn=prk===0?'ones':FRAC_NAMES[prk-1];
+  if(fl<=prk){$('p-round').innerHTML=`${fmtP(p)} has no digits after the ${pn} place, so rounding does not change it.`}
+  else{
+    const val=BigInt(p.i+p.f),cut=fl-prk,q0=val/10n**BigInt(cut),nd=Number((val/10n**BigInt(cut-1))%10n),up=nd>=5;
+    const q=up?q0+1n:q0,qs=q.toString().padStart(prk+1,'0'),out=(p.neg?'−':'')+(prk?qs.slice(0,-prk)+'.'+qs.slice(-prk):qs);
+    $('p-round').innerHTML=`Round to the ${pn} place (purple). The next digit (orange) is <b>${nd}</b>: ${up?'5 or more, so add 1':'less than 5, so leave it'}. <b>${fmtP(p)} ≈ ${out}</b>`;
+  }
+}
+$('p-n').addEventListener('input',drawP);drawP();
+
+/* ---------- compare ---------- */
+function drawC(){
+  const a=pd($('c-a').value,'0'),b=pd($('c-b').value,'0');
+  const L=Math.max(a.i.length,b.i.length),F=Math.max(a.f.length,b.f.length);
+  const line=p=>{
+    const ii=' '.repeat(L-p.i.length)+p.i,ff=p.f+'0'.repeat(F-p.f.length);
+    return{ii,ff,pad:F-p.f.length,pf:p.f.length};
+  };
+  const A=line(a),B=line(b);
+  const sa=A.ii+A.ff,sb=B.ii+B.ff;
+  let idx=-1;
+  for(let k=0;k<sa.length;k++){const x=(k<L?A.ii:A.ff)[k<L?k:k-L],y=(k<L?B.ii:B.ff)[k<L?k:k-L];if((x===' '?'0':x)!==(y===' '?'0':y)){idx=k;break}}
+  const render=(X,p,sign)=>{
+    let s=(sign?'−':' ')+'';
+    for(let k=0;k<L;k++){s+=k===idx?`<span class="df">${X.ii[k]}</span>`:X.ii[k]}
+    if(F)s+='<span class="pt">.</span>';
+    for(let k=0;k<F;k++){const ch=X.ff[k],pad=k>=X.pf,cls=(L+k===idx?'df ':'')+(pad?'pz':'');s+=cls?`<span class="${cls.trim()}">${ch}</span>`:ch}
+    return s;
+  };
+  $('c-vt').innerHTML=`<div class="vt">${render(A,a,a.neg)}\n${render(B,b,b.neg)}</div>`;
+  const ra=toR(a),rb=toR(b),cmp=rCmp(ra,rb),sym=cmp<0?'<':cmp>0?'>':'=';
+  let msg;
+  if(cmp===0)msg=`They are equal: equivalent decimals.`;
+  else if(a.neg!==b.neg)msg=`One is negative and one is positive. A negative number is always less.`;
+  else{
+    const pl=idx<L?INT_NAMES[L-1-idx]:FRAC_NAMES[idx-L];
+    const x=(idx<L?A.ii:A.ff)[idx<L?idx:idx-L].trim()||'0',y=(idx<L?B.ii:B.ff)[idx<L?idx:idx-L].trim()||'0';
+    msg=`First difference: the <b>${pl}</b> place (${x} vs ${y}).`+(a.neg?` Both are negative, so the one with the bigger digits is farther from 0 and is the smaller number.`:'');
+  }
+  $('c-msg').innerHTML=`${msg}<br><b>${fmtP(a)} ${sym} ${fmtP(b)}</b>`;
+}
+['c-a','c-b'].forEach(k=>$(k).addEventListener('input',drawC));drawC();
+
+/* ---------- add / subtract ---------- */
+let am=0;
+const numH=(i,f,sc,pt)=>i+(sc?`<span class="pt">${pt}</span>`+f+(sc>f.length?`<span class="pz">${'0'.repeat(sc-f.length)}</span>`:''):'');
+const vline=(op,i,f,sc,W,pt)=>{const len=i.length+(sc?1+sc:0);return op+' '.repeat(Math.max(0,W-1-len))+numH(i,f,sc,pt)};
+const asS=pre=>{};
+const ast=stepper('as',['as-a','as-b'],st=>{
+  const a=pd($('as-a').value,'0'),b=pd($('as-b').value,'0');
+  a.neg=false;b.neg=false;
+  const op=am?'−':'+',sc=Math.max(a.f.length,b.f.length);
+  const A=BigInt(a.i+a.f.padEnd(sc,'0')),B=BigInt(b.i+b.f.padEnd(sc,'0'));
+  const swap=am===1&&A<B;
+  const S=am?(swap?B-A:A-B):A+B;
+  const str=S.toString().padStart(sc+1,'0'),ai=sc?str.slice(0,-sc):str,af=sc?str.slice(-sc):'';
+  const num=(i,f)=>i.length+(sc?1+sc:0);
+  const W=2+Math.max(a.i.length,b.i.length,ai.length)+(sc?1+sc:0);
+  const rule='-'.repeat(W);
+  const start=`${fmtP(a)} ${op} ${fmtP(b)}`;
+  const top=swap?b:a,bot=swap?a:b;
+  const res=(swap?'−':'')+ai+(sc?'.'+af:'');
+  const steps=[`Start: ${start}`];
+  steps.push(`Line up the decimal points. Fill in zeros (orange) so both numbers end in the same place:<br><div class="vt">${vline(' ',a.i,a.f,sc,W,'.')}\n${vline(op,b.i,b.f,sc,W,'.')}\n${rule}</div>`);
+  steps.push((swap?`${fmtP(a)} is smaller than ${fmtP(b)}, so subtract the other way (${fmtP(b)} − ${fmtP(a)}) and make the answer negative. `:'')+`${am?'Subtract':'Add'} the digits like whole numbers, ignoring the decimal point:<br><div class="vt">${vline(' ',top.i,top.f,sc,W,' ')}\n${vline(op,bot.i,bot.f,sc,W,' ')}\n${rule}\n${vline(' ',ai,af,sc,W,' ')}</div>`);
+  steps.push(`Bring the decimal point straight down:<br><div class="vt">${vline(' ',top.i,top.f,sc,W,'.')}\n${vline(op,bot.i,bot.f,sc,W,'.')}\n${rule}\n${vline(' ',ai,af,sc,W,'.')}</div><br>${start} = <b>${res}</b>${trimZ(res)!==res?` = <b>${trimZ(res)}</b>`:''}`);
+  return{eq:`${start} = ${st>=steps.length-1?trimZ(res):'?'}`,steps};
+});
+['as-t0','as-t1'].forEach((k,i)=>$(k).onclick=()=>{am=i;tog(['as-t0','as-t1'],i);$('as-op').textContent=i?'−':'+';ast.reset()});
+ast.reset();
+
+/* ---------- multiply ---------- */
+const mst=stepper('m',['m-a','m-b'],st=>{
+  const a=pd($('m-a').value,'0'),b=pd($('m-b').value,'0');
+  const A=BigInt(a.i+a.f),B=BigInt(b.i+b.f),P=A*B,pl=a.f.length+b.f.length;
+  const neg=(a.neg!==b.neg)&&P!==0n,ps=P.toString().padStart(pl+1,'0');
+  const body=(pl?ps.slice(0,-pl)+'.'+ps.slice(-pl):ps),res=(neg?'−':'')+body;
+  const start=`${parenP(a)} × ${parenP(b)}`;
+  const steps=[`Start: ${start}`];
+  steps.push(`Find the sign. ${a.neg===b.neg||P===0n?'The signs are the same (or the product is 0), so the product is <b>positive</b>.':'The signs are different, so the product is <b>negative</b>.'}`);
+  steps.push(`Ignore the decimal points and multiply as whole numbers: ${A.toString()} × ${B.toString()} = <b>${P.toString()}</b>`);
+  steps.push(`Count the decimal places in the factors: ${fmtP(a)} has <b>${a.f.length}</b>, ${fmtP(b)} has <b>${b.f.length}</b>. The product has ${a.f.length} + ${b.f.length} = <b>${pl}</b> decimal places.`);
+  steps.push(`Count ${pl} places from the right${P.toString().length<=pl?' (add zeros in front as placeholders)':''} and place the point: ${start} = <b>${res}</b>${trimZ(body)!==body?` = <b>${(neg?'−':'')+trimZ(body)}</b>`:''}`);
+  return{eq:`${start} = ${st>=steps.length-1?(neg?'−':'')+trimZ(body):'?'}`,steps};
+});
+mst.reset();
+/* powers of 10 */
+const PW=[['× 10',1],['× 100',2],['× 1,000',3],['÷ 10',-1],['÷ 100',-2],['÷ 1,000',-3]];
+let pk=1;
+btns('t-b',PW.map(x=>x[0]),0,i=>{pk=i;drawT()});
+function drawT(){
+  mark('t-b',pk);
+  const p=pd($('t-n').value,'0'),k=PW[pk][1],r=rMul(toR(p),R(k>0?10n**BigInt(k):1n,k<0?10n**BigInt(-k):1n));
+  $('t-res').innerHTML=`${fmtP(p)} ${PW[pk][0]} = <b>${D(r)}</b><br>Move the point ${Math.abs(k)} place${Math.abs(k)>1?'s':''} to the ${k>0?'right':'left'}.`;
+}
+$('t-n').addEventListener('input',drawT);drawT();
+
+/* ---------- divide ---------- */
+const dst=stepper('d',['d-a','d-b'],st=>{
+  const a=pd($('d-a').value,'0'),b=pd($('d-b').value,'1'),ra=toR(a),rb=toR(b);
+  const start=`${parenP(a)} ÷ ${parenP(b)}`,steps=[`Start: ${start}`];
+  if(rb.n===0n){steps.push('You can never divide by 0.');return{eq:`${start} = undefined`,steps}}
+  const k=b.f.length,neg=(a.neg!==b.neg)&&ra.n!==0n;
+  const ma=a.neg?R(-ra.n,ra.d):ra,mb=b.neg?R(-rb.n,rb.d):rb;
+  const sh=R(10n**BigInt(k));
+  const A2=rMul(ma,sh),B2=rMul(mb,sh),q=rDiv(ma,mb),qd=dec(q);
+  steps.push(`Find the sign. ${neg?'The signs are different, so the quotient is <b>negative</b>.':'The answer is <b>positive</b> (or 0).'} Work with ${D(ma)} ÷ ${D(mb)}.`);
+  steps.push(k?`Make the divisor a whole number: move the decimal point <b>${k}</b> place${k>1?'s':''} to the right in both numbers. ${D(ma)} ÷ ${D(mb)} becomes <b>${D(A2)} ÷ ${D(B2)}</b>.`:`The divisor ${D(mb)} is already a whole number, so nothing needs to move.`);
+  steps.push(`Divide. Put the decimal point in the quotient right above the point in the dividend: ${D(A2)} ÷ ${D(B2)} = <b>${qd.html}</b>${qd.rp?'. The bar shows the digits that repeat forever.':''}`);
+  const out=(neg?'−':'')+qd.html.replace(/^−/,'');
+  steps.push(`Write the sign: ${start} = <b>${out}</b>`);
+  return{eq:`${start} = ${st>=steps.length-1?out:'?'}`,steps};
+});
+dst.reset();
+
+/* ---------- fraction -> decimal ---------- */
+function drawF(){
+  const n=Math.max(0,Math.min(9999,parseInt($('f-n').value,10)||0)),d=Math.max(1,Math.min(9999,parseInt($('f-d').value,10)||1));
+  const r=R(BigInt(n),BigInt(d)),dc=dec(r);
+  $('f-res').innerHTML=`= ${dc.html}`;
+  $('f-type').innerHTML=dc.term?`Terminating decimal: the division ends.`:`Repeating decimal: a remainder comes back, so ${dc.rp?`<b class="ov">${dc.rp}</b> repeats forever`:'the digits go on'}.`;
+  let rem=n%d,rows=[],seen=new Map(),rep=-1;
+  while(rem!==0&&rows.length<12){
+    if(seen.has(rem)){rep=seen.get(rem);break}
+    seen.set(rem,rows.length);const x=rem*10;rows.push({x,dg:Math.floor(x/d),rm:x%d,from:rem});rem=x%d;
+  }
+  let h=`<table class="lr"><tr><th>Remainder × 10</th><th>÷ ${d}</th><th>Digit</th><th>New remainder</th></tr><tr><td colspan="4">Whole part: ${n} ÷ ${d} = ${Math.floor(n/d)} remainder ${n%d}</td></tr>`;
+  rows.forEach((o,i)=>{h+=`<tr><td>${o.from} × 10 = ${o.x}</td><td>${o.x} ÷ ${d}</td><td><b>${o.dg}</b></td><td ${rep===i+1||false?'':''}>${o.rm}</td></tr>`});
+  if(rem===0)h+=`<tr><td colspan="4"><b class="te">Remainder 0: done.</b></td></tr>`;
+  else if(rep>=0)h+=`<tr><td colspan="4"><b class="or">Remainder ${rem} appeared before (row ${rep+1}): the digits repeat from there.</b></td></tr>`;
+  else h+=`<tr><td colspan="4">…continues</td></tr>`;
+  $('f-tab').innerHTML=h+'</table>';
+}
+(()=>{const h=$('f-ex');[[1,8],[3,8],[1,3],[5,6],[7,11],[2,5],[1,7]].forEach(([n,d])=>{const b=document.createElement('button');b.type='button';b.innerHTML=`${n}/${d}`;b.onclick=()=>{$('f-n').value=n;$('f-d').value=d;drawF()};h.appendChild(b)})})();
+['f-n','f-d'].forEach(k=>$(k).addEventListener('input',drawF));drawF();
+
+/* ---------- circle ---------- */
+const RD=x=>katex.renderToString('\\sqrt{'+x+'}',{throwOnError:false});
+document.querySelectorAll('.kx').forEach(e=>katex.render(e.textContent,e,{throwOnError:false}));
+const nz=(x,k=2)=>trimZ(x.toFixed(k));
+function drawO(){
+  const p=pd($('o-r').value,'1'),r=Math.max(0,Number(fmtP(p).replace('−','-'))),d=2*r;
+  $('o-d').innerHTML=`Diameter: d = 2r = 2 × ${nz(r,6)} = <b>${nz(d,6)}</b>`;
+  $('o-c').innerHTML=`Circumference: C = 2πr ≈ 2 × 3.14 × ${nz(r,6)} = <b>${nz(2*3.14*r)}</b><br><small>With a calculator’s π: ≈ ${nz(2*Math.PI*r)}</small>`;
+  $('o-a').innerHTML=`Area: A = πr² ≈ 3.14 × ${nz(r,6)}² = <b>${nz(3.14*r*r)}</b><br><small>With a calculator’s π: ≈ ${nz(Math.PI*r*r)}</small>`;
+  $('o-svg').innerHTML=`<circle cx="150" cy="105" r="85" fill="#e3f5f0" stroke="#087f79" stroke-width="3"/><line x1="65" y1="105" x2="235" y2="105" stroke="#7962cb" stroke-width="3" stroke-dasharray="6 4"/><line x1="150" y1="105" x2="210" y2="45" stroke="#f07846" stroke-width="3"/><circle cx="150" cy="105" r="4" fill="#172c3a"/><text x="86" y="122" font-size="14" font-weight="900" fill="#7962cb">d = ${nz(d,4)}</text><text x="185" y="70" font-size="14" font-weight="900" fill="#f07846">r = ${nz(r,4)}</text><text x="150" y="212" text-anchor="middle" font-size="14" font-weight="900" fill="#087f79">C = ${nz(2*3.14*r)}   A = ${nz(3.14*r*r)}</text>`;
+}
+$('o-r').addEventListener('input',drawO);drawO();
+
+/* ---------- solve equations with decimals ---------- */
+let qt=0;
+const qst=stepper('q',['q-a','q-b','q-c'],st=>{
+  const a=pd($('q-a').value,'0'),b=pd($('q-b').value,'0'),c=pd($('q-c').value,'0');
+  let ra=toR(a);const rb=toR(b),rc=toR(c);
+  if(qt>=2&&ra.n===0n){a.i='1';a.f='';a.neg=false;ra=R(1n)}
+  const aS=parenP(a),bS=parenP(b),cS=parenP(c);
+  const head=qt===0?`x + ${aS} = ${fmtP(b)}`:qt===1?`x − ${aS} = ${fmtP(b)}`:qt===2?`${fmtP(a)}x = ${fmtP(b)}`:`${fmtP(a)}x + ${bS} = ${fmtP(c)}`;
+  const steps=[`Start: ${head}`];let x,chk=null;
+  if(qt===0){
+    x=rSub(rb,ra);
+    steps.push(`Subtraction Property: subtract ${aS} from both sides. <b>x = ${fmtP(b)} − ${aS}</b>`);
+    steps.push(`Subtract the decimals: x = <b>${D(x)}</b>`);
+    chk=`Check: ${D(x)} + ${aS} = ${D(rAdd(x,ra))} ✓`;
+  }else if(qt===1){
+    x=rAdd(rb,ra);
+    steps.push(`Addition Property: add ${aS} to both sides. <b>x = ${fmtP(b)} + ${aS}</b>`);
+    steps.push(`Add the decimals: x = <b>${D(x)}</b>`);
+    chk=`Check: ${D(x)} − ${aS} = ${D(rSub(x,ra))} ✓`;
+  }else if(qt===2){
+    x=rDiv(rb,ra);
+    steps.push(`Division Property: divide both sides by ${aS}. <b>x = ${fmtP(b)} ÷ ${aS}</b>`);
+    steps.push(`Divide the decimals: x = <b>${D(x)}</b>`);
+    chk=`Check: ${aS} × ${D(x)} = ${D(rMul(ra,x))} ✓`;
+  }else{
+    const r1=rSub(rc,rb);
+    steps.push(`Subtraction Property: subtract ${bS} from both sides. <b>${fmtP(a)}x = ${fmtP(c)} − ${bS}</b>`);
+    steps.push(`Subtract: ${fmtP(a)}x = <b>${D(r1)}</b>`);
+    x=rDiv(r1,ra);
+    steps.push(`Division Property: divide both sides by ${aS}. <b>x = ${D(r1)} ÷ ${aS}</b> = <b>${D(x)}</b>`);
+    chk=`Check: ${aS} × ${D(x)} + ${bS} = ${D(rAdd(rMul(ra,x),rb))} ✓`;
+  }
+  if(dec(x).term)steps.push(chk);else steps.push(`The decimal repeats, so the exact answer is the fraction ${RF(x)}.`);
+  return{eq:head,steps};
+});
+['q-t0','q-t1','q-t2','q-t3'].forEach((k,i)=>$(k).onclick=()=>{qt=i;tog(['q-t0','q-t1','q-t2','q-t3'],i);$('q-cw').hidden=$('q-cl').hidden=i!==3;qst.reset()});
+qst.reset();
+
+/* ---------- mean / median / mode ---------- */
+function drawS(){
+  const vals=$('st-in').value.split(/[\s,;]+/).map(t=>pd(t,null)).filter(Boolean).slice(0,30).map(toR);
+  if(!vals.length){['st-sorted','st-mean','st-med','st-mode'].forEach(k=>$(k).innerHTML='Enter some numbers.');$('st-svg').innerHTML='';return}
+  const v=[...vals].sort(rCmp),n=v.length;
+  let sum=R(0n);v.forEach(x=>sum=rAdd(sum,x));
+  const mean=rDiv(sum,R(BigInt(n)));
+  const med=n%2?v[(n-1)/2]:rDiv(rAdd(v[n/2-1],v[n/2]),R(2n));
+  const cnt=new Map();v.forEach(x=>{const k=x.n+'/'+x.d;cnt.set(k,(cnt.get(k)||0)+1)});
+  const mx=Math.max(...cnt.values()),modes=[...cnt.entries()].filter(e=>e[1]===mx).map(e=>{const[nn,dd]=e[0].split('/');return D(R(BigInt(nn),BigInt(dd)))});
+  $('st-sorted').innerHTML=`<b>In order:</b> ${v.map(D).join(', ')}  <small>(n = ${n})</small>`;
+  const md=dec(mean);
+  $('st-mean').innerHTML=`<b>Mean</b> = sum ÷ n = ${D(sum)} ÷ ${n} = <b>${md.html}</b>${md.term?'':` <small>(or ${RF(mean)})</small>`}<br><small>Reasonable check: between ${D(v[0])} and ${D(v[n-1])}</small>`;
+  $('st-med').innerHTML=`<b>Median</b> = ${n%2?`the middle value (number ${(n+1)/2} of ${n})`:`the mean of the two middle values (${D(v[n/2-1])} and ${D(v[n/2])})`} = <b>${D(med)}</b>`;
+  $('st-mode').innerHTML=mx===1?`<b>Mode</b>: no value repeats, so there is no mode.`:`<b>Mode</b> = the most frequent value: <b>${modes.join(', ')}</b> <small>(appears ${mx} times)</small>`;
+  const num=r=>Number(r.n)/Number(r.d),mn=num(v[0]),mxv=num(v[n-1]),span=(mxv-mn)||1,X=x=>30+((x-mn)/span)*400;
+  let s=`<line x1="20" y1="110" x2="440" y2="110" stroke="#172c3a" stroke-width="2"/>`;
+  const grp=new Map();
+  v.forEach(x=>{const k=x.n+'/'+x.d,j=grp.get(k)||0;grp.set(k,j+1);s+=`<circle cx="${X(num(x))}" cy="${99-j*14}" r="6" fill="#7962cb"/>`});
+  s+=`<text x="30" y="132" text-anchor="middle" font-size="12" font-weight="800">${D(v[0]).replace(/<[^>]*>/g,'')}</text><text x="430" y="132" text-anchor="middle" font-size="12" font-weight="800">${D(v[n-1]).replace(/<[^>]*>/g,'')}</text>`;
+  s+=`<line x1="${X(num(med))}" y1="14" x2="${X(num(med))}" y2="110" stroke="#7962cb" stroke-width="2.5" stroke-dasharray="4 4"/>`;
+  const mxp=X(num(mean));
+  s+=`<polygon points="${mxp},112 ${mxp-8},126 ${mxp+8},126" fill="#f07846"/>`;
+  $('st-svg').innerHTML=s;
+}
+$('st-in').addEventListener('input',drawS);drawS();
+
+/* ---------- probability ---------- */
+const BC=[['r','#e5484d','red'],['b','#3b82f6','blue'],['g','#2fa66b','green']];
+let tally={r:0,b:0,g:0};
+const cnt=k=>Math.max(0,Math.min(50,parseInt($('b-'+k).value,10)||0));
+function drawB(){
+  const c={r:cnt('r'),b:cnt('b'),g:cnt('g')},tot=c.r+c.b+c.g,seq=[];
+  BC.forEach(([k,col])=>{for(let i=0;i<c[k];i++)seq.push(col)});
+  $('b-svg').innerHTML=seq.map((col,i)=>`<circle cx="${14+(i%15)*24}" cy="${14+Math.floor(i/15)*24}" r="10" fill="${col}"/>`).join('');
+  const T=tally.r+tally.b+tally.g;
+  let h=`<h3>Total marbles: ${tot}</h3><table class="lr"><tr><th>Color</th><th>Probability</th><th>Decimal</th><th>Drawn (${T})</th></tr>`;
+  BC.forEach(([k,col,nm])=>{const r=R(BigInt(c[k]),BigInt(Math.max(tot,1))),ex=T?(tally[k]/T).toFixed(3):'—';
+    h+=`<tr><td><b style="color:${col}">${nm}</b></td><td>${tot?`${c[k]}/${tot} = ${RF(r)}`:'—'}</td><td>${tot?D(r).replace(/(\.\d{4})\d+/,'$1'):'—'}</td><td>${tally[k]} (${ex})</td></tr>`});
+  $('b-out').innerHTML=h+'</table><p>The more you draw, the closer the drawn results get to the probability.</p>';
+}
+const draw=n=>{const c={r:cnt('r'),b:cnt('b'),g:cnt('g')},tot=c.r+c.b+c.g;if(!tot)return;for(let i=0;i<n;i++){let x=Math.floor(Math.random()*tot);for(const k of['r','b','g']){if(x<c[k]){tally[k]++;break}x-=c[k]}}drawB()};
+$('b-d1').onclick=()=>draw(1);$('b-d100').onclick=()=>draw(100);$('b-rs').onclick=()=>{tally={r:0,b:0,g:0};drawB()};
+['b-r','b-b','b-g'].forEach(k=>$(k).addEventListener('input',()=>{tally={r:0,b:0,g:0};drawB()}));drawB();
+
+/* ---------- ratio and unit price ---------- */
+function drawR(){
+  const a=pd($('r-a').value,'1'),b=pd($('r-b').value,'1');a.neg=b.neg=false;
+  const k=Math.max(a.f.length,b.f.length),sc=10n**BigInt(k),A=BigInt(a.i+a.f.padEnd(k,'0')),B=BigInt(b.i+b.f.padEnd(k,'0'));
+  if(B===0n){$('r-out').innerHTML='The second number cannot be 0.';return}
+  const g=gcdB(A,B),sa=A/g,sb=B/g;
+  $('r-out').innerHTML=`<b>${fmtP(a)} to ${fmtP(b)}</b> = ${frH(fmtP(a),fmtP(b))}`+
+   (k?`<br>Move both decimal points ${k} place${k>1?'s':''} (multiply top and bottom by ${sc}): ${frH(A.toString(),B.toString())}`:'')+
+   `<br>${g>1n?`Divide by the GCF ${g}: `:'Already simplified: '}<b>${frH(sa.toString(),sb.toString())}</b> = ${sa}:${sb}`+(sa>sb?'<br><small>An improper fraction is fine for a ratio.</small>':'');
+}
+function drawU(){
+  const g=k=>{const p=pd($(k).value,'0');return toR(p)};
+  const pa=g('u-pa'),qa=g('u-qa'),pb=g('u-pb'),qb=g('u-qb');
+  if(qa.n<=0n||qb.n<=0n){$('u-out').innerHTML='Amounts must be greater than 0.';return}
+  const ua=rDiv(pa,qa),ub=rDiv(pb,qb),c=rCmp(ua,ub),f3=r=>trimZ((Number(r.n)/Number(r.d)).toFixed(3));
+  $('u-out').innerHTML=`A: $${D(pa)} ÷ ${D(qa)} = <b>$${f3(ua)}</b> per unit<br>B: $${D(pb)} ÷ ${D(qb)} = <b>$${f3(ub)}</b> per unit<br><b>${c<0?'A is the better buy.':c>0?'B is the better buy.':'They cost the same per unit.'}</b>`;
+}
+['r-a','r-b'].forEach(k=>$(k).addEventListener('input',drawR));['u-pa','u-qa','u-pb','u-qb'].forEach(k=>$(k).addEventListener('input',drawU));drawR();drawU();
+
+/* ---------- square roots ---------- */
+const sq=n=>{const k=Math.floor(Math.sqrt(n));return k*k===n?String(k):'≈ '+nz(Math.sqrt(n),2)};
+function drawQ(){
+  const n=Math.max(0,Math.min(99999,parseInt($('s-n').value,10)||0)),k=Math.floor(Math.sqrt(n)),perf=k*k===n;
+  $('s-msg').innerHTML=perf?`${RD(n)} = <b>${k}</b> because ${k}² = ${k}·${k} = ${n}`:`${n} is not a perfect square.`;
+  $('s-est').innerHTML=perf?`The square with area ${n} has side ${k}.`:`${k}² = ${k*k} and ${k+1}² = ${(k+1)*(k+1)}, so ${RD(n)} is between <b>${k}</b> and <b>${k+1}</b>. A closer estimate: <b>≈ ${nz(Math.sqrt(n),2)}</b>`;
+  $('s-neg').innerHTML=`−${RD(n)} = <b>${perf?'−'+k:'≈ −'+nz(Math.sqrt(n),2)}</b> <small>(the negative sign stays outside)</small>`;
+  const side=n===0?0:Math.min(180,Math.max(30,Math.sqrt(n)*(perf&&k<=12?15:1)*(perf&&k<=12?1:1)));
+  let s='';
+  const S=perf&&k>0&&k<=12?Math.min(180,k*18):Math.min(180,Math.max(30,Math.sqrt(n)));
+  const x0=(300-S)/2,y0=14;
+  if(perf&&k>0&&k<=12){const u=S/k;for(let i=0;i<k;i++)for(let j=0;j<k;j++)s+=`<rect x="${x0+i*u}" y="${y0+j*u}" width="${u}" height="${u}" fill="#f0edff" stroke="#7962cb"/>`}
+  else s+=`<rect x="${x0}" y="${y0}" width="${S}" height="${S}" fill="#f0edff" stroke="#7962cb" stroke-width="2"/>`;
+  s+=`<foreignObject x="0" y="${y0+S+4}" width="300" height="34"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;font-size:15px;font-weight:600;color:#7962cb;font-family:inherit">side = ${RD(n)} ${perf?'= '+k:'≈ '+nz(Math.sqrt(n),2)}</div></foreignObject><text x="150" y="${y0+S+52}" text-anchor="middle" font-size="13" font-weight="800" fill="#637681">area = ${n}</text>`;
+  $('s-svg').innerHTML=s;
+  const a=Math.max(0,parseInt($('s-a').value,10)||0),b=Math.max(0,parseInt($('s-b').value,10)||0);
+  $('s-ord').innerHTML=`Add under the root first: ${RD(a+" + "+b)} = ${RD(a+b)} = <b>${sq(a+b)}</b><br>Roots first, then add: ${RD(a)} + ${RD(b)} = ${sq(a)} + ${sq(b)} = <b>${perf2(a,b)}</b><br><small>The radical sign groups what is inside it. ${RD("a + b")} is not ${RD("a")} + ${RD("b")}.</small>`;
+}
+const perf2=(a,b)=>{const x=Math.sqrt(a),y=Math.sqrt(b);return Number.isInteger(x)&&Number.isInteger(y)?String(x+y):'≈ '+nz(x+y,2)};
+['s-n','s-a','s-b'].forEach(k=>$(k).addEventListener('input',drawQ));drawQ();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['How do you say 0.07?',['seven tenths','seven hundredths','seven thousandths'],1],
+ ['0.6 as a simplified fraction:',['6/10','3/5','6/100'],1],
+ ['Which is larger, 0.45 or 0.5?',['0.45','0.5','They are equal'],1],
+ ['Round 3.4762 to the nearest hundredth:',['3.47','3.48','3.5'],1],
+ ['2.5 + 0.75 =',['3.25','2.80','3.00'],0],
+ ['0.3 × 0.2 =',['0.6','0.06','0.5'],1],
+ ['4.8 ÷ 0.6 =',['0.8','8','80'],1],
+ ['3/8 as a decimal:',['0.375','0.38','0.83'],0],
+ ['Solve x + 1.5 = 4.',['x = 2.5','x = 5.5','x = 3.5'],0],
+ ['The median of 3, 9, 5, 7 is:',['5','6','7'],1],
+ [RD(81)+' =',['9','8.1','40.5'],0],
+ ['Which is the better buy: $3 for 6 oz or $5 for 8 oz?',['$3 for 6 oz ($0.50/oz)','$5 for 8 oz ($0.625/oz)','They are the same'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

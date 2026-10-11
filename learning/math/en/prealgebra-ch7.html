@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 7 — Properties of Real Numbers | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text],select{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;background:#fff;color:var(--ink)}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .kx .katex{font-size:1.1em}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .ov{text-decoration:overline;text-decoration-thickness:2px}
+    .rw{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1.3rem;font-weight:900}
+    .rw .di{width:150px} .rw .di input{text-align:center;padding:6px 8px}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw .sl{width:190px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .nest{border:2px solid var(--line);border-radius:18px;padding:10px;background:#fafbfa;transition:.2s}
+    .nest>b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+    .nest.on{background:var(--purple-light);border-color:var(--purple)}
+    .nest.on>b{color:var(--purple)}
+    .nest.irr.on{background:var(--orange-light);border-color:var(--orange)}
+    .nest.irr.on>b{color:var(--orange)}
+    .nrow{display:flex;gap:10px;align-items:stretch}
+    .nrow>.nest{flex:1}
+    .ck{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+    .ck span{padding:3px 11px;border-radius:99px;font-size:.82rem;font-weight:800;background:#e9edf0;color:#8a9aa3}
+    .ck span.y{background:var(--teal-light);color:var(--teal)}
+    .area{display:flex;gap:4px;margin:8px 0;align-items:stretch}
+    .area div{background:var(--purple-light);border:2px solid var(--purple);border-radius:8px;text-align:center;font-weight:900;padding:14px 4px;min-width:34px;overflow:hidden;white-space:nowrap}
+    .area div.b2{background:var(--teal-light);border-color:var(--teal)}
+    .area div.neg{background:var(--orange-light);border-color:var(--orange);border-style:dashed}
+    .cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:10px;text-align:center}
+    .cmp>div{background:var(--purple-light);border-radius:14px;padding:10px;font-weight:800}
+    .cmp>div.te2{background:var(--teal-light)}
+    .cmp .eqs{font-size:1.6rem;font-weight:900}
+    .ok{color:var(--teal)} .no{color:var(--orange)}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.nrow{flex-direction:column}}
+  </style>
+<link rel="stylesheet" href="katex/katex.min.css">
+<script src="katex/katex.min.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#types">Number types</a><a href="#cas">Commutative &amp; associative</a><a href="#dist">Distributive</a><a href="#idinv">Identity &amp; inverses</a><a href="#units">Units</a><a href="#temp">Temperature</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 7</span>
+    <h1><span>Properties of Real Numbers</span></h1>
+    <p class="lead">Sort numbers into rational and irrational, learn the rules that let you rearrange and regroup, expand with the distributive property, use identities and inverses, and convert between units of measurement.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Rational number</span>
+        <p>A number that can be written as p/q with p, q integers and q ≠ 0. Its decimal stops or repeats.</p></div>
+      <div class="card"><span class="tag o">Irrational number</span>
+        <p>A number that cannot be written as a ratio of two integers. Its decimal never stops and never repeats.</p></div>
+      <div class="card"><span class="tag t">Real number</span>
+        <p>A number that is either rational or irrational: every point on the number line.</p></div>
+      <div class="card"><span class="tag p">Additive identity</span>
+        <p>0. Adding 0 to any number does not change it.</p></div>
+      <div class="card"><span class="tag t">Multiplicative identity</span>
+        <p>1. Multiplying any number by 1 does not change it.</p></div>
+      <div class="card"><span class="tag o">Additive inverse</span>
+        <p>The opposite of a number. The additive inverse of a is −a.</p></div>
+      <div class="card"><span class="tag p">Multiplicative inverse</span>
+        <p>The reciprocal of a number. The multiplicative inverse of a is 1/a (a ≠ 0).</p></div>
+    </div>
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Property</th><th>Rule</th></tr>
+      <tr><td>Commutative (+)</td><td>a + b = b + a</td></tr>
+      <tr><td>Commutative (·)</td><td>a · b = b · a</td></tr>
+      <tr><td>Associative (+)</td><td>(a + b) + c = a + (b + c)</td></tr>
+      <tr><td>Associative (·)</td><td>(a · b) · c = a · (b · c)</td></tr>
+      <tr><td>Distributive</td><td>a(b + c) = ab + ac &nbsp;·&nbsp; a(b − c) = ab − ac &nbsp;·&nbsp; (b + c)a = ba + ca</td></tr>
+      <tr><td>Identity</td><td>a + 0 = a &nbsp;·&nbsp; a · 1 = a</td></tr>
+      <tr><td>Inverse</td><td>a + (−a) = 0 &nbsp;·&nbsp; a · (1/a) = 1 for a ≠ 0</td></tr>
+      <tr><td>Zero</td><td>a · 0 = 0 &nbsp;·&nbsp; 0 ÷ a = 0 (a ≠ 0) &nbsp;·&nbsp; a ÷ 0 is undefined</td></tr>
+    </table>
+  </section>
+
+  <section id="types">
+    <h2>🔬 Which kind of number is it?</h2>
+    <p class="sub">Type an integer, a decimal, a fraction like 3/8, a root like √50 (or sqrt(50)), or pi. See which number sets it belongs to and what its decimal looks like.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button class="ex" data-v="7" type="button">7</button><button class="ex" data-v="-3" type="button">−3</button><button class="ex" data-v="0.25" type="button">0.25</button><button class="ex" data-v="1/3" type="button">1/3</button><button class="ex" data-v="√49" type="button">√49</button><button class="ex" data-v="√50" type="button">√50</button><button class="ex" data-v="pi" type="button">π</button></div>
+        <div class="rw"><span class="di"><input id="ty-n" type="text" value="1/3"></span><span id="ty-dec" style="font-size:1.1rem"></span></div>
+        <div class="pill" style="background:var(--purple-light)" id="ty-msg"></div>
+        <div class="ck" id="ty-ck"></div>
+      </div>
+      <div class="card"><span class="tag p">Real numbers</span>
+        <div class="nest" id="ty-real" style="margin-top:10px"><b>Real</b>
+          <div class="nrow">
+            <div class="nest" id="ty-rat"><b>Rational</b>
+              <div class="nest" id="ty-int"><b>Integers</b>
+                <div class="nest" id="ty-whole"><b>Whole</b>
+                  <div class="nest" id="ty-nat"><b>Natural</b></div></div></div></div>
+            <div class="nest irr" id="ty-irr"><b>Irrational</b></div>
+          </div></div>
+        <p style="margin-top:10px">Natural: 1, 2, 3… · Whole: 0, 1, 2… · Integers: …−2, −1, 0, 1, 2…</p></div>
+    </div>
+  </section>
+
+  <section id="cas">
+    <h2>🔀 Commutative and associative properties</h2>
+    <p class="sub">Commutative: change the <b>order</b>. Associative: change the <b>grouping</b>. They work for addition and multiplication. Try subtraction and division to see them fail.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="ca-t0" class="on" type="button">+ add</button><button id="ca-t1" type="button">× multiply</button><button id="ca-t2" type="button">− subtract</button><button id="ca-t3" type="button">÷ divide</button></div>
+        <div class="rw"><small>a</small><span class="sm"><input id="ca-a" type="text" inputmode="decimal" value="6"></span><small>b</small><span class="sm"><input id="ca-b" type="text" inputmode="decimal" value="4"></span><small>c</small><span class="sm"><input id="ca-c" type="text" inputmode="decimal" value="3"></span></div>
+        <h3 style="margin-top:16px">Commutative: does the order matter?</h3>
+        <div class="cmp" id="ca-c1"></div>
+        <h3 style="margin-top:16px">Associative: does the grouping matter?</h3>
+        <div class="cmp" id="ca-c2"></div>
+        <div class="pill" style="background:var(--purple-light)" id="ca-msg"></div>
+      </div>
+      <div class="card"><span class="tag t">Why do we care?</span>
+        <p>You can reorder and regroup to make mental math easy:</p>
+        <ul><li>17 + 8 + 3 = 17 + 3 + 8 = 20 + 8 = 28</li><li>4 · 7 · 25 = 4 · 25 · 7 = 100 · 7 = 700</li></ul>
+        <p>Careful: these rules only apply to + and ×. Subtraction and division need the order and grouping as written.</p></div>
+    </div>
+  </section>
+
+  <section id="dist">
+    <h2>🍰 The distributive property</h2>
+    <p class="sub">Multiply the outside number by <b>each</b> number inside the parentheses. The rectangle splits into two smaller rectangles.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="ds-t0" class="on" type="button">a(b + c)</button><button id="ds-t1" type="button">a(b − c)</button><button id="ds-m" type="button">✨ Mental-math trick</button></div>
+        <div class="rw"><small>a</small><span class="sm"><input id="ds-a" type="text" inputmode="decimal" value="4"></span><small>b</small><span class="sm"><input id="ds-b" type="text" inputmode="decimal" value="7"></span><small>c</small><span class="sm"><input id="ds-c" type="text" inputmode="decimal" value="3"></span></div>
+        <div id="ds-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ds-ctl"></div><ol class="steps" id="ds-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Area model</span>
+        <div id="ds-viz" style="margin-top:10px"></div></div>
+    </div>
+  </section>
+
+  <section id="idinv">
+    <h2>🪞 Identity, inverses and zero</h2>
+    <p class="sub">Type any number a. Every row shows what happens, and which property is at work.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><small>a =</small><span class="di"><input id="id-a" type="text" inputmode="decimal" value="5"></span></div>
+        <table class="lr" style="margin-top:14px" id="id-tbl"></table>
+      </div>
+      <div class="card"><span class="tag o">Remember</span>
+        <ul><li>Identity: the number that changes nothing. 0 for +, 1 for ×.</li><li>Inverse: the number that gets you back to the identity. −a for +, 1/a for ×.</li><li>0 has no multiplicative inverse, because 0 · anything = 0, never 1.</li><li>You can never divide by 0.</li></ul>
+        <div class="pill" style="background:var(--orange-light)" id="id-msg"></div></div>
+    </div>
+  </section>
+
+  <section id="units">
+    <h2>📏 Systems of measurement</h2>
+    <p class="sub">Convert with a <b>unit fraction</b>: a fraction equal to 1 that cancels the unit you start with and brings in the unit you want.</p>
+    <div class="explorer">
+      <div class="card">
+        <div id="u-cat"></div>
+        <div class="rw"><span class="sm"><input id="u-v" type="text" inputmode="decimal" value="5"></span><span class="sl"><select id="u-from"></select></span><span>→</span><span class="sl"><select id="u-to"></select></span></div>
+        <div id="u-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="u-ctl"></div><ol class="steps" id="u-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag t">Handy facts</span>
+        <table class="lr" style="margin-top:10px">
+          <tr><th>US</th><th>Metric</th></tr>
+          <tr><td>12 in = 1 ft · 3 ft = 1 yd</td><td>1 km = 1,000 m</td></tr>
+          <tr><td>5,280 ft = 1 mi</td><td>1 m = 100 cm = 1,000 mm</td></tr>
+          <tr><td>16 oz = 1 lb · 2,000 lb = 1 ton</td><td>1 kg = 1,000 g</td></tr>
+          <tr><td>8 fl oz = 1 cup · 2 cups = 1 pt</td><td>1 L = 1,000 mL</td></tr>
+          <tr><td>2 pt = 1 qt · 4 qt = 1 gal</td><td>1 in = 2.54 cm</td></tr>
+        </table>
+        <p style="margin-top:12px">Metric prefixes: <b>kilo</b> = 1,000 · <b>centi</b> = 1/100 · <b>milli</b> = 1/1,000.</p></div>
+    </div>
+  </section>
+
+  <section id="temp">
+    <h2>🌡️ Temperature</h2>
+    <p class="sub">Fahrenheit, Celsius and Kelvin each use a different zero and step size, so we use formulas.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="tp-t0" class="on" type="button">°C → °F</button><button id="tp-t1" type="button">°F → °C</button><button id="tp-t2" type="button">°C → K</button></div>
+        <div class="rw"><span class="di"><input id="tp-v" type="text" inputmode="decimal" value="25"></span><span id="tp-u">°C</span></div>
+        <div id="tp-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="tp-ctl"></div><ol class="steps" id="tp-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag o">Key temperatures</span>
+        <table class="lr" style="margin-top:10px">
+          <tr><th></th><th>°C</th><th>°F</th><th>K</th></tr>
+          <tr><td>Water freezes</td><td>0</td><td>32</td><td>273.15</td></tr>
+          <tr><td>Room</td><td>20</td><td>68</td><td>293.15</td></tr>
+          <tr><td>Body</td><td>37</td><td>98.6</td><td>310.15</td></tr>
+          <tr><td>Water boils</td><td>100</td><td>212</td><td>373.15</td></tr>
+        </table>
+        <p style="margin-top:10px">F = 9/5·C + 32 &nbsp;·&nbsp; C = 5/9·(F − 32) &nbsp;·&nbsp; K = C + 273.15</p></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Rational or irrational?</span>
+        <ol class="steps"><li>Can it be written as a fraction of integers? Then it is rational.</li><li>Decimal stops or repeats: rational.</li><li>Decimal never ends and never repeats (π, √2, √50): irrational.</li><li>√ of a perfect square is a whole number, so it is rational.</li></ol></div>
+      <div class="card"><span class="tag t">Which property?</span>
+        <ol class="steps"><li>Same numbers, different <b>order</b>: commutative.</li><li>Same order, different <b>grouping</b>: associative.</li><li>Outside number multiplied into parentheses: distributive.</li><li>Adding 0 or multiplying by 1: identity.</li></ol></div>
+      <div class="card"><span class="tag o">Distribute</span>
+        <ol class="steps"><li>Multiply the outside number by the first term inside.</li><li>Multiply it by the second term.</li><li>Keep the sign between them (+ or −).</li><li>A negative outside flips every sign inside.</li></ol></div>
+      <div class="card"><span class="tag p">Zero rules</span>
+        <ol class="steps"><li>a · 0 = 0.</li><li>0 ÷ a = 0 when a ≠ 0.</li><li>a ÷ 0 is undefined. Never allowed.</li></ol></div>
+      <div class="card"><span class="tag t">Convert units</span>
+        <ol class="steps"><li>Write the starting amount with its unit.</li><li>Build a unit fraction: wanted unit on top, old unit on the bottom.</li><li>Multiply. The old units cancel.</li><li>Check the size makes sense: a smaller unit gives a bigger number.</li></ol></div>
+      <div class="card"><span class="tag o">Temperature</span>
+        <ol class="steps"><li>°C → °F: multiply by 9/5, then add 32.</li><li>°F → °C: subtract 32, then multiply by 5/9.</li><li>°C → K: add 273.15.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const RD=x=>katex.renderToString('\\sqrt{'+x+'}',{throwOnError:false});
+
+/* ---------- exact rational helpers (BigInt) ---------- */
+const gcdB=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b]}return a};
+const R=(n,d=1n)=>{if(d<0n){n=-n;d=-d}const g=gcdB(n,d)||1n;return{n:n/g,d:d/g}};
+const rAdd=(x,y)=>R(x.n*y.d+y.n*x.d,x.d*y.d), rSub=(x,y)=>R(x.n*y.d-y.n*x.d,x.d*y.d);
+const rMul=(x,y)=>R(x.n*y.n,x.d*y.d), rDiv=(x,y)=>R(x.n*y.d,x.d*y.n);
+const rEq=(x,y)=>x.n===y.n&&x.d===y.d;
+const Z=R(0n);
+const pd=(s,def='0')=>{
+  s=String(s).trim().replace('−','-').replace(/,/g,'');
+  const m=s.match(/^(-?)(\d*)\.?(\d*)$/);
+  if(!m||(m[2]===''&&m[3]==='')){return def===null?null:pd(def)}
+  const i=(m[2].replace(/^0+(?=\d)/,'')||'0').slice(0,9),f=m[3].slice(0,6);
+  return{neg:m[1]==='-'&&!/^0*$/.test(m[2]+m[3]),i,f};
+};
+const toR=p=>R(BigInt((p.neg?'-':'')+p.i+p.f),10n**BigInt(p.f.length));
+const num=id=>toR(pd($(id).value,'0'));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const com=s=>s.replace(/^(−?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+function dec(r){
+  const neg=r.n<0n,n=neg?-r.n:r.n,d=r.d,ip=(n/d).toString();
+  let rem=n%d,rs=-1;const seen=new Map(),dig=[];
+  while(rem!==0n&&dig.length<40){const k=rem.toString();if(seen.has(k)){rs=seen.get(k);break}seen.set(k,dig.length);rem*=10n;dig.push((rem/d).toString());rem%=d}
+  const nr=rs<0?dig.join(''):dig.slice(0,rs).join(''),rp=rs<0?'':dig.slice(rs).join('');
+  const sg=neg&&n!==0n?'−':'',more=rs<0&&rem!==0n;
+  return{ip,nr,rp,sg,term:rs<0&&rem===0n,html:`${sg}${com(ip)}${nr||rp||more?'.':''}${nr}${rp?`<span class="ov">${rp}</span>`:''}${more?'…':''}`};
+}
+const D=r=>dec(r).html;
+const RF=r=>r.d===1n?D(r):frH(r.n<0n?'−'+com((-r.n).toString()):com(r.n.toString()),com(r.d.toString()));
+function rs(r,k){
+  const neg=r.n<0n,n=neg?-r.n:r.n,sc=10n**BigInt(k),q=(n*sc*2n+r.d)/(r.d*2n);
+  const s=q.toString().padStart(k+1,'0'),ip=s.slice(0,s.length-k),fp=s.slice(s.length-k);
+  return(neg&&q!==0n?'−':'')+ip+(k?'.'+fp:'');
+}
+const nice=(r,k=2)=>{const t=dec(r);if(t.term&&t.nr.length<=k)return com(t.sg+t.ip+(t.nr?'.'+t.nr:''));return'≈ '+com(trimZ(rs(r,k)))};
+const E=r=>nice(r,6), N=r=>nice(r,2);
+const sgn=t=>t.startsWith('≈')?'≈':'=';
+const pe=r=>r.n<0n?`(${E(r)})`:E(r);
+
+/* stepper: Reset / Step / Back on the left, steps on the right */
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  inputs.forEach(k=>$(k).addEventListener('input',()=>{st=0;draw()}));
+  return{reset(){st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+
+/* ---------- 1. number types ---------- */
+function classify(txt){
+  let s=txt.trim().replace('−','-').replace(/\s+/g,'').toLowerCase();
+  if(!s)return{err:'Type a number.'};
+  if(s==='pi'||s==='π')return{irr:true,label:'π',approx:'3.14159265358979…',why:'π is irrational: its decimal never ends and never repeats. (22/7 and 3.14 are only approximations.)'};
+  let m=s.match(/^(?:√|sqrt)\(?(-?\d+)\)?$/);
+  if(m){
+    const n=BigInt(m[1]);
+    if(n<0n)return{err:'The square root of a negative number is not a real number.'};
+    let k=BigInt(Math.floor(Math.sqrt(Number(n))));while(k*k>n)k--;while((k+1n)*(k+1n)<=n)k++;
+    if(k*k===n)return{r:R(k),label:`${RD(m[1])}`,why:`${m[1]} is a perfect square (${k}² = ${m[1]}), so ${RD(m[1])} = ${k} is a whole number: rational.`};
+    return{irr:true,label:RD(m[1]),approx:Math.sqrt(Number(n)).toFixed(10)+'…',why:`${m[1]} is not a perfect square, so ${RD(m[1])} is irrational: its decimal never ends and never repeats.`};
+  }
+  m=s.match(/^(-?\d+)\/(-?\d+)$/);
+  if(m){const b=BigInt(m[2]);if(b===0n)return{err:'The denominator cannot be 0, so this is undefined.'};return{r:R(BigInt(m[1]),b),why:'A ratio of two integers is rational.'}}
+  const p=pd(s,null);
+  if(!p||!/^-?\d*\.?\d*$/.test(s))return{err:'Try an integer, a decimal, a fraction like 3/8, √50 or pi.'};
+  return{r:toR(p)};
+}
+function tyDraw(){
+  const c=classify($('ty-n').value);
+  const ids=['ty-real','ty-rat','ty-int','ty-whole','ty-nat','ty-irr'];
+  ids.forEach(i=>$(i).classList.remove('on'));
+  if(c.err){$('ty-msg').textContent=c.err;$('ty-dec').innerHTML='';$('ty-ck').innerHTML='';return}
+  let sets,dh;
+  if(c.irr){sets={Natural:0,Whole:0,Integer:0,Rational:0,Irrational:1,Real:1};dh=`${c.label} = ${c.approx}`;$('ty-msg').innerHTML=c.why}
+  else{
+    const r=c.r,isI=r.d===1n,t=dec(r);
+    sets={Natural:isI&&r.n>0n,Whole:isI&&r.n>=0n,Integer:isI,Rational:1,Irrational:0,Real:1};
+    dh=`${c.label?c.label+' = ':''}${D(r)}`;
+    const kind=isI?'an integer, so it can be written as a fraction over 1':t.term?'a decimal that stops':'a decimal that repeats';
+    $('ty-msg').innerHTML=c.why&&c.label?c.why:`${D(r)} is ${kind}: <b>rational</b>.${isI?'':' '+(t.term?`It stops, so it is ${RF(r)}.`:`The repeating block is <span class="ov">${t.rp}</span>.`)}`;
+  }
+  $('ty-dec').innerHTML=dh;
+  $('ty-ck').innerHTML=Object.keys(sets).map(k=>`<span class="${sets[k]?'y':''}">${sets[k]?'✓':'✗'} ${k}</span>`).join('');
+  if(sets.Real)$('ty-real').classList.add('on');
+  if(sets.Rational)$('ty-rat').classList.add('on');
+  if(sets.Integer)$('ty-int').classList.add('on');
+  if(sets.Whole)$('ty-whole').classList.add('on');
+  if(sets.Natural)$('ty-nat').classList.add('on');
+  if(sets.Irrational)$('ty-irr').classList.add('on');
+}
+$('ty-n').addEventListener('input',tyDraw);
+document.querySelectorAll('.ex').forEach(b=>b.onclick=()=>{$('ty-n').value=b.dataset.v;tyDraw()});
+tyDraw();
+
+/* ---------- 2. commutative / associative ---------- */
+let cat=0;
+const caOps=[['+',(x,y)=>rAdd(x,y)],['×',(x,y)=>rMul(x,y)],['−',(x,y)=>rSub(x,y)],['÷',(x,y)=>y.n===0n?null:rDiv(x,y)]];
+function caDraw(){
+  const [a,b,c]=['ca-a','ca-b','ca-c'].map(num),[sym,f]=caOps[cat];
+  const v=r=>r===null?'undefined':E(r);
+  const one=(L,Rr,l,r)=>{
+    const same=l!==null&&r!==null&&rEq(l,r);
+    return `<div>${L}<br><span class="big">${v(l)}</span></div><div class="eqs ${same?'ok':'no'}">${same?'=':'≠'}</div><div class="te2">${Rr}<br><span class="big">${v(r)}</span></div>`;
+  };
+  const lc=f(a,b),rc=f(b,a);
+  const ab=f(a,b),bc=f(b,c),l2=ab===null?null:f(ab,c),r2=bc===null?null:f(a,bc);
+  $('ca-c1').innerHTML=one(`${pe(a)} ${sym} ${pe(b)}`,`${pe(b)} ${sym} ${pe(a)}`,lc,rc);
+  $('ca-c2').innerHTML=one(`(${pe(a)} ${sym} ${pe(b)}) ${sym} ${pe(c)}`,`${pe(a)} ${sym} (${pe(b)} ${sym} ${pe(c)})`,l2,r2);
+  const c1=lc!==null&&rc!==null&&rEq(lc,rc),c2=l2!==null&&r2!==null&&rEq(l2,r2);
+  const nm=['addition','multiplication','subtraction','division'][cat];
+  $('ca-msg').innerHTML=cat<2?`${nm[0].toUpperCase()+nm.slice(1)} is <b>commutative</b> and <b>associative</b>: the order and the grouping do not change the answer.`:
+    `${nm[0].toUpperCase()+nm.slice(1)} is <b>not</b> commutative${c1?' (this example happens to match)':''} and <b>not</b> associative${c2?' (this example happens to match)':''}. Order and grouping matter here.`;
+}
+[0,1,2,3].forEach(i=>$('ca-t'+i).onclick=()=>{cat=i;tog(['ca-t0','ca-t1','ca-t2','ca-t3'],i);caDraw()});
+['ca-a','ca-b','ca-c'].forEach(k=>$(k).addEventListener('input',caDraw));caDraw();
+
+/* ---------- 3. distributive ---------- */
+let dsm=0;
+function dsSteps(st){
+  const a=num('ds-a'),b=num('ds-b'),c=num('ds-c'),A=pe(a),B=pe(b),C=pe(c),sg=dsm?'−':'+',inner=dsm?rSub(b,c):rAdd(b,c);
+  const ab=rMul(a,b),ac=rMul(a,c),res=dsm?rSub(ab,ac):rAdd(ab,ac),direct=rMul(a,inner);
+  return out(st,`${A}(${B} ${sg} ${C}) = ?`,`${A}(${B} ${sg} ${C}) = ${E(res)}`,[
+    `Parentheses first (the long way): ${B} ${sg} ${C} = ${E(inner)}, then ${A} · ${pe(inner)} = <b>${E(direct)}</b>`,
+    `Distribute instead: multiply ${A} by <span class="pu">${B}</span> and by <span class="te">${C}</span>: ${A}·<span class="pu">${B}</span> ${sg} ${A}·<span class="te">${C}</span>`,
+    `Multiply: <span class="pu">${pe(ab)}</span> ${sg} <span class="te">${pe(ac)}</span> = <b>${E(res)}</b>`,
+    `Both ways give ${E(res)}. ${rEq(res,direct)?'✓ The distributive property works.':'(check your numbers)'}`]);
+}
+function dsViz(){
+  const a=num('ds-a'),b=num('ds-b'),c=num('ds-c'),B=Math.abs(Number(b.n)/Number(b.d)),Cc=Math.abs(Number(c.n)/Number(c.d));
+  const tot=B+Cc||1,ab=rMul(a,b),ac=rMul(a,c),s=dsm?'−':'+';
+  const w1=Math.max(12,B/tot*100),w2=Math.max(12,Cc/tot*100);
+  $('ds-viz').innerHTML=`<div class="area" style="width:100%"><div style="flex:${w1}">${E(a)}·${pe(b)}<br>= ${E(ab)}</div><div class="b2 ${dsm?'neg':''}" style="flex:${w2}">${dsm?'−':''}${E(a)}·${pe(c)}<br>= ${dsm?'−':''}${E(ac)}</div></div>
+   <p style="text-align:center">width ${E(b)} ${s} ${E(c)} · height ${E(a)}</p>
+   <div class="pill" style="background:var(--purple-light)">${dsm?'The orange piece is <b>taken away</b> from the purple one.':'Total area = purple + teal.'}</div>`;
+}
+const dsst=stepper('ds',['ds-a','ds-b','ds-c'],dsSteps);
+['ds-a','ds-b','ds-c'].forEach(k=>$(k).addEventListener('input',dsViz));
+function dsSet(m){dsm=m;tog(['ds-t0','ds-t1'],m);dsst.reset();dsViz()}
+$('ds-t0').onclick=()=>dsSet(0);$('ds-t1').onclick=()=>dsSet(1);
+$('ds-m').onclick=()=>{$('ds-a').value='7';$('ds-b').value='100';$('ds-c').value='2';dsSet(1)};
+dsSet(0);
+
+/* ---------- 4. identity, inverses, zero ---------- */
+function idDraw(){
+  const a=num('id-a'),A=pe(a),inv=a.n===0n?null:R(a.d,a.n);
+  const rows=[
+    [`${A} + 0`,E(a),'Identity property of addition'],
+    [`0 + ${A}`,E(a),'Identity property of addition'],
+    [`${A} · 1`,E(a),'Identity property of multiplication'],
+    [`${A} + (${E(R(-a.n,a.d))})`,'0','Inverse property of addition: −a'],
+    [`${A} · ${inv?`(${E(inv)})`:'(1/0)'}`,inv?'1':'no inverse','Inverse property of multiplication: 1/a'],
+    [`${A} · 0`,'0','Multiplication by zero'],
+    [`0 ÷ ${A}`,a.n===0n?'undefined':'0','Division of zero'],
+    [`${A} ÷ 0`,'undefined','Division by zero is undefined']];
+  $('id-tbl').innerHTML='<tr><th>Expression</th><th>Result</th><th>Property</th></tr>'+rows.map(r=>`<tr><td>${r[0]}</td><td><b class="${r[1]==='undefined'||r[1]==='no inverse'?'or':''}">${r[1]}</b></td><td>${r[2]}</td></tr>`).join('');
+  $('id-msg').innerHTML=a.n===0n?'a = 0: 0 has <b>no</b> multiplicative inverse, and 0 ÷ 0 is undefined too.':`The additive inverse of ${A} is ${E(R(-a.n,a.d))}. The multiplicative inverse (reciprocal) is ${RF(inv)}.`;
+}
+$('id-a').addEventListener('input',idDraw);idDraw();
+
+/* ---------- 5. units ---------- */
+const IN=R(254n,10000n),OZ=R(28349523125n,1000000000n),FLOZ=R(295735295625n,10000000000n);
+const UN={
+  Length:[['in','inches',IN],['ft','feet',rMul(IN,R(12n))],['yd','yards',rMul(IN,R(36n))],['mi','miles',rMul(IN,R(63360n))],['mm','millimeters',R(1n,1000n)],['cm','centimeters',R(1n,100n)],['m','meters',R(1n)],['km','kilometers',R(1000n)]],
+  Weight:[['oz','ounces',OZ],['lb','pounds',rMul(OZ,R(16n))],['ton','tons',rMul(OZ,R(32000n))],['mg','milligrams',R(1n,1000n)],['g','grams',R(1n)],['kg','kilograms',R(1000n)]],
+  Capacity:[['fl oz','fluid ounces',FLOZ],['cup','cups',rMul(FLOZ,R(8n))],['pt','pints',rMul(FLOZ,R(16n))],['qt','quarts',rMul(FLOZ,R(32n))],['gal','gallons',rMul(FLOZ,R(128n))],['mL','milliliters',R(1n)],['L','liters',R(1000n)]],
+  Time:[['s','seconds',R(1n)],['min','minutes',R(60n)],['hr','hours',R(3600n)],['day','days',R(86400n)],['wk','weeks',R(604800n)],['yr','years (365 days)',R(31536000n)]]
+};
+const UD={Length:[0,1],Weight:[1,0],Capacity:[4,2],Time:[2,1]};
+let ucat='Length';
+function uSteps(st){
+  const L=UN[ucat],i=+$('u-from').value,j=+$('u-to').value,v=num('u-v'),f=rDiv(L[i][2],L[j][2]),res=rMul(v,f);
+  const fa=L[i][0],ta=L[j][0],V=E(v),F=nice(f,6),Rr=nice(res,4);
+  const g=rDiv(R(1n),f),fT=dec(f).term,gT=dec(g).term&&dec(g).nr.length<=6,
+    fr=(!fT&&gT)?frH(`1 ${ta}`,`${E(g)} ${fa}`):frH(`${F.replace('≈ ','')} ${ta}`,`1 ${fa}`),eqS=Rr.startsWith('≈')?'≈':'=',RV=Rr.replace('≈ ','');
+  if(i===j)return out(st,`${V} ${fa} = ?`,`${V} ${fa} = ${V} ${ta}`,['Same unit: nothing to convert.']);
+  const steps=[
+    `Start with the amount and its unit: <b>${V} ${fa}</b>`,
+    `Build a unit fraction equal to 1. Put the unit you <b>want</b> (<span class="te">${ta}</span>) on top and the unit you are <b>leaving</b> (<span class="or">${fa}</span>) on the bottom: ${fr}`,
+    `Multiply. The <s class="or">${fa}</s> cancel: ${V} <s class="or">${fa}</s> × ${fr} ${eqS} <b>${RV} ${ta}</b>`,
+    `So <b>${V} ${fa} ${eqS} ${RV} ${ta}</b>. ${rCmpU(L[i][2],L[j][2])?`${ta} is a smaller unit, so the number gets bigger.`:`${ta} is a bigger unit, so the number gets smaller.`}`];
+  return out(st,`${V} ${fa} = ? ${ta}`,`${V} ${fa} ${eqS} ${RV} ${ta}`,steps);
+}
+const rCmpU=(x,y)=>x.n*y.d>y.n*x.d;
+const ust=stepper('u',['u-v','u-from','u-to'],uSteps);
+function uFill(){
+  const L=UN[ucat],o=L.map((u,k)=>`<option value="${k}">${u[1]} (${u[0]})</option>`).join('');
+  $('u-from').innerHTML=o;$('u-to').innerHTML=o;$('u-from').value=UD[ucat][0];$('u-to').value=UD[ucat][1];
+  [...$('u-cat').children].forEach(b=>b.className=b.dataset.k===ucat?'on':'');
+  ust.reset();
+}
+Object.keys(UN).forEach(k=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=k;b.onclick=()=>{ucat=k;uFill()};$('u-cat').appendChild(b)});
+uFill();
+
+/* ---------- 6. temperature ---------- */
+let tpm=0;
+const tpDef=['25','98.6','37'],tpU=['°C','°F','°C'];
+function tpSteps(st){
+  const v=num('tp-v'),V=pe(v),n5=R(9n,5n),k=R(5n,9n);
+  if(tpm===0){const m=rMul(n5,v),r=rAdd(m,R(32n));return out(st,`${E(v)}°C = ?°F`,`${E(v)}°C ${sgn(N(r))} ${N(r).replace('≈ ','')}°F`,[
+    'Formula: <b>F = <span class="pu">9/5</span>·C + <span class="te">32</span></b>',
+    `Substitute C = ${V}: F = 9/5·${V} + 32`,
+    `Multiply first: 9/5·${V} = <b>${E(m)}</b>`,
+    `Then add 32: ${E(m)} + 32 = <b>${N(r)}°F</b>`])}
+  if(tpm===1){const s=rSub(v,R(32n)),r=rMul(k,s);return out(st,`${E(v)}°F = ?°C`,`${E(v)}°F ${sgn(N(r))} ${N(r).replace('≈ ','')}°C`,[
+    'Formula: <b>C = <span class="pu">5/9</span>·(F − <span class="te">32</span>)</b>',
+    `Substitute F = ${V}: C = 5/9·(${V} − 32)`,
+    `Parentheses first: ${V} − 32 = <b>${E(s)}</b>`,
+    `Multiply: 5/9·${pe(s)} = <b>${N(r)}°C</b>`])}
+  const r=rAdd(v,R(27315n,100n));return out(st,`${E(v)}°C = ?K`,`${E(v)}°C ${sgn(N(r))} ${N(r).replace('≈ ','')} K`,[
+    'Formula: <b>K = C + 273.15</b> (Kelvin steps are the same size as Celsius degrees; 0 K is absolute zero)',
+    `Substitute C = ${V}: K = ${V} + 273.15`,
+    `Add: <b>${N(r)} K</b>`]);
+}
+const tpst=stepper('tp',['tp-v'],tpSteps);
+function tpSet(m){tpm=m;tog(['tp-t0','tp-t1','tp-t2'],m);$('tp-v').value=tpDef[m];$('tp-u').textContent=tpU[m];tpst.reset()}
+[0,1,2].forEach(i=>$('tp-t'+i).onclick=()=>tpSet(i));
+tpSet(0);
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['Which number is irrational?',['0.25','√49','√50'],2],
+ ['Is 0.333… rational or irrational?',['Irrational','Rational','Not a real number'],1],
+ ['5 + 3 = 3 + 5 shows the:',['Commutative property','Associative property','Distributive property'],0],
+ ['(2 · 3) · 4 = 2 · (3 · 4) shows the:',['Commutative property','Distributive property','Associative property'],2],
+ ['3(x + 4) =',['3x + 4','3x + 12','x + 12'],1],
+ ['The additive inverse of −7 is:',['7','−7','1/7'],0],
+ ['The multiplicative inverse of 2/3 is:',['3/2','−2/3','1'],0],
+ ['8 ÷ 0 is:',['0','8','undefined'],2],
+ ['0 ÷ 8 is:',['0','undefined','8'],0],
+ ['5 feet in inches:',['60 in','15 in','5/12 in'],0],
+ ['25°C in °F:',['77°F','45°F','13.9°F'],0],
+ ['Is π rational?',['Yes, it equals 22/7','No: its decimal never ends or repeats','Yes, it equals 3.14'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 9 — Math Models and Geometry | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#coins">Coins</a><a href="#angles">Angles</a><a href="#pyth">Pythagorean</a><a href="#shapes">Area &amp; perimeter</a><a href="#circle">Circles</a><a href="#solids">Solids</a><a href="#formula">Solve a formula</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 9</span>
+    <h1><span>Math Models and Geometry</span></h1>
+    <p class="lead">Use the 7-step problem-solving strategy on money (coin) problems and on geometry: angles, triangles, the Pythagorean theorem, rectangles, trapezoids, circles, volume and surface area. Then solve a formula for any variable.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Complementary angles</span><p>Two angles whose measures add to 90°.</p></div>
+      <div class="card"><span class="tag t">Supplementary angles</span><p>Two angles whose measures add to 180°.</p></div>
+      <div class="card"><span class="tag o">Right triangle</span><p>A triangle with one 90° angle. The side opposite it is the <b>hypotenuse</b>; the other two are the <b>legs</b>.</p></div>
+      <div class="card"><span class="tag p">Isosceles / equilateral</span><p>Isosceles: two equal sides. Equilateral: all three sides equal.</p></div>
+      <div class="card"><span class="tag t">Perimeter</span><p>The distance around a figure.</p></div>
+      <div class="card"><span class="tag o">Area</span><p>The measure of the surface a figure covers.</p></div>
+      <div class="card"><span class="tag p">Trapezoid</span><p>A four-sided figure with two parallel sides (the bases) and two sides that are not.</p></div>
+      <div class="card"><span class="tag t">Similar figures</span><p>Same shape, different size: equal angles and sides in the same ratio.</p></div>
+      <div class="card"><span class="tag o">Irregular figure</span><p>Not a standard shape. Split it into standard shapes and add the areas.</p></div>
+    </div>
+    <h3 style="margin-top:28px">Problem-solving strategy</h3>
+    <table class="lr">
+      <tr><td><b>1</b> Read</td><td><b>2</b> Identify what you are looking for</td><td><b>3</b> Name it with a variable</td><td><b>4</b> Translate into an equation</td></tr>
+      <tr><td><b>5</b> Solve</td><td><b>6</b> Check in the problem</td><td><b>7</b> Answer in a sentence</td><td>For geometry: draw and label a figure first</td></tr>
+    </table>
+    <h3 style="margin-top:28px">Formulas</h3>
+    <table>
+      <tr><th>Figure</th><th>Formulas</th></tr>
+      <tr><td>Coins</td><td>total value = number · value of each</td></tr>
+      <tr><td>Angles</td><td>complementary: m∠A + m∠B = 90 · supplementary: = 180 · triangle: m∠A + m∠B + m∠C = 180</td></tr>
+      <tr><td>Right triangle</td><td>a² + b² = c²</td></tr>
+      <tr><td>Rectangle</td><td>P = 2L + 2W · A = L·W</td></tr>
+      <tr><td>Triangle</td><td>P = a + b + c · A = ½bh</td></tr>
+      <tr><td>Trapezoid</td><td>A = ½h(b₁ + b₂)</td></tr>
+      <tr><td>Circle</td><td>d = 2r · C = 2πr = πd · A = πr²</td></tr>
+      <tr><td>Rectangular solid / cube</td><td>V = LWH, S = 2LH + 2LW + 2WH · V = s³, S = 6s²</td></tr>
+      <tr><td>Sphere / cylinder / cone</td><td>V = 4/3πr³, S = 4πr² · V = πr²h, S = 2πr² + 2πrh · V = 1/3πr²h</td></tr>
+      <tr><td>Distance</td><td>d = rt</td></tr>
+    </table>
+  </section>
+
+  <section id="coins">
+    <h2>🪙 Coin problems</h2>
+    <p class="sub">A jar has some coins of two types. Know the total number of coins and their total value, and find how many of each. Value of a type = number × value of each coin.</p>
+    <div class="card">
+      <div class="rw">Type A <select id="co-a"></select> Type B <select id="co-b"></select>
+        <small>total coins</small><span class="sm"><input id="co-n" type="text" inputmode="numeric" value="20"></span>
+        <small>total $</small><span class="sm"><input id="co-t" type="text" inputmode="decimal" value="1.55"></span></div>
+      <div id="co-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="co-ctl"></div><ol class="steps" id="co-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="angles">
+    <h2>📐 Angles and triangles</h2>
+    <p class="sub">Find the missing angle. Complementary angles add to 90°, supplementary to 180°, and the three angles of a triangle add to 180°.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="an-t0" class="on" type="button">Complementary</button><button id="an-t1" type="button">Supplementary</button><button id="an-t2" type="button">Triangle</button></div>
+        <div class="rw">∠A = <span class="sm"><input id="an-a" type="text" inputmode="decimal" value="35"></span>°
+          <span id="an-bw" hidden>∠B = <span class="sm"><input id="an-b" type="text" inputmode="decimal" value="60"></span>°</span></div>
+        <div id="an-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="an-ctl"></div><ol class="steps" id="an-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Picture</span>
+        <div class="bar" id="an-bar"></div>
+        <p id="an-cap" style="margin-top:10px"></p></div>
+    </div>
+  </section>
+
+  <section id="pyth">
+    <h2>🔺 Pythagorean theorem</h2>
+    <p class="sub">In a right triangle, leg² + leg² = hypotenuse². Pick what to find. When the answer is not a whole number the root stays exact, with a decimal estimate.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="py-t0" class="on" type="button">Find the hypotenuse c</button><button id="py-t1" type="button">Find a leg</button></div>
+        <div class="rw"><span id="py-l1">leg a =</span><span class="sm"><input id="py-a" type="text" inputmode="decimal" value="3"></span>
+          <span id="py-l2">leg b =</span><span class="sm"><input id="py-b" type="text" inputmode="decimal" value="4"></span></div>
+        <div id="py-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="py-ctl"></div><ol class="steps" id="py-steps"></ol></div>
+      </div>
+      <div class="card vis"><span class="tag t">Right triangle</span>
+        <svg viewBox="0 0 300 220"><polygon points="40,180 240,180 40,40" fill="#e3f5f0" stroke="#087f79" stroke-width="3"/>
+          <path d="M40,160 h20 v20" fill="none" stroke="#087f79" stroke-width="2"/>
+          <text x="140" y="205" text-anchor="middle" font-weight="800" fill="#172c3a" id="py-sb">b</text>
+          <text x="22" y="115" text-anchor="middle" font-weight="800" fill="#172c3a" id="py-sa">a</text>
+          <text x="160" y="95" font-weight="800" fill="#f07846" id="py-sc">c</text></svg></div>
+    </div>
+  </section>
+
+  <section id="shapes">
+    <h2>🟦 Rectangles, triangles and trapezoids</h2>
+    <p class="sub">Choose a shape, edit the measurements, and walk through the perimeter and area.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="sh-t0" class="on" type="button">Rectangle</button><button id="sh-t1" type="button">Triangle</button><button id="sh-t2" type="button">Trapezoid</button></div>
+        <div class="rw" id="sh-in"></div>
+        <div id="sh-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="sh-ctl"></div><ol class="steps" id="sh-steps"></ol></div>
+      </div>
+      <div class="card vis"><span class="tag p">Figure</span><div id="sh-svg"></div></div>
+    </div>
+  </section>
+
+  <section id="circle">
+    <h2>⭕ Circles</h2>
+    <p class="sub">Give the radius or the diameter. The answer is shown exactly in terms of π and as a decimal estimate.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="ci-t0" class="on" type="button">I know the radius r</button><button id="ci-t1" type="button">I know the diameter d</button></div>
+        <div class="rw"><span id="ci-l">r =</span><span class="sm"><input id="ci-v" type="text" inputmode="decimal" value="5"></span></div>
+        <div id="ci-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ci-ctl"></div><ol class="steps" id="ci-steps"></ol></div>
+      </div>
+      <div class="card vis"><span class="tag t">Circle</span>
+        <svg viewBox="0 0 300 220"><circle cx="150" cy="110" r="90" fill="#f0edff" stroke="#7962cb" stroke-width="3"/>
+          <line x1="60" y1="110" x2="240" y2="110" stroke="#f07846" stroke-width="3"/><line x1="150" y1="110" x2="150" y2="110"/>
+          <circle cx="150" cy="110" r="4" fill="#172c3a"/>
+          <text x="150" y="100" text-anchor="middle" font-weight="800" fill="#f07846">d = 2r</text>
+          <text x="150" y="140" text-anchor="middle" font-weight="800" fill="#7962cb">C = 2πr · A = πr²</text></svg></div>
+    </div>
+  </section>
+
+  <section id="solids">
+    <h2>📦 Volume and surface area</h2>
+    <p class="sub">Volume is how much a solid holds; surface area is the total area of its outside.</p>
+    <div class="card">
+      <div><button id="so-t0" class="on" type="button">Rectangular solid</button><button id="so-t1" type="button">Cube</button><button id="so-t2" type="button">Sphere</button><button id="so-t3" type="button">Cylinder</button><button id="so-t4" type="button">Cone</button></div>
+      <div class="rw" id="so-in"></div>
+      <div id="so-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="so-ctl"></div><ol class="steps" id="so-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="formula">
+    <h2>🔄 Solve a formula for a variable</h2>
+    <p class="sub">Pick a formula and the variable you want. See how to isolate it, then plug in numbers.</p>
+    <div class="card">
+      <div id="fo-f"></div><div id="fo-v" style="margin-bottom:6px"></div>
+      <div class="rw" id="fo-in"></div>
+      <div id="fo-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="fo-ctl"></div><ol class="steps" id="fo-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Coin problems</span>
+        <ol class="steps"><li>Make a table: type, number, value, total value.</li><li>Let x = the number of one type; the other is (total − x).</li><li>Add the total values to equal the total money.</li><li>Solve, then check the count and the money.</li></ol></div>
+      <div class="card"><span class="tag t">Geometry problems</span>
+        <ol class="steps"><li>Draw the figure and label what you know.</li><li>Pick the formula and substitute.</li><li>Solve for the unknown.</li><li>Check, and answer with units (square units for area, cubic for volume).</li></ol></div>
+      <div class="card"><span class="tag o">Which formula?</span>
+        <ul><li>Distance around: perimeter or circumference.</li><li>Space covered: area.</li><li>Space inside a solid: volume.</li><li>Outside of a solid: surface area.</li></ul></div>
+      <div class="card"><span class="tag p">Solving a formula</span>
+        <ul><li>Treat the other letters like numbers.</li><li>Undo what is done to the variable, in reverse order.</li><li>Do the same thing to both sides.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=2)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const eq=(x,k=2)=>Math.abs(x-Number(x.toFixed(k)))<1e-9?'=':'≈';
+const gv=id=>{const v=parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));return v};
+const pos=(...v)=>v.every(x=>isFinite(x)&&x>0);
+const PI='π';
+const RT=x=>katex.renderToString('\\sqrt{'+x+'}',{throwOnError:false});
+const isInt=x=>Math.abs(x-Math.round(x))<1e-9;
+const rootT=n=>isInt(Math.sqrt(n))?`<b>${f(Math.sqrt(n),0)}</b>`:`${RT(f(n))} ≈ <b>${f(Math.sqrt(n))}</b>`;
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()});e.addEventListener('change',()=>{st=0;draw()})}});
+  bind();
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+const mk=(id,fields)=>{$(id).innerHTML=fields.map(([i,l,v])=>`<span>${l}</span><span class="sm"><input id="${i}" type="text" inputmode="decimal" value="${v}"></span>`).join('')};
+
+/* ---------- 1. coins ---------- */
+const COIN=[['penny',1],['nickel',5],['dime',10],['quarter',25],['dollar coin',100]];
+$('co-a').innerHTML=COIN.map((c,i)=>`<option value="${i}">${c[0]}s</option>`).join('');
+$('co-b').innerHTML=$('co-a').innerHTML;$('co-a').value='1';$('co-b').value='2';
+const money=c=>'$'+f(c/100);
+function coSteps(st){
+  const ia=+$('co-a').value,ib=+$('co-b').value,N=gv('co-n'),T=gv('co-t');
+  if(ia===ib)return bad('Pick two different coin types.');
+  if(!isFinite(N)||!isFinite(T)||N<0||T<0)return bad('Enter the number of coins and the total value.');
+  const [na,ca]=COIN[ia],[nb,cb]=COIN[ib],Tc=Math.round(T*100);
+  const x=(Tc-cb*N)/(ca-cb),ok=isInt(x)&&x>=0&&x<=N;
+  const va=f(ca/100),vb=f(cb/100);
+  const pre=`${na}s + ${nb}s: ${f(N,0)} coins, ${money(Tc)}`;
+  const s=[
+    `Let <b class="pu">x</b> = the number of ${na}s. Then <b class="te">${f(N,0)} − x</b> = the number of ${nb}s.`,
+    `Table: ${na}s: number <b class="pu">x</b> · value $${va} = <b>${va}x</b>. ${nb}s: number <b class="te">${f(N,0)} − x</b> · value $${vb} = <b>${vb}(${f(N,0)} − x)</b>.`,
+    `Add the total values: <b>${va}x + ${vb}(${f(N,0)} − x) = ${f(Tc/100)}</b>`,
+    `Distribute and combine: ${va}x + ${f(cb/100*N)} − ${vb}x = ${f(Tc/100)} → ${f((ca-cb)/100)}x = ${f((Tc-cb*N)/100)}`,
+    `Divide: x = ${f(x,4)}`];
+  if(!ok){s.push(`That is not a whole number between 0 and ${f(N,0)}, so <b class="or">no such mix of coins exists</b>. Try other numbers.`);return out(st,pre,'No whole-number answer',s)}
+  s[4]=`Divide both sides by ${f((ca-cb)/100)}: <b>x = ${f(x,0)}</b>`;
+  s.push(`Check: ${f(x,0)} ${na}s + ${f(N-x,0)} ${nb}s = ${f(N,0)} coins ✓ and ${f(x,0)}·${va} + ${f(N-x,0)}·${vb} = ${f((ca*x+cb*(N-x))/100)} ✓`);
+  s.push(`Answer: <b>${f(x,0)} ${na}s and ${f(N-x,0)} ${nb}s.</b>`);
+  return out(st,pre,`${f(x,0)} ${na}s, ${f(N-x,0)} ${nb}s`,s);
+}
+stepper('co',()=>['co-a','co-b','co-n','co-t'],coSteps).reset();
+
+/* ---------- 2. angles ---------- */
+let anm=0;
+function anSteps(st){
+  const a=gv('an-a'),b=gv('an-b');
+  const tot=anm===0?90:180,kind=['complementary','supplementary','triangle'][anm];
+  if(!isFinite(a)||a<=0||(anm===2&&(!isFinite(b)||b<=0)))return bad('Enter positive angle measures.');
+  const known=anm===2?a+b:a,x=tot-known,names=anm===2?'∠A and ∠B':'∠A';
+  const bar=$('an-bar');
+  if(x<=0){bar.innerHTML='';$('an-cap').textContent='';return bad(`The angles already add to ${f(known)}° or more. They must add to less than ${tot}°.`)}
+  const parts=anm===2?[[a,'#7962cb','A'],[b,'#087f79','B'],[x,'#f07846','C']]:[[a,'#7962cb','A'],[x,'#f07846','B']];
+  bar.innerHTML=parts.map(([v,c,n])=>`<div style="flex:${v};background:${c}">${n} = ${f(v)}°</div>`).join('');
+  $('an-cap').textContent=`The pieces add to ${tot}°.`;
+  const wh=anm===2?'C':'B',sumT=anm===2?`${f(a)} + ${f(b)} + x = 180`:`${f(a)} + x = ${tot}`;
+  return out(st,`${anm===2?'∠C':'∠B'} = ?`,`∠${wh} = ${f(x)}°`,[
+    `${anm===2?'The angles of a triangle add to 180°':anm===0?'Complementary angles add to 90°':'Supplementary angles add to 180°'}: m∠A + m∠B${anm===2?' + m∠C':''} = ${tot}`,
+    `Name the unknown x = m∠${wh} and substitute: <b>${sumT}</b>`,
+    `${anm===2?`Add the known angles: ${f(known)} + x = 180. `:''}Subtract ${f(known)} from both sides: x = ${tot} − ${f(known)} = <b>${f(x)}</b>`,
+    `Check: ${anm===2?`${f(a)} + ${f(b)} + ${f(x)}`:`${f(a)} + ${f(x)}`} = ${tot} ✓. Answer: <b>m∠${wh} = ${f(x)}°</b>`]);
+}
+const anst=stepper('an',()=>['an-a','an-b'],anSteps);
+const anDef=[['35','60'],['110','60'],['50','60']];
+function anSet(m){anm=m;tog(['an-t0','an-t1','an-t2'],m);$('an-a').value=anDef[m][0];$('an-b').value=anDef[m][1];$('an-bw').hidden=m!==2;anst.reset()}
+[0,1,2].forEach(i=>$('an-t'+i).onclick=()=>anSet(i));anSet(0);
+
+/* ---------- 3. Pythagorean ---------- */
+let pym=0;
+function pySteps(st){
+  const a=gv('py-a'),b=gv('py-b');
+  if(!pos(a,b))return bad('Enter positive side lengths.');
+  if(pym===0){
+    const n=a*a+b*b;
+    return out(st,'c = ?',`c ${isInt(Math.sqrt(n))?'=':'≈'} ${f(Math.sqrt(n))}`,[
+      `Pythagorean theorem: <b>a² + b² = c²</b>`,
+      `Substitute the legs: ${f(a)}² + ${f(b)}² = c²`,
+      `Square and add: ${f(a*a)} + ${f(b*b)} = <b>${f(n)}</b> = c²`,
+      `Take the positive square root: c = ${rootT(n)}`,
+      `Check: ${f(a)}² + ${f(b)}² = ${f(n)} and c² = ${f(n)} ✓`]);
+  }
+  if(b<=a)return bad('The hypotenuse (right box) must be longer than the leg (left box).');
+  const n=b*b-a*a;
+  return out(st,'b = ?',`b ${isInt(Math.sqrt(n))?'=':'≈'} ${f(Math.sqrt(n))}`,[
+    `Pythagorean theorem: <b>a² + b² = c²</b>. Here you know one leg a and the hypotenuse c.`,
+    `Substitute: ${f(a)}² + b² = ${f(b)}²`,
+    `Square: ${f(a*a)} + b² = ${f(b*b)}. Subtract ${f(a*a)}: b² = ${f(b*b)} − ${f(a*a)} = <b>${f(n)}</b>`,
+    `Take the positive square root: b = ${rootT(n)}`,
+    `Check: ${f(a)}² + ${f(Math.sqrt(n))}² ≈ ${f(b*b)} ✓`]);
+}
+const pyst=stepper('py',()=>['py-a','py-b'],pySteps);
+function pySet(m){pym=m;tog(['py-t0','py-t1'],m);
+  $('py-l1').textContent='leg a =';$('py-l2').textContent=m===0?'leg b =':'hypotenuse c =';
+  $('py-a').value=m===0?'3':'5';$('py-b').value=m===0?'4':'13';
+  $('py-sa').textContent='a';$('py-sb').textContent=m===0?'b':'b = ?';$('py-sc').textContent=m===0?'c = ?':'c';
+  pyst.reset()}
+[0,1].forEach(i=>$('py-t'+i).onclick=()=>pySet(i));pySet(0);
+
+/* ---------- 4. shapes ---------- */
+let shm=0;
+const SH=[
+ {f:[['sh-1','L =',8],['sh-2','W =',5]],svg:`<svg viewBox="0 0 300 200"><rect x="40" y="40" width="220" height="120" fill="#f0edff" stroke="#7962cb" stroke-width="3"/><text x="150" y="182" text-anchor="middle" font-weight="800">L</text><text x="22" y="105" text-anchor="middle" font-weight="800">W</text></svg>`},
+ {f:[['sh-1','base b =',6],['sh-2','height h =',4],['sh-3','side a =',5],['sh-4','side c =',5]],svg:`<svg viewBox="0 0 300 200"><polygon points="40,160 260,160 120,40" fill="#e3f5f0" stroke="#087f79" stroke-width="3"/><line x1="120" y1="40" x2="120" y2="160" stroke="#f07846" stroke-width="2" stroke-dasharray="6"/><text x="150" y="182" text-anchor="middle" font-weight="800">b</text><text x="128" y="105" font-weight="800" fill="#f07846">h</text><text x="62" y="95" font-weight="800">a</text><text x="205" y="95" font-weight="800">c</text></svg>`},
+ {f:[['sh-1','base b₁ =',10],['sh-2','base b₂ =',6],['sh-3','height h =',4],['sh-4','leg =',5],['sh-5','leg =',5]],svg:`<svg viewBox="0 0 300 200"><polygon points="30,160 270,160 220,50 80,50" fill="#fff0e6" stroke="#f07846" stroke-width="3"/><line x1="80" y1="50" x2="80" y2="160" stroke="#7962cb" stroke-width="2" stroke-dasharray="6"/><text x="150" y="182" text-anchor="middle" font-weight="800">b₁</text><text x="150" y="40" text-anchor="middle" font-weight="800">b₂</text><text x="88" y="110" font-weight="800" fill="#7962cb">h</text></svg>`}];
+const shDef=[[8,5],[6,4,5,5],[10,6,4,5,5]];
+function shSteps(st){
+  const v=[1,2,3,4,5].map(i=>$('sh-'+i)?gv('sh-'+i):NaN);
+  if(shm===0){const[L,W]=v;
+    if(!pos(L,W))return bad('Enter positive lengths.');
+    const P=2*L+2*W,A=L*W;
+    return out(st,'P = ? · A = ?',`P = ${f(P)} · A = ${f(A)}`,[
+      `Perimeter formula: <b>P = 2L + 2W</b>. Area formula: <b>A = L·W</b>`,
+      `Perimeter: P = 2(${f(L)}) + 2(${f(W)}) = ${f(2*L)} + ${f(2*W)} = <b>${f(P)}</b> units`,
+      `Area: A = ${f(L)} · ${f(W)} = <b>${f(A)}</b> square units`]);
+  }
+  if(shm===1){const[b,h,a,c]=v;
+    if(!pos(b,h,a,c))return bad('Enter positive lengths.');
+    const P=a+b+c,A=b*h/2;
+    return out(st,'P = ? · A = ?',`P = ${f(P)} · A = ${f(A)}`,[
+      `Perimeter: <b>P = a + b + c</b>. Area: <b>A = ½bh</b> (the height h is the perpendicular distance, not a slanted side).`,
+      `Perimeter: P = ${f(a)} + ${f(b)} + ${f(c)} = <b>${f(P)}</b> units`,
+      `Area: A = ½ · ${f(b)} · ${f(h)} = ½ · ${f(b*h)} = <b>${f(A)}</b> square units`]);
+  }
+  const[b1,b2,h,l1,l2]=v;
+  if(!pos(b1,b2,h,l1,l2))return bad('Enter positive lengths.');
+  const P=b1+b2+l1+l2,A=h*(b1+b2)/2;
+  return out(st,'P = ? · A = ?',`P = ${f(P)} · A = ${f(A)}`,[
+    `Perimeter: add all four sides. Area: <b>A = ½h(b₁ + b₂)</b> (b₁ and b₂ are the parallel sides).`,
+    `Perimeter: P = ${f(b1)} + ${f(b2)} + ${f(l1)} + ${f(l2)} = <b>${f(P)}</b> units`,
+    `Add the bases: ${f(b1)} + ${f(b2)} = ${f(b1+b2)}`,
+    `Area: A = ½ · ${f(h)} · ${f(b1+b2)} = ½ · ${f(h*(b1+b2))} = <b>${f(A)}</b> square units`]);
+}
+const shst=stepper('sh',()=>[1,2,3,4,5].map(i=>'sh-'+i),shSteps);
+function shSet(m){shm=m;tog(['sh-t0','sh-t1','sh-t2'],m);
+  mk('sh-in',SH[m].f.map((x,i)=>[x[0],x[1],shDef[m][i]]));$('sh-svg').innerHTML=SH[m].svg;shst.reset()}
+[0,1,2].forEach(i=>$('sh-t'+i).onclick=()=>shSet(i));shSet(0);
+
+/* ---------- 5. circles ---------- */
+let cim=0;
+function ciSteps(st){
+  const v=gv('ci-v');
+  if(!pos(v))return bad('Enter a positive number.');
+  const r=cim===0?v:v/2,d=2*r,C=2*Math.PI*r,A=Math.PI*r*r;
+  const cx=f(2*r),ax=f(r*r);
+  return out(st,'C = ? · A = ?',`C = ${cx}π ≈ ${f(C)} · A = ${ax}π ≈ ${f(A)}`,[
+    cim===0?`You know r = ${f(r)}, so d = 2r = <b>${f(d)}</b>.`:`You know d = ${f(d)}, so r = d ÷ 2 = <b>${f(r)}</b>.`,
+    `Circumference: C = 2πr = 2·π·${f(r)} = <b>${cx}π</b> ≈ ${f(C)} units (with π ≈ 3.14: ${f(2*3.14*r)})`,
+    `Area: A = πr² = π·${f(r)}² = π·${ax} = <b>${ax}π</b> ≈ ${f(A)} square units (with π ≈ 3.14: ${f(3.14*r*r)})`,
+    `Circumference is a <b>length</b> (units); area is <b>square</b> units.`]);
+}
+const cist=stepper('ci',()=>['ci-v'],ciSteps);
+function ciSet(m){cim=m;tog(['ci-t0','ci-t1'],m);$('ci-l').textContent=m===0?'r =':'d =';$('ci-v').value=m===0?'5':'10';cist.reset()}
+[0,1].forEach(i=>$('ci-t'+i).onclick=()=>ciSet(i));ciSet(0);
+
+/* ---------- 6. solids ---------- */
+let som=0;
+const SO=[
+ {n:'Rectangular solid',f:[['so-1','L =',6],['so-2','W =',4],['so-3','H =',3]]},
+ {n:'Cube',f:[['so-1','s =',5]]},
+ {n:'Sphere',f:[['so-1','r =',3]]},
+ {n:'Cylinder',f:[['so-1','r =',3],['so-2','h =',10]]},
+ {n:'Cone',f:[['so-1','r =',3],['so-2','h =',10]]}];
+function soSteps(st){
+  const[a,b,c]=[1,2,3].map(i=>$('so-'+i)?gv('so-'+i):NaN);
+  const need=SO[som].f.length;
+  if(![a,b,c].slice(0,need).every(x=>pos(x)))return bad('Enter positive measurements.');
+  let s;
+  if(som===0){const V=a*b*c,S=2*c*a+2*a*b+2*b*c;
+    s=[`<b>V = LWH</b> and <b>S = 2LH + 2LW + 2WH</b>`,`Volume: V = ${f(a)}·${f(b)}·${f(c)} = <b>${f(V)}</b> cubic units`,
+      `Surface area: S = 2(${f(a)})(${f(c)}) + 2(${f(a)})(${f(b)}) + 2(${f(b)})(${f(c)}) = ${f(2*a*c)} + ${f(2*a*b)} + ${f(2*b*c)} = <b>${f(S)}</b> square units`];
+    return out(st,'V = ? · S = ?',`V = ${f(V)} · S = ${f(S)}`,s);}
+  if(som===1){const V=a**3,S=6*a*a;
+    s=[`<b>V = s³</b> and <b>S = 6s²</b>`,`Volume: V = ${f(a)}³ = <b>${f(V)}</b> cubic units`,`Surface area: S = 6·${f(a)}² = 6·${f(a*a)} = <b>${f(S)}</b> square units`];
+    return out(st,'V = ? · S = ?',`V = ${f(V)} · S = ${f(S)}`,s);}
+  if(som===2){const V=4/3*Math.PI*a**3,S=4*Math.PI*a*a;
+    s=[`<b>V = 4/3·πr³</b> and <b>S = 4πr²</b>`,`Volume: V = 4/3·π·${f(a)}³ = 4/3·π·${f(a**3)} = <b>${f(4*a**3/3)}π</b> ≈ ${f(V)} cubic units`,`Surface area: S = 4π·${f(a)}² = <b>${f(4*a*a)}π</b> ≈ ${f(S)} square units`];
+    return out(st,'V = ? · S = ?',`V ≈ ${f(V)} · S ≈ ${f(S)}`,s);}
+  if(som===3){const V=Math.PI*a*a*b,S=2*Math.PI*a*a+2*Math.PI*a*b;
+    s=[`<b>V = πr²h</b> and <b>S = 2πr² + 2πrh</b>`,`Volume: V = π·${f(a)}²·${f(b)} = <b>${f(a*a*b)}π</b> ≈ ${f(V)} cubic units`,
+      `Surface area: S = 2π(${f(a)})² + 2π(${f(a)})(${f(b)}) = ${f(2*a*a)}π + ${f(2*a*b)}π = <b>${f(2*a*a+2*a*b)}π</b> ≈ ${f(S)} square units`];
+    return out(st,'V = ? · S = ?',`V ≈ ${f(V)} · S ≈ ${f(S)}`,s);}
+  const V=Math.PI*a*a*b/3;
+  s=[`Cone volume: <b>V = ⅓πr²h</b> (one third of the cylinder with the same r and h)`,`V = ⅓·π·${f(a)}²·${f(b)} = ⅓·π·${f(a*a*b)} = <b>${f(a*a*b/3)}π</b> ≈ ${f(V)} cubic units`];
+  return out(st,'V = ?',`V ≈ ${f(V)}`,s);
+}
+const sost=stepper('so',()=>[1,2,3].map(i=>'so-'+i),soSteps);
+function soSet(m){som=m;tog([0,1,2,3,4].map(i=>'so-t'+i),m);mk('so-in',SO[m].f);sost.reset()}
+[0,1,2,3,4].forEach(i=>$('so-t'+i).onclick=()=>soSet(i));soSet(0);
+
+/* ---------- 7. solve a formula ---------- */
+const FO=[
+ {n:'d = rt',eq:'d = rt',vars:['d','r','t'],lab:{d:'distance d',r:'rate r',t:'time t'},
+  t:{d:{st:[],ex:'d = rt',fn:v=>v.r*v.t},
+     r:{st:['Divide both sides by t: <b>r = d/t</b>'],ex:'r = d/t',fn:v=>v.d/v.t},
+     t:{st:['Divide both sides by r: <b>t = d/r</b>'],ex:'t = d/r',fn:v=>v.d/v.r}}},
+ {n:'P = 2L + 2W',eq:'P = 2L + 2W',vars:['P','L','W'],lab:{P:'perimeter P',L:'length L',W:'width W'},
+  t:{P:{st:[],ex:'P = 2L + 2W',fn:v=>2*v.L+2*v.W},
+     L:{st:['Subtract 2W from both sides: P − 2W = 2L','Divide both sides by 2: <b>L = (P − 2W)/2</b>'],ex:'L = (P − 2W)/2',fn:v=>(v.P-2*v.W)/2},
+     W:{st:['Subtract 2L from both sides: P − 2L = 2W','Divide both sides by 2: <b>W = (P − 2L)/2</b>'],ex:'W = (P − 2L)/2',fn:v=>(v.P-2*v.L)/2}}},
+ {n:'A = ½bh',eq:'A = ½bh',vars:['A','b','h'],lab:{A:'area A',b:'base b',h:'height h'},
+  t:{A:{st:[],ex:'A = ½bh',fn:v=>v.b*v.h/2},
+     b:{st:['Multiply both sides by 2: 2A = bh','Divide both sides by h: <b>b = 2A/h</b>'],ex:'b = 2A/h',fn:v=>2*v.A/v.h},
+     h:{st:['Multiply both sides by 2: 2A = bh','Divide both sides by b: <b>h = 2A/b</b>'],ex:'h = 2A/b',fn:v=>2*v.A/v.b}}},
+ {n:'C = 2πr',eq:'C = 2πr',vars:['C','r'],lab:{C:'circumference C',r:'radius r'},
+  t:{C:{st:[],ex:'C = 2πr',fn:v=>2*Math.PI*v.r},
+     r:{st:['Divide both sides by 2π: <b>r = C/(2π)</b>'],ex:'r = C/(2π)',fn:v=>v.C/(2*Math.PI)}}},
+ {n:'F = 9/5·C + 32',eq:'F = 9/5·C + 32',vars:['F','C'],lab:{F:'Fahrenheit F',C:'Celsius C'},
+  t:{F:{st:[],ex:'F = 9/5·C + 32',fn:v=>9/5*v.C+32},
+     C:{st:['Subtract 32 from both sides: F − 32 = 9/5·C','Multiply both sides by the reciprocal 5/9: <b>C = 5/9·(F − 32)</b>'],ex:'C = 5/9·(F − 32)',fn:v=>5/9*(v.F-32)}}},
+ {n:'I = Prt',eq:'I = Prt',vars:['I','P','r','t'],lab:{I:'interest I',P:'principal P',r:'rate r (decimal)',t:'time t'},
+  t:{I:{st:[],ex:'I = Prt',fn:v=>v.P*v.r*v.t},
+     P:{st:['Divide both sides by rt: <b>P = I/(rt)</b>'],ex:'P = I/(rt)',fn:v=>v.I/(v.r*v.t)},
+     r:{st:['Divide both sides by Pt: <b>r = I/(Pt)</b>'],ex:'r = I/(Pt)',fn:v=>v.I/(v.P*v.t)},
+     t:{st:['Divide both sides by Pr: <b>t = I/(Pr)</b>'],ex:'t = I/(Pr)',fn:v=>v.I/(v.P*v.r)}}}];
+const FOdef={d:150,r:50,t:3,P:30,L:8,W:5,A:24,b:8,h:6,C:25,F:77,I:300};
+const FOd2={P:1000,r:0.05,t:3,I:150};
+let fof=0,fov=1;
+function foVals(){const v={};FO[fof].vars.forEach(k=>{if(k!==FO[fof].vars[fov])v[k]=gv('fo-'+k)});return v}
+function foSteps(st){
+  const F=FO[fof],tk=F.vars[fov],T=F.t[tk],v=foVals();
+  const others=Object.keys(v);
+  if(!others.every(k=>isFinite(v[k])))return bad('Enter numbers for the known variables.');
+  const val=T.fn(v);
+  if(!isFinite(val))return bad('That would divide by 0.');
+  const sub=T.ex.split('=')[1].replace(/[A-Za-z]/g,m=>v[m]!==undefined?`(${f(v[m],4)})`:m);
+  const steps=[`Start with the formula <b>${F.eq}</b>. Goal: get <b class="pu">${tk}</b> alone.`,
+    ...(T.st.length?T.st:[`${tk} is already alone: nothing to rearrange.`]),
+    `Substitute the numbers: ${tk} = ${sub}`,
+    `Calculate: <b>${tk} ${eq(val)} ${f(val)}</b>`];
+  return out(st,`${T.ex}`,`${T.ex} ${eq(val)} ${f(val)}`,steps);
+}
+const fost=stepper('fo',()=>FO[fof].vars.map(k=>'fo-'+k),foSteps);
+function foDraw(){
+  $('fo-f').innerHTML=FO.map((x,i)=>`<button type="button" class="${i===fof?'on':''}" data-i="${i}">${x.n}</button>`).join('');
+  $('fo-v').innerHTML='<small style="color:var(--muted);font-weight:800">Solve for:</small> '+FO[fof].vars.map((k,i)=>`<button type="button" class="${i===fov?'on':''}" data-v="${i}">${k}</button>`).join('');
+  $('fo-in').innerHTML=FO[fof].vars.filter((k,i)=>i!==fov).map(k=>`<span>${FO[fof].lab[k]} =</span><span class="sm" style="width:100px"><input id="fo-${k}" type="text" inputmode="decimal" value="${(fof===5?FOd2:FOdef)[k]}"></span>`).join('');
+  $('fo-f').querySelectorAll('button').forEach(b=>b.onclick=()=>{fof=+b.dataset.i;fov=1;foDraw()});
+  $('fo-v').querySelectorAll('button').forEach(b=>b.onclick=()=>{fov=+b.dataset.v;foDraw()});
+  fost.reset();
+}
+foDraw();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['Two angles are complementary. One is 35°. The other is:',['55°','145°','65°'],0],
+ ['Two angles are supplementary. One is 110°. The other is:',['70°','80°','250°'],0],
+ ['Two angles of a triangle are 50° and 60°. The third is:',['70°','80°','110°'],0],
+ ['Legs 6 and 8 in a right triangle. The hypotenuse is:',['10','14','12'],0],
+ ['Area of a rectangle 8 by 5:',['26','40','13'],1],
+ ['Perimeter of a rectangle 8 by 5:',['26','40','13'],0],
+ ['Area of a triangle with base 6 and height 4:',['24','12','10'],1],
+ ['Area of a trapezoid with bases 10 and 6 and height 4:',['32','64','16'],0],
+ ['Circumference of a circle with radius 5 (in terms of π):',['10π','25π','5π'],0],
+ ['Volume of a cube with side 5:',['25','125','150'],1],
+ ['A jar has 20 nickels and dimes worth $1.55. How many dimes?',['9','11','12'],1],
+ ['Solve d = rt for r.',['r = dt','r = d/t','r = t/d'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 4 — Fractions | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text],input[type=number]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .rcp{display:inline-block;background:var(--purple-light);color:var(--purple);border-radius:8px;padding:0 8px;font-weight:900}
+    .eqline{margin:8px 0 4px;padding:8px 14px;background:#fff;border:2px dashed var(--purple);border-radius:12px;font-weight:800;display:block}
+    .pu{color:var(--purple)} .cx{color:var(--purple);text-decoration:line-through}
+    .rw{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1.3rem;font-weight:900}
+    .fin{display:inline-flex;flex-direction:column;gap:4px;width:70px}
+    .fin input{text-align:center;padding:6px 4px}
+    .fin i{display:block;height:2px;background:var(--ink)}
+    .wn{width:70px} .wn input{text-align:center;padding:6px 4px}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#visual">Visualize</a><a href="#simplify">Simplify</a><a href="#mixed">Mixed</a><a href="#muldiv">× ÷</a><a href="#addsub">+ −</a><a href="#mixop">Mixed + −</a><a href="#solve">Equations</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 4</span>
+    <h1><span>Fractions</span></h1>
+    <p class="lead">Parts of a whole. See fractions, simplify them, then multiply, divide, add and subtract them, including mixed numbers, and solve equations with fractions.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Fraction</span>
+        <p>Written <span class="fr"><span>a</span><span>b</span></span>. The <b>numerator</b> a counts the parts included. The <b>denominator</b> b is the number of equal parts in the whole.</p></div>
+      <div class="card"><span class="tag t">Proper &amp; improper</span>
+        <p><b>Proper:</b> a &lt; b, less than 1. <b>Improper:</b> a ≥ b, at least 1.</p></div>
+      <div class="card"><span class="tag o">Mixed number</span>
+        <p>A whole number plus a proper fraction, such as 2<span class="fr"><span>1</span><span>3</span></span>.</p></div>
+      <div class="card"><span class="tag p">Equivalent fractions</span>
+        <p>Fractions with the same value, such as <span class="fr"><span>1</span><span>2</span></span> = <span class="fr"><span>2</span><span>4</span></span>.</p></div>
+      <div class="card"><span class="tag t">Simplified fraction</span>
+        <p>No common factors in the numerator and denominator.</p></div>
+      <div class="card"><span class="tag o">Reciprocal</span>
+        <p>The reciprocal of <span class="fr"><span>a</span><span>b</span></span> is <span class="fr"><span>b</span><span>a</span></span>. A number times its reciprocal is 1.</p></div>
+      <div class="card"><span class="tag p">LCD</span>
+        <p>The least common denominator of two fractions is the LCM of their denominators.</p></div>
+      <div class="card"><span class="tag t">Complex fraction</span>
+        <p>A fraction whose numerator or denominator contains a fraction.</p></div>
+    </div>
+
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Idea</th><th>Rule</th></tr>
+      <tr><td>Property of One</td><td>a/a = 1, for a ≠ 0</td></tr>
+      <tr><td>Equivalent fractions</td><td>a/b = (a·c)/(b·c), for b ≠ 0, c ≠ 0</td></tr>
+      <tr><td>Multiplication</td><td>(a/b)·(c/d) = ac/bd</td></tr>
+      <tr><td>Division</td><td>(a/b) ÷ (c/d) = (a/b)·(d/c)</td></tr>
+      <tr><td>Addition</td><td>a/c + b/c = (a + b)/c</td></tr>
+      <tr><td>Subtraction</td><td>a/c − b/c = (a − b)/c</td></tr>
+      <tr><td>Negative sign</td><td>−a/b = (−a)/b = a/(−b)</td></tr>
+    </table>
+  </section>
+
+  <section id="visual">
+    <h2>🍕 Visualize fractions</h2>
+    <p class="sub">Enter a numerator and a denominator. See the fraction as bars and on a number line, and find its mixed number, simplified form and equivalent fractions.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="fin"><input id="v-n" type="number" min="0" max="9999" value="7"><i></i><input id="v-d" type="number" min="1" max="9999" value="4"></span></div>
+        <label>Make an equivalent fraction: multiply top and bottom by</label>
+        <div id="v-k"></div>
+        <div class="pill" style="background:var(--purple-light)" id="v-type"></div>
+        <div class="pill" style="background:var(--teal-light)" id="v-mixed"></div>
+        <div class="pill" style="background:var(--orange-light)" id="v-simp"></div>
+      </div>
+      <div class="card"><svg id="v-svg" viewBox="0 0 400 300" style="width:100%"></svg></div>
+    </div>
+  </section>
+
+  <section id="simplify">
+    <h2>✂️ Simplify a fraction</h2>
+    <p class="sub">Factor the top and bottom into primes, cross out the common factors, and multiply what is left.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><span class="fin"><input id="s-n" type="number" min="-9999" max="9999" value="36"><i></i><input id="s-d" type="number" min="1" max="9999" value="60"></span></div>
+        <div id="s-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="s-ctl"></div><ol class="steps" id="s-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Equivalent Fractions Property</span>
+        <p>a/b = (a·c)/(b·c). Removing a common factor c does not change the value.</p>
+        <p style="margin-top:12px">When there are no common factors left, the fraction is <b>simplified</b>. The product of the crossed-out factors is the GCF.</p></div>
+    </div>
+  </section>
+
+  <section id="mixed">
+    <h2>🔁 Improper fractions ↔ mixed numbers</h2>
+    <p class="sub">Pick a direction, enter the numbers, and step through.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="m-t0" class="on">Improper → mixed</button><button id="m-t1">Mixed → improper</button></div>
+        <div class="rw"><span class="wn" id="m-ww" hidden><input id="m-w" type="number" min="0" max="9999" value="3"></span><span class="fin"><input id="m-n" type="number" min="0" max="9999" value="17"><i></i><input id="m-d" type="number" min="1" max="9999" value="5"></span></div>
+        <div id="m-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="m-ctl"></div><ol class="steps" id="m-steps"></ol></div>
+      </div>
+      <div class="card">
+        <span class="tag o">Improper → mixed</span>
+        <ol class="steps"><li>Divide the numerator by the denominator.</li><li>Quotient = whole number, remainder = new numerator, divisor = denominator.</li></ol>
+        <span class="tag t" style="margin-top:12px">Mixed → improper</span>
+        <ol class="steps"><li>Multiply the whole number by the denominator.</li><li>Add the numerator.</li><li>Write the sum over the original denominator.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="muldiv">
+    <h2>✖️ Multiply &amp; divide fractions</h2>
+    <p class="sub">Multiply across. To divide, flip the second fraction (use its reciprocal) and multiply. Then simplify.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="x-t0" class="on">× Multiply</button><button id="x-t1">÷ Divide</button></div>
+        <div class="rw"><span class="fin"><input id="x-a" type="number" min="-9999" max="9999" value="2"><i></i><input id="x-b" type="number" min="1" max="9999" value="3"></span><span id="x-op">×</span><span class="fin"><input id="x-c" type="number" min="-9999" max="9999" value="3"><i></i><input id="x-d" type="number" min="1" max="9999" value="4"></span></div>
+        <div id="x-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="x-ctl"></div><ol class="steps" id="x-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Rules</span>
+        <ul><li>(a/b)·(c/d) = ac/bd. Simplify <b>before</b> you multiply: the numbers stay small.</li><li>(a/b) ÷ (c/d) = (a/b)·(d/c)</li><li>Same signs → positive. Different signs → negative.</li><li>You can never divide by 0.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="addsub">
+    <h2>➕ Add &amp; subtract fractions</h2>
+    <p class="sub">Same denominator? Combine the tops. Different denominators? Find the LCD, rewrite both fractions, then combine.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="a-t0" class="on">+ Add</button><button id="a-t1">− Subtract</button></div>
+        <div class="rw"><span class="fin"><input id="a-a" type="number" min="-9999" max="9999" value="1"><i></i><input id="a-b" type="number" min="1" max="9999" value="4"></span><span id="a-op">+</span><span class="fin"><input id="a-c" type="number" min="-9999" max="9999" value="1"><i></i><input id="a-d" type="number" min="1" max="9999" value="6"></span></div>
+        <div id="a-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="a-ctl"></div><ol class="steps" id="a-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag t">Find the LCD</span>
+        <ol class="steps"><li>Factor each denominator into primes.</li><li>Match primes in columns, bring down each column.</li><li>Multiply. That is the LCM of the denominators, which is the LCD.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="mixop">
+    <h2>🧮 Add &amp; subtract mixed numbers</h2>
+    <p class="sub">Write each mixed number as an improper fraction, combine them with a common denominator, then convert back.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="y-t0" class="on">+ Add</button><button id="y-t1">− Subtract</button></div>
+        <div class="rw"><span class="wn"><input id="y-w1" type="number" min="0" max="9999" value="2"></span><span class="fin"><input id="y-n1" type="number" min="0" max="9999" value="3"><i></i><input id="y-d1" type="number" min="1" max="9999" value="4"></span><span id="y-op">+</span><span class="wn"><input id="y-w2" type="number" min="0" max="9999" value="1"></span><span class="fin"><input id="y-n2" type="number" min="0" max="9999" value="1"><i></i><input id="y-d2" type="number" min="1" max="9999" value="2"></span></div>
+        <div id="y-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="y-ctl"></div><ol class="steps" id="y-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag o">Strategy</span>
+        <ol class="steps"><li>Convert to improper fractions.</li><li>Find the LCD and rewrite.</li><li>Add or subtract the numerators.</li><li>Write the answer as a mixed number and simplify.</li></ol>
+        <p>Subtracting a larger number from a smaller one gives a negative answer.</p></div>
+    </div>
+  </section>
+
+  <section id="solve">
+    <h2>⚖️ Solve equations with fractions</h2>
+    <p class="sub">Pick a type, enter the fractions, and step through. Do the same thing to both sides. You can also test your own guess.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="q-t0" class="on">x + a/b = c/d</button><button id="q-t1">x − a/b = c/d</button><button id="q-t2">(a/b)·x = c/d</button><button id="q-t3">(a/b)·x + c/d = e/f</button></div>
+        <div class="rw"><span class="fin"><input id="q-a" type="number" min="-9999" max="9999" value="1"><i></i><input id="q-b" type="number" min="1" max="9999" value="3"></span><span class="fin"><input id="q-c" type="number" min="-9999" max="9999" value="3"><i></i><input id="q-d" type="number" min="1" max="9999" value="4"></span><span class="fin" id="q-ef" hidden><input id="q-e" type="number" min="-9999" max="9999" value="5"><i></i><input id="q-f" type="number" min="1" max="9999" value="6"></span></div>
+        <div id="q-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="q-ctl"></div><ol class="steps" id="q-steps"></ol></div>
+      </div>
+      <div class="card">
+        <h3>Is it a solution?</h3>
+        <label>Try x =</label>
+        <div class="rw"><span class="fin"><input id="q-gn" type="number" value="0"><i></i><input id="q-gd" type="number" min="1" value="1"></span></div>
+        <button id="q-chk">Check</button>
+        <div class="pill" style="background:var(--purple-light)" id="q-gres">Substitute your number and see if the equation is true.</div>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><span class="tag p">Addition / Subtraction Property</span><p>If a = b, then a + c = b + c and a − c = b − c.</p></div>
+      <div class="card"><span class="tag o">Multiplication Property</span><p>If a = b, then ac = bc. Multiply both sides by the same number.</p></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Simplify a fraction</span>
+        <ol class="steps"><li>Factor the top and bottom into primes.</li><li>Remove the common factors.</li><li>Multiply what is left.</li></ol></div>
+      <div class="card"><span class="tag t">Multiply or divide</span>
+        <ol class="steps"><li>Convert mixed numbers to improper fractions.</li><li>Multiply across (flip the second fraction first when dividing).</li><li>Simplify.</li></ol></div>
+      <div class="card"><span class="tag o">Add or subtract</span>
+        <ol class="steps"><li>Find the LCD.</li><li>Convert each fraction to an equivalent fraction with the LCD.</li><li>Add or subtract the numerators.</li><li>Simplify.</li></ol></div>
+      <div class="card"><span class="tag p">Subtract mixed numbers</span>
+        <ol class="steps"><li>Compare the fractions. If the top one is smaller, borrow 1 whole from the top whole number.</li><li>Subtract the fractions, then the whole numbers.</li><li>Or: use improper fractions and convert back.</li></ol></div>
+      <div class="card"><span class="tag t">Complex fractions</span>
+        <ol class="steps"><li>Simplify the top and the bottom.</li><li>Rewrite as a division problem.</li><li>Multiply by the reciprocal and simplify.</li></ol></div>
+      <div class="card"><span class="tag o">Solve a fraction equation</span>
+        <ol class="steps"><li>Undo + with −, − with +.</li><li>For (a/b)x, multiply both sides by the reciprocal b/a.</li><li>Simplify and check.</li></ol></div>
+    </div>
+    <h3 style="margin-top:28px">Summary of fraction operations</h3>
+    <table>
+      <tr><th>Operation</th><th>How</th></tr>
+      <tr><td>Multiply</td><td>multiply the numerators and multiply the denominators</td></tr>
+      <tr><td>Divide</td><td>multiply the first fraction by the reciprocal of the second</td></tr>
+      <tr><td>Add</td><td>add the numerators over a common denominator (use the LCD if they differ)</td></tr>
+      <tr><td>Subtract</td><td>subtract the numerators over a common denominator (use the LCD if they differ)</td></tr>
+    </table>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Algebra</th></tr>
+      <tr><td>the sum of 1/2 and 1/3</td><td>1/2 + 1/3</td></tr>
+      <tr><td>the difference of 3/4 and 1/4</td><td>3/4 − 1/4</td></tr>
+      <tr><td>2/3 of 12</td><td>(2/3) · 12</td></tr>
+      <tr><td>the quotient of 3/5 and 2</td><td>(3/5) ÷ 2</td></tr>
+      <tr><td>the reciprocal of 5/8</td><td>8/5</td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const lcm=(a,b)=>a/gcd(a,b)*b;
+const sg=n=>n<0?'−'+(-n):String(n);
+const pr=n=>n<0?`(${sg(n)})`:String(n);
+const rdI=(id,lo,hi,def)=>{const v=parseInt(String($(id).value).replace('−','-'),10);return isNaN(v)?def:Math.max(lo,Math.min(hi,v))};
+const norm=(n,d)=>{if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return[n/g,d/g]};
+const frH=(top,bot,cls='')=>`<span class="fr ${cls}"><span>${top}</span><span>${bot}</span></span>`;
+const F=(n,d)=>d===1?sg(n):(n<0?'−':'')+frH(Math.abs(n),d);
+const mx=(n,d)=>{const[a,b]=norm(n,d),s=a<0?'−':'',A=Math.abs(a),w=Math.floor(A/b),r=A%b;return r===0?s+w:w===0?s+frH(r,b):s+w+frH(r,b)};
+const pfl=x=>{x=Math.abs(x);const l=[];for(let p=2;p*p<=x;p++)while(x%p===0){l.push(p);x/=p}if(x>1)l.push(x);return l};
+const pfs=x=>pfl(x).join(' · ')||String(x);
+
+/* generic stepper: Reset / Step / Back on the left, progress on the right */
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const probe=getSteps(99),last=probe.steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  inputs.forEach(k=>$(k).addEventListener('input',()=>{st=0;draw()}));
+  return{reset(){st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+
+/* ---------- visualize ---------- */
+let vk=1;
+(()=>{const b=$('v-k');for(let k=1;k<=6;k++){const x=document.createElement('button');x.textContent='× '+k;x.onclick=()=>{vk=k;drawV()};b.appendChild(x)}})();
+function bars(n,d,y,col){
+  const nb=Math.max(1,Math.ceil(n/d)),W=360;let s='';
+  for(let i=0;i<nb;i++){const sh=Math.max(0,Math.min(d,n-i*d)),w=W/d;
+    for(let j=0;j<d;j++)s+=`<rect x="${20+j*w}" y="${y+i*30}" width="${w}" height="24" fill="${j<sh?col:'#fff'}" stroke="#172c3a" stroke-width="1.5"/>`}
+  return[s,nb*30];
+}
+function drawV(){
+  const n=rdI('v-n',0,9999,0),d=rdI('v-d',1,9999,1),k=vk;
+  [...$('v-k').children].forEach((b,i)=>b.className=i+1===k?'on':'');
+  let y=22,s=`<text x="20" y="${y-6}" font-size="13" font-weight="900" fill="#7962cb">${n}/${d}</text>`;
+  let[b1,h1]=bars(n,d,y,'#7962cb');s+=b1;y+=h1+22;
+  s+=`<text x="20" y="${y-6}" font-size="13" font-weight="900" fill="#087f79">${n*k}/${d*k}  (equivalent)</text>`;
+  let[b2,h2]=bars(n*k,d*k,y,'#087f79');s+=b2;y+=h2+34;
+  const W=Math.max(1,Math.ceil(n/d)),X=f=>20+f/W*360,ly=y;
+  s+=`<line x1="20" y1="${ly}" x2="380" y2="${ly}" stroke="#172c3a" stroke-width="3"/>`;
+  for(let j=0;j<=W*d;j++)s+=`<line x1="${X(j/d)}" y1="${ly-(j%d?4:9)}" x2="${X(j/d)}" y2="${ly+(j%d?4:9)}" stroke="#172c3a" stroke-width="${j%d?1.5:3}"/>`;
+  for(let w=0;w<=W;w++)s+=`<text x="${X(w)}" y="${ly+26}" font-size="12" font-weight="800" text-anchor="middle">${w}</text>`;
+  s+=`<circle cx="${X(n/d)}" cy="${ly}" r="8" fill="#f07846"/>`;
+  $('v-svg').setAttribute('viewBox',`0 0 400 ${ly+40}`);$('v-svg').innerHTML=s;
+  const g=gcd(n,d)||1;
+  $('v-type').innerHTML=n===0?'0 parts: the fraction equals 0.':n===d?`<b>${n}/${d}</b> = 1 (Property of One: a/a = 1)`:n<d?`<b>${n}/${d}</b> is a <b>proper</b> fraction (numerator &lt; denominator).`:`<b>${n}/${d}</b> is an <b>improper</b> fraction (numerator ≥ denominator).`;
+  $('v-mixed').innerHTML=n>=d?`As a mixed number: ${mx(n,d)}`:`Less than 1 whole: no whole-number part.`;
+  $('v-simp').innerHTML=n===0?'Simplified: 0':g===1?`Already simplified (no common factor).`:`Simplified: ${F(n,d)} = ${F(n/g,d/g)}  (divide by GCF ${g})`;
+}
+['v-n','v-d'].forEach(k=>$(k).addEventListener('input',drawV));drawV();
+
+/* ---------- simplify ---------- */
+stepper('s',['s-n','s-d'],st=>{
+  const n=rdI('s-n',-9999,9999,0),d=rdI('s-d',1,9999,1),g=gcd(n,d),sgn=n<0?'−':'';
+  const steps=[`Start: ${F(n,d)}`];let res;
+  if(n===0){steps.push('0 divided by any nonzero number is 0.');res='0'}
+  else{
+    const A=pfl(n),B=pfl(d),Am=A.map(()=>false),Bm=B.map(()=>false);
+    A.forEach((a,i)=>{const j=B.findIndex((b,k)=>b===a&&!Bm[k]);if(j>=0){Am[i]=true;Bm[j]=true}});
+    const L=(l,m,c)=>l.length?l.map((p,i)=>m&&m[i]?`<b class="${c}">${p}</b>`:p).join(' · '):'1';
+    steps.push(`Factor into primes: ${sgn}${frH(L(A),L(B))}`);
+    steps.push(g===1?'No common factors, so it is already simplified.':`Cross out the common factors (purple). Together they make the GCF = ${g}. ${sgn}${frH(L(A,Am,'cx'),L(B,Bm,'cx'))}`);
+    res=F(n/g,d/g);
+    steps.push(`Multiply what is left: ${res}`);
+  }
+  return{eq:`${F(n,d)} = ${st>=steps.length-1?res:'?'}`,steps};
+});
+
+/* ---------- improper <-> mixed ---------- */
+let mm=0;
+const mst=stepper('m',['m-w','m-n','m-d'],st=>{
+  const d=rdI('m-d',1,9999,1);let steps,res,start;
+  if(mm===0){
+    const n=rdI('m-n',0,9999,0),q=Math.floor(n/d),r=n%d,g=gcd(r,d)||1;
+    start=F(n,d);steps=[`Start: ${F(n,d)}`];
+    if(n<d){steps.push(`${n} is less than ${d}: this is a proper fraction, so there is no whole number part.`);res=F(n,d)}
+    else{
+      steps.push(`Divide: ${n} ÷ ${d} = <b>${q}</b> remainder <b>${r}</b>. (quotient = whole number, remainder = numerator, divisor = denominator)`);
+      steps.push(r===0?`The remainder is 0, so the answer is the whole number ${q}.`:`Write quotient, remainder, divisor: ${q}${frH(r,d)}`);
+      res=r===0?String(q):`${q}${frH(r,d)}`;
+      if(r&&g>1){steps.push(`Simplify the fraction part: ${F(r,d)} = ${F(r/g,d/g)}. Answer: ${q}${F(r/g,d/g)}`);res=`${q}${F(r/g,d/g)}`}
+    }
+  }else{
+    const w=rdI('m-w',0,9999,0),n=rdI('m-n',0,9999,0),p=w*d,t=p+n;
+    start=`${w}${frH(n,d)}`;steps=[`Start: ${w}${frH(n,d)}`];
+    steps.push(`Multiply the whole number by the denominator: ${w} × ${d} = ${p}`);
+    steps.push(`Add the numerator: ${p} + ${n} = ${t}`);
+    steps.push(`Write the sum over the original denominator: ${frH(t,d)}`);res=frH(t,d);
+  }
+  return{eq:`${start} = ${st>=steps.length-1?res:'?'}`,steps};
+});
+['m-t0','m-t1'].forEach((k,i)=>$(k).onclick=()=>{mm=i;tog(['m-t0','m-t1'],i);$('m-ww').hidden=i===0;mst.reset()});
+
+/* ---------- multiply / divide ---------- */
+let xm=0;
+const xst=stepper('x',['x-a','x-b','x-c','x-d'],st=>{
+  const a=rdI('x-a',-9999,9999,0),b=rdI('x-b',1,9999,1),c=rdI('x-c',-9999,9999,0),d=rdI('x-d',1,9999,1);
+  const op=xm?'÷':'×',start=`${F(a,b)} ${op} ${F(c,d)}`;
+  const steps=[`Start: ${start}`];let res='?';
+  if(xm&&c===0){steps.push('You can never divide by 0.');return{eq:`${start} = undefined`,steps}}
+  let p=a,q=b,r=c,s=d;
+  if(xm){steps.push(`Flip the second fraction (its reciprocal): ${F(c,d)} becomes ${F(c<0?-d:d,Math.abs(c))}`);r=c<0?-d:d;s=Math.abs(c)}
+  steps.push(`Write it as one fraction, listing the numerators together and the denominators together (don’t multiply yet): ${frH(`${pr(p)} · ${pr(r)}`,`${q} · ${s}`)}`);
+  if(p===0||r===0){res='0';steps.push('A numerator of 0 makes the whole product 0.');return{eq:`${start} = ${st>=steps.length-1?res:'?'}`,steps}}
+  const neg=(p<0)!==(r<0),sgn=neg?'−':'';
+  const N=[Math.abs(p),Math.abs(r)],D=[q,s];
+  const show=(o,n)=>o===n?String(n):`<b class="cx">${o}</b> <b>${n}</b>`;
+  for(let pass=1;pass<=4;pass++){
+    const N0=[...N],D0=[...D],notes=[];
+    for(let i=0;i<2;i++)for(let j=0;j<2;j++){const g=gcd(N[i],D[j]);if(g>1){notes.push(`${N[i]} and ${D[j]} are both divisible by <b>${g}</b> (GCF)`);N[i]/=g;D[j]/=g}}
+    const fr2=`${sgn}${frH(`${show(N0[0],N[0])} · ${show(N0[1],N[1])}`,`${show(D0[0],D[0])} · ${show(D0[1],D[1])}`)}`;
+    const lead=pass===1?'Simplify first (cross-cancel): divide a top number and a bottom number by their GCF.':'Repeat: find the GCF of each top number and bottom number again.';
+    if(notes.length)steps.push(`${lead} ${notes.join('; ')}. ${fr2}`);
+    else{steps.push(`${pass===1?'Simplify first: check each top number against each bottom number for a common factor.':lead} The GCF is 1 for every pair, so nothing more cancels. ${fr2}`);break}
+  }
+  const nt=N[0]*N[1],nb=D[0]*D[1];
+  res=F(neg?-nt:nt,nb);
+  steps.push(`Now multiply the numerators and the denominators: ${sgn}${frH(`${N[0]} · ${N[1]}`,`${D[0]} · ${D[1]}`)} = ${res}. It is already simplified.`);
+  return{eq:`${start} = ${st>=steps.length-1?res:'?'}`,steps};
+});
+['x-t0','x-t1'].forEach((k,i)=>$(k).onclick=()=>{xm=i;tog(['x-t0','x-t1'],i);$('x-op').textContent=i?'÷':'×';xst.reset()});
+
+/* ---------- add / subtract ---------- */
+let am=0;
+const ast=stepper('a',['a-a','a-b','a-c','a-d'],st=>{
+  const a=rdI('a-a',-9999,9999,0),b=rdI('a-b',1,9999,1),c=rdI('a-c',-9999,9999,0),d=rdI('a-d',1,9999,1);
+  const op=am?'−':'+',start=`${F(a,b)} ${op} ${F(c,d)}`,steps=[`Start: ${start}`];
+  const L=lcm(b,d),ma=L/b,mc=L/d,na=a*ma,nc=c*mc,num=am?na-nc:na+nc;
+  if(b===d)steps.push(`Same denominator: ${op==='+'?'add':'subtract'} the numerators and keep ${b}. ${frH(`${a} ${op} ${pr(c)}`,b)} = ${F(num,L)}`);
+  else{
+    steps.push(`Find the LCD = LCM(${b}, ${d}) = <b>${L}</b>. (${b} = ${pfs(b)}, ${d} = ${pfs(d)})`);
+    steps.push(`Convert each fraction. ${F(a,b)} = ${frH(`${a} · ${ma}`,`${b} · ${ma}`)} = ${F(na,L)} and ${F(c,d)} = ${frH(`${c} · ${mc}`,`${d} · ${mc}`)} = ${F(nc,L)}`);
+    steps.push(`${op==='+'?'Add':'Subtract'} the numerators: ${frH(`${na} ${op} ${pr(nc)}`,L)} = ${F(num,L)}`);
+  }
+  const[n2,d2]=norm(num,L),res=F(n2,d2);
+  steps.push(n2===num/(1)&&d2===L?`Check for common factors: none. Answer: ${res}`:`Simplify: ${F(num,L)} = ${res}`);
+  return{eq:`${start} = ${st>=steps.length-1?res:'?'}`,steps};
+});
+['a-t0','a-t1'].forEach((k,i)=>$(k).onclick=()=>{am=i;tog(['a-t0','a-t1'],i);$('a-op').textContent=i?'−':'+';ast.reset()});
+
+/* ---------- mixed add / subtract ---------- */
+let ym=0;
+const yst=stepper('y',['y-w1','y-n1','y-d1','y-w2','y-n2','y-d2'],st=>{
+  const w1=rdI('y-w1',0,9999,0),d1=rdI('y-d1',1,9999,1),n1=rdI('y-n1',0,9999,0),w2=rdI('y-w2',0,9999,0),d2=rdI('y-d2',1,9999,1),n2=rdI('y-n2',0,9999,0);
+  const op=ym?'−':'+',M1=`${w1}${frH(n1,d1)}`,M2=`${w2}${frH(n2,d2)}`,start=`${M1} ${op} ${M2}`;
+  const i1=w1*d1+n1,i2=w2*d2+n2,L=lcm(d1,d2),a=i1*(L/d1),b=i2*(L/d2),num=ym?a-b:a+b;
+  const steps=[`Start: ${start}`];
+  steps.push(`Write each as an improper fraction: ${M1} = ${F(i1,d1)} and ${M2} = ${F(i2,d2)}`);
+  if(d1!==d2)steps.push(`LCD = LCM(${d1}, ${d2}) = <b>${L}</b>. ${F(i1,d1)} = ${F(a,L)} and ${F(i2,d2)} = ${F(b,L)}`);
+  steps.push(`${op==='+'?'Add':'Subtract'} the numerators: ${frH(`${a} ${op} ${pr(b)}`,L)} = ${F(num,L)}`);
+  const res=mx(num,L);
+  steps.push(`Write as a mixed number and simplify: ${F(num,L)} = ${res}`);
+  return{eq:`${start} = ${st>=steps.length-1?res:'?'}`,steps};
+});
+['y-t0','y-t1'].forEach((k,i)=>$(k).onclick=()=>{ym=i;tog(['y-t0','y-t1'],i);$('y-op').textContent=i?'−':'+';yst.reset()});
+
+/* ---------- solve equations ---------- */
+let qt=0;
+const qv=()=>{const a=rdI('q-a',-9999,9999,0),b=rdI('q-b',1,9999,1),c=rdI('q-c',-9999,9999,0),d=rdI('q-d',1,9999,1),e=rdI('q-e',-9999,9999,0),f=rdI('q-f',1,9999,1);return{a:qt>=2&&a===0?1:a,b,c,d,e,f}};
+const lhsQ=(a,b,c,d)=>qt===0?`x + ${a<0?'('+F(a,b)+')':F(a,b)}`:qt===1?`x − ${a<0?'('+F(a,b)+')':F(a,b)}`:qt===2?`${a<0?'('+F(a,b)+')':F(a,b)}x`:`${a<0?'('+F(a,b)+')':F(a,b)}x + ${c<0?'('+F(c,d)+')':F(c,d)}`;
+const qst=stepper('q',['q-a','q-b','q-c','q-d'],st=>{
+  const{a,b,c:c0,d:d0,e,f}=qv();let c=c0,d=d0;const head=`${lhsQ(a,b,c0,d0)} = ${F(qt===3?e:c0,qt===3?f:d0)}`,steps=[`Start: ${head}`];
+  let sol;
+  if(qt<2){
+    const L=lcm(b,d),ma=L/b,mc=L/d,s=qt===0?-1:1,num=c*mc+s*a*ma;
+    steps.push(qt===0?`Subtraction Property: subtract ${F(a,b)} from both sides. x = ${F(c,d)} − ${a<0?'('+F(a,b)+')':F(a,b)}`:`Addition Property: add ${F(a,b)} to both sides. x = ${F(c,d)} + ${a<0?'('+F(a,b)+')':F(a,b)}`);
+    steps.push(b===d?`Same denominator: x = ${frH(`${c} ${qt===0?'−':'+'} ${pr(a)}`,b)} = ${F(num,L)}`:`LCD = ${L}: x = ${F(c*mc,L)} ${qt===0?'−':'+'} ${F(a*ma,L)} = ${F(num,L)}`);
+    sol=norm(num,L);steps.push(`Simplify: <b>x = ${F(sol[0],sol[1])}</b>`);
+    steps.push(`Check: ${F(sol[0],sol[1])} ${qt===0?'+':'−'} ${a<0?'('+F(a,b)+')':F(a,b)} = ${F(c,d)} ✓`);
+  }else{
+    if(qt===3){
+      const L=lcm(f,d0),me=L/f,mc=L/d0,num=e*me-c0*mc,cs=c0<0?'('+F(c0,d0)+')':F(c0,d0);
+      steps.push(`Subtraction Property: subtract ${F(c0,d0)} from both sides. ${a<0?'('+F(a,b)+')':F(a,b)}x = ${F(e,f)} − ${cs}`);
+      [c,d]=norm(num,L);
+      steps.push((f===d0?`Same denominator: ${frH(`${e} − ${pr(c0)}`,f)}`:`LCD = ${L}: ${F(e*me,L)} − ${F(c0*mc,L)}`)+` = ${F(num,L)}${c===num&&d===L?'':' = '+F(c,d)}. So ${F(a,b)}x = ${F(c,d)}`);
+    }
+    steps.push(`Multiplication Property: multiply both sides by the reciprocal <span class="rcp">${F(a<0?-b:b,Math.abs(a))}</span><div class="eqline"><span class="rcp">${F(a<0?-b:b,Math.abs(a))}</span> × (${a<0?'('+F(a,b)+')':F(a,b)}x) = <span class="rcp">${F(a<0?-b:b,Math.abs(a))}</span> × (${F(c,d)})</div>`);
+    steps.push(`The left side becomes 1·x. The right side: ${frH(`${pr(a<0?-b:b)} · ${pr(c)}`,`${Math.abs(a)} · ${d}`)} = ${F((a<0?-b:b)*c,Math.abs(a)*d)}`);
+    sol=norm((a<0?-b:b)*c,Math.abs(a)*d);steps.push(`Simplify: <b>x = ${F(sol[0],sol[1])}</b>`);
+    steps.push(qt===3?`Check: ${a<0?'('+F(a,b)+')':F(a,b)} · ${F(sol[0],sol[1])} + ${c0<0?'('+F(c0,d0)+')':F(c0,d0)} = ${F(e,f)} ✓`:`Check: ${a<0?'('+F(a,b)+')':F(a,b)} · ${F(sol[0],sol[1])} = ${F(c,d)} ✓`);
+  }
+  return{eq:head,steps};
+});
+['q-t0','q-t1','q-t2','q-t3'].forEach((k,i)=>$(k).onclick=()=>{qt=i;tog(['q-t0','q-t1','q-t2','q-t3'],i);$('q-ef').hidden=i!==3;$('q-gres').textContent='Substitute your number and see if the equation is true.';qst.reset()});
+$('q-chk').onclick=()=>{
+  const{a,b,c,d,e,f}=qv(),gn=rdI('q-gn',-9999,9999,0),gd=rdI('q-gd',1,9999,1);
+  let n,den;
+  if(qt===0){n=gn*b+a*gd;den=gd*b}else if(qt===1){n=gn*b-a*gd;den=gd*b}else if(qt===2){n=a*gn;den=b*gd}else{n=a*gn*d+c*b*gd;den=b*gd*d}
+  const[ln,ld]=norm(n,den),[rn,rd]=qt===3?norm(e,f):norm(c,d);
+  $('q-gres').innerHTML=`Substitute: left side = ${F(ln,ld)}. Is ${F(ln,ld)} = ${F(rn,rd)}? <b>${ln===rn&&ld===rd?`Yes ✅ x = ${F(...norm(gn,gd))} is a solution.`:`No ❌ x = ${F(...norm(gn,gd))} is not a solution.`}</b>`;
+};
+qst.reset();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['Which fraction is improper?',['3/8','9/4','2/5'],1],
+ ['7/3 as a mixed number:',['2 1/3','3 1/2','2 2/3'],0],
+ ['3 2/5 as an improper fraction:',['17/5','15/5','32/5'],0],
+ ['Simplify 12/18.',['2/3','3/4','6/9'],0],
+ ['(2/3) · (3/4) =',['5/7','1/2','6/7'],1],
+ ['(1/2) ÷ (1/4) =',['1/8','2','1/2'],1],
+ ['What is the LCD of 1/4 and 1/6?',['24','12','10'],1],
+ ['1/4 + 1/6 =',['2/10','5/12','1/10'],1],
+ ['2 3/4 − 1 1/2 =',['1 1/4','1 3/4','1 2/4'],0],
+ ['Solve x + 1/2 = 3/4.',['x = 1/4','x = 5/4','x = 1/2'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

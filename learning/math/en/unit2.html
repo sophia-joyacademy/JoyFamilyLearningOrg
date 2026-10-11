@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 2 — Linear Inequalities and Systems | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .fmr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 10px;margin-top:6px;border:2px solid var(--line);border-radius:14px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .fmr.sel{border-color:var(--purple);background:var(--purple-light)}
+    .fmr .sw{flex:none;width:14px;height:14px;border-radius:50%}
+    .fmr label{display:flex;align-items:center;gap:6px;font-weight:800;min-width:150px;cursor:pointer}
+    .fmr .sm{width:62px} .fmr .sm input{padding:4px 4px;text-align:center;font-weight:600;font-size:.9rem}
+    .fmr.off .ins{opacity:.5}
+    .fmr .pg{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    .rw .pg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+    #wr-in{font-weight:600;font-size:.95rem} #wr-in input{font-weight:600;font-size:.95rem}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit1.html">Unit 1</a><a href="unit3.html">Unit 3</a><a href="#map">Concept map</a><a href="#lab">Lab</a><a href="#vocab">Key terms</a><a href="#gs">Graphing</a><a href="#sw">Story</a><a href="#su">Substitution</a><a href="#el">Elimination</a><a href="#ct">How many?</a><a href="#i1">Inequalities</a><a href="#i2">Two variables</a><a href="#si">Systems of inequalities</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 2</span>
+    <h1><span>Linear Inequalities and Systems</span></h1>
+    <p class="lead">Two clues, one answer. Write and solve systems by graphing, substitution and elimination, decide how many solutions there are, then move on to inequalities in one and two variables and the overlap of two inequalities.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map: systems &amp; inequalities</h2>
+    <p class="sub">The big picture of the unit. Click any box to see what it means, with an example.</p>
+    <div class="card">
+      <svg id="cm" viewBox="0 0 1100 540" style="width:100%;height:auto;display:block" role="img" aria-label="Concept map of systems and inequalities">
+        <defs><marker id="cm-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e2566b"/></marker></defs>
+        <g stroke="#e2566b" stroke-width="2.5" fill="none" marker-end="url(#cm-a)">
+          <path d="M180 260H220V100H258"/><path d="M180 260H220V420H258"/>
+          <path d="M450 100H495V40H538"/><path d="M450 100H495V110H538"/><path d="M450 100H495V180H538"/>
+          <path d="M450 420H495V360H538"/><path d="M450 420H495V430H538"/><path d="M450 420H495V500H538"/>
+          <path d="M760 40H828"/><path d="M760 110H828"/><path d="M760 180H828"/>
+          <path d="M730 360H828"/><path d="M730 430H828"/><path d="M730 500H828"/>
+        </g>
+        <g stroke="#e2566b" stroke-width="2.5" fill="none"><path d="M730 40H760"/><path d="M730 110H760"/><path d="M730 180H760"/><path d="M760 40V180"/></g>
+        <g font-size="15" fill="#172c3a" font-weight="500">
+          <text x="192" y="180">two equations</text><text x="192" y="352">≤ ≥ &lt; &gt;</text>
+          <text x="764" y="76">can give</text>
+          <text x="740" y="352">graphed on</text>
+        </g>
+        <g id="cm-nodes" font-size="17" text-anchor="middle" font-weight="700" fill="#172c3a" style="cursor:pointer">
+          <g data-k="root"><rect x="10" y="200" width="170" height="120" rx="18" fill="#e2566b" stroke="#b83a4f" stroke-width="2.5"/><text x="95" y="252" fill="#fff" font-size="19">Systems &amp;</text><text x="95" y="280" fill="#fff" font-size="19">Inequalities</text></g>
+          <g data-k="se"><rect x="260" y="55" width="190" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="355" y="95">System of</text><text x="355" y="119">linear equations</text></g>
+          <g data-k="ineq"><rect x="260" y="375" width="190" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="355" y="415">Linear</text><text x="355" y="439">inequalities</text></g>
+          <g data-k="graph"><rect x="540" y="10" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="47">Graphing</text></g>
+          <g data-k="sub"><rect x="540" y="80" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="117">Substitution</text></g>
+          <g data-k="elim"><rect x="540" y="150" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="187">Elimination</text></g>
+          <g data-k="one"><rect x="830" y="10" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="47">One solution</text></g>
+          <g data-k="none"><rect x="830" y="80" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="117">No solution</text></g>
+          <g data-k="inf"><rect x="830" y="150" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="187">Infinitely many solutions</text></g>
+          <g data-k="iv1"><rect x="540" y="330" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="367">One variable</text></g>
+          <g data-k="iv2"><rect x="540" y="400" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="437">Two variables</text></g>
+          <g data-k="iv3"><rect x="540" y="470" width="190" height="60" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="635" y="507">Systems of</text></g>
+          <g data-k="r1"><rect x="830" y="330" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="367">Number line</text></g>
+          <g data-k="r2"><rect x="830" y="400" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="437">Shaded half-plane</text></g>
+          <g data-k="r3"><rect x="830" y="470" width="260" height="60" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="960" y="507">Overlap of the shadings</text></g>
+        </g>
+      </svg>
+      <div id="cm-info" class="pill" style="background:var(--purple-light)"></div>
+    </div>
+  </section>
+
+  <section id="lab">
+    <h2>🧪 Systems Lab</h2>
+    <p class="sub">One grid for the whole unit. Switch between <b>equations</b> and <b>inequalities</b>, pick a form for each line, and change any number. Decimals are fine.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="lb-m0" type="button">Equations (lines)</button><button id="lb-m1" type="button">Inequalities (regions)</button></div>
+        <div class="rw"><span style="color:var(--teal)">Line 1</span><select id="lb-f1"></select></div>
+        <div class="rw" id="lb-r1"></div>
+        <div class="rw"><span style="color:var(--orange)">Line 2</span><select id="lb-f2"></select></div>
+        <div class="rw" id="lb-r2"></div>
+        <div class="rw" id="lb-tp"></div>
+        <div><button id="lb-p0" type="button">One solution</button><button id="lb-p1" type="button">Parallel</button><button id="lb-p2" type="button">Same line</button><button id="lb-p3" type="button">Vertical + horizontal</button></div>
+        <div id="lb-out" class="pill" style="background:var(--purple-light);line-height:1.7"></div>
+      </div>
+      <div class="vis"><svg id="lb-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag t">System of equations</span><p>Two or more equations about the same variables, such as x + y = 7 and x − y = 1.</p></div>
+      <div class="card"><span class="tag o">Solution of a system</span><p>An ordered pair (x, y) that makes <b>every</b> equation true. On a graph it is where the lines meet.</p></div>
+      <div class="card"><span class="tag p">Substitution</span><p>Solve one equation for a variable, then replace that variable in the other equation.</p></div>
+      <div class="card"><span class="tag t">Elimination</span><p>Add or subtract the equations (after multiplying if needed) so one variable disappears.</p></div>
+      <div class="card"><span class="tag o">Inequality</span><p>Compares two expressions with &lt;, &gt;, ≤ or ≥. A constraint like “at most $60” is an inequality.</p></div>
+      <div class="card"><span class="tag p">Solution set</span><p>All the values that make an inequality true. In one variable it is a range on the number line.</p></div>
+      <div class="card"><span class="tag t">Boundary line</span><p>The line from the related equation. It is <b>solid</b> for ≤ and ≥ and <b>dashed</b> for &lt; and &gt;.</p></div>
+      <div class="card"><span class="tag o">Solution region</span><p>The shaded half-plane holding every point that makes a two-variable inequality true.</p></div>
+      <div class="card"><span class="tag p">System of inequalities</span><p>Two or more inequalities at once. Its solution is the <b>overlap</b> of their shaded regions.</p></div>
+    </div>
+  </section>
+
+  <section id="gs">
+    <h2>📈 Solve a system by graphing</h2>
+    <p class="sub">Graph both lines. The solution is the point where they cross. Edit the numbers in Ax + By = C for each line. Try parallel lines or the same line too.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="gs-in1"></div>
+        <div class="rw" id="gs-in2"></div>
+        <div id="gs-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="gs-ctl"></div><ol class="steps" id="gs-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="gs-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="sw">
+    <h2>✍️ Write a system from a story</h2>
+    <p class="sub">Name the variables, write one equation for each fact, then solve. Choose a type of story and change the numbers.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="sw-t0" class="on" type="button">Compare two plans</button><button id="sw-t1" type="button">Totals &amp; prices</button></div>
+        <div class="rw" id="sw-in"></div>
+        <div id="sw-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="sw-ctl"></div><ol class="steps" id="sw-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="sw-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="su">
+    <h2>🔁 Substitution</h2>
+    <p class="sub">Isolate a variable in one equation, substitute it into the other, solve, then go back for the second variable. Edit A, B and C in each equation.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="su-in1"></div>
+        <div class="rw" id="su-in2"></div>
+        <div id="su-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="su-ctl"></div><ol class="steps" id="su-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="su-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="el">
+    <h2>➕ Elimination</h2>
+    <p class="sub">Make the coefficients of one variable the same size, then add or subtract the equations. Adding two true equations gives a new true equation with the same solution. Multiplying a whole equation by a number keeps its solution too.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="el-in1"></div>
+        <div class="rw" id="el-in2"></div>
+        <div id="el-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="el-ctl"></div><ol class="steps" id="el-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="el-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="ct">
+    <h2>🔢 How many solutions?</h2>
+    <p class="sub">Compare slopes and y-intercepts of y = mx + b. Different slopes: one solution. Same slope, different intercept: none. Same slope and intercept: infinitely many.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="ct-in1"></div>
+        <div class="rw" id="ct-in2"></div>
+        <div><button id="ct-p0" type="button">Cross</button><button id="ct-p1" type="button">Parallel</button><button id="ct-p2" type="button">Same line</button></div>
+        <div id="ct-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ct-ctl"></div><ol class="steps" id="ct-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="ct-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="i1">
+    <h2>↔️ Inequalities in one variable</h2>
+    <p class="sub">Solve ax + b (compare) c like an equation, but <b>flip the symbol</b> when you multiply or divide by a negative number. Then graph the solution set on a number line. Open circle for &lt; and &gt;; closed circle for ≤ and ≥.</p>
+    <div class="card">
+      <div class="rw" id="i1-in"></div>
+      <div id="i1-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="i1-ctl"></div><ol class="steps" id="i1-steps"></ol></div>
+      <svg id="i1-g" viewBox="0 0 700 110" style="width:100%;max-width:760px;display:block;margin-top:8px"></svg>
+    </div>
+  </section>
+
+  <section id="i2">
+    <h2>🎨 Inequalities in two variables</h2>
+    <p class="sub">Graph the boundary line, decide solid or dashed, test a point, then shade the side that holds the solutions.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="i2-in"></div>
+        <div class="rw" id="i2-tp"></div>
+        <div id="i2-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="i2-ctl"></div><ol class="steps" id="i2-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="i2-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="si">
+    <h2>🎯 Systems of inequalities</h2>
+    <p class="sub">Shade each inequality. The solution is the overlap, where both are true. A point in the overlap satisfies every constraint at once.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="si-p0" type="button">Overlap</button><button id="si-p1" type="button">Budget &amp; time</button><button id="si-p2" type="button">No overlap</button></div>
+        <div class="rw" id="si-in1"></div>
+        <div class="rw" id="si-in2"></div>
+        <div class="rw" id="si-tp"></div>
+        <div id="si-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="si-ctl"></div><ol class="steps" id="si-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="si-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Which method?</span>
+        <table class="lr"><tr><th>Equations look like…</th><th>Use</th></tr>
+        <tr><td>y = 2x + 1 and y = −x + 7</td><td><b>Graphing</b> or substitution</td></tr>
+        <tr><td>A variable is alone (or has coefficient 1)</td><td><b>Substitution</b></td></tr>
+        <tr><td>Both in Ax + By = C, columns line up</td><td><b>Elimination</b></td></tr></table></div>
+      <div class="card"><span class="tag t">How many solutions?</span>
+        <table class="lr"><tr><th>Graph</th><th>Algebra</th><th>Solutions</th></tr>
+        <tr><td>Lines cross</td><td>x = a number</td><td><b>One</b></td></tr>
+        <tr><td>Parallel</td><td>false, like 0 = 5</td><td><b>None</b></td></tr>
+        <tr><td>Same line</td><td>always true, 0 = 0</td><td><b>Infinitely many</b></td></tr></table></div>
+      <div class="card"><span class="tag o">Words to symbols</span>
+        <table class="lr"><tr><th>Words</th><th>Symbol</th></tr>
+        <tr><td>more than · greater than</td><td><b>&gt;</b></td></tr>
+        <tr><td>fewer than · less than</td><td><b>&lt;</b></td></tr>
+        <tr><td>at least · no less than · minimum</td><td><b>≥</b></td></tr>
+        <tr><td>at most · no more than · maximum</td><td><b>≤</b></td></tr></table></div>
+      <div class="card"><span class="tag p">Graph a two-variable inequality</span>
+        <ol class="steps"><li>Graph the boundary line (use the related equation).</li><li>Dashed for &lt; or &gt;. Solid for ≤ or ≥.</li><li>Test a point, such as (0, 0). True? Shade its side. False? Shade the other side.</li><li>For a system, the solution is where the shadings overlap.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=4)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const gv=id=>parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));
+const sgn=n=>n<0?`(${f(n)})`:f(n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const fracS=(n,d)=>{
+  if(!Number.isInteger(n)||!Number.isInteger(d))return f(n/d,3);
+  if(d<0){n=-n;d=-d}
+  const g=gcd(n,d)||1;n/=g;d/=g;
+  return d===1?f(n):(n<0?'−':'')+frH(Math.abs(n),d);
+};
+const ptS=(x,y)=>`(${f(x,2)}, ${f(y,2)})`;
+const lin=(A,B)=>{const t=[];[[A,'x'],[B,'y']].forEach(([c,v])=>{if(c===0)return;const a=Math.abs(c);t.push((c<0?(t.length?' − ':'−'):(t.length?' + ':''))+(a===1?'':f(a))+v)});return t.length?t.join(''):'0'};
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()})}});
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+const row=(id,parts)=>{const one=p=>typeof p==='string'?`<span>${p}</span>`:p.g?`<span class="pg">${p.g.map(one).join('')}</span>`:`<span class="${p[2]||'sm'}"><input id="${p[0]}" type="text" inputmode="decimal" value="${p[1]}"></span>`;$(id).innerHTML=parts.map(one).join('')};
+const allNum=a=>a.every(x=>isFinite(x));
+const tooBig=a=>a.some(x=>Math.abs(x)>30);
+const RANGES=[5,6,8,10,12,15,20,25,30,40,60,90];
+const Rof=vals=>{const m=Math.max(5,Math.ceil(Math.max(...vals.map(Math.abs)))+1);return RANGES.find(r=>r>=m)||m};
+
+/* ---------- coordinate plane ---------- */
+const CL={p:'var(--purple)',t:'var(--teal)',o:'var(--orange)',k:'var(--ink)'};
+const P=(x,y,c,l)=>({t:'pt',x,y,c,l});
+const S=(x1,y1,x2,y2,c,l)=>({t:'seg',x1,y1,x2,y2,c,l});
+const L=(x,y,dx,dy,c)=>({t:'line',x,y,dx,dy,c});
+function plane(id,R,items,quad){
+  const X=x=>200+x*176/R,Y=y=>200-y*176/R;
+  const st=R<=10?1:R<=20?2:R<=40?5:10,n=Math.floor(R/st);
+  let s='<rect x="24" y="24" width="352" height="352" style="fill:#fff;stroke:#d8d4ea"/>';
+  if(quad)[['I',1,1],['II',-1,1],['III',-1,-1],['IV',1,-1]].forEach(([q,a,b])=>s+=`<text x="${X(a*R*.55)}" y="${Y(b*R*.55)+10}" text-anchor="middle" style="font-size:30px;font-weight:800;fill:#e4e0f4">${q}</text>`);
+  for(let i=-n;i<=n;i++){
+    if(i===0)continue;
+    const k=i*st;
+    s+=`<line x1="${X(k)}" y1="24" x2="${X(k)}" y2="376" style="stroke:#ebe8f5"/><line x1="24" y1="${Y(k)}" x2="376" y2="${Y(k)}" style="stroke:#ebe8f5"/>`;
+    s+=`<text x="${X(k)}" y="${Y(0)+14}" text-anchor="middle" style="font-size:10px;fill:#777">${f(k)}</text><text x="${X(0)-5}" y="${Y(k)+3}" text-anchor="end" style="font-size:10px;fill:#777">${f(k)}</text>`;
+  }
+  s+=`<line x1="24" y1="${Y(0)}" x2="376" y2="${Y(0)}" style="stroke:var(--ink);stroke-width:2"/><line x1="${X(0)}" y1="24" x2="${X(0)}" y2="376" style="stroke:var(--ink);stroke-width:2"/>`;
+  s+=`<text x="366" y="${Y(0)-7}" style="font-size:13px;font-weight:800">x</text><text x="${X(0)+8}" y="38" style="font-size:13px;font-weight:800">y</text>`;
+  const arrow=(ex,ey,ux,uy,c)=>{const px=-uy,py=ux;return `<polygon points="${ex},${ey} ${ex-ux*11+px*5},${ey-uy*11+py*5} ${ex-ux*11-px*5},${ey-uy*11-py*5}" style="fill:${c}"/>`};
+  items.filter(it=>it.t==='poly'&&it.pts.length>2).forEach(it=>{s+=`<polygon points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}" style="fill:${CL[it.c]};opacity:${it.o}"/>`});
+  items.forEach(it=>{
+    const c=CL[it.c||'p'];
+    if(it.t==='line'){
+      let lo=-1e9,hi=1e9,ok=true;
+      [[it.x,it.dx],[it.y,it.dy]].forEach(([p,d])=>{
+        if(d===0){if(Math.abs(p)>R)ok=false;return}
+        const a=(-R-p)/d,b=(R-p)/d;lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
+      });
+      if(!ok||lo>=hi)return;
+      const x1=X(it.x+it.dx*lo),y1=Y(it.y+it.dy*lo),x2=X(it.x+it.dx*hi),y2=Y(it.y+it.dy*hi);
+      const len=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/len,uy=(y2-y1)/len;
+      s+=`<line x1="${x1}" y1="${y1}" x2="${x2-ux*8}" y2="${y2-uy*8}" style="stroke:${c};stroke-width:3.5${it.d?';stroke-dasharray:9 6':''}"/>`+arrow(x2,y2,ux,uy,c)+arrow(x1,y1,-ux,-uy,c);
+    }else if(it.t==='seg'){
+      s+=`<line x1="${X(it.x1)}" y1="${Y(it.y1)}" x2="${X(it.x2)}" y2="${Y(it.y2)}" style="stroke:${c};stroke-width:3.5;stroke-dasharray:7 5"/>`;
+      if(it.l)s+=`<text x="${(X(it.x1)+X(it.x2))/2+(it.x1===it.x2?10:0)}" y="${(Y(it.y1)+Y(it.y2))/2+(it.x1===it.x2?4:18)}" text-anchor="${it.x1===it.x2?'start':'middle'}" style="font-size:13px;font-weight:800;fill:${c}">${it.l}</text>`;
+    }else if(it.t==='pt'){
+      const px=X(it.x),py=Y(it.y),r=px>290;
+      s+=`<circle cx="${px}" cy="${py}" r="6.5" style="fill:${c};stroke:#fff;stroke-width:2"/>`;
+      if(it.l)s+=`<text x="${px+(r?-10:10)}" y="${py<50?py+20:py-9}" text-anchor="${r?'end':'start'}" style="font-size:12px;font-weight:800;fill:${c};paint-order:stroke;stroke:#fff;stroke-width:3px">${it.l}</text>`;
+    }
+  });
+  $(id).innerHTML=s;
+}
+
+
+const isInt=x=>Number.isInteger(x);
+const rat=(n,d=1)=>{if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return[n/g,d/g]};
+const radd=(a,b)=>rat(a[0]*b[1]+b[0]*a[1],a[1]*b[1]),rsub=(a,b)=>radd(a,[-b[0],b[1]]),rmul=(a,b)=>rat(a[0]*b[0],a[1]*b[1]),rdiv=(a,b)=>rat(a[0]*b[1],a[1]*b[0]);
+const rv=r=>r[0]/r[1];
+const rs=r=>r[1]===1?f(r[0]):(r[0]<0?'−':'')+frH(Math.abs(r[0]),r[1]);
+const rsg=r=>r[0]<0?`(${rs(r)})`:rs(r);
+const mx=m=>m[0]===0?'':(m[0]===1&&m[1]===1)?'x':(m[0]===-1&&m[1]===1)?'−x':rs(m)+'x';
+const sideS=(m,b)=>{const a=mx(m);if(b[0]===0)return a||'0';return a?a+(b[0]<0?' − ':' + ')+rs(rat(Math.abs(b[0]),b[1])):rs(b)};
+const eqY=(m,b)=>'y = '+sideS(m,b);
+const lcm=(a,b)=>a/gcd(a,b)*b;
+function stdForm(m,b){
+  const L2=lcm(m[1],b[1]);let A=-m[0]*(L2/m[1]),B=L2,C=b[0]*(L2/b[1]);
+  const g=gcd(gcd(A,B),C)||1;A/=g;B/=g;C/=g;
+  if(A<0||(A===0&&B<0)){A=-A;B=-B;C=-C}
+  return{A,B,C,s:`${lin(A,B)} = ${f(C)}`};
+}
+const term=(v,n)=>v===0?n:`${n} ${v<0?'+':'−'} ${f(Math.abs(v))}`;
+const psForm=(x1,y1,m)=>`${term(y1,'y')} = ${m[0]===0?'0':rs(m)}(${term(x1,'x')})`;
+const money=x=>'$'+f(x,2);
+
+/* ---------- concept map ---------- */
+(()=>{const T={
+root:'<b>Systems &amp; inequalities</b>: two big ideas. Equations ask for points that make <em>every</em> equation true. Inequalities ask for a whole range or region of values.',
+se:'<b>System of linear equations</b>: two equations with the same variables, such as x + y = 7 and x − y = 1. The solution is the pair (x, y) that works in both: here (4, 3).',
+ineq:'<b>Linear inequalities</b>: use &lt;, &gt;, ≤ or ≥ instead of =. They describe constraints such as “at most $60”.',
+graph:'<b>Graphing</b>: draw both lines. The point where they cross is the solution. Good for seeing the picture; estimates can be rough.',
+sub:'<b>Substitution</b>: isolate a variable (y = 2x + 1), then replace y in the other equation. Best when a variable is already alone or has coefficient 1.',
+elim:'<b>Elimination</b>: add or subtract the equations so one variable cancels. Multiply first if the coefficients do not match. Best for Ax + By = C form.',
+one:'<b>One solution</b>: the lines have different slopes and cross once. Example: y = 2x + 1 and y = −x + 7 meet at (2, 5).',
+none:'<b>No solution</b>: parallel lines (same slope, different intercepts). Algebra ends with a false statement like 0 = 5.',
+inf:'<b>Infinitely many solutions</b>: both equations give the same line. Algebra ends with a true statement like 0 = 0.',
+iv1:'<b>One variable</b>: solve like an equation, but flip the symbol when you multiply or divide by a negative. Example: −2x &gt; 8 gives x &lt; −4.',
+iv2:'<b>Two variables</b>: the solutions are a whole half-plane. Example: y &gt; 2x − 1 is every point above the dashed line y = 2x − 1.',
+iv3:'<b>System of inequalities</b>: two or more inequalities at the same time. A solution must make all of them true.',
+r1:'<b>Number line</b>: open circle for &lt; or &gt;, closed circle for ≤ or ≥, and an arrow showing which way the solutions go.',
+r2:'<b>Shaded half-plane</b>: dashed boundary for &lt; or &gt;, solid for ≤ or ≥. Test a point such as (0, 0) to choose the side to shade.',
+r3:'<b>Overlap</b>: shade each inequality. The solution region is where the shadings overlap. If they do not overlap there is no solution.'};
+const show=k=>{$('cm-info').innerHTML=T[k];document.querySelectorAll('#cm-nodes g').forEach(g=>g.querySelector('rect').style.strokeWidth=g.dataset.k===k?'5':'2.5')};
+document.querySelectorAll('#cm-nodes g').forEach(g=>g.onclick=()=>show(g.dataset.k));show('root')})();
+
+/* ---------- helpers for this unit ---------- */
+const draw=(id,R,items,st)=>{if(st!==99)plane(id,R,items)};
+const eqS=(A,B,C)=>`${lin(A,B)} = ${f(C)}`;
+const cls=['te','or'];
+const colEq=(i,e)=>`<b class="${cls[i]}">${eqS(e[0],e[1],e[2])}</b>`;
+const lineItem=(e,c,d)=>{const it=e[1]!==0?L(0,e[2]/e[1],e[1],-e[0],c):L(e[2]/e[0],0,0,1,c);if(d)it.d=1;return it};
+const sol2=(e1,e2)=>{
+  const D=e1[0]*e2[1]-e2[0]*e1[1];
+  if(D===0){const same=e1[0]*e2[2]===e2[0]*e1[2]&&e1[1]*e2[2]===e2[1]*e1[2];return{D,type:same?'inf':'none'}}
+  return{D,type:'one',x:rat(e1[2]*e2[1]-e2[2]*e1[1],D),y:rat(e1[0]*e2[2]-e2[0]*e1[2],D)};
+};
+const ptR=(x,y)=>`(${rs(x)}, ${rs(y)})`;
+const chk=(e,x,y)=>{const l=radd(rmul(rat(e[0]),x),rmul(rat(e[1]),y));const ok=l[0]===e[2]*l[1];return `${f(e[0])}·${rsg(x)} ${e[1]<0?'−':'+'} ${f(Math.abs(e[1]))}·${rsg(y)} = ${rs(l)} ${ok?'✔':'✘'}`};
+const eqRow=(id,p,n,vals,pre)=>row(id,[pre,[`${p}-a${n}`,vals[0]],'x +',[`${p}-b${n}`,vals[1]],'y =',[`${p}-c${n}`,vals[2]]]);
+const eqIds=p=>[1,2].flatMap(n=>['a','b','c'].map(k=>`${p}-${k}${n}`));
+const readEqs=p=>eqIds(p).map(gv);
+const checkEqs=v=>{
+  if(!allNum(v)||!v.every(isInt)||tooBig(v))return 'Enter whole numbers between −30 and 30.';
+  if(!(v[0]||v[1])||!(v[3]||v[4]))return 'Each equation needs an x or a y (A and B cannot both be 0).';
+  return null;
+};
+const rangeOf=(E,S)=>{const vals=E.flatMap(e=>[e[0]?e[2]/e[0]:0,e[1]?e[2]/e[1]:0]);if(S&&S.type==='one')vals.push(rv(S.x),rv(S.y));return Rof(vals)};
+const sysItems=(E,S,showPt)=>{const it=[lineItem(E[0],'t'),lineItem(E[1],'o')];if(showPt&&S.type==='one')it.push(P(rv(S.x),rv(S.y),'p',ptS(rv(S.x),rv(S.y))));return it};
+const finOf=S=>S.type==='one'?`(x, y) = ${ptR(S.x,S.y)}`:S.type==='none'?'No solution':'Infinitely many solutions';
+const OPS={lt:'<',gt:'>',le:'≤',ge:'≥'};
+const flipOp={'<':'>','>':'<','≤':'≥','≥':'≤'};
+const SEL=(id,v)=>`<select id="${id}">${Object.entries(OPS).map(([k,s])=>`<option value="${k}"${k===v?' selected':''}>${s.replace('<','&lt;').replace('>','&gt;')}</option>`).join('')}</select>`;
+const holds=(lhs,op,c)=>op==='<'?lhs<c:op==='>'?lhs>c:op==='≤'?lhs<=c:lhs>=c;
+const isIncl=op=>op==='≤'||op==='≥';
+const coefx=a=>a===1?'':a===-1?'−':f(a);
+const eqF=(m,b)=>{let s=m===0?'':coefx(m)+'x';if(b!==0||m===0)s+=s?(b<0?' − ':' + ')+f(Math.abs(b)):f(b);return 'y = '+s};
+const clip=(poly,A,B,C,sg)=>{const val=p=>sg*(A*p[0]+B*p[1]-C);const o=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],va=val(a),vb=val(b);if(va>=0)o.push(a);if((va>=0)!==(vb>=0)){const t=va/(va-vb);o.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])])}}return o};
+const area=p=>{let s=0;for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];s+=a[0]*b[1]-b[0]*a[1]}return Math.abs(s)/2};
+const square=R=>[[-R,-R],[R,-R],[R,R],[-R,R]];
+const sgOf=op=>(op==='>'||op==='≥')?1:-1;
+const ineqS=(A,B,op,C)=>`${lin(A,B)} ${op} ${f(C)}`;
+const sideWord=(A,B,op)=>{const sg=sgOf(op);return B!==0?((B>0)===(sg>0)?'above':'below'):((A>0)===(sg>0)?'to the right of':'to the left of')};
+
+/* ---------- 1. graphing ---------- */
+eqRow('gs-in1','gs',1,[1,1,7],'Line 1:');eqRow('gs-in2','gs',2,[1,-1,1],'Line 2:');
+function gsSteps(st){
+  const v=readEqs('gs'),m=checkEqs(v);
+  if(m){draw('gs-g',5,[],st);return bad(m)}
+  const E=[v.slice(0,3),v.slice(3)],S=sol2(E[0],E[1]),R=rangeOf(E,S);
+  const yform=e=>e[1]===0?`<b>x = ${fracS(e[2],e[0])}</b>, a vertical line`:`<b>${eqY(rat(-e[0],e[1]),rat(e[2],e[1]))}</b>`;
+  const how=e=>e[1]===0?`It crosses the x-axis at (${fracS(e[2],e[0])}, 0) and goes straight up and down.`:`Start at the y-intercept (0, ${fracS(e[2],e[1])}), then use the slope ${rs(rat(-e[0],e[1]))} (rise over run).`;
+  const steps=[
+    `The system: ${colEq(0,E[0])} and ${colEq(1,E[1])}. A <b>solution</b> must make both equations true, so it is a point on both lines.`,
+    `Graph line 1 (teal). Rewrite it: ${yform(E[0])}. ${how(E[0])}`,
+    `Graph line 2 (orange). Rewrite it: ${yform(E[1])}. ${how(E[1])}`];
+  if(E[0][1]&&E[1][1]){
+    const X=[-2,-1,0,1,2,3,4],yv=(e,x)=>rat(e[2]-e[0]*x,e[1]);
+    const row2=(e,i)=>`<tr><th>y${i+1}</th>${X.map(x=>{const a=yv(E[0],x),b=yv(E[1],x),same=a[0]===b[0]&&a[1]===b[1],y=yv(e,x);return `<td>${same?`<b class="pu">${rs(y)}</b>`:rs(y)}</td>`}).join('')}</tr>`;
+    steps.push(`A table of values gives the same picture. Look for an x where both y-values match.<table class="lr"><tr><th>x</th>${X.map(x=>`<td>${f(x)}</td>`).join('')}</tr>${row2(E[0],0)}${row2(E[1],1)}</table>`);
+  }
+  if(S.type==='one')steps.push(`The lines cross at <b>${ptR(S.x,S.y)}</b>. That point is the solution.`,`Check it in both equations. Line 1: ${chk(E[0],S.x,S.y)}. Line 2: ${chk(E[1],S.x,S.y)}. Both true.`);
+  else if(S.type==='none')steps.push(`The lines are <b>parallel</b>: same slope, different intercepts. They never meet, so there is <b>no solution</b>.`);
+  else steps.push(`Both equations give the <b>same line</b>. Every point on it works, so there are <b>infinitely many solutions</b>.`);
+  const it=[];if(st>=1)it.push(lineItem(E[0],'t'));if(st>=2)it.push(lineItem(E[1],'o'));
+  if(S.type==='one'&&st>=steps.length-2)it.push(P(rv(S.x),rv(S.y),'p',ptS(rv(S.x),rv(S.y))));
+  draw('gs-g',R,it,st);
+  return out(st,'Solve the system',finOf(S),steps);
+}
+const gsst=stepper('gs',()=>eqIds('gs'),gsSteps);gsst.reset();
+
+/* ---------- 2. write a system from a story ---------- */
+let swm=0;
+function swBuild(){
+  if(swm===0)row('sw-in',[{g:['Plan A: $',['sw-a1',20],'to start + $',['sw-r1',5],'per visit']},{g:['Plan B: $',['sw-a2',0],'to start + $',['sw-r2',9],'per visit']}]);
+  else row('sw-in',[{g:['Total tickets',['sw-n',20]]},{g:['Total $',['sw-v',210]]},{g:['Adult ticket $',['sw-p',12]]},{g:['Child ticket $',['sw-q',7]]}]);
+  swst.reset();
+}
+function swSteps(st){
+  if(swm===0){
+    const [a1,r1,a2,r2]=['sw-a1','sw-r1','sw-a2','sw-r2'].map(gv);
+    if(!allNum([a1,r1,a2,r2])||[a1,r1,a2,r2].some(x=>x<0||x>500)){draw('sw-g',5,[],st);return bad('Enter numbers from 0 to 500.')}
+    const A=eqF(r1,a1),B=eqF(r2,a2);
+    const steps=[`Name the variables: <b>x</b> = number of visits, <b>y</b> = total cost in dollars.`,
+      `One equation for each plan. Plan A: <b class="te">${A}</b>. Plan B: <b class="or">${B}</b>. Together they are a <b>system</b>.`];
+    let R=8,pts=[],fin;
+    if(Math.abs(r1-r2)<1e-9){
+      if(Math.abs(a1-a2)<1e-9){steps.push('The plans are identical, so the lines coincide: infinitely many solutions.');fin='Same plan'}
+      else{steps.push(`Both plans charge ${money(r1)} per visit, so the lines are parallel. The costs are never equal: <b>no solution</b>. ${a1<a2?'Plan A':'Plan B'} is always cheaper.`);fin='No solution'}
+    }else{
+      const xs=(a2-a1)/(r1-r2),ys=r1*xs+a1;
+      steps.push(`The costs are equal when the y-values match. Substitute: <b>${f(r1)}x + ${f(a1)} = ${f(r2)}x + ${f(a2)}</b>.`,
+        `Solve: (${f(r1)} − ${f(r2)})x = ${f(a2)} − ${f(a1)}, so ${f(r1-r2)}x = ${f(a2-a1)} and <b>x = ${f(xs,3)}</b>.`,
+        `Find y: ${f(r1)}·${f(xs,3)} + ${f(a1)} = <b>${f(ys,2)}</b>. The solution is (${f(xs,3)}, ${f(ys,2)}).`);
+      const lowRate=r1<r2?'Plan A':'Plan B',other=r1<r2?'Plan B':'Plan A';
+      steps.push(xs<0?`x is negative, so the lines cross before 0 visits: that point has no meaning here. ${lowRate} is cheaper for every real number of visits only if its start cost is lower; check the graph.`
+        :`<b>Meaning:</b> after ${f(xs,3)} visits both plans cost ${money(ys)}. With fewer visits ${other} is cheaper; with more visits ${lowRate} is cheaper (it has the lower rate).`);
+      fin=`x = ${f(xs,3)}, y = ${f(ys,2)}`;pts=[P(xs,ys,'p',ptS(xs,ys))];R=Rof([xs,ys,a1,a2,8]);
+    }
+    const it=[L(0,a1,1,r1,'t'),L(0,a2,1,r2,'o')];
+    draw('sw-g',R,st>=steps.length-2?[...it,...pts]:st>=1?it:[],st);
+    return out(st,'Write and solve the system',fin,steps);
+  }
+  const [N,V,p,q]=['sw-n','sw-v','sw-p','sw-q'].map(gv);
+  if(!allNum([N,V,p,q])||[N,V,p,q].some(x=>x<=0||x>500)){draw('sw-g',5,[],st);return bad('Enter positive numbers up to 500.')}
+  const steps=[`Name the variables: <b>x</b> = adult tickets, <b>y</b> = child tickets.`,
+    `Fact 1 (how many): <b class="te">x + y = ${f(N)}</b>. Fact 2 (how much money): <b class="or">${f(p)}x + ${f(q)}y = ${f(V)}</b>.`];
+  let R=8,pts=[],fin;
+  if(Math.abs(p-q)<1e-9){steps.push(Math.abs(V-p*N)<1e-9?'Both ticket prices are equal and the totals agree: infinitely many solutions.':'Both tickets cost the same, so the money cannot match the count: no solution.');fin='—'}
+  else{
+    const xs=(V-q*N)/(p-q),ys=N-xs,ok=xs>=0&&ys>=0&&Math.abs(xs-Math.round(xs))<1e-9;
+    steps.push(`Solve fact 1 for y: <b>y = ${f(N)} − x</b>. Substitute into fact 2: <b>${f(p)}x + ${f(q)}(${f(N)} − x) = ${f(V)}</b>.`,
+      `Distribute: ${f(p)}x + ${f(q*N)} − ${f(q)}x = ${f(V)}. Combine: ${f(p-q)}x = ${f(V-q*N)}, so <b>x = ${f(xs,3)}</b>.`,
+      `Then y = ${f(N)} − ${f(xs,3)} = <b>${f(ys,3)}</b>.`,
+      ok?`<b>Meaning:</b> ${f(xs)} adult and ${f(ys)} child tickets. Check: ${f(p)}·${f(xs)} + ${f(q)}·${f(ys)} = ${f(p*xs+q*ys,2)} ✔.`:`<b>Meaning:</b> the answer must be a whole, non-negative number of tickets, so these numbers do not describe a real purchase. Try other values.`);
+    fin=`x = ${f(xs,3)}, y = ${f(ys,3)}`;pts=[P(xs,ys,'p',ptS(xs,ys))];R=Rof([xs,ys,N,V/q,V/p,8]);
+  }
+  const it=[L(0,N,1,-1,'t'),L(0,V/q,q,-p,'o')];
+  draw('sw-g',R,st>=steps.length-2?[...it,...pts]:st>=1?it:[],st);
+  return out(st,'Write and solve the system',fin,steps);
+}
+const swst=stepper('sw',()=>swm===0?['sw-a1','sw-r1','sw-a2','sw-r2']:['sw-n','sw-v','sw-p','sw-q'],swSteps);
+$('sw-t0').onclick=()=>{swm=0;tog(['sw-t0','sw-t1'],0);swBuild()};
+$('sw-t1').onclick=()=>{swm=1;tog(['sw-t0','sw-t1'],1);swBuild()};
+swBuild();
+
+/* ---------- 3. substitution ---------- */
+eqRow('su-in1','su',1,[-2,1,1],'Equation 1:');eqRow('su-in2','su',2,[3,1,11],'Equation 2:');
+function suSteps(st){
+  const v=readEqs('su'),m=checkEqs(v);
+  if(m){draw('su-g',5,[],st);return bad(m)}
+  const E=[v.slice(0,3),v.slice(3)],S=sol2(E[0],E[1]),R=rangeOf(E,S),N=['x','y'];
+  let pick=null;
+  for(const [i,u] of [[0,0],[0,1],[1,0],[1,1]])if(Math.abs(E[i][u])===1){pick=[i,u];break}
+  const easy=!!pick;
+  if(!pick)for(const [i,u] of [[0,1],[0,0],[1,1],[1,0]])if(E[i][u]!==0){pick=[i,u];break}
+  const [i,u]=pick,w=1-u,j=1-i;
+  const a=E[i][u],b=E[i][w],c=E[i][2],k0=rat(c,a),k1=rat(-b,a);
+  const ex=sideS(k1,k0).replace(/x/g,N[w]);
+  const p=E[j][u],q=E[j][w],r=E[j][2];
+  const K=radd(rmul(rat(p),k1),rat(q)),Rr=rsub(rat(r),rmul(rat(p),k0));
+  const Ks=sideS(K,rat(0)).replace(/x/g,N[w]);
+  const steps=[`The system: ${colEq(0,E[0])} and ${colEq(1,E[1])}.`,
+    `${easy?`In equation ${i+1} the coefficient of ${N[u]} is ${f(a)}, so ${N[u]} is easy to isolate.`:`No coefficient is 1 or −1, so isolate ${N[u]} in equation ${i+1} (fractions are fine).`} Solve it for ${N[u]}: <b>${N[u]} = ${ex}</b>.`];
+  if(p===0){
+    steps.push(`Equation ${j+1} has no ${N[u]}, so it already gives ${N[w]}: <b>${Ks} = ${rs(Rr)}</b>.`);
+  }else{
+    steps.push(`Substitute this expression for ${N[u]} into equation ${j+1}: <b>${f(p)}(${ex}) ${q<0?'−':'+'} ${coefx(Math.abs(q))}${N[w]} = ${f(r)}</b>.`,
+      `Distribute and combine like terms: <b>${Ks==='0'?'0':Ks} = ${rs(Rr)}</b>.`);
+  }
+  let wv=null,uv=null;
+  if(K[0]===0){
+    steps.push(Rr[0]===0?`The variable cancelled and the statement <b>0 = 0</b> is always true: <b>infinitely many solutions</b> (the same line).`:`The variable cancelled and the statement <b>0 = ${rs(Rr)}</b> is false: <b>no solution</b> (parallel lines).`);
+  }else{
+    wv=rdiv(Rr,K);uv=radd(k0,rmul(k1,wv));
+    const xv=u===0?uv:wv,yv=u===0?wv:uv;
+    steps.push(`Solve: ${N[w]} = ${rs(Rr)} ÷ ${rsg(K)} = <b>${rs(wv)}</b>.`,
+      `Go back: ${N[u]} = ${rs(k0)} + ${rsg(k1)}·${rsg(wv)} = <b>${rs(uv)}</b>.`,
+      `Check in both equations. Equation 1: ${chk(E[0],xv,yv)}. Equation 2: ${chk(E[1],xv,yv)}.`);
+  }
+  draw('su-g',R,sysItems(E,S,st>=steps.length-2),st);
+  return out(st,'Solve by substitution',finOf(S),steps);
+}
+const sust=stepper('su',()=>eqIds('su'),suSteps);sust.reset();
+
+/* ---------- 4. elimination ---------- */
+eqRow('el-in1','el',1,[2,3,12],'Equation 1:');eqRow('el-in2','el',2,[3,-1,7],'Equation 2:');
+function elSteps(st){
+  const v=readEqs('el'),m=checkEqs(v);
+  if(m){draw('el-g',5,[],st);return bad(m)}
+  const E=[v.slice(0,3),v.slice(3)],S=sol2(E[0],E[1]),R=rangeOf(E,S),N=['x','y'];
+  const steps=[`The system: ${colEq(0,E[0])} and ${colEq(1,E[1])}.`];
+  let best=null;
+  for(const t of [1,0]){
+    const a1=E[0][t],a2=E[1][t];if(!a1||!a2)continue;
+    const L2=lcm(Math.abs(a1),Math.abs(a2)),m1=L2/Math.abs(a1),m2=L2/Math.abs(a2),cost=(m1!==1)+(m2!==1);
+    if(!best||cost<best.cost||(cost===best.cost&&L2<best.L2))best={t,m1,m2,cost,L2};
+  }
+  if(!best){
+    steps.push(`Neither variable appears in both equations, so there is nothing to eliminate. Each equation can be solved directly for its own variable.`);
+    draw('el-g',R,sysItems(E,S,st>=steps.length-1),st);
+    return out(st,'Eliminate a variable',finOf(S),steps);
+  }
+  const {t,m1,m2}=best,w=1-t,a1=E[0][t],a2=E[1][t];
+  const M=[E[0].map(z=>z*m1),E[1].map(z=>z*m2)];
+  const same=M[0][t]===M[1][t];
+  const why=(m1===1&&m2===1)?`The ${N[t]}-coefficients ${f(a1)} and ${f(a2)} are already ${same?'equal':'opposites'}.`:`The ${N[t]}-coefficients are ${f(a1)} and ${f(a2)}. Make them the same size (${f(Math.abs(M[0][t]))}) by multiplying.`;
+  steps.push(`Choose a variable to <b>eliminate</b>: <b>${N[t]}</b>. ${why}`);
+  if(m1!==1||m2!==1){
+    const parts=[];if(m1!==1)parts.push(`Multiply equation 1 by ${f(m1)}: <b class="te">${eqS(M[0][0],M[0][1],M[0][2])}</b>.`);
+    if(m2!==1)parts.push(`Multiply equation 2 by ${f(m2)}: <b class="or">${eqS(M[1][0],M[1][1],M[1][2])}</b>.`);
+    steps.push(parts.join(' ')+' The new equations have the same solution as the old ones.');
+  }
+  const sg=same?-1:1,cA=[M[0][0]+sg*M[1][0],M[0][1]+sg*M[1][1]],cC=M[0][2]+sg*M[1][2];
+  steps.push(`${same?'Subtract':'Add'} the equations (equation 1 ${same?'−':'+'} equation 2). The ${N[t]} terms cancel: <b>${eqS(cA[0],cA[1],cC)}</b>.`);
+  const xs=S.type==='one'?S.x:null;
+  if(cA[w]===0){
+    steps.push(cC===0?`Everything cancelled and <b>0 = 0</b> is always true: <b>infinitely many solutions</b>.`:`Everything cancelled and <b>0 = ${f(cC)}</b> is false: <b>no solution</b>.`);
+  }else{
+    const wv=rat(cC,cA[w]),tv=rdiv(rsub(rat(E[0][2]),rmul(rat(E[0][w]),wv)),rat(a1));
+    const xv=t===0?tv:wv,yv=t===0?wv:tv;
+    steps.push(`Solve for ${N[w]}: <b>${N[w]} = ${rs(wv)}</b>.`,
+      `Substitute ${N[w]} = ${rs(wv)} into equation 1: ${f(E[0][t])}${N[t]} ${E[0][w]<0?'−':'+'} ${f(Math.abs(E[0][w]))}(${rs(wv)}) = ${f(E[0][2])}, so <b>${N[t]} = ${rs(tv)}</b>.`,
+      `Check in both equations. Equation 1: ${chk(E[0],xv,yv)}. Equation 2: ${chk(E[1],xv,yv)}.`);
+  }
+  draw('el-g',R,sysItems(E,S,st>=steps.length-2),st);
+  return out(st,'Solve by elimination',finOf(S),steps);
+}
+const elst=stepper('el',()=>eqIds('el'),elSteps);elst.reset();
+
+/* ---------- 5. how many solutions ---------- */
+const ctRow=()=>{row('ct-in1',['Line 1: y =',['ct-m1',2],'x +',['ct-b1',1]]);row('ct-in2',['Line 2: y =',['ct-m2',-1],'x +',['ct-b2',7]])};
+ctRow();
+function ctSteps(st){
+  const [m1,b1,m2,b2]=['ct-m1','ct-b1','ct-m2','ct-b2'].map(gv);
+  if(![m1,b1,m2,b2].every(isFinite)||[m1,b1,m2,b2].some(x=>Math.abs(x)>30)){draw('ct-g',5,[],st);return bad('Enter numbers between −30 and 30.')}
+  const eqm=Math.abs(m1-m2)<1e-9,eqb=Math.abs(b1-b2)<1e-9;
+  const type=!eqm?'one':eqb?'inf':'none';
+  const steps=[`Line 1: <b class="te">${eqF(m1,b1)}</b>. Line 2: <b class="or">${eqF(m2,b2)}</b>. Slopes: ${f(m1,3)} and ${f(m2,3)}. Intercepts: ${f(b1,3)} and ${f(b2,3)}.`,
+    eqm?`The slopes are the <b>same</b>, so the lines are parallel or identical.`:`The slopes are <b>different</b>, so the lines must cross exactly once.`];
+  let xs,ys,fin;
+  if(type==='one'){xs=(b2-b1)/(m1-m2);ys=m1*xs+b1;
+    steps.push(`Algebra: set the y-values equal. ${f(m1)}x + ${f(b1)} = ${f(m2)}x + ${f(b2)} gives ${f(m1-m2,3)}x = ${f(b2-b1,3)}, so <b>x = ${f(xs,3)}</b>.`,`Then y = ${f(ys,3)}. <b>One solution</b>: (${f(xs,3)}, ${f(ys,3)}).`);fin=`One solution (${f(xs,2)}, ${f(ys,2)})`}
+  else if(type==='none'){steps.push(`The y-intercepts differ (${f(b1,3)} and ${f(b2,3)}). Algebra: ${f(m1)}x + ${f(b1)} = ${f(m2)}x + ${f(b2)} becomes <b>${f(b1,3)} = ${f(b2,3)}</b>, which is false. <b>No solution</b>.`);fin='No solution'}
+  else{steps.push(`The y-intercepts match too. Algebra: both sides become <b>${f(b1,3)} = ${f(b2,3)}</b>, which is always true. <b>Infinitely many solutions</b>.`);fin='Infinitely many solutions'}
+  const R=Rof([b1,b2,type==='one'?xs:0,type==='one'?ys:0,8]);
+  const it=[L(0,b1,1,m1,'t'),L(0,b2,1,m2,'o')];if(type==='one'&&st>=steps.length-1)it.push(P(xs,ys,'p',ptS(xs,ys)));
+  draw('ct-g',R,st>=1?it:[],st);
+  return out(st,'How many solutions?',fin,steps);
+}
+const ctst=stepper('ct',()=>['ct-m1','ct-b1','ct-m2','ct-b2'],ctSteps);ctst.reset();
+const ctPre=[[2,1,-1,7],[2,1,2,-3],[2,1,2,1]];
+ctPre.forEach((p,k)=>$('ct-p'+k).onclick=()=>{['ct-m1','ct-b1','ct-m2','ct-b2'].forEach((id,j)=>$(id).value=p[j]);tog(['ct-p0','ct-p1','ct-p2'],k);ctst.reset()});
+
+/* ---------- 6. inequalities in one variable ---------- */
+row('i1-in',[['i1-a',-2],'x +',['i1-b',3],SEL('i1-op','gt'),['i1-c',11],'&nbsp; test x =',['i1-t',-5]]);
+function nline(bd,op,t,showAll){
+  const lo=Math.round(bd)-6,X=v=>40+(v-lo)*(620/12);
+  let s='<line x1="20" y1="55" x2="680" y2="55" style="stroke:#172c3a;stroke-width:2"/>';
+  for(let k=0;k<=12;k++){const v=lo+k;s+=`<line x1="${X(v)}" y1="49" x2="${X(v)}" y2="61" style="stroke:#172c3a;stroke-width:1.5"/><text x="${X(v)}" y="82" text-anchor="middle" style="font-size:13px;fill:#555">${f(v)}</text>`}
+  if(bd!==null){
+    const left=op==='<'||op==='≤',x0=X(bd),end=left?20:680,col='#087f79';
+    s+=`<line x1="${x0}" y1="55" x2="${end}" y2="55" style="stroke:${col};stroke-width:6"/>`;
+    s+=`<polygon points="${end},55 ${end+(left?10:-10)},48 ${end+(left?10:-10)},62" style="fill:${col}"/>`;
+    s+=`<circle cx="${x0}" cy="55" r="8" style="fill:${isIncl(op)?col:'#fff'};stroke:${col};stroke-width:3"/>`;
+    s+=`<text x="${x0}" y="32" text-anchor="middle" style="font-size:14px;font-weight:800;fill:${col}">${f(bd,3)}</text>`;
+  }else if(showAll)s+='<line x1="20" y1="55" x2="680" y2="55" style="stroke:#087f79;stroke-width:6"/>';
+  if(t!==null&&t>=lo-.4&&t<=lo+12.4)s+=`<circle cx="${X(t)}" cy="55" r="5" style="fill:${t.ok?'#087f79':'#f07846'};stroke:#fff;stroke-width:2"/><text x="${X(t.v)}" y="102" text-anchor="middle" style="font-size:12px;font-weight:800;fill:#7962cb">test</text>`;
+  $('i1-g').innerHTML=s;
+}
+function i1Steps(st){
+  const [a,b,c,t]=['i1-a','i1-b','i1-c','i1-t'].map(gv),op=OPS[$('i1-op').value];
+  if(![a,b,c].every(isInt)||tooBig([a,b,c])||!isFinite(t)){if(st!==99)nline(0,'<',null);return bad('Enter whole numbers between −30 and 30 (test x can be any number).')}
+  const ex=`${coefx(a)}x${b===0?'':(b<0?' − ':' + ')+f(Math.abs(b))}`;
+  const steps=[`Given: <b>${a===0?'0':ex} ${op} ${f(c)}</b>. Solve it like the equation ${ex} = ${f(c)}, but keep an eye on the symbol.`];
+  let bd=null,op2=op,all=false;
+  if(a===0){
+    const tr=holds(b,op,c);all=tr;
+    steps.push(`There is no x. The statement ${f(b)} ${op} ${f(c)} is <b>${tr?'true':'false'}</b>, so ${tr?'every number is a solution':'there is no solution'}.`);
+  }else{
+    if(b!==0)steps.push(`${b>0?'Subtract':'Add'} ${f(Math.abs(b))} on both sides: <b>${a===1?'':coefx(a)}x ${op} ${f(c-b)}</b>.`);
+    const bdr=rdiv(rat(c-b),rat(a));bd=rv(bdr);op2=a<0?flipOp[op]:op;
+    if(a!==1)steps.push(`Divide both sides by ${f(a)}. ${a<0?`The number is <b>negative, so flip the symbol</b>: ${op} becomes ${op2}.`:'The number is positive, so the symbol stays.'} <b>x ${op2} ${rs(bdr)}</b>.`);
+    steps.push(`<b>Solution set:</b> all numbers x ${op2} ${rs(bdr)}. On the number line: ${isIncl(op2)?'closed circle (the boundary is included)':'open circle (the boundary is not included)'} at ${rs(bdr)} and shade to the ${(op2==='<'||op2==='≤')?'left':'right'}.`);
+  }
+  const lhs=a*t+b,ok=holds(lhs,op,c);
+  steps.push(`Test x = ${f(t,3)}: ${ex.replace(/x/g,`(${f(t,3)})`)} = ${f(lhs,3)}. Is ${f(lhs,3)} ${op} ${f(c)}? <b>${ok?'Yes':'No'}</b>, so ${f(t,3)} ${ok?'is':'is not'} a solution.`);
+  if(st!==99){const tt=new Number(t);tt.ok=ok;tt.v=t;nline(bd,op2,tt,all)}
+  return out(st,'Solve the inequality',a===0?(all?'All real numbers':'No solution'):`x ${op2} ${rs(rdiv(rat(c-b),rat(a)))}`,steps);
+}
+const i1st=stepper('i1',()=>['i1-a','i1-b','i1-c','i1-t','i1-op'],i1Steps);i1st.reset();
+
+/* ---------- 7. inequalities in two variables ---------- */
+row('i2-in',[{g:[['i2-a',2],'x +',['i2-b',1],'y',SEL('i2-op','gt'),['i2-c',4]]}]);
+row('i2-tp',[{g:['Test a point (',['i2-px',3],',',['i2-py',1],')']}]);
+function i2Steps(st){
+  const [A,B,C,px,py]=['i2-a','i2-b','i2-c','i2-px','i2-py'].map(gv),op=OPS[$('i2-op').value];
+  if(![A,B,C].every(isInt)||tooBig([A,B,C])||!isFinite(px)||!isFinite(py)){draw('i2-g',8,[],st);return bad('Enter whole numbers between −30 and 30.')}
+  if(A===0&&B===0){draw('i2-g',8,[],st);return bad('A and B cannot both be 0.')}
+  const R=Rof([A?C/A:0,B?C/B:0,7]),sg=sgOf(op),incl=isIncl(op),e=[A,B,C];
+  const ints=[A?`x-intercept (${fracS(C,A)}, 0)`:'no x-intercept (the line is horizontal)',B?`y-intercept (0, ${fracS(C,B)})`:'no y-intercept (the line is vertical)'].join(' and ');
+  const cand=[[0,0],[1,0],[0,1]].find(p=>A*p[0]+B*p[1]!==C),[tx,ty]=cand,tv=A*tx+B*ty,tok=holds(tv,op,C);
+  const steps=[
+    `Given: <b>${ineqS(A,B,op,C)}</b>.`,
+    `<b>Boundary line:</b> replace the symbol with = to get ${eqS(A,B,C)}. It has ${ints}.`,
+    `The symbol ${op} ${incl?'<b>includes</b> the boundary, so draw a <b>solid</b> line':'<b>does not include</b> the boundary, so draw a <b>dashed</b> line'}.`,
+    `<b>Test a point</b> that is not on the line, (${tx}, ${ty}): ${f(A)}(${tx}) + ${f(B)}(${ty}) = ${f(tv)}. Is ${f(tv)} ${op} ${f(C)}? <b>${tok?'True':'False'}</b>, so shade the side ${tok?'with':'without'} this point.`,
+    `<b>Shade ${sideWord(A,B,op)} the line.</b> Every point in the shaded region is a solution.`];
+  if(B!==0)steps.push(`Solve for y to double-check: <b>y ${B<0?`${flipOp[op]}`:op} ${sideS(rat(-A,B),rat(C,B))}</b>${B<0?' (the symbol flips because we divide by a negative)':''}.`);
+  const su=holds(A*px+B*py,op,C);
+  steps.push(`Your point (${f(px,3)}, ${f(py,3)}): ${f(A)}(${f(px,3)}) + ${f(B)}(${f(py,3)}) = ${f(A*px+B*py,3)}. ${f(A*px+B*py,3)} ${op} ${f(C)} is <b>${su?'true: it is a solution':'false: it is not a solution'}</b>.`);
+  const it=[];
+  if(st>=4)it.push({t:'poly',pts:clip(square(R),A,B,C,sg),c:'t',o:.22});
+  if(st>=1)it.push(lineItem(e,'t',!incl));
+  if(st>=3)it.push(P(tx,ty,tok?'t':'o','test'));
+  if(st>=steps.length-1)it.push(P(px,py,su?'t':'o',su?'solution':'not a solution'));
+  draw('i2-g',R,it,st);
+  return out(st,'Graph the inequality',`${ineqS(A,B,op,C)}: shade ${sideWord(A,B,op)} the ${incl?'solid':'dashed'} line`,steps);
+}
+const i2st=stepper('i2',()=>['i2-a','i2-b','i2-c','i2-op','i2-px','i2-py'],i2Steps);i2st.reset();
+
+/* ---------- 8. systems of inequalities ---------- */
+const siRows=(p)=>{row('si-in1',[{g:['Inequality 1:',['si-a1',p[0]],'x +',['si-b1',p[1]],'y',SEL('si-op1',p[2]),['si-c1',p[3]]]}]);row('si-in2',[{g:['Inequality 2:',['si-a2',p[4]],'x +',['si-b2',p[5]],'y',SEL('si-op2',p[6]),['si-c2',p[7]]]}]);row('si-tp',[{g:['Test a point (',['si-px',2],',',['si-py',1],')']}])};
+const siPre=[[1,1,'le',6,1,-1,'ge',0],[2,3,'le',18,1,1,'ge',4],[1,1,'le',-2,1,1,'ge',3]];
+siRows(siPre[0]);
+const siIds=()=>['si-a1','si-b1','si-c1','si-op1','si-a2','si-b2','si-c2','si-op2','si-px','si-py'];
+function siSteps(st){
+  const [a1,b1,c1,a2,b2,c2,px,py]=['si-a1','si-b1','si-c1','si-a2','si-b2','si-c2','si-px','si-py'].map(gv);
+  const o1=OPS[$('si-op1').value],o2=OPS[$('si-op2').value];
+  const nums=[a1,b1,c1,a2,b2,c2];
+  if(!nums.every(isInt)||tooBig(nums)||!isFinite(px)||!isFinite(py)){draw('si-g',8,[],st);return bad('Enter whole numbers between −30 and 30.')}
+  if(!(a1||b1)||!(a2||b2)){draw('si-g',8,[],st);return bad('Each inequality needs an x or a y.')}
+  const e1=[a1,b1,c1],e2=[a2,b2,c2],R=Rof([...[e1,e2].flatMap(e=>[e[0]?e[2]/e[0]:0,e[1]?e[2]/e[1]:0]),7]);
+  const s1=sgOf(o1),s2=sgOf(o2);
+  const p1=clip(square(R),a1,b1,c1,s1),both=clip(p1,a2,b2,c2,s2),has=area(both)>1e-6;
+  const test=(x,y)=>holds(a1*x+b1*y,o1,c1)&&holds(a2*x+b2*y,o2,c2);
+  let ex=null,best=1e9;
+  for(let x=-R;x<=R;x++)for(let y=-R;y<=R;y++)if(test(x,y)){const d=x*x+y*y;if(d<best){best=d;ex=[x,y]}}
+  const style=(o)=>isIncl(o)?'solid':'dashed';
+  const steps=[`The system: <b class="te">${ineqS(a1,b1,o1,c1)}</b> and <b class="or">${ineqS(a2,b2,o2,c2)}</b>. A solution must make <b>both</b> true.`,
+    `Graph inequality 1 (teal): boundary ${eqS(a1,b1,c1)}, drawn <b>${style(o1)}</b>. Shade ${sideWord(a1,b1,o1)} the line.`,
+    `Graph inequality 2 (orange): boundary ${eqS(a2,b2,c2)}, drawn <b>${style(o2)}</b>. Shade ${sideWord(a2,b2,o2)} the line.`,
+    has?`The <b>overlap</b> (purple) is the solution region.${ex?` One solution is <b>(${ex[0]}, ${ex[1]})</b>: ${ineqS(a1,b1,o1,c1).replace(/x/g,`(${ex[0]})`).replace(/y/g,`(${ex[1]})`)} ✔ and the same for inequality 2.`:' No whole-number point is inside it, but the region is not empty.'}`:`The shadings <b>do not overlap</b>, so the system has <b>no solution</b>.`];
+  const ok=test(px,py),t1=holds(a1*px+b1*py,o1,c1),t2=holds(a2*px+b2*py,o2,c2);
+  steps.push(`Your point (${f(px,3)}, ${f(py,3)}): inequality 1 is ${t1?'true':'false'}, inequality 2 is ${t2?'true':'false'}. ${ok?'<b>Both true: it is a solution.</b>':'<b>Not both true: it is not a solution.</b>'}`);
+  const it=[];
+  if(st>=1)it.push({t:'poly',pts:p1,c:'t',o:.2},lineItem(e1,'t',!isIncl(o1)));
+  if(st>=2)it.push({t:'poly',pts:clip(square(R),a2,b2,c2,s2),c:'o',o:.2},lineItem(e2,'o',!isIncl(o2)));
+  if(st>=3&&has)it.push({t:'poly',pts:both,c:'p',o:.4});
+  if(st>=3&&ex)it.push(P(ex[0],ex[1],'p','example'));
+  if(st>=steps.length-1)it.push(P(px,py,ok?'t':'o',ok?'solution':'not a solution'));
+  draw('si-g',R,it,st);
+  return out(st,'Solve the system of inequalities',has?'The solution is the overlap':'No solution (no overlap)',steps);
+}
+const sist=stepper('si',siIds,siSteps);sist.reset();
+siPre.forEach((p,k)=>$('si-p'+k).onclick=()=>{siRows(p);tog(['si-p0','si-p1','si-p2'],k);sist.reset()});
+$('si-p0').className='on';
+
+/* ---------- systems lab ---------- */
+(()=>{
+const FORMS={
+ si:{n:'Slope-intercept  y = mx + b',d:[2,1],r:(o,v)=>['y',o,v[0]+'x +',v[1]],lab:['m','b']},
+ st:{n:'Standard  Ax + By = C',d:[1,1,7],lab:['A','B','C']},
+ ps:{n:'Point-slope  y − y₁ = m(x − x₁)',d:[2,1,3],lab:['m','x₁','y₁']},
+ h:{n:'Horizontal  y = b',d:[3],lab:['b']},
+ v:{n:'Vertical  x = c',d:[2],lab:['c']},
+ dv:{n:'Direct variation  y = kx',d:[2],lab:['k']}
+};
+const toABC=(k,v)=>k==='si'?[-v[0],1,v[1]]:k==='st'?[v[0],v[1],v[2]]:k==='ps'?[-v[0],1,v[2]-v[0]*v[1]]:k==='h'?[0,1,v[0]]:k==='v'?[1,0,v[0]]:[-v[0],1,0];
+const S=[{k:'si',v:[2,1],o:'ge'},{k:'si',v:[-1,7],o:'le'}];
+let mode=0;
+[1,2].forEach(n=>$('lb-f'+n).innerHTML=Object.entries(FORMS).map(([k,o])=>`<option value="${k}">${o.n}</option>`).join(''));
+const opSel=(n)=>mode?SEL('lb-o'+n,S[n-1].o):'<b>=</b>';
+const build=n=>{
+  const s=S[n-1],id='lb-r'+n,c=i=>['lb-'+n+'v'+i,s.v[i]];
+  const O=opSel(n);let p;
+  if(s.k==='si')p=['y',O,c(0),'x +',c(1)];
+  else if(s.k==='st')p=[c(0),'x +',c(1),'y',O,c(2)];
+  else if(s.k==='ps')p=['y −',c(2),O,c(0),'(x −',c(1),')'];
+  else if(s.k==='h')p=['y',O,c(0)];
+  else if(s.k==='v')p=['x',O,c(0)];
+  else p=['y',O,c(0),'x'];
+  row(id,[{g:p}]);$('lb-f'+n).value=s.k;
+  p.forEach(x=>0);
+  $(id).querySelectorAll('input,select').forEach(e=>e.addEventListener('input',run));
+};
+const sync=()=>[1,2].forEach(n=>{const s=S[n-1];s.v=s.v.map((_,i)=>gv('lb-'+n+'v'+i));if(mode&&$('lb-o'+n))s.o=$('lb-o'+n).value});
+const buildAll=()=>{build(1);build(2);row('lb-tp',[{g:['Test a point (',['lb-px',2],',',['lb-py',3],')']}]);$('lb-tp').querySelectorAll('input').forEach(e=>e.addEventListener('input',run));run()};
+[1,2].forEach(n=>$('lb-f'+n).onchange=()=>{const k=$('lb-f'+n).value;S[n-1]={k,v:FORMS[k].d.slice(),o:S[n-1].o};build(n);run()});
+$('lb-m0').onclick=()=>{sync();mode=0;tog(['lb-m0','lb-m1'],0);buildAll()};
+$('lb-m1').onclick=()=>{sync();mode=1;tog(['lb-m0','lb-m1'],1);buildAll()};
+const PRE=[[['si',[2,1]],['si',[-1,7]]],[['si',[2,1]],['si',[2,-3]]],[['si',[2,1]],['st',[4,-2,-2]]],[['v',[2]],['h',[3]]]];
+PRE.forEach((p,i)=>$('lb-p'+i).onclick=()=>{p.forEach(([k,v],j)=>S[j]={k,v:v.slice(),o:S[j].o});tog(['lb-p0','lb-p1','lb-p2','lb-p3'],i);buildAll()});
+const form=e=>{const[A,B,C]=e;let s=`${lin(A,B)} = ${f(C,3)}`;if(Math.abs(B)>1e-9)s=`${eqF(-A/B,C/B).replace(/(\d\.\d{3})\d+/g,'$1')} &nbsp;·&nbsp; ${s}`;else s='x = '+f(C/A,3)+' &nbsp;·&nbsp; '+s;return s};
+function run(){
+  const v=[1,2].flatMap(n=>FORMS[S[n-1].k].d.map((_,i)=>gv('lb-'+n+'v'+i)));
+  const px=gv('lb-px'),py=gv('lb-py'),out=$('lb-out');
+  const vals=[];[1,2].forEach(n=>FORMS[S[n-1].k].d.forEach((_,i)=>vals.push(gv('lb-'+n+'v'+i))));
+  if(!vals.every(isFinite)||vals.some(x=>Math.abs(x)>60)||!isFinite(px)||!isFinite(py)){out.innerHTML='Enter numbers between −60 and 60.';plane('lb-g',5,[]);return}
+  const E=[1,2].map(n=>toABC(S[n-1].k,FORMS[S[n-1].k].d.map((_,i)=>gv('lb-'+n+'v'+i))));
+  if(E.some(e=>Math.abs(e[0])<1e-9&&Math.abs(e[1])<1e-9)){out.innerHTML='A and B cannot both be 0.';plane('lb-g',5,[]);return}
+  const O=[1,2].map(n=>mode?OPS[$('lb-o'+n).value]:'=');
+  const D=E[0][0]*E[1][1]-E[1][0]*E[0][1];
+  const par=Math.abs(D)<1e-9,same=par&&Math.abs(E[0][0]*E[1][2]-E[1][0]*E[0][2])<1e-9&&Math.abs(E[0][1]*E[1][2]-E[1][1]*E[0][2])<1e-9;
+  const X=par?null:(E[0][2]*E[1][1]-E[1][2]*E[0][1])/D,Y=par?null:(E[0][0]*E[1][2]-E[1][0]*E[0][2])/D;
+  const R=Rof([...E.flatMap(e=>[e[0]?e[2]/e[0]:0,e[1]?e[2]/e[1]:0]),X||0,Y||0,6]);
+  const li=E.map((e,i)=>lineItem(e,['t','o'][i],mode&&!isIncl(O[i])));
+  let items=[],h='';
+  const head=E.map((e,i)=>`<b class="${cls[i]}">Line ${i+1}${mode?` (${O[i]})`:''}:</b> ${form(e)}`).join('<br>');
+  if(!mode){
+    items=[...li];
+    const on=E.map(e=>Math.abs(e[0]*px+e[1]*py-e[2])<1e-9);
+    if(!par)items.push(P(X,Y,'p',ptS(X,Y)));
+    items.push(P(px,py,on[0]&&on[1]?'p':'k','test'));
+    h=head+'<br>'+(par?(same?'<b>Same line: infinitely many solutions.</b>':'<b>Parallel (same slope, different intercepts): no solution.</b>'):`<b>One solution: (${f(X,3)}, ${f(Y,3)})</b>. Different slopes, so the lines cross once.`)+`<br>Test point (${f(px,3)}, ${f(py,3)}): ${on[0]?'on':'not on'} line 1, ${on[1]?'on':'not on'} line 2.`;
+  }else{
+    const s=O.map(sgOf),p1=clip(square(R),E[0][0],E[0][1],E[0][2],s[0]),both=clip(p1,E[1][0],E[1][1],E[1][2],s[1]),has=area(both)>1e-6;
+    items=[{t:'poly',pts:p1,c:'t',o:.2},{t:'poly',pts:clip(square(R),E[1][0],E[1][1],E[1][2],s[1]),c:'o',o:.2},{t:'poly',pts:both,c:'p',o:.4},...li];
+    const t=E.map((e,i)=>holds(e[0]*px+e[1]*py,O[i],e[2]));
+    let ex=null,best=1e9;
+    for(let x=-R;x<=R;x++)for(let y=-R;y<=R;y++)if(holds(E[0][0]*x+E[0][1]*y,O[0],E[0][2])&&holds(E[1][0]*x+E[1][1]*y,O[1],E[1][2])&&x*x+y*y<best){best=x*x+y*y;ex=[x,y]}
+    if(ex)items.push(P(ex[0],ex[1],'p','example'));
+    items.push(P(px,py,t[0]&&t[1]?'t':'o','test'));
+    h=head+'<br>'+E.map((e,i)=>`Boundary ${i+1} is ${isIncl(O[i])?'solid':'dashed'}; shade ${sideWord(e[0],e[1],O[i])} it.`).join(' ')+'<br>'+(has?`<b>Overlap (purple) is the solution region.</b>${ex?` Example: (${ex[0]}, ${ex[1]}).`:''}`:'<b>No overlap: no solution.</b>')+`<br>Test point (${f(px,3)}, ${f(py,3)}): ${t[0]?'true':'false'} for 1, ${t[1]?'true':'false'} for 2 → ${t[0]&&t[1]?'a solution':'not a solution'}.`;
+  }
+  out.innerHTML=h;plane('lb-g',R,items);
+}
+tog(['lb-m0','lb-m1'],0);tog(['lb-p0','lb-p1','lb-p2','lb-p3'],0);buildAll();
+})();
+
+/* ---------- quiz ---------- */
+const qs=[
+['What is the solution of a system of two linear equations?',['The point where the lines cross','Any point on one line','The y-intercept of line 1'],0],
+['y = 2x + 1 and y = 2x − 3. How many solutions?',['One','None','Infinitely many'],1],
+['Which ordered pair solves x + y = 7 and x − y = 1?',['(3, 4)','(4, 3)','(6, 1)'],1],
+['Which method is quickest for y = 3x and 2x + y = 10?',['Substitution','Graphing a table','Guess and check'],0],
+['Add 2x + y = 5 and 3x − y = 5. What do you get?',['5x = 10','5x + 2y = 10','x + 2y = 0'],0],
+['To eliminate x from 2x + y = 7 and x − 3y = 0, you could…',['Multiply equation 2 by 2, then subtract','Add the equations right away','Multiply equation 2 by −2, then subtract'],0],
+['Solving a system ends with 4 = 4. What does that mean?',['One solution','Infinitely many solutions','No solution'],1],
+['Solve −3x > 12.',['x > −4','x < −4','x < 4'],1],
+['On a number line, x ≥ 2 uses…',['An open circle at 2','A closed circle at 2, shaded right','A closed circle at 2, shaded left'],1],
+['The graph of y ≤ 2x + 1 has…',['A solid line, shaded below','A dashed line, shaded below','A solid line, shaded above'],0],
+['Is (1, 1) a solution of 2x + y > 4?',['Yes','No','Only if it is on the line'],1],
+['The solution of a system of inequalities is…',['The overlap of the shaded regions','The boundary lines only','Everything shaded at all'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+
+</script>
+</body>
+</html>

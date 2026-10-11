@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grade 5 Chapter 1 — Whole Numbers and the Four Operations | Joy Family Learning Math Study Guide</title>
+    <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:24px;align-items:start}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-weight:600}
+    .sl{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;margin-top:10px;font-weight:700}
+    .sl output{font-weight:850;color:var(--purple);text-align:right}
+    .katex{font-size:1.05em}
+    .calc{margin-top:10px;display:grid;gap:6px}
+    .calc div{padding:8px 12px;border-radius:12px;background:var(--purple-light);font-weight:500}
+    .calc div.ok{background:var(--teal-light)}
+    .calc div.bad{background:var(--orange-light)}
+    table.tb{border-collapse:collapse;margin-top:12px;font-weight:700;width:100%}
+    table.tb td,table.tb th{padding:6px 10px;text-align:center;border-bottom:1px solid var(--line)}
+    table.tb th{color:var(--purple)}
+    table.tb tr.hit td{background:var(--teal-light)}
+    canvas{width:100%;max-width:460px;aspect-ratio:1/1;background:#fff;border:2px solid var(--line);border-radius:16px;display:block;margin-top:12px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    /* place value chart */
+    .pv{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .period{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
+    .period .pn{font-size:.7rem;font-weight:850;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:4px}
+    .cells{display:flex;gap:4px}
+    .cell{width:38px;text-align:center}
+    .cell .d{display:grid;place-items:center;height:42px;border-radius:10px;background:#fff;border:2px solid var(--line);font-size:1.3rem;font-weight:900}
+    .cell .d.hl{background:var(--purple);color:#fff;border-color:var(--purple)}
+    .cell .d.nx{background:var(--orange-light);border-color:var(--orange)}
+    .cell .l{font-size:.58rem;color:var(--muted);font-weight:800;margin-top:2px;line-height:1.1}
+    .cell button.ar{display:block;width:100%;padding:0;margin:2px 0;border:0;background:var(--purple-light);color:var(--purple);border-radius:6px;font-size:.7rem;line-height:1.5}
+    .cell button.ar:hover{background:var(--purple);color:#fff}
+    .nl{width:100%;height:auto;display:block;background:#fbfdfb;border-radius:14px;border:1px solid var(--line)}
+    .eq{font-size:1.25rem;font-weight:850;margin:8px 0}
+    .eq.t{color:var(--teal);background:none}.eq.o{color:var(--orange);background:none}.eq.p{color:var(--purple);background:none}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=number],select{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:260px}
+    .out{font-weight:850;color:var(--purple)}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:260px}
+    .out{font-weight:850;color:var(--purple)}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="grade5.html">← Grade 5</a><a href="#map">Concept map</a><a href="#place">Place value</a><a href="#round">Rounding</a><a href="#pow">Powers of 10</a><a href="#col">4-digit calculator</a><a href="#est">Estimate</a><a href="#order">Order of operations</a><a href="#mul">× and ÷</a><a href="#bar">Bar model</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Grade 5 · Chapter 1</span>
+    <h1><span>Whole Numbers and the Four Operations</span></h1>
+    <p class="lead">Read and write numbers up to 10,000,000, shift digits with powers of ten, estimate, follow the order of operations, and use bar models to crack multi-step word problems.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map</h2>
+    <p class="sub">How the big ideas of Chapter 1 connect. Click any bubble to see the key idea and an example.</p>
+    <div class="card" style="padding:10px"><svg id="cmap" viewBox="0 0 1000 490" style="width:100%;height:auto;display:block"></svg></div>
+    <div class="card pill" id="lesson-info" style="background:var(--purple-light);color:var(--ink);margin-top:14px">Pick a bubble above 👆</div>
+  </section>
+
+  <section id="vocab">
+    <h2>📖 Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Place value</span><p>A digit's value depends on its place. In 4,305,210 the 3 is worth 300,000.</p></div>
+      <div class="card"><span class="tag t">Period</span><p>Groups of three digits: ones, thousands, millions. Commas separate periods.</p></div>
+      <div class="card"><span class="tag o">Power of ten</span><p>10² = 100, 10³ = 1,000. Multiplying by 10ⁿ adds <i>n</i> zeros to the end.</p></div>
+      <div class="card"><span class="tag p">Estimate</span><p>Round first, then calculate, to check that an answer is reasonable.</p></div>
+      <div class="card"><span class="tag t">Order of operations</span><p>Parentheses, then × and ÷ left to right, then + and − left to right.</p></div>
+      <div class="card"><span class="tag o">Bar model</span><p>A picture of a word problem: bars show parts, totals and differences.</p></div>
+    </div>
+  </section>
+
+  <section id="place">
+    <h2>🔢 Place value explorer</h2>
+    <p class="sub">Type a whole number from 0 to 999,999,999 (millions, thousands, ones), or use ▲ ▼ on any digit. See each digit in its place and how to read it in words.</p>
+    <div class="card">
+      <label for="pv-in">Type a number (0 to 999,999,999), or use ▲ ▼ on any digit</label><input id="pv-in" type="text" inputmode="numeric" value="4,305,210">
+      <button id="pv-zero">Reset to 0</button>
+      <div class="pv" id="pv"></div>
+      <div class="pill" style="background:var(--purple-light)" id="pv-words"></div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><span class="tag t">Name a number</span>
+        <ol class="steps"><li>From the left, name the number in each period, then the period name (not for ones).</li><li>Separate periods with commas.</li></ol></div>
+      <div class="card"><span class="tag o">Write from words</span>
+        <ol class="steps"><li>Spot the period words.</li><li>Draw three blanks per period.</li><li>Fill each period's digits in place.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="round">
+    <h2>🎯 Rounding</h2>
+    <p class="sub">Pick a place, then type a number (up to 999,999) or use ▲ ▼ on the digits. The target digit is purple; the digit to its right (the decider) is orange.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="r-in">Number</label><input id="r-in" type="text" inputmode="numeric" value="4,862,917">
+        <label for="r-pl">Round to the</label>
+        <select id="r-pl"></select>
+        <div class="pv" id="r-pv"></div>
+        <svg id="r-line" viewBox="0 0 440 130" style="width:100%;margin-top:14px"></svg>
+      </div>
+      <div class="card">
+        <div class="eq p" id="r-res"></div>
+        <div class="pill" style="background:var(--orange-light)" id="r-why"></div>
+        <ol class="steps" style="margin-top:14px"><li>Find the given place.</li><li>Look at the digit to its right.</li><li>5 or more → add 1 to the place digit (9 becomes 0 and carries left). Less than 5 → leave it.</li><li>Replace everything to the right with zeros.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="pow">
+    <h2>⚡ Powers of ten</h2>
+    <p class="sub">Multiplying by 10, 100, 1,000 adds zeros to the end; dividing by them takes the same number of zeros off. The exponent tells how many zeros. (Dividing here always starts from a number that ends in enough zeros, so the answer stays whole.)</p>
+    <div class="card">
+      <div id="pw-sl"></div>
+      <div class="rw"><button id="pw-m" class="on">× 10ⁿ</button><button id="pw-d">÷ 10ⁿ</button></div>
+      <div class="calc" id="pw-out"></div>
+    </div>
+  </section>
+
+  <section id="col">
+    <h2>🧾 Four-digit calculator: step by step</h2>
+    <p class="sub">Type two numbers, pick an operation, and press <b>Next step</b> to watch the written method one step at a time.</p>
+    <div class="card">
+      <div class="rw"><button id="co-add" class="on">+ Add</button><button id="co-sub">− Subtract</button><button id="co-mul">× Multiply</button><button id="co-div">÷ Divide</button></div>
+      <div class="rw" style="align-items:center">
+        <input type="number" id="co-a" min="1000" max="9999" value="4827" style="max-width:120px">
+        <b id="co-sym">+</b>
+        <input type="number" id="co-b" min="1000" max="9999" value="2596" style="max-width:120px">
+        <span id="co-hint" style="color:var(--muted);font-size:.85rem"></span>
+        <button id="co-rand">🎲 Random</button>
+      </div>
+      <div class="rw"><button id="co-back">◀ Back</button><button id="co-next">Next step ▶</button><button id="co-reset">↺ Reset</button></div>
+      <div id="co-view"></div>
+      <div class="calc" id="co-out"></div>
+    </div>
+  </section>
+
+  <section id="est">
+    <h2>🎯 Rounding and estimating</h2>
+    <p class="sub">Round both numbers to the chosen place, then compute the estimate and compare with the exact answer.</p>
+    <div class="card">
+      <div id="es-sl"></div>
+      <div class="rw"><button id="es-add" class="on">+</button><button id="es-sub">−</button><button id="es-mul">×</button></div>
+      <div class="calc" id="es-out"></div>
+    </div>
+  </section>
+
+  <section id="order">
+    <h2>🧮 Order of operations</h2>
+    <p class="sub">Pick an expression and press <b>Next step</b> to see which operation goes first and why.</p>
+    <div class="card">
+      <div class="rw" id="od-pre"></div>
+      <div class="rw"><button id="od-next">Next step ▶</button><button id="od-reset">↺ Reset</button></div>
+      <div class="calc" id="od-out"></div>
+    </div>
+  </section>
+
+  <section id="mul">
+    <h2>✖️ Multiplying and dividing big numbers</h2>
+    <p class="sub">Multiply with an area model (partial products) or divide with quotient and remainder, and check with multiplication.</p>
+    <div class="grid2">
+      <div class="card"><h3>Area model</h3>
+        <div id="am-sl"></div>
+        <div id="am-tb"></div>
+        <div class="calc" id="am-out"></div>
+      </div>
+      <div class="card"><h3>Division with remainder</h3>
+        <div id="dv-sl"></div>
+        <div class="calc" id="dv-out"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bar">
+    <h2>📊 Bar models</h2>
+    <p class="sub">"Together two numbers make a total, and one is more than the other." Move the sliders and see how the bar model finds each number: the larger is (total + difference) ÷ 2.</p>
+    <div class="card">
+      <div id="bm-sl"></div>
+      <svg id="bm-svg" viewBox="0 0 600 150" style="width:100%;max-width:640px;display:block;margin-top:12px"></svg>
+      <div class="calc" id="bm-out"></div>
+    </div>
+  </section>
+
+  <section id="err">
+    <h2>🚧 Common traps</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag o">Left to right</span><p><b>24 ÷ 6 × 2 = 8</b>, not 2. × and ÷ share a level; go left to right. Same for + and −.</p></div>
+      <div class="card"><span class="tag o">Zero as placeholder</span><p>905,004 is nine hundred five thousand, four. Keep the zeros in their places.</p></div>
+      <div class="card"><span class="tag o">Zeros when multiplying by 10ⁿ</span><p>35 × 100 = 3,500: add two zeros, not one. And 3,500 ÷ 100 = 35: take two zeros off.</p></div>
+      <div class="card"><span class="tag o">Check the remainder</span><p>The remainder must be less than the divisor. Check: quotient × divisor + remainder = dividend.</p></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Quick quiz</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="grade5.html">Grade 5</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n).toLocaleString('en-US');
+const lines=(host,arr)=>{$(host).innerHTML=arr.map(([t,c])=>'<div class="'+(c||'')+'">'+t+'</div>').join('')};
+function sliders(host,defs,onchange){
+  const h=$(host);h.innerHTML='';
+  defs.forEach(([id,label,min,max,val,step])=>{
+    const d=document.createElement('div');d.className='sl';
+    d.innerHTML='<span>'+label+'</span><input type="range" id="'+id+'" min="'+min+'" max="'+max+'" step="'+(step||1)+'" value="'+val+'"><output id="'+id+'o"></output>';
+    h.appendChild(d)});
+  const run=()=>{defs.forEach(([id])=>{$(id+'o').textContent=fmt($(id).value)});onchange()};
+  h.querySelectorAll('input').forEach(i=>i.oninput=run);run();return run}
+const val=id=>+$(id).value;
+
+/* words */
+const ones=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const tens=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function w3(n){let s='';if(n>=100){s+=ones[Math.floor(n/100)]+' hundred';n%=100;if(n)s+=' '}
+  if(n>=20){s+=tens[Math.floor(n/10)];if(n%10)s+='-'+ones[n%10]}else if(n>0||s==='')s+=n===0&&s!==''?'':ones[n];return s}
+function words(n){if(n===0)return'zero';const P=[[1e9,'billion'],[1e6,'million'],[1e3,'thousand'],[1,'']];let s=[];
+  P.forEach(([v,nm])=>{const k=Math.floor(n/v);n%=v;if(k)s.push(w3(k)+(nm?' '+nm:''))});return s.join(' ')}
+
+/* concept map (follows the Chapter Wrap-Up page) */
+(function(){
+const NS='http://www.w3.org/2000/svg',svg=$('cmap');
+const col={c:['#7962cb','#f0edff'],t:['#087f79','#e3f5f0'],o:['#f07846','#fff0e6'],b:['#3b82c4','#e6f1fb'],y:['#d99a00','#fff6d6']};
+const N=[
+['fn','WHOLE NUMBERS AND\nTHE FOUR OPERATIONS',500,55,'c',"<b>Whole numbers and the four operations.</b> We use 7-digit numbers for populations, distances and money, and the four operations help us solve everyday problems."],
+['nu','Numbers to\n10,000,000',110,195,'o',"<b>Numbers to 10,000,000</b><br>Standard form: 3,569,214<br>Word form: three million, five hundred sixty-nine thousand, two hundred fourteen<br>Expanded form: 3,000,000 + 500,000 + 60,000 + 9,000 + 200 + 10 + 4"],
+['mu','Multiplying by tens,\nhundreds, thousands',310,195,'t',"<b>Multiplying by tens, hundreds, thousands and powers of 10</b><br>Use a pattern: 1,234 × 20 = 24,680; 1,234 × 200 = 246,800; 1,234 × 2,000 = 2,468,000. Count the zeros and put them on the end."],
+['di','Dividing by tens,\nhundreds, thousands',510,195,'b',"<b>Dividing by tens, hundreds and thousands</b><br>Use a pattern: 56,000 ÷ 80 = 700; 56,000 ÷ 800 = 70; 56,000 ÷ 8,000 = 7. Take the zeros off both numbers."],
+['oo','Order of\nOperations',710,195,'c',"<b>Order of operations</b><br>Step 1: Carry out operations within parentheses.<br>Step 2: Multiply and/or divide from left to right.<br>Step 3: Add and/or subtract from left to right."],
+['md','Multiplying and dividing\nby 2-digit numbers',900,195,'y',"<b>Multiplying and dividing by 2-digit numbers</b><br>Use strategies to multiply or divide a 2-digit, 3-digit or 4-digit number by a 2-digit number.<br>5,362 × 76 = 32,172 + 375,340 = 407,512<br>5,213 ÷ 15 = 347 R 8"],
+['pv','Place value\nmillions, thousands, ones',110,325,'t',"<b>Place value</b><br>A digit's value depends on its place. In 4,305,210 the 3 is worth 300,000. Digits are grouped in periods: ones, thousands, millions."],
+['es','Rounding and\nestimating',110,445,'t',"<b>Rounding and estimating</b><br>Round each number first, then calculate to check that an answer is reasonable. 38,642 + 21,479 ≈ 39,000 + 21,000 = 60,000."],
+['pw','Powers of ten\n10², 10³, ×10ⁿ, ÷10ⁿ',410,345,'o',"<b>Powers of ten</b><br>10² = 100 and 10³ = 1,000. × 10ⁿ adds n zeros; ÷ 10ⁿ takes n zeros off."],
+['bm','Bar models and\nword problems',900,345,'t',"<b>Bar models and word problems</b><br>Draw bars for parts, total and difference, then use the four operations. Total 120, one part is 30 more: larger = (120 + 30) ÷ 2 = 75, smaller = 45."]
+];
+const E=[['fn','nu'],['fn','mu'],['fn','di'],['fn','oo'],['oo','md'],['mu','md'],['di','md'],['nu','pv'],['pv','es'],['mu','pw'],['di','pw'],['md','bm']];
+const P={};N.forEach(n=>P[n[0]]=n);
+const mk=(p,t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+E.forEach(([a,b])=>{const p=P[a],q=P[b];mk(svg,'line',{x1:p[2],y1:p[3],x2:q[2],y2:q[3],stroke:'#b9c6c0','stroke-width':2.5})});
+const nodes={};
+N.forEach(n=>{const [id,txt,x,y,c,info]=n,big=id==='fn',w=big?300:172,h=big?80:66;
+  const g=mk(svg,'g',{style:'cursor:pointer',tabindex:0});
+  const r=mk(g,'rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:big?26:18,fill:big?col[c][0]:col[c][1],stroke:col[c][0],'stroke-width':big?0:2.5});
+  const ln=txt.split('\n'),y0=y-(ln.length-1)*8;
+  ln.forEach((l,i)=>{const t=mk(g,'text',{x,y:y0+i*16+4,'text-anchor':'middle','font-size':big?14:(id==='pw'&&i===1?11:13),'font-weight':(big||id!=='pw'||i===0)?800:600,fill:big?'#fff':'#172c3a'});t.textContent=l});
+  g.onclick=()=>{Object.values(nodes).forEach(q=>q.setAttribute('stroke-width',2.5));r.setAttribute('stroke-width',5);$('lesson-info').innerHTML=info};
+  nodes[id]=r});
+})();
+
+/* place value */
+const PLACES=['ones','tens','hundreds','thousands','ten thousands','hundred thousands','millions','ten millions','hundred millions'];
+const PER=['','thousand','million'];
+const fmtS=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const cleanNum=v=>{v=String(v).replace(/\D/g,'').replace(/^0+(?=\d)/,'');return v.slice(0,8)||'0'};
+const clampN=v=>{const s=cleanNum(v);return +s>10000000?'10000000':s};
+function renderPV(box,str,hi,nx){
+  box.innerHTML='';const g=[];for(let i=str.length;i>0;i-=3)g.unshift({s:str.slice(Math.max(0,i-3),i),end:i});
+  g.forEach((gr,gi)=>{const p=document.createElement('div');p.className='period';
+    p.innerHTML='<div class="pn">'+(PER[g.length-1-gi]||'ones')+'</div><div class="cells"></div>';
+    [...gr.s].forEach((d,k)=>{const idx=str.length-1-(gr.end-gr.s.length+k);
+      const c=document.createElement('div');c.className='cell';
+      c.innerHTML='<div class="d'+(idx===hi?' hl':'')+(idx===nx?' nx':'')+'">'+d+'</div><div class="l">'+PLACES[idx]+'</div>';
+      p.querySelector('.cells').appendChild(c)});
+    box.appendChild(p)})}
+let pvDigits=[...'004305210'];
+function setPV(s){pvDigits=[...String(s).padStart(9,'0').slice(-9)];drawPV()}
+function drawPV(){
+  const box=$('pv');box.innerHTML='';
+  [['millions',3],['thousands',3],['ones',3]].forEach(([name,n],pi)=>{
+    const p=document.createElement('div');p.className='period';
+    p.innerHTML='<div class="pn">'+name+'</div><div class="cells"></div>';
+    const start=pi*3;
+    for(let k=0;k<n;k++){
+      const pos=start+k,idx=8-pos;
+      const c=document.createElement('div');c.className='cell';
+      c.innerHTML='<button class="ar" aria-label="up">▲</button><div class="d">'+pvDigits[pos]+'</div><button class="ar" aria-label="down">▼</button><div class="l">'+PLACES[idx]+'</div>';
+      const [up,dn]=c.querySelectorAll('button');
+      up.onclick=()=>{pvDigits[pos]=String((+pvDigits[pos]+1)%10);drawPV()};
+      dn.onclick=()=>{pvDigits[pos]=String((+pvDigits[pos]+9)%10);drawPV()};
+      p.querySelector('.cells').appendChild(c)}
+    box.appendChild(p)});
+  const s=pvDigits.join('').replace(/^0+(?=\d)/,'');
+  $('pv-words').textContent=fmtS(s)+' = '+words(+s);$('pv-in').value=fmtS(s)}
+$('pv-in').addEventListener('input',()=>{const d=$('pv-in').value.replace(/\D/g,'').slice(0,9);setPV(d||'0')});
+$('pv-zero').onclick=()=>setPV(0);
+drawPV();
+
+/* rounding */
+const rp=$('r-pl');PLACES.slice(1,6).forEach((p,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=p+' place';if(i===2)o.selected=true;rp.appendChild(o)});
+$('r-in').addEventListener('input',()=>{$('r-in').value=fmtS(cleanNum($('r-in').value).slice(0,6))});
+function drawR(){
+  let s=cleanNum($('r-in').value).slice(0,6);const k=+rp.value;
+  const pad=s.padStart(6,'0');
+  renderPV($('r-pv'),pad,k,k-1);
+  [...$('r-pv').querySelectorAll('.cell')].forEach((c,ci)=>{
+    const idx=pad.length-1-ci;if(idx>5)return;
+    const d=c.querySelector('.d');
+    const mk=(t,delta)=>{const b=document.createElement('button');b.className='ar';b.textContent=t;
+      b.onclick=()=>{const a=[...pad];const pos=pad.length-1-idx;a[pos]=String((+a[pos]+delta+10)%10);
+        $('r-in').value=fmtS(a.join('').replace(/^0+(?=\d)/,''));drawR()};return b};
+    c.insertBefore(mk('▲',1),d);d.after(mk('▼',-1))});
+  s=pad.replace(/^0+(?=\d)/,'');
+  const n=BigInt(s),m=10n**BigInt(k),half=m/2n;
+  const rem=n%m,down=n-rem,res=rem>=half?down+m:down;
+  const dec=pad[pad.length-k];
+  const fr=Number(rem)/Number(m),X=f=>40+f*360,Y=70,up=rem>=half;
+  const mid=down+half,hi=down+m,exact=rem===0n;
+  let g='<rect x="'+(up?X(.5):X(0))+'" y="'+(Y-14)+'" width="180" height="28" rx="8" fill="'+(up?'#e3f5f0':'#f0edff')+'"/>';
+  g+='<line x1="30" y1="'+Y+'" x2="410" y2="'+Y+'" stroke="#172c3a" stroke-width="3"/>';
+  [[0,down,'#7962cb'],[.5,mid,'#f07846'],[1,hi,'#7962cb']].forEach(([f,v,c])=>{
+    g+='<line x1="'+X(f)+'" y1="'+(Y-12)+'" x2="'+X(f)+'" y2="'+(Y+12)+'" stroke="'+c+'" stroke-width="3"/><text x="'+X(f)+'" y="'+(Y+32)+'" font-size="12" font-weight="900" text-anchor="middle" fill="'+c+'">'+fmtS(v.toString())+'</text>'});
+  g+='<text x="'+X(.5)+'" y="'+(Y+48)+'" font-size="10" font-weight="800" text-anchor="middle" fill="#f07846">halfway</text>';
+  g+='<circle cx="'+X(fr)+'" cy="'+Y+'" r="9" fill="#172c3a"/><text x="'+Math.min(Math.max(X(fr),60),380)+'" y="'+(Y-22)+'" font-size="12" font-weight="900" text-anchor="middle" fill="#172c3a">'+fmtS(s)+'</text>';
+  g+='<text x="220" y="14" font-size="11" font-weight="800" text-anchor="middle" fill="#637681">'+(exact?'Already a multiple: no rounding needed':(up?'Closer to '+fmtS(hi.toString())+' (at or past halfway): round up':'Closer to '+fmtS(down.toString())+': round down'))+'</text>';
+  $('r-line').innerHTML=g;
+  $('r-res').textContent=fmtS(s)+' ≈ '+fmtS(res.toString());
+  $('r-why').textContent='Decider digit: '+dec+' → '+(+dec>=5?'5 or more, so round up':'less than 5, so round down (keep)')+'.'}
+rp.onchange=drawR;drawR();
+
+/* powers of ten */
+let pm=true;
+const sup='⁰¹²³⁴⁵⁶';
+function pwUpdate(){
+  const a=val('pa'),e=val('pe'),z0=+$('pz').value,p=Math.pow(10,e);
+  const zs=n=>'0'.repeat(n),plural=n=>n+' zero'+(n===1?'':'s');
+  const num=(d,keep,mark)=>'<span style="font-size:1.5rem;letter-spacing:2px;font-weight:900">'+d+zs(keep)+'<span style="color:var(--orange)">'+zs(mark)+'</span></span>';
+  const start=Number(a+zs(z0));
+  const out=[['10'+sup[e]+' = '+fmt(p)+' (a 1 followed by '+plural(e)+')']];
+  if(pm){
+    out.unshift(['<b>'+fmt(start)+' × 10'+sup[e]+' = '+fmt(start*p)+'</b>','ok']);
+    out.push(['Start with '+fmt(start)+' and put '+plural(e)+' on the end: '+num(a,z0,e)]);
+  }else if(z0<e){
+    out.unshift(['<b>'+fmt(start)+' ÷ 10'+sup[e]+'</b>','bad']);
+    out.push(['The number needs at least '+plural(e)+' on the end to take them off. Add more zeros to the end of the starting digits.','bad']);
+  }else{
+    out.unshift(['<b>'+fmt(start)+' ÷ 10'+sup[e]+' = '+fmt(start/p)+'</b>','ok']);
+    out.push(['Take '+plural(e)+' off the end of '+num(a,z0-e,e)+' and you get '+num(a,z0-e,0)]);
+  }
+  lines('pw-out',out)}
+sliders('pw-sl',[['pa','Start digits',1,999,45,1],['pe','Exponent n',0,6,3,1]],()=>{});
+(()=>{const row=$('pa').parentNode;row.style.gridTemplateColumns='110px 1fr 52px auto';
+  row.insertAdjacentHTML('beforeend','<label style="margin:0;white-space:nowrap;font-weight:700">+ <select id="pz" style="width:auto;padding:4px 8px">'+[0,1,2,3,4,5,6].map(i=>'<option value="'+i+'"'+(i===3?' selected':'')+'>'+i+'</option>').join('')+'</select> zeros at the end</label>');
+  $('pz').onchange=pwUpdate;
+  document.querySelectorAll('#pw-sl input').forEach(i=>i.addEventListener('input',pwUpdate));pwUpdate()})();
+$('pw-m').onclick=()=>{pm=true;$('pw-m').classList.add('on');$('pw-d').classList.remove('on');pwUpdate()};
+$('pw-d').onclick=()=>{pm=false;$('pw-d').classList.add('on');$('pw-m').classList.remove('on');pwUpdate()};
+
+/* four-digit calculator */
+let cop='+',cst=0,csteps=[];
+const PL=['ones','tens','hundreds','thousands'];
+const colOf=p=>p+(p>=3?1:0);
+const pre=(rows,note)=>'<pre style="font-size:1.5rem;font-weight:800;letter-spacing:.25em;line-height:1.35;margin:12px 0 0;color:var(--ink)">'+rows.join('\n')+'</pre>';
+const rj=(s,w)=>String(s).padStart(w,' ');
+function colBuild(){
+  const a=val('co-a'),b=val('co-b');
+  const A=String(a).split('').reverse().map(Number);
+  const st=[];
+  if(cop==='+'||cop==='-'){
+    const B=String(b).split('').reverse().map(Number),W=7,res=[],mk=[];let c=0;
+    const rows=k=>{
+      const top=Array(W).fill(' '),r=Array(W).fill(' ');
+      mk.forEach((m,p)=>{if(m&&p>=1&&p<=3&&p-1<=k)top[W-1-colOf(p)]=m});
+      res.forEach((d,p)=>{r[W-1-colOf(p)]=d});
+      if(res[3]!==undefined||res[4]!==undefined)r[W-1-3]=',';
+      return [top.join(''),rj(fmt(a),W),cop.replace('-','−')+rj(fmt(b),W-1),'─'.repeat(W),r.join('')]};
+    st.push({t:'Line up the digits by place value. Start at the ones place and work left.',v:rows(-1)});
+    for(let i=0;i<4;i++){
+      let txt;
+      if(cop==='+'){const s=A[i]+B[i]+c;txt=PL[i]+': '+A[i]+' + '+B[i]+(c?' + '+c+' (carried)':'')+' = '+s+(s>=10?' → write '+(s%10)+', carry 1 to the '+(PL[i+1]||'ten thousands'):' → write '+s);
+        res[i]=s%10;c=s>=10?1:0;mk[i+1]=c?'1':'';if(i===3&&c){res[4]=1;txt+='. Nothing is left to add, so write the 1.'}}
+      else{let x=A[i]-c,pre1=c;txt=PL[i]+': '+A[i]+(c?' − 1 (lent) = '+x:'')+', then '+x+' − '+B[i];
+        if(x<B[i]){x+=10;c=1;txt=PL[i]+': '+(A[i]-pre1)+(pre1?' (after lending 1)':'')+' is too small for '+B[i]+'. Regroup: borrow 1 from the '+PL[i+1]+' (add 10), giving '+x+' − '+B[i]+' = '+(x-B[i])}
+        else{c=0;txt+=' = '+(x-B[i])}
+        res[i]=x-B[i];mk[i+1]=c?'1':''}
+      st.push({t:txt,v:rows(i)})}
+    const ans=cop==='+'?a+b:a-b;
+    st.push({t:'<b>'+fmt(a)+' '+cop.replace('-','−')+' '+fmt(b)+' = '+fmt(ans)+'</b>. Check: '+(cop==='+'?fmt(ans)+' − '+fmt(b)+' = '+fmt(a):fmt(ans)+' + '+fmt(b)+' = '+fmt(a)),v:rows(4),ok:1});
+  }else if(cop==='×'){
+    const B=String(b).split('').reverse().map(Number),W=10,parts=[];
+    const rows=(done)=>{const r=['',rj(fmt(a),W),'×'+rj(b,W-1),'─'.repeat(W)];
+      parts.slice(0,done).forEach((p,i)=>r.push((i?'+':' ')+rj(fmt(p),W-1)));
+      return r};
+    st.push({t:'Multiply '+fmt(a)+' by each digit of '+b+', starting with the ones digit.',v:rows(0)});
+    const ps=[];
+    B.forEach((d,i)=>{const p=a*d*Math.pow(10,i);ps.push(p);parts.push(p);
+      st.push({t:'Digit in the '+PL[i]+' place is '+d+': '+fmt(a)+' × '+fmt(d*Math.pow(10,i))+' = '+fmt(p),v:rows(parts.length)})});
+    const tot=a*b;
+    st.push({t:'Add the partial products: '+ps.map(fmt).join(' + ')+' = <b>'+fmt(tot)+'</b>',v:[...rows(parts.length),'─'.repeat(W),rj(fmt(tot),W)],ok:1});
+  }else{
+    const D=String(a).split('').map(Number),L=String(b).length+1,W=L+5;let rem=0,qa=[' ',' ',' ',' '],body=[],has=false;
+    const PN=['ones','tens','hundreds','thousands'];
+    const U=(n,k)=>fmt(n)+' '+(n===1?PN[k].replace(/s$/,'').replace('one','one'):PN[k]);
+    const at=(t,k,line)=>{const r=Array(W).fill(' '),n=t.length;
+      for(let j=0;j<n;j++)r[W-1-colOf(k+n-1-j)]=line?'─':t[j];
+      if(line)for(let c=W-1-colOf(k+n-1);c<=W-1-colOf(k);c++)r[c]='─';
+      return r.join('')};
+    const view=R=>{const q=Array(W).fill(' ');qa.forEach((c,i)=>{q[W-1-colOf(3-i)]=c});if(qa[0]!==' ')q[W-4]=',';
+      return [q.join('')+(R?' R '+fmt(R):''),' '.repeat(L)+'─────',b+')'+fmt(a),...body]};
+    st.push({t:'Set up long division: the dividend '+fmt(a)+' goes under the bar and the divisor '+b+' goes outside. Divide the thousands first, then the hundreds, then the tens, then the ones.',v:view()});
+    D.forEach((d,i)=>{const k=3-i,cur=rem*10+d;
+      if(!has&&cur<b){rem=cur;
+        st.push({t:'Start with '+U(cur,k)+'. '+fmt(cur)+' is less than '+b+', so it cannot be divided yet. Look at the next place.',v:view()});return}
+      const qd=Math.floor(cur/b),pr=qd*b,nr=cur-pr,w=Math.max(String(cur).length,String(pr).length);
+      let why;
+      if(!has){const parts=D.slice(0,i+1).map((x,j)=>x?U(x,3-j):'').filter(Boolean).join(' ');
+        why=parts+' = '+U(cur,k)+'. ';}
+      else why=(rem?U(rem,k+1)+' ':'')+U(d,k)+' = '+U(cur,k)+'. ';
+      if(has)body[body.length-1]=at(String(cur),k);
+      qa[i]=String(qd);
+      body.push(at(String(pr),k),at('─'.repeat(w),k,1),at(String(nr),k));
+      st.push({t:why+fmt(cur)+' '+PN[k]+' ÷ '+b+' = '+(k?U(qd,k):fmt(qd))+(nr?' R '+(k?U(nr,k):fmt(nr)):'')+'. Write '+qd+' above the '+(k?PN[k]+' place':'ones place')+'. Multiply: '+b+' × '+qd+(k?' '+PN[k]:'')+' = '+fmt(pr)+'. Subtract: '+fmt(cur)+' − '+fmt(pr)+' = '+fmt(nr)+'.',v:view()});
+      has=true;rem=nr});
+    const Q=Math.floor(a/b);
+    st.push({t:'The quotient is <b>'+fmt(Q)+'</b> and the remainder is <b>'+fmt(rem)+'</b>: '+fmt(a)+' ÷ '+b+' = '+fmt(Q)+(rem?' R '+fmt(rem):'')+'. Check: '+fmt(Q)+' × '+b+(rem?' + '+fmt(rem):'')+' = '+fmt(a),v:view(rem||''),ok:1});
+  }
+  return st}
+function colRender(){
+  const s=csteps[cst];
+  $('co-view').innerHTML=pre(s.v);
+  lines('co-out',csteps.slice(0,cst+1).map((x,i)=>['<span style="color:var(--muted)">Step '+i+'.</span> '+x.t,i===cst&&x.ok?'ok':'']));
+  $('co-back').disabled=cst===0;$('co-next').disabled=cst===csteps.length-1}
+function colStart(){
+  const sub=cop==='-',mul=cop==='×',div=cop==='÷';
+  const bi=$('co-b'),ai=$('co-a');
+  bi.min=mul?10:div?2:1000;bi.max=mul?99:div?99:9999;
+  $('co-sym').textContent=cop.replace('-','−');
+  $('co-hint').textContent=mul?'(2-digit multiplier)':div?'(1- or 2-digit divisor)':'(4-digit number)';
+  let a=Math.min(9999,Math.max(1000,Math.round(+ai.value)||1000)),b=Math.round(+bi.value)||+bi.min;
+  b=Math.min(+bi.max,Math.max(+bi.min,b));
+  if(sub&&b>a){const t=a;a=b;b=t}
+  ai.value=a;bi.value=b;
+  csteps=colBuild();cst=0;colRender()}
+[['co-add','+'],['co-sub','-'],['co-mul','×'],['co-div','÷']].forEach(([id,o])=>$(id).onclick=()=>{cop=o;['co-add','co-sub','co-mul','co-div'].forEach(i=>$(i).classList.toggle('on',i===id));
+  const ri=n=>1000+Math.floor(Math.random()*9000);
+  if(o==='×'&&+$('co-b').value>99)$('co-b').value=34;if(o==='÷'&&(+$('co-b').value>99||+$('co-b').value<2))$('co-b').value=75;
+  if((o==='+'||o==='-')&&+$('co-b').value<1000)$('co-b').value=2596;colStart()});
+$('co-a').onchange=colStart;$('co-b').onchange=colStart;
+$('co-next').onclick=()=>{if(cst<csteps.length-1){cst++;colRender()}};
+$('co-back').onclick=()=>{if(cst>0){cst--;colRender()}};
+$('co-reset').onclick=()=>{cst=0;colRender()};
+$('co-rand').onclick=()=>{const r=(lo,hi)=>lo+Math.floor(Math.random()*(hi-lo+1));
+  $('co-a').value=r(1000,9999);$('co-b').value=cop==='×'?r(10,99):cop==='÷'?r(11,99):r(1000,9999);colStart()};
+colStart();
+
+/* estimation */
+let eop='+';
+const rnd=(n,p)=>Math.round(n/p)*p;
+function esUpdate(){
+  const a=val('ea'),b=val('eb'),p=$('ep')?val('ep'):1000,ra=rnd(a,p),rb=rnd(b,p);
+  const f={'+':(x,y)=>x+y,'-':(x,y)=>x-y,'×':(x,y)=>x*y};
+  const est=f[eop](ra,rb),ex=f[eop](a,b);
+  lines('es-out',[['Round to the nearest '+fmt(p)+': '+fmt(a)+' ≈ '+fmt(ra)+', '+fmt(b)+' ≈ '+fmt(rb)],
+    ['<b>Estimate:</b> '+fmt(ra)+' '+eop+' '+fmt(rb)+' = '+fmt(est),'ok'],
+    ['<b>Exact:</b> '+fmt(a)+' '+eop+' '+fmt(b)+' = '+fmt(ex)],
+    ['Difference: '+fmt(Math.abs(ex-est))]])}
+sliders('es-sl',[['ea','First number',100,99999,38642,1],['eb','Second number',100,99999,21479,1]],esUpdate);
+$('es-sl').insertAdjacentHTML('beforeend','<div class="sl"><span>Round to</span><select id="ep" style="max-width:200px">'+[10,100,1000,10000].map(v=>'<option value="'+v+'"'+(v===1000?' selected':'')+'>nearest '+fmt(v)+'</option>').join('')+'</select></div>');
+$('ep').onchange=esUpdate;esUpdate();
+[['es-add','+'],['es-sub','-'],['es-mul','×']].forEach(([id,o])=>$(id).onclick=()=>{eop=o;['es-add','es-sub','es-mul'].forEach(i=>$(i).classList.toggle('on',i===id));esUpdate()});
+
+/* order of operations */
+const exprs=['5 + 3 × (8 - 2)','24 ÷ 6 × 2','(18 + 6) ÷ 4 - 1','100 - 4 × (7 + 3) ÷ 5','2 × (30 - 4 × 5) + 12'];
+let tokens=null,hist=[],cur=0;
+function tok(s){return s.replace('÷','/').replace('×','*').match(/\d+|[-+*/()]/g)}
+const show=t=>t.join(' ').replace(/\*/g,'×').replace(/\//g,'÷');
+function step(t){ // returns [newTokens,reason] or null
+  let o=-1,c=-1;
+  for(let i=0;i<t.length;i++){if(t[i]==='(')o=i;if(t[i]===')'){c=i;break}}
+  if(c>=0){const inner=t.slice(o+1,c);
+    if(inner.length===1)return[[...t.slice(0,o),inner[0],...t.slice(c+1)],'Remove parentheses around a single number'];
+    const [r,why]=step(inner);return[[...t.slice(0,o+1),...r,...t.slice(c)],'Inside parentheses: '+why]}
+  let i=t.findIndex(x=>x==='*'||x==='/');let why='× and ÷ before + and −, left to right';
+  if(i<0){i=t.findIndex(x=>x==='+'||x==='-');why='+ and − left to right'}
+  if(i<0)return null;
+  const a=+t[i-1],b=+t[i+1],v=t[i]==='*'?a*b:t[i]==='/'?a/b:t[i]==='+'?a+b:a-b;
+  return[[...t.slice(0,i-1),String(v),...t.slice(i+2)],a+' '+t[i].replace('*','×').replace('/','÷')+' '+b+' = '+v+' ('+why+')']}
+function odRender(){
+  lines('od-out',hist.map((h,i)=>[(i?'<span style="color:var(--muted)">'+h.why+'</span><br>':'')+'<b>'+h.t+'</b>',i===hist.length-1&&hist.done?'ok':'']))}
+function odStart(i){cur=i;tokens=tok(exprs[i]);hist=[{t:show(tokens),why:''}];odRender();
+  [...$('od-pre').children].forEach((b,j)=>b.classList.toggle('on',j===i))}
+exprs.forEach((e,i)=>{const b=document.createElement('button');b.textContent=e.replace(/-/g,'−');b.onclick=()=>odStart(i);$('od-pre').appendChild(b)});
+$('od-next').onclick=()=>{const r=step(tokens);if(!r){hist.done=true;odRender();return}
+  tokens=r[0];hist.push({t:show(tokens),why:r[1]});if(tokens.length===1)hist.done=true;odRender()};
+$('od-reset').onclick=()=>odStart(cur);
+odStart(0);
+
+/* area model */
+sliders('am-sl',[['ma','Number',10,999,256,1],['mb','Multiplier',10,99,34,1]],()=>{
+  const a=val('ma'),b=val('mb');
+  const pa=[],pb=[];String(a).split('').forEach((d,i)=>{if(d!=='0')pa.push(+d*Math.pow(10,String(a).length-1-i))});
+  String(b).split('').forEach((d,i)=>{if(d!=='0')pb.push(+d*Math.pow(10,String(b).length-1-i))});
+  let h='<table class="tb"><tr><th>×</th>'+pa.map(x=>'<th>'+fmt(x)+'</th>').join('')+'</tr>';
+  pb.forEach(y=>{h+='<tr><th>'+y+'</th>'+pa.map(x=>'<td>'+fmt(x*y)+'</td>').join('')+'</tr>'});
+  $('am-tb').innerHTML=h+'</table>';
+  lines('am-out',[['Add the boxes: '+pb.flatMap(y=>pa.map(x=>fmt(x*y))).join(' + ')],['<b>'+fmt(a)+' × '+b+' = '+fmt(a*b)+'</b>','ok'],['Estimate: '+fmt(rnd(a,Math.pow(10,String(a).length-1)))+' × '+fmt(rnd(b,Math.pow(10,String(b).length-1)))+' = '+fmt(rnd(a,Math.pow(10,String(a).length-1))*rnd(b,Math.pow(10,String(b).length-1)))]])});
+
+/* division */
+sliders('dv-sl',[['da','Dividend',100,99999,1000,1],['db','Divisor',2,99,7,1]],()=>{
+  const a=val('da'),b=val('db'),q=Math.floor(a/b),r=a%b;
+  lines('dv-out',[['<b>'+fmt(a)+' ÷ '+b+' = '+fmt(q)+(r?' R '+r:'')+'</b>','ok'],
+    ['Check: '+fmt(q)+' × '+b+' = '+fmt(q*b)+(r?', + '+r+' = '+fmt(a):'')],
+    [r?'The remainder '+r+' is less than the divisor '+b:'It divides evenly (no remainder)']])});
+
+/* bar model */
+sliders('bm-sl',[['bt','Total',20,400,120,2],['bd','Difference',0,200,30,2]],()=>{
+  const t=val('bt'),d=Math.min(val('bd'),t),big=(t+d)/2,small=(t-d)/2,W=520;
+  const sc=W/t;
+  const bar=(y,w,c,l)=>'<rect x="60" y="'+y+'" width="'+w+'" height="34" rx="6" fill="'+c+'" stroke="#172c3a" stroke-width="1.5"/><text x="'+(60+w/2)+'" y="'+(y+22)+'" text-anchor="middle" font-weight="800" font-size="14">'+l+'</text>';
+  const mx=big*sc;
+  $('bm-svg').innerHTML='<text x="8" y="37" font-weight="800" font-size="13">Larger</text><text x="8" y="87" font-weight="800" font-size="13">Smaller</text>'+
+    bar(20,big*sc*.9,'#f0edff',fmt(big))+bar(70,small*sc*.9,'#e3f5f0',fmt(small))+
+    '<rect x="'+(60+small*sc*.9)+'" y="70" width="'+(d*sc*.9)+'" height="34" rx="6" fill="#fff0e6" stroke="#f07846" stroke-dasharray="5 4" stroke-width="1.5"/><text x="'+(60+small*sc*.9+d*sc*.9/2)+'" y="92" text-anchor="middle" font-size="11" font-weight="800">'+fmt(d)+'</text>'+
+    '<text x="60" y="135" font-size="12" fill="#637681">Together: '+fmt(t)+'   ·   Larger − smaller = '+fmt(d)+'</text>';
+  lines('bm-out',[['Take the difference away: '+fmt(t)+' − '+fmt(d)+' = '+fmt(t-d)+', then split equally: '+fmt(t-d)+' ÷ 2 = '+fmt(small)],
+    ['<b>Smaller = '+fmt(small)+', larger = '+fmt(big)+'</b>','ok'],['Check: '+fmt(small)+' + '+fmt(big)+' = '+fmt(small+big)]])});
+
+/* quiz */
+const Q=[
+['What is the value of the 3 in 4,305,210?',['300,000','3,000','30,000'],0],
+['Write 7,020,300 in words.',['seven million, twenty thousand, three hundred','seven million, two hundred thousand, three hundred','seven million, twenty thousand, thirty'],0],
+['45 × 10³ =',['45,000','4,500','450,000'],0],
+['82,000 ÷ 10² =',['820','8,200','82'],0],
+['Round 38,642 to the nearest thousand.',['39,000','38,000','38,600'],0],
+['Estimate 4,812 + 3,190 to the nearest thousand.',['8,000','7,000','9,000'],0],
+['34 × 256 =',['8,704','7,680','8,404'],0],
+['1,000 ÷ 7 =',['142 R 6','143 R 1','142 R 7'],0],
+['5 + 3 × (8 − 2) =',['23','48','14'],0],
+['24 ÷ 6 × 2 =',['8','2','1'],0],
+['(18 + 6) ÷ 4 − 1 =',['5','3','6'],0],
+['The remainder must always be',['less than the divisor','greater than the divisor','zero'],0],
+['Two numbers total 120 and differ by 30. The larger is',['75','90','45'],0],
+['Which is the expanded form of 205,040?',['200,000 + 5,000 + 40','200,000 + 50,000 + 4','20,000 + 500 + 40'],0],
+['10⁴ equals',['10,000','1,000','40'],0],
+['Before 5 × 4 + 6 ÷ 2, do',['5 × 4 and 6 ÷ 2 (the answer is 23)','5 × 4 + 6','4 + 6'],0]
+];
+Q.forEach((q,i)=>{const order=q[1].map((_,j)=>j).sort(()=>Math.random()-.5);const c=document.createElement('div');c.className='card';c.innerHTML='<h3>'+(i+1)+'. '+q[0]+'</h3>';
+  const fb=document.createElement('div');fb.className='fb';const bs=[];
+  order.forEach(j=>{const b=document.createElement('button');b.textContent=q[1][j];bs.push([b,j]);b.onclick=()=>{bs.forEach(([x,k])=>{x.disabled=true;if(k===q[2])x.classList.add('right')});
+    if(j!==q[2])b.classList.add('wrong');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c)});
+</script>
+</body>
+</html>

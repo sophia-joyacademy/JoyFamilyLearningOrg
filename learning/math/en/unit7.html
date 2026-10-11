@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 7 — Introduction to Quadratic Functions | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:24px;align-items:start}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-weight:600}
+    .sl{display:grid;grid-template-columns:90px 1fr 52px;gap:10px;align-items:center;margin-top:10px;font-weight:700}
+    .sl output{font-weight:850;color:var(--purple);text-align:right}
+    .katex{font-size:1.05em}
+    .calc{margin-top:10px;display:grid;gap:6px}
+    .calc div{padding:8px 12px;border-radius:12px;background:var(--purple-light);font-weight:500}
+    .calc div.ok{background:var(--teal-light)}
+    .calc div.bad{background:var(--orange-light)}
+    table.tb{border-collapse:collapse;margin-top:12px;font-weight:700;width:100%}
+    table.tb td,table.tb th{padding:6px 10px;text-align:center;border-bottom:1px solid var(--line)}
+    table.tb th{color:var(--purple)}
+    table.tb tr.hit td{background:var(--teal-light)}
+    canvas{width:100%;max-width:460px;aspect-ratio:1/1;background:#fff;border:2px solid var(--line);border-radius:16px;display:block;margin-top:12px}
+    canvas.wide{aspect-ratio:16/10;max-width:100%}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit6.html">Unit 6</a><a href="#map">Concept map</a><a href="#vocab">Key terms</a><a href="#parabola">Parabola lab</a><a href="#growth">Growth race</a><a href="#ball">Projectile</a><a href="#rev">Revenue</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 7</span>
+    <h1><span>Introduction to Quadratic Functions</span></h1>
+    <p class="lead">Throw a ball, launch a firework, fence a garden: the path is a parabola. Learn to read it in three forms (standard, factored, vertex) and to graph it from each.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map</h2>
+    <p class="sub">How the big ideas of Unit 7 connect. Click any bubble to see the key idea and an example.</p>
+    <div class="card" style="padding:10px"><svg id="cmap" viewBox="0 0 1000 560" style="width:100%;height:auto;display:block"></svg></div>
+    <div class="card pill" id="lesson-info" style="background:var(--purple-light);color:var(--ink);margin-top:14px">Pick a bubble above 👆</div>
+  </section>
+
+  <section id="vocab">
+    <h2>📖 Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Quadratic function</span><p>A function whose rule has a squared term: <span class="m">y=ax^2+bx+c</span> with <span class="m">a\ne0</span>. Its graph is a <b>parabola</b>.</p></div>
+      <div class="card"><span class="tag t">Vertex &amp; axis of symmetry</span><p>The vertex is the highest or lowest point. The axis <span class="m">x=-\tfrac{b}{2a}</span> splits the parabola into mirror halves.</p></div>
+      <div class="card"><span class="tag o">Zeros (x-intercepts)</span><p>Inputs where the output is 0. In factored form <span class="m">a(x-p)(x-q)</span> they are <span class="m">p</span> and <span class="m">q</span>.</p></div>
+      <div class="card"><span class="tag p">Standard form</span><p><span class="m">y=ax^2+bx+c</span>. The y-intercept is <span class="m">c</span>. If <span class="m">a&gt;0</span> it opens up; if <span class="m">a&lt;0</span> it opens down.</p></div>
+      <div class="card"><span class="tag t">Factored form</span><p><span class="m">y=a(x-p)(x-q)</span>. Shows the zeros. The vertex's x is the midpoint <span class="m">\tfrac{p+q}{2}</span>.</p></div>
+      <div class="card"><span class="tag o">Vertex form</span><p><span class="m">y=a(x-h)^2+k</span>. Shows the vertex <span class="m">(h,k)</span>. <span class="m">a</span> stretches, compresses or flips the parent <span class="m">y=x^2</span>.</p></div>
+    </div>
+  </section>
+
+  <section id="parabola">
+    <h2>🎢 Parabola lab: three forms, one graph</h2>
+    <p class="sub">Pick a form and move the sliders. The lab converts to the other two forms, marks the vertex, the zeros and the y-intercept, and draws the graph on a square grid. Try the textbook parabolas with the presets.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw" id="pl-modes"></div>
+        <div id="pl-sl"></div>
+        <div class="rw"><button id="pp1">(x−1)(x+3)</button><button id="pp2">(x+2)²−9</button><button id="pp3">−x²+4x+5</button><button id="pp4">x²+6</button></div>
+        <div class="calc" id="pl-out"></div>
+      </div>
+      <canvas id="pl-cv" width="560" height="560"></canvas>
+    </div>
+  </section>
+
+  <section id="growth">
+    <h2>🏁 Growth race: quadratic vs exponential</h2>
+    <p class="sub">Compare <span class="m">c\cdot x^2</span> with <span class="m">b^x</span>. A quadratic can lead for a while, but an exponential always wins in the end. Try 10x² vs 2ˣ (2ˣ pulls ahead at x = 10) and 100x² vs 4ˣ (at x = 6).</p>
+    <div class="card explorer">
+      <div>
+        <div id="gr-sl"></div>
+        <div class="calc" id="gr-out"></div>
+      </div>
+      <div id="gr-tb"></div>
+    </div>
+  </section>
+
+  <section id="ball">
+    <h2>🎆 Projectile launcher</h2>
+    <p class="sub">Height in feet after <i>t</i> seconds: <span class="m">h(t)=-16t^2+v_0t+h_0</span>, where <span class="m">v_0</span> is the starting upward speed and <span class="m">h_0</span> the starting height. Try the cannon: <span class="m">v_0=406</span>, <span class="m">h_0=10</span>.</p>
+    <div class="card explorer">
+      <div>
+        <div id="bl-sl"></div>
+        <div class="calc" id="bl-out"></div>
+      </div>
+      <canvas id="bl-cv" class="wide" width="640" height="400"></canvas>
+    </div>
+  </section>
+
+  <section id="rev">
+    <h2>💰 Revenue maximizer</h2>
+    <p class="sub">Each time the price rises, fewer people buy. With demand <span class="m">m-kx</span> and price <span class="m">x</span>, revenue is <span class="m">R(x)=x(m-kx)</span>. The best price is the vertex. Try the theater: <span class="m">(400-8p)p</span> peaks at 25 with 5000.</p>
+    <div class="card explorer">
+      <div>
+        <div id="rv-sl"></div>
+        <div class="calc" id="rv-out"></div>
+      </div>
+      <canvas id="rv-cv" width="560" height="560"></canvas>
+    </div>
+  </section>
+
+  <section id="strategy">
+    <h2>🧭 Which form should I use?</h2>
+    <p class="sub">Choose the form that answers the question fastest. Click one to see why.</p>
+    <div class="grid3" id="steps"></div>
+    <div class="card pill" id="step-info" style="background:var(--teal-light);color:var(--ink);margin-top:14px">Pick a form above 👆</div>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Quick quiz</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const km=(t,el)=>{try{katex.render(t,el,{throwOnError:false})}catch(e){el.textContent=t}};
+const ktx=t=>{try{return katex.renderToString(t,{throwOnError:false})}catch(e){return t}};
+document.querySelectorAll('.m').forEach(e=>km(e.textContent,e));
+const f2=n=>{const r=Math.round(n*100)/100;return Object.is(r,-0)?'0':String(r)};
+
+/* signed term helpers: tex of a leading term and following terms */
+function poly(c,v='x'){ // c highest power first, decimals allowed
+  const n=c.length-1;let s='';
+  c.forEach((k,i)=>{const p=n-i;if(!k)return;const a=Math.abs(k);
+    const body=p===0?f2(a):(a===1?'':f2(a))+v+(p>1?'^{'+p+'}':'');
+    s+=s===''?(k<0?'-':'')+body:(k<0?' - ':' + ')+body});
+  return s||'0'}
+const lead=a=>a===1?'':a===-1?'-':f2(a);
+const shift=(h,v='x')=>v+(h>0?' - '+f2(h):h<0?' + '+f2(-h):'');
+
+function sliders(host,defs,onchange){
+  const h=$(host);h.innerHTML='';
+  defs.forEach(([id,label,min,max,val,step])=>{
+    const d=document.createElement('div');d.className='sl';
+    d.innerHTML='<span>'+label+'</span><input type="range" id="'+id+'" min="'+min+'" max="'+max+'" step="'+(step||1)+'" value="'+val+'"><output id="'+id+'o"></output>';
+    h.appendChild(d)});
+  const run=()=>{defs.forEach(([id])=>{$(id+'o').textContent=$(id).value});onchange()};
+  h.querySelectorAll('input').forEach(i=>i.oninput=run);run();
+  return run}
+const val=id=>+$(id).value;
+function setVals(o){for(const k in o){$(k).value=o[k]};$(Object.keys(o)[0]).dispatchEvent(new Event('input'))}
+function lines(host,arr){$(host).innerHTML=arr.map(([t,c])=>'<div class="'+(c||'')+'">'+ktx(t)+'</div>').join('')}
+
+/* canvas grid plot: f is a function of x; box = [xmin,xmax,ymin,ymax] */
+function plot(cv,box,f,pts,opt={}){
+  const g=cv.getContext('2d'),W=cv.width,H=cv.height,[x0,x1,y0,y1]=box;
+  const X=x=>(x-x0)/(x1-x0)*W,Y=y=>H-(y-y0)/(y1-y0)*H;
+  g.clearRect(0,0,W,H);
+  const step=opt.step||1,ystep=opt.ystep||step;
+  g.lineWidth=1;g.font='14px sans-serif';g.fillStyle='#637681';
+  for(let x=Math.ceil(x0/step)*step;x<=x1;x+=step){g.strokeStyle=x===0?'#172c3a':'#e4ebe6';g.lineWidth=x===0?2:1;g.beginPath();g.moveTo(X(x),0);g.lineTo(X(x),H);g.stroke();
+    if(x!==0&&(opt.labels!==false))g.fillText(f2(x),X(x)+2,Math.min(H-4,Math.max(14,Y(0)+14)))}
+  for(let y=Math.ceil(y0/ystep)*ystep;y<=y1;y+=ystep){g.strokeStyle=y===0?'#172c3a':'#e4ebe6';g.lineWidth=y===0?2:1;g.beginPath();g.moveTo(0,Y(y));g.lineTo(W,Y(y));g.stroke();
+    if(y!==0&&(opt.labels!==false))g.fillText(f2(y),Math.min(W-30,Math.max(2,X(0)+4)),Y(y)-3)}
+  if(opt.axis!==undefined){g.setLineDash([6,5]);g.strokeStyle='#f07846';g.lineWidth=2;g.beginPath();g.moveTo(X(opt.axis),0);g.lineTo(X(opt.axis),H);g.stroke();g.setLineDash([])}
+  g.strokeStyle='#7962cb';g.lineWidth=3.5;g.beginPath();let on=false;
+  for(let i=0;i<=W;i++){const x=x0+i/W*(x1-x0),y=f(x);if(!isFinite(y)){on=false;continue}
+    if(!on){g.moveTo(i,Y(y));on=true}else g.lineTo(i,Y(y))}
+  g.stroke();
+  (pts||[]).forEach(([x,y,c])=>{g.fillStyle=c;g.beginPath();g.arc(X(x),Y(y),7,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=2;g.stroke()})}
+
+/* ---------- lessons ---------- */
+const L=[
+['7.1','Patterns of change','Fix the perimeter and the area rises, then falls. With 50 m of fence, a 12.5 m × 12.5 m rectangle gives the most area, 156.25 m².'],
+['7.2','Intro to quadratic relationships','Linear grows by a constant amount, exponential by a constant factor, quadratic has a squared term. A quadratic expression like n²+2 is a pattern whose differences grow steadily.'],
+['7.3','Is it quadratic?','Look for an n² term after you simplify. y=n²+4, y=3n² and y=(n+1)²−2 are quadratic. n(n+2)+2 = n²+2n+2 is too.'],
+['7.4','Quadratic vs exponential','An exponential eventually overtakes any quadratic. 10x² beats 2ˣ at x=8 (640 vs 256), but 2ˣ is ahead from x=10 on (1024 vs 1000).'],
+['7.5','Building quadratics, part 1','Free fall: d=16t² feet fallen after t seconds. Dropped from 576 ft: h=576−16t². Keys dropped from 196 ft are at h(3)=196−144=52 ft after 3 seconds.'],
+['7.6','Building quadratics, part 2','Throwing up gives h(t)=−16t²+v₀t+h₀. The vertex is the peak, a zero is the landing. In meters use −5t² (or −4.9t²).'],
+['7.7','Domain, range, vertex, zeros','Revenue = price × quantity. x(18−x) peaks at x=9 giving 81. Context limits the domain; the vertex gives the max, so it sets the range.'],
+['7.8','Equivalent expressions','Area diagrams and the distributive property turn products into sums. (x+2)(x+5)=x²+7x+10. In general (x+m)(x+n)=x²+(m+n)x+mn.'],
+['7.9','Standard vs factored form','Expand to go factored → standard: (x−4)(x+2)=x²−2x−8, (2x+5)(x+1)=2x²+7x+5, (x−2)(x+2)=x²−4.'],
+['7.10','Intercepts','Factored form a(x−p)(x−q) shows the x-intercepts p and q. Standard form shows the y-intercept c. 10+78t−16t² = −2(8t+1)(t−5), so it lands at t=5.'],
+['7.11','Graphing from factored form','Zeros p, q. Vertex x is the midpoint (p+q)/2, then substitute for y. (x+1)(x−3): zeros −1, 3, vertex (1,−4), y-intercept −3.'],
+['7.12','Graphing standard form, part 1','From the parent y=x²: x²+k shifts up, (x−h)² shifts right, a·x² stretches (|a|>1) or compresses, and a<0 flips it over.'],
+['7.13','Graphing standard form, part 2','x²+bx = x(x+b) has zeros 0 and −b, vertex at x=−b/2. x²−25=(x−5)(x+5) has vertex (0,−25). x²+16 never reaches 0. Zeros −3 and 1 give x²+2x−3.'],
+['7.14','Graphs that represent situations','Match the graph to the story: zeros are start and landing times, vertex is the peak. Frog jump h=60t−75t² is in the air for 0.8 s. Pumpkin: h=2+23.7t−4.9t².'],
+['7.15','Vertex form','y=a(x−h)²+k, vertex (h,k). (x+2)²−9 = x²+4x−5 = (x+5)(x−1). Same parabola, three costumes.'],
+['7.16','Graphing from vertex form','Plot the vertex, then use symmetry: go over 1 and up a, over 2 and up 4a. The y-intercept is the value at x=0. Opens up → minimum, down → maximum.'],
+['7.17','Changing the vertex','(h,k) is a translation. a flips and stretches. For f(x)=−0.1(x−h)²+k, moving h moves the peak sideways and k moves it up or down.'],
+['Project','Design a fountain','Choose jets that clear the statues, reach the vase and stay under 10 ft. Each jet is a parabola you can write from its vertex and a point.']
+];
+(function(){
+const NS='http://www.w3.org/2000/svg',svg=$('cmap');
+const col={c:['#7962cb','#f0edff'],t:['#087f79','#e3f5f0'],o:['#f07846','#fff0e6']};
+const N=[
+['fn','QUADRATIC FUNCTION\ny = ax² + bx + c',500,280,'c',[]],
+['pat','Patterns & growth\nquadratic vs linear vs exponential',250,60,'t',[0,1,2,3]],
+['mod','Real-world models\nfalling, launching, revenue',520,60,'o',[4,5,6,13]],
+['pro','Project\ndesign a fountain',790,60,'t',[17]],
+['std','Standard form\nax²+bx+c, y-intercept',200,280,'o',[8,12]],
+['ver','Vertex form\na(x−h)²+k, vertex (h,k)',810,280,'o',[14,15]],
+['eqv','Equivalent expressions\nmultiply & expand',190,490,'t',[7]],
+['fac','Factored form\na(x−p)(x−q), zeros',500,490,'t',[9,10]],
+['tra','Transformations\nshift, stretch, flip',810,490,'o',[11,16]]
+];
+const E=N.filter(n=>n[0]!=='fn').map(n=>['fn',n[0]]);
+const P={};N.forEach(n=>P[n[0]]=n);
+const mk=(p,t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+E.forEach(([a,b])=>{const p=P[a],q=P[b];mk(svg,'line',{x1:p[2],y1:p[3],x2:q[2],y2:q[3],stroke:'#b9c6c0','stroke-width':2.5})});
+const nodes={};
+N.forEach(n=>{const [id,txt,x,y,c,ls]=n,big=id==='fn',w=big?260:180,h=big?90:(txt.split('\n').length>2?74:60);
+  const g=mk(svg,'g',{style:'cursor:pointer',tabindex:0});
+  const r=mk(g,'rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:big?28:20,fill:big?col[c][0]:col[c][1],stroke:col[c][0],'stroke-width':big?0:2.5});
+  const lines=txt.split('\n'),y0=y-(lines.length-1)*8;
+  lines.forEach((l,i)=>{const t=mk(g,'text',{x,y:y0+i*16+4,'text-anchor':'middle','font-size':i===0?(big?15:14):11,'font-weight':i===0?800:600,fill:big?'#fff':(i===0?'#172c3a':'#637681')});t.textContent=l});
+  g.onclick=()=>{Object.values(nodes).forEach(q=>q.setAttribute('stroke-width',2.5));r.setAttribute('stroke-width',5);
+    $('lesson-info').innerHTML=(id==='fn'?'<b>Quadratic function: y = ax² + bx + c graphs as a parabola with a vertex, an axis of symmetry and up to two zeros.</b><br><br>':'')+ls.map(k=>'<b>'+L[k][1]+'</b><br>'+L[k][2]).join('<br><br>')};
+  nodes[id]=r});
+})();
+
+/* ---------- parabola lab ---------- */
+let mode='vertex';
+const modeDefs={
+  vertex:[['qa','a',-4,4,1,.5],['qh','h',-8,8,-2,.5],['qk','k',-9,9,-9,.5]],
+  factored:[['qa','a',-4,4,1,.5],['qp','zero p',-8,8,1,.5],['qq','zero q',-8,8,-3,.5]],
+  standard:[['qa','a',-4,4,-1,.5],['qb','b',-12,12,4,.5],['qc','c',-12,12,5,.5]]};
+const modeNames={vertex:'Vertex form',factored:'Factored form',standard:'Standard form'};
+function buildLab(){
+  $('pl-modes').innerHTML='';
+  for(const m in modeDefs){const b=document.createElement('button');b.textContent=modeNames[m];b.style.margin='0';if(m===mode)b.className='on';b.onclick=()=>{mode=m;buildLab()};$('pl-modes').appendChild(b)}
+  sliders('pl-sl',modeDefs[mode],labUpdate)}
+function labUpdate(){
+  const a=val('qa');let b,c,note='';
+  if(a===0){lines('pl-out',[['\\text{Pick } a\\ne0\\text{: then it is a parabola.}','bad']]);return}
+  if(mode==='vertex'){const h=val('qh'),k=val('qk');b=-2*a*h;c=a*h*h+k}
+  else if(mode==='factored'){const p=val('qp'),q=val('qq');b=-a*(p+q);c=a*p*q}
+  else{b=val('qb');c=val('qc')}
+  const h=-b/(2*a),k=a*h*h+b*h+c,D=b*b-4*a*c,F=x=>a*x*x+b*x+c;
+  const out=[];
+  out.push(['\\text{Standard: }y='+poly([a,b,c]),mode==='standard'?'ok':'']);
+  out.push(['\\text{Vertex: }y='+lead(a)+'('+shift(h)+')^2'+(k?(k<0?' - ':' + ')+f2(Math.abs(k)):''),mode==='vertex'?'ok':'']);
+  const pts=[[h,k,'#f07846'],[0,c,'#087f79']];
+  if(D>=-1e-9){
+    const s=Math.sqrt(Math.max(D,0)),p=(-b+s)/(2*a),q=(-b-s)/(2*a);
+    out.push(['\\text{Factored: }y='+lead(a)+'('+shift(p)+')('+shift(q)+')',mode==='factored'?'ok':'']);
+    out.push(['\\text{Zeros: }x='+(D<1e-9?f2(p):f2(Math.min(p,q))+'\\text{ and }'+f2(Math.max(p,q)))]);
+    pts.push([p,0,'#172c3a']);if(D>1e-9)pts.push([q,0,'#172c3a']);
+  } else out.push(['\\text{Factored: none, it never touches the x-axis}','bad']);
+  out.push(['\\text{Vertex }('+f2(h)+','+f2(k)+')\\ \\text{(}'+(a>0?'\\text{minimum}':'\\text{maximum}')+'\\text{)},\\ \\text{axis }x='+f2(h)]);
+  out.push(['\\text{y-intercept }'+f2(c)]);
+  lines('pl-out',out);
+  plot($('pl-cv'),[-10,10,-10,10],F,pts,{step:1,axis:h})}
+buildLab();
+const pre={pp1:['factored',{qa:1,qp:1,qq:-3}],pp2:['vertex',{qa:1,qh:-2,qk:-9}],pp3:['standard',{qa:-1,qb:4,qc:5}],pp4:['standard',{qa:1,qb:0,qc:6}]};
+for(const id in pre){$(id).onclick=()=>{mode=pre[id][0];buildLab();setVals(pre[id][1])}}
+
+/* ---------- growth race ---------- */
+sliders('gr-sl',[['gc','c in c·x²',1,100,10],['gb','base b',2,5,2]],()=>{
+  const c=val('gc'),b=val('gb'),N=40;
+  let cross=null;for(let x=1;x<=N;x++){let all=true;for(let y=x;y<=N;y++)if(!(Math.pow(b,y)>c*y*y)){all=false;break}if(all){cross=x;break}}
+  let rows='<table class="tb"><tr><th>x</th><th>'+c+'x²</th><th>'+b+'ˣ</th></tr>';
+  for(let x=0;x<=14;x++){const q=c*x*x,e=Math.pow(b,x);rows+='<tr class="'+(cross===x?'hit':'')+'"><td>'+x+'</td><td>'+q+'</td><td>'+e+'</td></tr>'}
+  $('gr-tb').innerHTML=rows+'</table>';
+  lines('gr-out',[
+    ['y='+c+'x^2\\ \\text{(quadratic)}'],['y='+b+'^x\\ \\text{(exponential)}'],
+    [cross===null?'\\text{Exponential still behind by }x=40':'\\text{Exponential stays ahead from }x='+cross+'\\text{ on}','ok']])});
+
+/* ---------- projectile ---------- */
+sliders('bl-sl',[['bv','v₀ (ft/s)',0,500,406,2],['bh','h₀ (ft)',0,300,10,1]],()=>{
+  const v=val('bv'),h0=val('bh'),tp=v/32,hmax=h0+v*v/64,tl=(v+Math.sqrt(v*v+64*h0))/32;
+  const T=Math.max(tl,1)*1.1,Y=Math.max(hmax,10)*1.15;
+  const nice=(m)=>{const p=Math.pow(10,Math.floor(Math.log10(m/4)));return [1,2,5,10].map(k=>k*p).find(s=>m/s<=8)||p*10};
+  plot($('bl-cv'),[0,T,0,Y],t=>-16*t*t+v*t+h0,[[tp,hmax,'#f07846'],[tl,0,'#172c3a'],[0,h0,'#087f79']],{step:nice(T),ystep:nice(Y)});
+  lines('bl-out',[
+    ['h(t)='+poly([-16,v,h0],'t')+'\\ \\text{(t in seconds)}','ok'],
+    ['\\text{Peak at }t=\\tfrac{v_0}{32}='+f2(tp)+'\\text{ s, height }'+f2(hmax)+'\\text{ ft}'],
+    ['\\text{Lands (}h=0\\text{) at }t\\approx'+f2(tl)+'\\text{ s}'],
+    ['\\text{Domain: }0\\le t\\le'+f2(tl)+',\\ \\text{Range: }0\\le h\\le'+f2(hmax)]])});
+
+/* ---------- revenue ---------- */
+sliders('rv-sl',[['rm','m (start demand)',2,500,400,2],['rk','k (loss per $1)',1,40,8]],()=>{
+  const m=val('rm'),k=val('rk'),xv=m/(2*k),R=m*m/(4*k),z=m/k;
+  const X=z*1.2,Y=R*1.2;
+  const nice=(mx)=>{const p=Math.pow(10,Math.floor(Math.log10(mx/4)));return [1,2,5,10].map(q=>q*p).find(s=>mx/s<=8)||p*10};
+  plot($('rv-cv'),[0,X,0,Y],x=>x*(m-k*x),[[xv,R,'#f07846'],[z,0,'#172c3a']],{step:nice(X),ystep:nice(Y),axis:xv});
+  lines('rv-out',[
+    ['R(x)=x('+m+'-'+k+'x)='+poly([-k,m,0]),'ok'],
+    ['\\text{Zeros: }x=0\\text{ and }x='+f2(z)],
+    ['\\text{Best price }x=\\tfrac{0+'+f2(z)+'}{2}='+f2(xv)],
+    ['\\text{Maximum revenue }R='+f2(R)]])});
+
+/* ---------- forms ---------- */
+const S=[
+['Standard','y = ax² + bx + c','Use it for the y-intercept (c), the direction (sign of a) and the axis x = −b/2a. Example: −16t² + 78t + 10 starts at height 10.'],
+['Factored','y = a(x − p)(x − q)','Use it for the zeros. (x+5)(x−1) is 0 at x = −5 and x = 1, so the vertex x is −2. Great for "when does it hit the ground?"'],
+['Vertex','y = a(x − h)² + k','Use it for the max or min. (x+2)²−9 has vertex (−2,−9). Great for "what is the greatest height?" and for transformations of y = x².'],
+['Factored → standard','Multiply (FOIL)','(x−4)(x+2) = x² − 2x − 8. Sum of zeros gives −b/a, product gives c/a.'],
+['Vertex → standard','Expand the square','(x−3)² + 1 = x² − 6x + 10. Square the binomial, then add k.'],
+['Standard → factored','Factor','x² + 4x − 5 = (x+5)(x−1). Always check for a GCF first, as in Unit 6.']
+];
+(function(){const c=$('steps');S.forEach(l=>{const b=document.createElement('button');b.style.cssText='text-align:left;width:100%;margin:0';b.innerHTML='<b class="te">'+l[0]+'</b> '+l[1];b.onclick=()=>{[...c.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');$('step-info').innerHTML='<b>'+l[0]+' · '+l[1]+'</b><br>'+l[2]};c.appendChild(b)})})();
+
+/* ---------- quiz ---------- */
+const Q=[
+['Which function is quadratic?',['y = 3n²','y = 3n','y = 3ⁿ'],0],
+['(x+2)(x+5) =',['x²+7x+10','x²+10x+7','x²+7x+7'],0],
+['(x+5)(x−3) =',['x²+2x−15','x²−2x−15','x²+8x−15'],0],
+['(x−4)(x+2) =',['x²−2x−8','x²+2x−8','x²−6x−8'],0],
+['The zeros of y = (x+1)(x−3) are',['−1 and 3','1 and −3','1 and 3'],0],
+['The vertex of y = (x+1)(x−3) is',['(1, −4)','(−1, −4)','(1, 4)'],0],
+['The vertex of y = (x−2)(x+4) is',['(−1, −9)','(1, −9)','(−1, 9)'],0],
+['The y-intercept of y = x² − 6x + 9 is',['9','−6','3'],0],
+['y = −2(x−3)² + 5 opens',['down, vertex (3, 5)','up, vertex (3, 5)','down, vertex (−3, 5)'],0],
+['(x+2)² − 9 in standard form is',['x²+4x−5','x²+4x+13','x²+4x−9'],0],
+['The axis of symmetry of y = x² + 6x is',['x = −3','x = 3','x = 6'],0],
+['Free fall from 576 ft: height after t seconds is',['576 − 16t²','576 + 16t²','16t²'],0],
+['h(t) = −16t² + 64t. When is the peak?',['t = 2','t = 4','t = 1'],0],
+['Revenue x(18−x) is largest at x =',['9','18','81'],0],
+['Compared with a quadratic, an exponential eventually',['grows larger','grows smaller','stays equal'],0],
+['In y = a(x−h)²+k, a negative a',['flips the parabola down','shifts it left','shifts it down'],0]
+];
+Q.forEach((q,i)=>{const order=q[1].map((_,j)=>j).sort(()=>Math.random()-.5);const c=document.createElement('div');c.className='card';c.innerHTML='<h3>'+(i+1)+'. '+q[0]+'</h3>';
+  const fb=document.createElement('div');fb.className='fb';const bs=[];
+  order.forEach(j=>{const b=document.createElement('button');b.textContent=q[1][j];bs.push([b,j]);b.onclick=()=>{bs.forEach(([x,k])=>{x.disabled=true;if(k===q[2])x.classList.add('right')});
+    if(j!==q[2])b.classList.add('wrong');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c)});
+</script>
+</body>
+</html>

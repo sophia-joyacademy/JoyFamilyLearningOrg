@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 3 — Two-Variable Statistics | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .fmr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 10px;margin-top:6px;border:2px solid var(--line);border-radius:14px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .fmr.sel{border-color:var(--purple);background:var(--purple-light)}
+    .fmr .sw{flex:none;width:14px;height:14px;border-radius:50%}
+    .fmr label{display:flex;align-items:center;gap:6px;font-weight:800;min-width:150px;cursor:pointer}
+    .fmr .sm{width:62px} .fmr .sm input{padding:4px 4px;text-align:center;font-weight:600;font-size:.9rem}
+    .fmr.off .ins{opacity:.5}
+    .fmr .pg{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    .rw .pg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+    #wr-in{font-weight:600;font-size:.95rem} #wr-in input{font-weight:600;font-size:.95rem}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit1.html">Unit 1</a><a href="unit2.html">Unit 2</a><a href="#map">Concept map</a><a href="#vocab">Key terms</a><a href="#sc">Scatter plots</a><a href="#in">Slope &amp; intercept</a><a href="#hand">By hand</a><a href="#fit">Fit lab</a><a href="#rs">Residuals</a><a href="#r">Correlation</a><a href="#cause">Causation</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 3</span>
+    <h1><span>Two-Variable Statistics</span></h1>
+    <p class="lead">Turn a cloud of dots into a story. Draw a line of fit, read its slope and intercept, measure the fit with residuals and <b>r</b>, and know when “goes together” does <i>not</i> mean “causes”.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map: two-variable statistics</h2>
+    <p class="sub">The big picture of the unit (Lessons 3.1 – 3.6). Click any box to see what it means, with an example.</p>
+    <div class="card">
+      <svg id="cm" viewBox="0 0 1100 580" style="width:100%;height:auto;display:block" role="img" aria-label="Concept map of two-variable statistics">
+        <defs><marker id="cm-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e2566b"/></marker></defs>
+        <g id="cm-lines" stroke="#e2566b" stroke-width="2.5" fill="none" marker-end="url(#cm-a)"></g>
+        <g id="cm-nodes" font-size="19" text-anchor="middle" font-weight="700" fill="#172c3a" style="cursor:pointer"></g>
+      </svg>
+      <div id="cm-info" class="pill" style="background:var(--purple-light)"></div>
+    </div>
+  </section>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag t">Bivariate data</span><p>Pairs of numbers (x, y) that describe two variables for the same person or thing.</p></div>
+      <div class="card"><span class="tag o">Scatter plot</span><p>A graph with one dot per pair. Its pattern shows the <b>direction</b> (up or down), <b>strength</b> and <b>form</b> (line or curve).</p></div>
+      <div class="card"><span class="tag p">Linear model</span><p>A line ŷ = mx + b that describes the trend. The hat on ŷ means <b>predicted</b> y.</p></div>
+      <div class="card"><span class="tag t">Slope and y-intercept</span><p>Slope: the change in predicted y for each 1 more x. Intercept: the predicted y when x = 0.</p></div>
+      <div class="card"><span class="tag o">Interpolate / extrapolate</span><p>Predict <b>inside</b> the data’s x-range (usually reliable) or <b>outside</b> it (risky).</p></div>
+      <div class="card"><span class="tag p">Residual</span><p>Actual y minus predicted ŷ. Positive means the dot is above the line, negative means below.</p></div>
+      <div class="card"><span class="tag t">Residual plot</span><p>A plot of x against residuals. Random scatter around 0 means a good linear fit; a curve means it is not.</p></div>
+      <div class="card"><span class="tag o">Correlation coefficient r</span><p>A number from −1 to 1. Its sign gives the direction and its size gives the strength of the <b>linear</b> relationship.</p></div>
+      <div class="card"><span class="tag p">Causal relationship</span><p>A change in x <b>produces</b> a change in y. Correlation alone does not prove it.</p></div>
+    </div>
+  </section>
+
+  <section id="sc">
+    <h2>📊 Data Studio: scatter plots and trends</h2>
+    <p class="sub">Pick a data set (the choice carries to every simulator below) or type your own pairs. Read the direction, strength and form of the trend.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <p style="margin:10px 0 4px;font-weight:800">Your own data (one “x, y” pair per line, 3 to 40 points):</p>
+        <textarea id="sc-ta" rows="7" spellcheck="false" style="width:100%;font:inherit;font-weight:600;padding:8px 12px;border:2px solid var(--line);border-radius:12px"></textarea>
+        <div id="sc-out" class="pill" style="background:var(--purple-light);line-height:1.7"></div>
+      </div>
+      <div class="vis"><svg id="sc-g" viewBox="0 0 400 320"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="in">
+    <h2>🧭 Interpret the slope and y-intercept</h2>
+    <p class="sub">Edit the model ŷ = mx + b and the x to predict. Each step says what the numbers mean in the context of the data (Lesson 3.1).</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <div class="rw" id="in-row"></div>
+        <div id="in-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="in-ctl"></div><ol class="steps" id="in-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="in-g" viewBox="0 0 400 320"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="hand">
+    <h2>✏️ Write a linear model by hand</h2>
+    <p class="sub">Pick two data points the line should pass near. Find the slope, then the intercept, then compare your line with the best fit (Lesson 3.2).</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <div class="rw" id="hd-row"></div>
+        <div id="hd-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="hd-ctl"></div><ol class="steps" id="hd-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="hd-g" viewBox="0 0 400 320"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="fit">
+    <h2>🎚️ Fit lab: beat the best-fit line</h2>
+    <p class="sub">Drag the sliders to build your own line. The best-fit line has the smallest sum of squared residuals. How close can you get?</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <p style="margin:12px 0 2px;font-weight:800">Slope m: <span id="ft-mo" class="pu"></span></p>
+        <input id="ft-m" type="range" style="width:100%">
+        <p style="margin:12px 0 2px;font-weight:800">Intercept b: <span id="ft-bo" class="pu"></span></p>
+        <input id="ft-b" type="range" style="width:100%">
+        <div class="fmr" style="margin-top:10px"><label><input id="ft-seg" type="checkbox" checked> Show residual segments</label><label><input id="ft-best" type="checkbox"> Show best-fit line</label></div>
+        <div><button id="ft-bestb" type="button">⭐ Jump to best fit</button><button id="ft-reset" type="button">↺ Flat line</button></div>
+        <div id="ft-out" class="pill" style="background:var(--purple-light);line-height:1.7"></div>
+      </div>
+      <div class="vis"><svg id="ft-g" viewBox="0 0 400 320"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="rs">
+    <h2>📉 Residuals and the residual plot</h2>
+    <p class="sub">Residual = actual − predicted. Edit the line and watch the residual plot. A good model leaves random scatter around 0 (Lesson 3.3).</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <div class="rw" id="rs-row"></div>
+        <div id="rs-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="rs-ctl"></div><ol class="steps" id="rs-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="rs-g" viewBox="0 0 400 320"></svg><svg id="rs-g2" viewBox="0 0 400 220" style="margin-top:10px"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="r">
+    <h2>📏 Correlation coefficient r</h2>
+    <p class="sub">Try the shape data sets (strong, weak, none, curved) and add an outlier. Notice that r only measures <b>linear</b> strength (Lessons 3.4 – 3.5).</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw"><span>Data set</span><select class="dsel"></select></div>
+        <div class="fmr" style="margin-top:10px"><label><input id="r-out-ck" type="checkbox"> Add an outlier</label></div>
+        <div id="r-big" class="big" style="margin-top:12px"></div>
+        <svg id="r-bar" viewBox="0 0 400 60" style="width:100%;height:auto;display:block;margin-top:8px"></svg>
+        <div id="r-out" class="pill" style="background:var(--purple-light);line-height:1.7"></div>
+      </div>
+      <div class="vis"><svg id="r-g" viewBox="0 0 400 320"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="cause">
+    <h2>🔍 Correlation vs causation</h2>
+    <p class="sub">For each pair, decide: does x <i>cause</i> y, or is something else going on? (Lesson 3.6)</p>
+    <div class="card" id="cq"></div>
+    <div class="card" style="margin-top:18px"><h3>Checklist before saying “causes”</h3>
+      <ul><li>Is there a sensible way x could change y?</li><li>Could a <b>third factor</b> drive both?</li><li>Could it be a <b>coincidence</b> (a small or odd data set)?</li><li>Strong evidence usually comes from a controlled experiment, not just a scatter plot.</li></ul></div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag t">Describe a scatter plot</span><ul><li><b>Direction:</b> up (positive) or down (negative).</li><li><b>Strength:</b> tight or loose.</li><li><b>Form:</b> line or curve.</li><li>Mention outliers.</li></ul></div>
+      <div class="card"><span class="tag o">Interpret a model ŷ = mx + b</span><ul><li>“For each 1 more <i>x</i>, the model predicts <i>y</i> to change by <i>m</i>.”</li><li>“When <i>x</i> is 0, the model predicts <i>b</i>.” Check that x = 0 makes sense.</li></ul></div>
+      <div class="card"><span class="tag p">Judge the fit</span><ul><li>Residual = y − ŷ.</li><li>Residual plot: random scatter = good, curve = bad.</li><li>|r| near 1 = strong linear, near 0 = weak linear.</li></ul></div>
+      <div class="card"><span class="tag t">Predict wisely</span><ul><li>Inside the x-range: interpolation.</li><li>Outside: extrapolation, be careful.</li><li>Correlation ≠ causation.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const isInt=x=>Number.isInteger(x);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=4)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const gv=id=>parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));
+const sgn=n=>n<0?`(${f(n)})`:f(n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const fracS=(n,d)=>{
+  if(!Number.isInteger(n)||!Number.isInteger(d))return f(n/d,3);
+  if(d<0){n=-n;d=-d}
+  const g=gcd(n,d)||1;n/=g;d/=g;
+  return d===1?f(n):(n<0?'−':'')+frH(Math.abs(n),d);
+};
+const ptS=(x,y)=>`(${f(x,2)}, ${f(y,2)})`;
+const lin=(A,B)=>{const t=[];[[A,'x'],[B,'y']].forEach(([c,v])=>{if(c===0)return;const a=Math.abs(c);t.push((c<0?(t.length?' − ':'−'):(t.length?' + ':''))+(a===1?'':f(a))+v)});return t.length?t.join(''):'0'};
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()})}});
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+const row=(id,parts)=>{const one=p=>typeof p==='string'?`<span>${p}</span>`:p.g?`<span class="pg">${p.g.map(one).join('')}</span>`:`<span class="${p[2]||'sm'}"><input id="${p[0]}" type="text" inputmode="decimal" value="${p[1]}"></span>`;$(id).innerHTML=parts.map(one).join('')};
+const allNum=a=>a.every(x=>isFinite(x));
+const tooBig=a=>a.some(x=>Math.abs(x)>30);
+const RANGES=[5,6,8,10,12,15,20,25,30,40,60,90];
+const Rof=vals=>{const m=Math.max(5,Math.ceil(Math.max(...vals.map(Math.abs)))+1);return RANGES.find(r=>r>=m)||m};
+
+
+/* ---------- data sets ---------- */
+const DSETS=[
+ {n:'Cricket chirps → temperature',xl:'Chirps per minute',yl:'Temperature (°F)',pts:[[44,80.5],[35,70.5],[20.4,57],[33,66],[31,68],[35,72],[18.5,52],[37,73.5],[26,53]]},
+ {n:'Study time → test score',xl:'Study hours',yl:'Test score',pts:[[0.5,52],[1,58],[1.5,61],[2,66],[2.5,64],[3,73],[3.5,75],[4,80],[4.5,79],[5,88]]},
+ {n:'Car age → value',xl:'Age (years)',yl:'Value ($1000)',pts:[[1,24],[2,21.5],[3,19.8],[4,17],[5,15.5],[6,13.2],[7,12],[8,9.5],[9,8.1],[10,6.4]]},
+ {n:'Strong positive',xl:'x',yl:'y',pts:[[1,2.2],[2,2.8],[3,4.1],[4,4.6],[5,6.2],[6,6.5],[7,8.1],[8,8.4],[9,10],[10,10.3]]},
+ {n:'Weak positive',xl:'x',yl:'y',pts:[[1,3],[2,1],[3,5],[4,3.5],[5,7],[6,4],[7,8],[8,5],[9,9],[10,6.5]]},
+ {n:'No relationship',xl:'x',yl:'y',pts:[[1,5],[2,8],[3,3],[4,6],[5,9],[6,2],[7,7],[8,4],[9,8],[10,5]]},
+ {n:'Weak negative',xl:'x',yl:'y',pts:[[1,6.5],[2,9],[3,5],[4,8],[5,4],[6,6],[7,3],[8,5.5],[9,2],[10,4]]},
+ {n:'Strong negative',xl:'x',yl:'y',pts:[[1,10],[2,9.1],[3,8.4],[4,7.2],[5,6.8],[6,5.5],[7,4.2],[8,3.4],[9,2.5],[10,1.2]]},
+ {n:'Curved (U-shape)',xl:'x',yl:'y',pts:[[1,9],[2,5],[3,2.5],[4,1],[5,0.5],[6,1.2],[7,3],[8,5.5],[9,9.2],[10,13]]},
+ {n:'My own data',xl:'x',yl:'y',pts:[[1,2],[2,4.5],[3,5],[4,8],[5,9.5]]}
+];
+const CUSTOM=DSETS.length-1;
+let cur=0;
+const D=()=>DSETS[cur];
+
+/* ---------- statistics ---------- */
+const stats=p=>{
+  const n=p.length,mx=p.reduce((a,q)=>a+q[0],0)/n,my=p.reduce((a,q)=>a+q[1],0)/n;
+  let sxx=0,sxy=0,syy=0;
+  p.forEach(([x,y])=>{sxx+=(x-mx)**2;sxy+=(x-mx)*(y-my);syy+=(y-my)**2});
+  const m=sxx?sxy/sxx:0;
+  return{n,mx,my,m,b:my-m*mx,r:sxx&&syy?sxy/Math.sqrt(sxx*syy):0};
+};
+const sse=(p,m,b)=>p.reduce((a,[x,y])=>a+(y-(m*x+b))**2,0);
+const corr=(a,b)=>{
+  const n=a.length,ma=a.reduce((s,v)=>s+v,0)/n,mb=b.reduce((s,v)=>s+v,0)/n;
+  let sab=0,saa=0,sbb=0;
+  a.forEach((v,i)=>{sab+=(v-ma)*(b[i]-mb);saa+=(v-ma)**2;sbb+=(b[i]-mb)**2});
+  return saa&&sbb?sab/Math.sqrt(saa*sbb):0;
+};
+const resOf=(p,m,b)=>p.map(([x,y])=>y-(m*x+b));
+const curv=(p,m,b)=>{const mx=p.reduce((a,q)=>a+q[0],0)/p.length;return corr(resOf(p,m,b),p.map(q=>(q[0]-mx)**2))};
+const mod=(m,b)=>`ŷ = ${f(m,3)}x ${b<0?'−':'+'} ${f(Math.abs(b),3)}`;
+const r2=x=>Math.round(x*100)/100;
+
+/* ---------- scatter plot drawing ---------- */
+const nice=(lo,hi)=>{
+  const span=(hi-lo)||1,raw=span/5,p=10**Math.floor(Math.log10(raw));
+  const u=[1,2,2.5,5,10].map(k=>k*p).find(k=>k>=raw-1e-12);
+  return{lo:Math.floor(lo/u+1e-9)*u,hi:Math.ceil(hi/u-1e-9)*u,u};
+};
+function scatter(id,pts,o={}){
+  const W=400,H=o.H||320,L=50,Rm=14,T=14,B=44,pw=W-L-Rm,ph=H-B-T;
+  const all=[...pts,...(o.ext||[])];if(o.zero)all.push([0,0]);
+  const xs=all.map(p=>p[0]),ys=all.map(p=>p[1]);
+  const nx=nice(Math.min(...xs),Math.max(...xs)),ny=o.yr?nice(o.yr[0],o.yr[1]):nice(Math.min(...ys),Math.max(...ys));
+  const X=x=>L+(x-nx.lo)/(nx.hi-nx.lo)*pw,Y=y=>H-B-(y-ny.lo)/(ny.hi-ny.lo)*ph;
+  let s=`<defs><clipPath id="cp-${id}"><rect x="${L}" y="${T}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${L}" y="${T}" width="${pw}" height="${ph}" style="fill:#fff;stroke:#d8d4ea"/>`;
+  const nxs=Math.round((nx.hi-nx.lo)/nx.u),nys=Math.round((ny.hi-ny.lo)/ny.u);
+  for(let i=0;i<=nxs;i++){const v=nx.lo+i*nx.u;s+=`<line x1="${X(v)}" y1="${T}" x2="${X(v)}" y2="${T+ph}" style="stroke:#ebe8f5"/><text x="${X(v)}" y="${T+ph+14}" text-anchor="middle" style="font-size:10px;fill:#777">${f(v,3)}</text>`}
+  for(let i=0;i<=nys;i++){const v=ny.lo+i*ny.u;s+=`<line x1="${L}" y1="${Y(v)}" x2="${L+pw}" y2="${Y(v)}" style="stroke:#ebe8f5"/><text x="${L-6}" y="${Y(v)+3}" text-anchor="end" style="font-size:10px;fill:#777">${f(v,3)}</text>`}
+  if(nx.lo<0&&nx.hi>0)s+=`<line x1="${X(0)}" y1="${T}" x2="${X(0)}" y2="${T+ph}" style="stroke:var(--ink);stroke-width:1.5"/>`;
+  if(ny.lo<0&&ny.hi>0)s+=`<line x1="${L}" y1="${Y(0)}" x2="${L+pw}" y2="${Y(0)}" style="stroke:var(--ink);stroke-width:1.5"/>`;
+  s+=`<text x="${L+pw/2}" y="${H-8}" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#444">${o.xl||''}</text><text transform="rotate(-90)" x="${-(T+ph/2)}" y="13" text-anchor="middle" style="font-size:11px;font-weight:800;fill:#444">${o.yl||''}</text>`;
+  s+=`<g clip-path="url(#cp-${id})">`;
+  if(o.seg)pts.forEach(([x,y])=>{s+=`<line x1="${X(x)}" y1="${Y(y)}" x2="${X(x)}" y2="${Y(o.seg.m*x+o.seg.b)}" style="stroke:var(--orange);stroke-width:2;opacity:.65"/>`});
+  if(o.stems)pts.forEach(([x,y])=>{s+=`<line x1="${X(x)}" y1="${Y(0)}" x2="${X(x)}" y2="${Y(y)}" style="stroke:#c9c3e4;stroke-width:1.5"/>`});
+  (o.lines||[]).forEach(l=>{s+=`<line x1="${X(nx.lo)}" y1="${Y(l.m*nx.lo+l.b)}" x2="${X(nx.hi)}" y2="${Y(l.m*nx.hi+l.b)}" style="stroke:${l.c};stroke-width:${l.w||3};${l.dash?'stroke-dasharray:'+l.dash:''}"/>`});
+  s+='</g>';
+  pts.forEach(([x,y],i)=>{
+    s+=`<circle cx="${X(x)}" cy="${Y(y)}" r="5.5" style="fill:var(--orange);stroke:#fff;stroke-width:2"/>`;
+    if(o.num)s+=`<text x="${X(x)}" y="${Y(y)-9}" text-anchor="middle" style="font-size:10px;font-weight:800;fill:#555;paint-order:stroke;stroke:#fff;stroke-width:3px">${i+1}</text>`;
+  });
+  (o.hi||[]).forEach(h=>{
+    s+=`<circle cx="${X(h.x)}" cy="${Y(h.y)}" r="${h.r||7.5}" style="fill:${h.c||'var(--purple)'};stroke:#fff;stroke-width:2"/>`;
+    if(h.l){const right=X(h.x)>L+pw*.65;s+=`<text x="${X(h.x)+(right?-11:11)}" y="${Y(h.y)-8}" text-anchor="${right?'end':'start'}" style="font-size:12px;font-weight:800;fill:${h.c||'var(--purple)'};paint-order:stroke;stroke:#fff;stroke-width:3px">${h.l}</text>`}
+  });
+  $(id).innerHTML=s;
+}
+function resplot(id,pts,m,b){
+  const res=pts.map(([x,y])=>[x,y-(m*x+b)]),mr=Math.max(...res.map(q=>Math.abs(q[1])),1e-6),nn=nice(-mr,mr),c=Math.max(Math.abs(nn.lo),nn.hi);
+  scatter(id,res,{H:220,yr:[-c,c],zero:true,xl:D().xl,yl:'Residual',stems:true});
+}
+
+/* ---------- concept map ---------- */
+(()=>{
+const T={
+root:'<b>Two-variable statistics</b>: study how two numbers go together. Draw a line of fit, measure how well it fits, and decide whether one thing really causes the other.',
+lm:'<b>3.1 Linear models</b>: a scatter plot shows pairs of data. A line ŷ = mx + b describes the trend and lets you predict.',
+sp:'<b>Scatter plot and trend</b>: one dot per pair. Describe the direction (up or down), strength (tight or loose) and form (line or curve).',
+si:'<b>Slope and intercept</b>: slope = change in predicted y for each 1 more x. Intercept = predicted y when x = 0. Always say what they mean in context.',
+pr:'<b>Predict</b>: inside the data’s x-range is <b>interpolation</b> (usually reliable). Outside is <b>extrapolation</b> (the trend may not continue).',
+fit:'<b>3.2 Fitting lines</b>: choose the line that goes through the middle of the dots, with about as many above as below.',
+hd:'<b>By hand</b>: pick two points near the line, find the slope (Δy ÷ Δx), then the intercept b = y₁ − m·x₁, then write ŷ = mx + b.',
+tc:'<b>Technology</b>: calculators and Desmos give the line of best fit, the one with the smallest sum of squared residuals.',
+rsd:'<b>3.3 Residuals</b>: they measure how far each dot is from the line, and whether a line is the right kind of model.',
+rf:'<b>Residual = y − ŷ</b>: actual minus predicted. Positive = dot above the line. Negative = below.',
+rp:'<b>Residual plot</b>: plot x against the residuals. Random scatter around 0 = good linear fit. A curve = try a different model.',
+cr:'<b>3.4 – 3.5 Correlation coefficient r</b>: one number from −1 to 1 for how closely the dots follow a <em>line</em>.',
+sg:'<b>Sign</b>: positive r means y rises with x; negative r means y falls as x rises. The sign matches the slope.',
+sz:'<b>Size</b>: |r| near 1 = strong, near 0 = weak. r says nothing about curved patterns, and outliers can change it a lot.',
+ca:'<b>3.6 Causation</b>: two variables can move together without one causing the other.',
+cc:'<b>Causal</b>: changing x really produces a change in y. Example: more minutes running → more calories burned.',
+tf:'<b>Third factor or coincidence</b>: hot weather raises both ice cream and air-conditioner sales. Some links are just chance.'
+};
+const tree=[
+ {k:'lm',t:['Linear models','(3.1)'],c:[{k:'sp',t:['Scatter plot','& trend']},{k:'si',t:['Slope &','y-intercept']},{k:'pr',t:['Interpolate vs','extrapolate']}]},
+ {k:'fit',t:['Fitting lines','(3.2)'],c:[{k:'hd',t:['By hand:','two points']},{k:'tc',t:['Technology:','best-fit line']}]},
+ {k:'rsd',t:['Residuals','(3.3)'],c:[{k:'rf',t:['residual =','y − ŷ']},{k:'rp',t:['Residual','plot']}]},
+ {k:'cr',t:['Correlation r','(3.4 – 3.5)'],c:[{k:'sg',t:['Sign:','direction']},{k:'sz',t:['Size:','strength']}]},
+ {k:'ca',t:['Causation','(3.6)'],c:[{k:'cc',t:['Causal']},{k:'tf',t:['Third factor','or coincidence']}]}
+];
+let row=0,lines='',nodes='';
+const box=(k,t,x,cy,w,h,fill,stroke,txt,fs)=>{
+  let s=`<g data-k="${k}"><rect x="${x}" y="${cy-h/2}" width="${w}" height="${h}" rx="14" fill="${fill}" stroke="${stroke}" stroke-width="2.5"/>`;
+  t.forEach((ln,i)=>s+=`<text x="${x+w/2}" y="${cy-(t.length-1)*11+i*22+6}" fill="${txt}"${fs?` font-size="${fs}"`:''}>${ln}</text>`);
+  return s+'</g>';
+};
+const l1c=[];
+tree.forEach(n=>{
+  const cs=n.c.map(()=>30+(row++)*52);
+  const c1=cs.reduce((a,b)=>a+b,0)/cs.length;l1c.push(c1);
+  nodes+=box(n.k,n.t,250,c1,200,56,'#fdecc8','#e0a030','#172c3a');
+  lines+=`<path d="M450 ${c1}H505V${cs[0]}H560"/>`;
+  cs.slice(1).forEach(c=>lines+=`<path d="M505 ${c1}V${c}H560"/>`);
+  n.c.forEach((ch,i)=>nodes+=box(ch.k,ch.t,560,cs[i],240,44,'#ebe7fb','#7962cb','#172c3a'));
+});
+const rc=l1c.reduce((a,b)=>a+b,0)/l1c.length;
+tree.forEach((n,i)=>lines+=`<path d="M180 ${rc}H215V${l1c[i]}H250"/>`);
+nodes+=box('root',['Two-variable','statistics'],10,rc,170,110,'#e2566b','#b83a4f','#fff',22);
+$('cm-lines').innerHTML=lines;$('cm-nodes').innerHTML=nodes;
+const show=k=>{$('cm-info').innerHTML=T[k];document.querySelectorAll('#cm-nodes g').forEach(g=>g.querySelector('rect').style.strokeWidth=g.dataset.k===k?'5':'2.5')};
+document.querySelectorAll('#cm-nodes g').forEach(g=>g.onclick=()=>show(g.dataset.k));show('root');
+})();
+
+/* ---------- data studio ---------- */
+const sels=[...document.querySelectorAll('.dsel')];
+sels.forEach(s=>{s.innerHTML=DSETS.map((d,i)=>`<option value="${i}">${d.n}</option>`).join('');s.onchange=()=>{cur=+s.value;onDS()}});
+function scRender(){
+  const d=D(),p=d.pts,st=stats(p),a=Math.abs(st.r);
+  const dir=a<.15?'no clear direction':st.r>0?'<b>positive</b> (rises to the right)':'<b>negative</b> (falls to the right)';
+  const str=a>=.8?'strong':a>=.5?'moderate':a>=.3?'weak':'very weak or none';
+  const cv=curv(p,st.m,st.b),form=Math.abs(cv)>.6&&p.length>=6?'The dots seem to follow a <b>curve</b>, so a line is not the best model.':'The pattern is roughly <b>linear</b>.';
+  $('sc-out').innerHTML=`<b>${p.length} points.</b> Direction: ${dir}.<br>Strength: <b>${str}</b> (r = ${f(st.r,3)}).<br>Form: ${form}<br>Best-fit line (dashed): <b class="te">${mod(st.m,st.b)}</b>`;
+  scatter('sc-g',p,{xl:d.xl,yl:d.yl,lines:[{m:st.m,b:st.b,c:'var(--teal)',dash:'7 5',w:2.5}]});
+}
+const parseTA=()=>{
+  const rows=$('sc-ta').value.split(/\n/).map(l=>l.trim()).filter(Boolean).map(l=>l.split(/[,\s]+/).map(Number));
+  if(rows.length<3||rows.length>40||rows.some(r=>r.length!==2||!r.every(isFinite)))return null;
+  return rows;
+};
+$('sc-ta').addEventListener('input',()=>{
+  const p=parseTA();
+  if(!p){$('sc-out').innerHTML='Enter 3 to 40 lines, each like <b>3, 7.5</b>.';return}
+  DSETS[CUSTOM].pts=p;cur=CUSTOM;onDS(true);
+});
+
+/* ---------- interpret slope and intercept ---------- */
+row('in-row',[{g:['ŷ =',['in-m',1],'x +',['in-b',0]]},{g:['Predict at x =',['in-x',0]]}]);
+function inSteps(st){
+  const [m,b,x]=['in-m','in-b','in-x'].map(gv),d=D(),p=d.pts;
+  if(!allNum([m,b,x])){scatter('in-g',p,{xl:d.xl,yl:d.yl,zero:true});return bad('Enter numbers for m, b and x.')}
+  const xs=p.map(q=>q[0]),lo=Math.min(...xs),hi=Math.max(...xs),y=m*x+b,inside=x>=lo&&x<=hi,bIn=lo<=0&&hi>=0;
+  const steps=[
+    `The model is <b class="te">${mod(m,b)}</b>. Here <b>x</b> is “${d.xl}” and <b>ŷ</b> is the predicted “${d.yl}”.`,
+    `<b>Slope m = ${f(m,3)}</b> is the rate of change. ${m===0?`The model predicts no change in ${d.yl} as ${d.xl} changes.`:`For each increase of 1 in ${d.xl}, the model predicts ${d.yl} to <b>${m>0?'increase':'decrease'} by ${f(Math.abs(m),3)}</b>.`}`,
+    `<b>y-intercept b = ${f(b,3)}</b> is the predicted ${d.yl} when ${d.xl} is 0. The data run from ${f(lo,3)} to ${f(hi,3)}, so x = 0 is ${bIn?'<b>inside</b> the data: it is meaningful.':'<b>outside</b> the data (extrapolation): it may not make sense in real life.'}`,
+    `Predict at x = ${f(x,3)}: ŷ = ${f(m,3)}(${f(x,3)}) ${b<0?'−':'+'} ${f(Math.abs(b),3)} = <b>${f(y,3)}</b>. ${inside?'x is inside the data range, so this is <b>interpolation</b> and is usually trustworthy.':'x is outside the data range, so this is <b>extrapolation</b>: the trend may not continue.'}`];
+  const hi2=[];if(st>=2)hi2.push({x:0,y:b,l:'b = '+f(b,2)});if(st>=3)hi2.push({x,y,c:'var(--teal)',l:`ŷ = ${f(y,2)}`});
+  scatter('in-g',p,{xl:d.xl,yl:d.yl,zero:true,ext:[[0,b],[x,y]],lines:[{m,b,c:'var(--teal)'}],hi:hi2});
+  return out(st,'Interpret the model',`ŷ(${f(x,2)}) = ${f(y,2)}`,steps);
+}
+const inst=stepper('in',()=>['in-m','in-b','in-x'],inSteps);
+
+/* ---------- write a model by hand ---------- */
+row('hd-row',[{g:['Point #',['hd-a',1],'and point #',['hd-b',2]]}]);
+function hdSteps(st){
+  const d=D(),p=d.pts,n=p.length,ia=gv('hd-a'),ib=gv('hd-b'),base=(hi,lines)=>scatter('hd-g',p,{xl:d.xl,yl:d.yl,zero:true,num:true,hi,lines});
+  if(!isInt(ia)||!isInt(ib)||ia<1||ib<1||ia>n||ib>n){base([],[]);return bad(`Enter point numbers from 1 to ${n} (see the numbers on the graph).`)}
+  const A=p[ia-1],B=p[ib-1];
+  if(A[0]===B[0]){base([{x:A[0],y:A[1],l:'A'},{x:B[0],y:B[1],l:'B'}],[]);return bad('Choose two points with different x values (the slope would be undefined).')}
+  const m=(B[1]-A[1])/(B[0]-A[0]),b=A[1]-m*A[0],bs=stats(p),sa=sse(p,m,b),sb=sse(p,bs.m,bs.b);
+  const res=resOf(p,m,b),up=res.filter(v=>v>1e-9).length,dn=res.filter(v=>v<-1e-9).length;
+  const steps=[
+    `Choose two points near the middle of the trend: <b>point ${ia} = (${f(A[0],3)}, ${f(A[1],3)})</b> and <b>point ${ib} = (${f(B[0],3)}, ${f(B[1],3)})</b>.`,
+    `Slope: m = (y₂ − y₁) ÷ (x₂ − x₁) = (${f(B[1],3)} − ${sgn(A[1])}) ÷ (${f(B[0],3)} − ${sgn(A[0])}) = <b>${f(m,3)}</b>.`,
+    `y-intercept: b = y₁ − m·x₁ = ${f(A[1],3)} − ${f(m,3)}·${sgn(A[0])} = <b>${f(b,3)}</b>.`,
+    `Write the model: <b class="te">${mod(m,b)}</b>.`,
+    `Compare with technology. Best fit: <b>${mod(bs.m,bs.b)}</b>. Sum of squared residuals: yours ${f(sa,2)} vs best ${f(sb,2)}. Your line has ${up} dots above and ${dn} below: ${Math.abs(up-dn)<=Math.max(1,Math.round(n*.2))?'nicely balanced.':'unbalanced, so try different points.'}`];
+  const hi=[{x:A[0],y:A[1],l:'A'},{x:B[0],y:B[1],l:'B'}],lines=[];
+  if(st>=4)lines.push({m:bs.m,b:bs.b,c:'#9a96b3',dash:'7 5',w:2.5});
+  if(st>=3)lines.push({m,b,c:'var(--teal)'});
+  base(hi,lines);
+  return out(st,'Write the model',mod(m,b),steps);
+}
+const hdst=stepper('hd',()=>['hd-a','hd-b'],hdSteps);
+
+/* ---------- fit lab ---------- */
+function ftRender(){
+  const d=D(),p=d.pts,s=stats(p),m=+$('ft-m').value,b=+$('ft-b').value;
+  $('ft-mo').textContent=f(m,3);$('ft-bo').textContent=f(b,3);
+  const a=sse(p,m,b),bst=sse(p,s.m,s.b),ratio=bst>1e-12?a/bst:(a<1e-9?1:99);
+  const v=ratio<1.02?'🏆 Essentially the best fit!':ratio<1.25?'👍 Very close to the best fit.':ratio<2.5?'🙂 Getting there. Keep adjusting.':'🔧 Far from the best fit. Adjust the slope first, then the intercept.';
+  $('ft-out').innerHTML=`Your line: <b class="te">${mod(m,b)}</b><br>Your sum of squared residuals: <b>${f(a,2)}</b><br>Best-fit sum: <b>${f(bst,2)}</b> (${mod(s.m,s.b)})<br>${v}`;
+  const lines=[{m,b,c:'var(--teal)'}];if($('ft-best').checked)lines.unshift({m:s.m,b:s.b,c:'#9a96b3',dash:'7 5',w:2.5});
+  scatter('ft-g',p,{xl:d.xl,yl:d.yl,zero:true,seg:$('ft-seg').checked?{m,b}:null,lines});
+}
+function ftSetup(){
+  const p=D().pts,s=stats(p),ys=p.map(q=>q[1]),xs=p.map(q=>q[0]);
+  const mlim=Math.max(1,Math.ceil(Math.abs(s.m)*2*10)/10),span=mlim*Math.max(...xs.map(Math.abs))+(Math.max(...ys)-Math.min(...ys)||1);
+  const M=$('ft-m'),B=$('ft-b');
+  M.min=-mlim;M.max=mlim;M.step=mlim/200;M.value=0;
+  B.min=s.my-span;B.max=s.my+span;B.step=span/250;B.value=s.my;
+}
+['ft-m','ft-b','ft-seg','ft-best'].forEach(id=>$(id).addEventListener('input',ftRender));
+$('ft-bestb').onclick=()=>{const s=stats(D().pts);$('ft-m').value=s.m;$('ft-b').value=s.b;ftRender()};
+$('ft-reset').onclick=()=>{ftSetup();ftRender()};
+
+/* ---------- residuals ---------- */
+row('rs-row',[{g:['ŷ =',['rs-m',1],'x +',['rs-b',0]]}]);
+function rsSteps(st){
+  const d=D(),p=d.pts,m=gv('rs-m'),b=gv('rs-b');
+  if(!allNum([m,b])){scatter('rs-g',p,{xl:d.xl,yl:d.yl,zero:true});$('rs-g2').innerHTML='';return bad('Enter numbers for m and b.')}
+  const res=resOf(p,m,b),pos=res.filter(v=>v>1e-9).length,neg=res.filter(v=>v<-1e-9).length,sum=res.reduce((a,v)=>a+v,0);
+  const mx=p.reduce((a,q)=>a+q[0],0)/p.length,cv=corr(res,p.map(q=>(q[0]-mx)**2)),tilt=corr(res,p.map(q=>q[0]));
+  const tab=(k)=>`<table class="lr"><tr style="text-transform:none"><th style="text-transform:none">x</th><th style="text-transform:none">y</th><th style="text-transform:none">ŷ = ${f(m,3)}x ${b<0?'−':'+'} ${f(Math.abs(b),3)}</th><th style="text-transform:none">y − ŷ</th></tr>${p.slice(0,k).map(([x,y],i)=>`<tr><td>${f(x,3)}</td><td>${f(y,3)}</td><td>${f(m*x+b,3)}</td><td><b class="${res[i]>=0?'te':'or'}">${f(res[i],3)}</b></td></tr>`).join('')}${p.length>k?'<tr><td colspan="4">…</td></tr>':''}</table>`;
+  let verdict;
+  if(!pos||!neg)verdict=`All residuals have the same sign (${pos?'all above':'all below'} the line), so the line is too ${pos?'low':'high'}. Shift it.`;
+  else if(Math.abs(cv)>.6&&p.length>=6)verdict='The residuals form a <b>curved pattern</b>. A line is not the right kind of model here; try a curve.';
+  else if(Math.abs(tilt)>.6&&p.length>=6)verdict=`The residuals ${tilt>0?'climb':'fall'} from left to right, so the <b>slope is off</b>. Adjust m.`;
+  else verdict='The residuals look like <b>random scatter around 0</b> with no pattern, so the linear model is a <b>good fit</b>.';
+  const steps=[
+    `<b>Residual = actual y − predicted ŷ.</b> Positive: the dot is above the line. Negative: below. Zero: on the line.`,
+    `Work out the first three points.${tab(3)}`,
+    `All residuals: ${pos} above the line, ${neg} below. Their sum is <b>${f(sum,3)}</b> (for the best-fit line it is 0).${tab(10)}`,
+    `<b>Residual plot</b> (below the graph): ${verdict}`];
+  scatter('rs-g',p,{xl:d.xl,yl:d.yl,zero:true,seg:st>=1?{m,b}:null,lines:[{m,b,c:'var(--teal)'}]});
+  if(st>=3)resplot('rs-g2',p,m,b);else if(st!==99)$('rs-g2').innerHTML='<text x="200" y="110" text-anchor="middle" style="font-size:13px;fill:#888">The residual plot appears at step 4</text>';
+  return out(st,'Residuals',Math.abs(cv)>.6&&pos&&neg?'Curved: not a good linear model':(!pos||!neg)?'Line is off':'Good linear fit',steps);
+}
+const rsst=stepper('rs',()=>['rs-m','rs-b'],rsSteps);
+
+/* ---------- correlation ---------- */
+function rRender(){
+  const d=D();let p=d.pts.slice();const s0=stats(p);let hi=[];
+  if($('r-out-ck').checked){
+    const xs=p.map(q=>q[0]),ys=p.map(q=>q[1]),xr=Math.max(...xs)-Math.min(...xs)||1,yr=Math.max(...ys)-Math.min(...ys)||1;
+    const o=[Math.max(...xs)-.15*xr,s0.m>=0?Math.min(...ys)-.1*yr:Math.max(...ys)+.1*yr];p.push(o);hi=[{x:o[0],y:o[1],l:'outlier'}];
+  }
+  const st=stats(p),r=st.r,a=Math.abs(r);
+  $('r-big').innerHTML=`r = <span class="pu">${r.toFixed(3)}</span> &nbsp; r² = ${(r*r).toFixed(3)}`;
+  const X=v=>20+(v+1)/2*360;
+  $('r-bar').innerHTML=`<line x1="20" y1="26" x2="380" y2="26" style="stroke:#d8d4ea;stroke-width:6;stroke-linecap:round"/><line x1="${X(0)}" y1="16" x2="${X(0)}" y2="36" style="stroke:#555;stroke-width:2"/><circle cx="${X(r)}" cy="26" r="9" style="fill:var(--purple);stroke:#fff;stroke-width:2"/><text x="20" y="54" style="font-size:11px;fill:#666">−1 strong −</text><text x="${X(0)}" y="54" text-anchor="middle" style="font-size:11px;fill:#666">0 none</text><text x="380" y="54" text-anchor="end" style="font-size:11px;fill:#666">+1 strong +</text>`;
+  const w=a>=.8?'Strong':a>=.5?'Moderate':a>=.3?'Weak':'Very weak or no';
+  const cv=curv(p,st.m,st.b);
+  let t=`<b>${w}${a<.3?'':' '+(r>0?'positive':'negative')} linear relationship.</b> The sign of r matches the slope (${f(st.m,3)}). About <b>${Math.round(r*r*100)}%</b> of the variation in y is explained by the line.`;
+  if(Math.abs(cv)>.6&&p.length>=6)t+='<br>⚠️ The dots follow a <b>curve</b>, so r understates the relationship. Always look at the plot, not just r.';
+  if(hi.length)t+=`<br>🎯 With the outlier r is ${f(r,3)}; without it, r was ${f(s0.r,3)}.`;
+  $('r-out').innerHTML=t;
+  scatter('r-g',p,{xl:d.xl,yl:d.yl,lines:[{m:st.m,b:st.b,c:'var(--teal)'}],hi});
+}
+$('r-out-ck').addEventListener('input',rRender);
+
+/* ---------- dataset change ---------- */
+function onDS(skipTa){
+  const d=D(),p=d.pts,s=stats(p);
+  sels.forEach(x=>x.value=cur);
+  if(!skipTa)$('sc-ta').value=p.map(q=>q.join(', ')).join('\n');
+  $('in-m').value=r2(s.m);$('in-b').value=r2(s.b);$('in-x').value=r2(s.mx);
+  $('hd-a').value=1;$('hd-b').value=p.length;
+  $('rs-m').value=r2(s.m);$('rs-b').value=r2(s.b);
+  $('r-out-ck').checked=false;
+  scRender();inst.reset();hdst.reset();ftSetup();ftRender();rsst.reset();rRender();
+}
+
+/* ---------- causation sorter ---------- */
+const cq=[
+ ['Minutes running ↔ calories burned','Causal','More running uses more energy.'],
+ ['Miles driven ↔ gas used','Causal','Driving farther burns more fuel.'],
+ ['Ice cream sales ↔ air-conditioner sales','Third factor','Hot weather drives both.'],
+ ['Snow shovels sold ↔ mittens sold','Third factor','Winter weather drives both.'],
+ ['Shoe size ↔ reading score (children)','Third factor','Age drives both: older kids have bigger feet and read better.'],
+ ['Firefighters at a fire ↔ damage done','Third factor','Bigger fires need more firefighters and cause more damage.'],
+ ['Texts sent per day ↔ shirts sold','Coincidence','There is no sensible link between them.'],
+ ['Movies Nicolas Cage appears in ↔ drownings in pools','Coincidence','The numbers just happen to match over a few years.']
+];
+cq.forEach(([q,a,why])=>{
+  const row=document.createElement('div');row.style.margin='12px 0';
+  row.innerHTML=`<b>${q}</b><br>`;
+  const note=document.createElement('span');note.style.cssText='margin-left:8px;color:var(--muted)';
+  ['Causal','Third factor','Coincidence'].forEach(o=>{
+    const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=o===a?'right':'wrong';note.textContent=o===a?'✔ '+why:''};row.appendChild(b);
+  });
+  row.appendChild(note);$('cq').appendChild(row);
+});
+const hint=document.createElement('p');hint.style.color='var(--muted)';hint.textContent='Causal: changing x produces a change in y. Third factor: something else drives both. Coincidence: no sensible link at all.';$('cq').appendChild(hint);
+
+/* ---------- quiz ---------- */
+const qs=[
+ ['In ŷ = 2.5x + 10, the slope 2.5 means…',['Each 1 more x predicts 2.5 more y','When x = 0, y is 2.5','x is 2.5 times y'],0],
+ ['In T = 0.25n + 40 (n chirps per minute, T the temperature), the 40 means…',['The predicted temperature when n = 0','Chirps per degree','A strong correlation'],0],
+ ['Predicting outside the data’s x-range is called…',['Interpolation','Extrapolation','Correlation'],1],
+ ['For ŷ = 2.2x + 3.4, the point (3, 9) has residual…',['−1','+1','10'],0],
+ ['A positive residual means the dot is…',['Above the line','Below the line','On the line'],0],
+ ['A residual plot with a clear U-shape suggests…',['The linear model is great','Try a nonlinear model','r must be 0'],1],
+ ['r = −0.87 means…',['Weak negative','Strong negative','Strong positive'],1],
+ ['Which r shows the strongest linear relationship?',['0.3','−0.9','0.6'],1],
+ ['A scatter plot is a perfect U-shape. What is r likely to be?',['Close to 1','Close to −1','Close to 0'],2],
+ ['Ice cream and sunburn rise together. The best explanation is…',['Ice cream causes sunburn','Hot sunny weather drives both','Sunburn causes ice cream'],1],
+ ['Which gives the best evidence that x causes y?',['A scatter plot with r = 0.95','A controlled experiment','Two lines that look alike'],1],
+ ['The line of best fit has the smallest…',['Sum of squared residuals','Slope','y-intercept'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+
+onDS();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 1 — Whole Numbers | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .eq{font-size:1.25rem;font-weight:850;margin:8px 0}
+    .eq.t{color:var(--teal);background:none}.eq.o{color:var(--orange);background:none}.eq.p{color:var(--purple);background:none}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=number],select{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:260px}
+    .out{font-weight:850;color:var(--purple)}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    /* place value chart */
+    .pv{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .period{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
+    .period .pn{font-size:.7rem;font-weight:850;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:4px}
+    .cells{display:flex;gap:4px}
+    .cell{width:38px;text-align:center}
+    .cell .d{display:grid;place-items:center;height:42px;border-radius:10px;background:#fff;border:2px solid var(--line);font-size:1.3rem;font-weight:900}
+    .cell .d.hl{background:var(--purple);color:#fff;border-color:var(--purple)}
+    .cell .d.nx{background:var(--orange-light);border-color:var(--orange)}
+    .cell .l{font-size:.58rem;color:var(--muted);font-weight:800;margin-top:2px;line-height:1.1}
+    .cell button.ar{display:block;width:100%;padding:0;margin:2px 0;border:0;background:var(--purple-light);color:var(--purple);border-radius:6px;font-size:.7rem;line-height:1.5}
+    .cell button.ar:hover{background:var(--purple);color:#fff}
+    .nl{width:100%;height:auto;display:block;background:#fbfdfb;border-radius:14px;border:1px solid var(--line)}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#place">Place value</a><a href="#round">Rounding</a><a href="#ops">Operations</a><a href="#props">Properties</a><a href="#strategies">Strategies</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 1</span>
+    <h1>Whole <span>Numbers</span></h1>
+    <p class="lead">Name them, round them, and operate on them. Add, subtract, multiply and divide, with the notation, vocabulary and properties you will use all year.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <p class="sub">Whole numbers are 0, 1, 2, 3, … Counting numbers start at 1.</p>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Number line</span><p>Numbers get larger going right. The point labeled <b>0</b> is the <b>origin</b>; the number paired with a point is its <b>coordinate</b>.</p>
+        <svg class="nl" viewBox="0 0 300 60"><line x1="15" y1="30" x2="285" y2="30" stroke="#172c3a" stroke-width="2"/><g id="nl-ticks"></g></svg></div>
+      <div class="card"><span class="tag t">Place value system</span><p>The value of a digit depends on its position. In 3,<b>5</b>07 the 5 means 500.</p><p><b>Rounding</b> approximates a number to a chosen place.</p></div>
+      <div class="card"><span class="tag o">Operation results</span>
+        <ul><li><b>sum</b>: result of adding</li><li><b>difference</b>: result of subtracting</li><li><b>product</b>: result of multiplying</li><li><b>quotient</b>: result of dividing (<b>dividend</b> ÷ <b>divisor</b>)</li></ul></div>
+    </div>
+  </section>
+
+  <section id="place">
+    <h2>🔢 1.1 Place value explorer</h2>
+    <p class="sub">Type a whole number (up to 15 digits). See each digit in its place and how to read it in words.</p>
+    <div class="card">
+      <label for="pv-in">Type a number (0 to 1,000,000,000), or use ▲ ▼ on any digit</label><input id="pv-in" type="text" inputmode="numeric" value="3,507,284">
+      <button id="pv-bill">1 billion</button><button id="pv-zero">Reset to 0</button>
+      <div class="pv" id="pv"></div>
+      <div class="pill" style="background:var(--purple-light)" id="pv-words"></div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><span class="tag t">Name a number</span>
+        <ol class="steps"><li>From the left, name the number in each period, then the period name (not for ones).</li><li>Separate periods with commas.</li></ol></div>
+      <div class="card"><span class="tag o">Write from words</span>
+        <ol class="steps"><li>Spot the period words.</li><li>Draw three blanks per period.</li><li>Fill each period’s digits in place.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="round">
+    <h2>🎯 Rounding</h2>
+    <p class="sub">Pick a place, then type a number or use ▲ ▼ on the ones and thousands digits. The target digit is purple; the digit to its right (the decider) is orange.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="r-in">Number</label><input id="r-in" type="text" inputmode="numeric" value="48,962">
+        <label for="r-pl">Round to the</label>
+        <select id="r-pl"></select>
+        <div class="pv" id="r-pv"></div>
+        <svg id="r-line" viewBox="0 0 440 130" style="width:100%;margin-top:14px"></svg>
+      </div>
+      <div class="card">
+        <div class="eq p" id="r-res"></div>
+        <div class="pill" style="background:var(--orange-light)" id="r-why"></div>
+        <ol class="steps" style="margin-top:14px"><li>Find the given place.</li><li>Look at the digit to its right.</li><li>5 or more → add 1 to the place digit (9 becomes 0 and carries left). Less than 5 → leave it.</li><li>Replace everything to the right with zeros.</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="ops">
+    <h2>➕➖✖️➗ 1.2 – 1.5 Operation lab</h2>
+    <p class="sub">Type any expression with as many terms as you like, using ( ) and + − × ÷. The lab solves it one step at a time in the correct order: parentheses first, then × and ÷ left to right, then + and − left to right.</p>
+    <div class="explorer">
+      <div class="card">
+        <label for="o-expr">Expression</label>
+        <input id="o-expr" type="text" value="(12 + 8) × 3 − 24 ÷ 4" style="max-width:none;width:100%;font-size:1.15rem">
+        <div id="o-btns"></div>
+        <div style="margin-top:8px">
+          <button class="ex">2 + 3 × 4</button><button class="ex">(2 + 3) × 4</button><button class="ex">100 − (20 + 5) × 2</button><button class="ex">((8 + 4) ÷ 3 + 6) × 5</button>
+        </div>
+        <div class="pill" style="background:var(--orange-light)" id="o-err" hidden></div>
+      </div>
+      <div class="card">
+        <div class="pill" style="background:var(--teal-light)" id="o-res"></div>
+        <div class="pill" style="background:var(--purple-light)" id="o-read"></div>
+        <ol class="steps" id="o-steps" style="margin-top:14px"></ol>
+      </div>
+    </div>
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Operation</th><th>Symbols</th><th>Example</th><th>Read as</th><th>Result called</th></tr>
+      <tr><td>Addition</td><td>+</td><td>3 + 4</td><td>three plus four</td><td><b>sum</b> of 3 and 4</td></tr>
+      <tr><td>Subtraction</td><td>−</td><td>7 − 3</td><td>seven minus three</td><td><b>difference</b> of 7 and 3</td></tr>
+      <tr><td>Multiplication</td><td>× &nbsp; · &nbsp; ( )</td><td>3 · 8</td><td>three times eight</td><td><b>product</b> of 3 and 8</td></tr>
+      <tr><td>Division</td><td>÷ &nbsp; / &nbsp; fraction bar &nbsp; long division</td><td>12 ÷ 4</td><td>twelve divided by four</td><td><b>quotient</b> of 12 and 4</td></tr>
+    </table>
+  </section>
+
+  <section id="props">
+    <h2>Properties</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag t">Addition</span>
+        <div class="eq t">a + 0 = a</div><p><b>Identity:</b> adding 0 changes nothing.</p>
+        <div class="eq t">a + b = b + a</div><p><b>Commutative:</b> order of addends doesn’t matter.</p></div>
+      <div class="card"><span class="tag o">Multiplication</span>
+        <div class="eq o">a · 0 = 0</div><p><b>Zero:</b> anything times 0 is 0.</p>
+        <div class="eq o">a · 1 = a</div><p><b>Identity:</b> times 1 changes nothing.</p>
+        <div class="eq o">a · b = b · a</div><p><b>Commutative.</b></p></div>
+      <div class="card"><span class="tag p">Division</span>
+        <div class="eq p">a ÷ a = 1,  a ÷ 1 = a</div><p><b>Properties of one</b> (a ≠ 0 for the first).</p>
+        <div class="eq p">0 ÷ a = 0</div><p>Zero divided by a nonzero number is 0.</p>
+        <div class="eq p">a ÷ 0 = undefined</div><p>Never divide by zero!</p></div>
+    </div>
+    <p class="sub" style="margin-top:14px">Subtraction and division are <b>not</b> commutative: 7 − 3 ≠ 3 − 7, and 12 ÷ 4 ≠ 4 ÷ 12.</p>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies: step by step</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag t">Add</span>
+        <ol class="steps"><li>Line up place values.</li><li>Add right to left, starting at the ones.</li><li>If a column is more than 9, carry to the next place.</li></ol></div>
+      <div class="card"><span class="tag o">Subtract</span>
+        <ol class="steps"><li>Line up place values.</li><li>Subtract right to left; borrow if the top digit is smaller.</li><li><b>Check by adding</b> the difference to the bottom number.</li></ol></div>
+      <div class="card"><span class="tag p">Multiply</span>
+        <ol class="steps"><li>Line up place values.</li><li>Multiply the top number by each digit of the bottom, right to left, carrying as needed.</li><li>Each new row starts with a placeholder 0.</li><li>Add the partial products.</li></ol></div>
+      <div class="card"><span class="tag t">Divide</span>
+        <ol class="steps"><li>Divide the first digit(s) of the dividend by the divisor.</li><li>Write the quotient above, multiply back, subtract.</li><li>Bring down the next digit and repeat.</li><li><b>Check:</b> quotient × divisor (+ remainder) = dividend.</li></ol></div>
+    </div>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Operation</th></tr>
+      <tr><td>sum of, plus, increased by, more than, total</td><td><b>+</b></td></tr>
+      <tr><td>difference of, minus, decreased by, less than, fewer</td><td><b>−</b> (“less than” reverses order: 5 less than 9 is 9 − 5)</td></tr>
+      <tr><td>product of, times, twice, double</td><td><b>×</b></td></tr>
+      <tr><td>quotient of, divided by, per, split equally</td><td><b>÷</b></td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const PLACES=['ones','tens','hundreds','thousands','ten thousands','hundred thousands','millions','ten millions','hundred millions','billions','ten billions','hundred billions','trillions','ten trillions','hundred trillions'];
+const PER=['','thousand','million','billion','trillion'];
+const ones=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const tens=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function w3(n){let s=[];if(n>=100){s.push(ones[Math.floor(n/100)]+' hundred');n%=100}
+  if(n>=20){s.push(tens[Math.floor(n/10)]+(n%10?'-'+ones[n%10]:''))}else if(n>0||!s.length)s.push(ones[n]);return s.join(' ')}
+function words(str){if(/^0+$/.test(str))return 'zero';const g=[];for(let i=str.length;i>0;i-=3)g.unshift(str.slice(Math.max(0,i-3),i));
+  return g.map((x,i)=>{const n=+x,p=PER[g.length-1-i];return n?w3(n)+(p?' '+p:''):''}).filter(Boolean).join(', ')}
+const fmt=s=>s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+function numVal(id){return +($(id).value.replace(/\D/g,'').slice(0,12)||0)}
+function commaLive(id){const e=$(id);e.addEventListener('input',()=>{const d=e.value.replace(/\D/g,'').replace(/^0+(?=\d)/,'').slice(0,15);e.value=fmt(d)})}
+function cleanNum(v){v=String(v).replace(/\D/g,'').replace(/^0+(?=\d)/,'');return v.slice(0,15)||'0'}
+
+function renderPV(box,str,hi,nx){
+  box.innerHTML='';const g=[];for(let i=str.length;i>0;i-=3)g.unshift({s:str.slice(Math.max(0,i-3),i),end:i});
+  g.forEach((gr,gi)=>{const p=document.createElement('div');p.className='period';
+    p.innerHTML=`<div class="pn">${PER[g.length-1-gi]||'ones'}</div><div class="cells"></div>`;
+    [...gr.s].forEach((d,k)=>{const idx=str.length-1-(gr.end-gr.s.length+k);
+      const c=document.createElement('div');c.className='cell';
+      c.innerHTML=`<div class="d${idx===hi?' hl':''}${idx===nx?' nx':''}">${d}</div><div class="l">${PLACES[idx]}</div>`;
+      p.querySelector('.cells').appendChild(c)});
+    box.appendChild(p)});
+}
+/* editable place value chart: millions, thousands, ones (0 – 999,999,999) plus a 1 billion button */
+let pvDigits=[3,5,0,7,2,8,4].map(String);
+pvDigits=['0','0',...pvDigits];
+function pvValue(){return pvDigits.join('')}
+function setPV(s){s=String(s).padStart(9,'0').slice(-9);pvDigits=[...s];drawPV()}
+function drawPV(){
+  const box=$('pv');box.innerHTML='';
+  const billion=$('pv-in').dataset.b==='1';
+  if(billion){
+    box.innerHTML='<div class="period"><div class="pn">billions</div><div class="cells"><div class="cell"><div class="d hl">1</div><div class="l">billions</div></div></div></div>'+
+      ['millions','thousands','ones'].map(n=>`<div class="period"><div class="pn">${n}</div><div class="cells">${[2,1,0].map(i=>`<div class="cell"><div class="d">0</div><div class="l">${PLACES[(n==='ones'?0:n==='thousands'?3:6)+i]}</div></div>`).join('')}</div></div>`).join('');
+    $('pv-words').textContent='1,000,000,000 = one billion';
+    $('pv-in').value='1,000,000,000';return;
+  }
+  ['millions','thousands','ones'].forEach((name,pi)=>{
+    const p=document.createElement('div');p.className='period';
+    p.innerHTML=`<div class="pn">${name}</div><div class="cells"></div>`;
+    for(let k=0;k<3;k++){
+      const pos=pi*3+k,idx=8-pos;
+      const c=document.createElement('div');c.className='cell';
+      c.innerHTML=`<button class="ar" aria-label="up">▲</button><div class="d">${pvDigits[pos]}</div><button class="ar" aria-label="down">▼</button><div class="l">${PLACES[idx]}</div>`;
+      const [up,dn]=c.querySelectorAll('button');
+      up.onclick=()=>{pvDigits[pos]=String((+pvDigits[pos]+1)%10);drawPV()};
+      dn.onclick=()=>{pvDigits[pos]=String((+pvDigits[pos]+9)%10);drawPV()};
+      p.querySelector('.cells').appendChild(c);
+    }
+    box.appendChild(p);
+  });
+  const s=pvValue().replace(/^0+(?=\d)/,'');
+  $('pv-words').textContent=fmt(s)+' = '+words(s);
+  $('pv-in').value=fmt(s);
+}
+$('pv-in').dataset.b='0';
+$('pv-in').addEventListener('input',()=>{
+  let n=Math.max(0,Math.min(1000000000,numVal('pv-in')));
+  if(n===1000000000){$('pv-in').dataset.b='1';drawPV()}else{$('pv-in').dataset.b='0';setPV(n)}
+});
+$('pv-bill').onclick=()=>{$('pv-in').dataset.b='1';drawPV()};
+$('pv-zero').onclick=()=>{$('pv-in').dataset.b='0';setPV(0)};
+drawPV();
+
+/* number line */
+(()=>{const g=$('nl-ticks');let h='';for(let i=0;i<=10;i++){const x=25+i*25;h+=`<line x1="${x}" x2="${x}" y1="24" y2="36" stroke="#172c3a" stroke-width="2"/><text x="${x}" y="52" font-size="11" font-weight="800" text-anchor="middle" fill="${i?'#637681':'#7962cb'}">${i}</text>`}
+ h+='<circle cx="25" cy="30" r="5" fill="#7962cb"/><text x="25" y="16" font-size="9" fill="#7962cb" font-weight="800" text-anchor="middle">origin</text>';g.innerHTML=h})();
+
+['r-in'].forEach(commaLive);
+/* rounding */
+const rp=$('r-pl');PLACES.slice(1,9).forEach((p,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=p+' place';if(i===2)o.selected=true;rp.appendChild(o)});
+function drawR(){
+  let s=cleanNum($('r-in').value);const k=+rp.value;
+  const pad=s.padStart(6,'0');
+  renderPV($('r-pv'),pad,k,k-1);
+  // ▲▼ arrows on the ones and thousands digits (change one digit, no carrying)
+  [...$('r-pv').querySelectorAll('.cell')].forEach((c,ci)=>{
+    const idx=pad.length-1-ci;if(idx>5)return;
+    const d=c.querySelector('.d');
+    const mk=(t,delta)=>{const b=document.createElement('button');b.className='ar';b.textContent=t;
+      b.onclick=()=>{const a=[...pad];const pos=pad.length-1-idx;a[pos]=String((+a[pos]+delta+10)%10);
+        $('r-in').value=fmt(a.join('').replace(/^0+(?=\d)/,''));drawR()};return b};
+    c.insertBefore(mk('▲',1),d);d.after(mk('▼',-1));
+  });
+  s=pad.replace(/^0+(?=\d)/,'');
+  const n=BigInt(s),m=10n**BigInt(k),half=m/2n;
+  const rem=n%m,down=n-rem,res=rem>=half?down+m:down;
+  const dec=pad.length>k?pad[pad.length-k]:'0';
+  const fr=Number(rem)/Number(m),X=f=>40+f*360,Y=70,up=rem>=half;
+  const mid=down+half,hi=down+m,exact=rem===0n;
+  let g=`<rect x="${up?X(.5):X(0)}" y="${Y-14}" width="${180}" height="28" rx="8" fill="${up?'#e3f5f0':'#f0edff'}"/>`;
+  g+=`<line x1="30" y1="${Y}" x2="410" y2="${Y}" stroke="#172c3a" stroke-width="3"/>`;
+  [[0,down,'#7962cb'],[.5,mid,'#f07846'],[1,hi,'#7962cb']].forEach(([f,v,c])=>{
+    g+=`<line x1="${X(f)}" y1="${Y-12}" x2="${X(f)}" y2="${Y+12}" stroke="${c}" stroke-width="3"/><text x="${X(f)}" y="${Y+32}" font-size="12" font-weight="900" text-anchor="middle" fill="${c}">${fmt(v.toString())}</text>`});
+  g+=`<text x="${X(.5)}" y="${Y+48}" font-size="10" font-weight="800" text-anchor="middle" fill="#f07846">halfway</text>`;
+  g+=`<circle cx="${X(fr)}" cy="${Y}" r="9" fill="#172c3a"/><text x="${Math.min(Math.max(X(fr),60),380)}" y="${Y-22}" font-size="12" font-weight="900" text-anchor="middle" fill="#172c3a">${fmt(s)}</text>`;
+  g+=`<text x="220" y="14" font-size="11" font-weight="800" text-anchor="middle" fill="#637681">${exact?'Already a multiple: no rounding needed':(up?'Closer to '+fmt(hi.toString())+' (at or past halfway): round up':'Closer to '+fmt(down.toString())+': round down')}</text>`;
+  $('r-line').innerHTML=g;
+  $('r-res').textContent=`${fmt(s)} ≈ ${fmt(res.toString())}`;
+  $('r-why').textContent=`Decider digit: ${dec} → ${+dec>=5?'5 or more, so round up':'less than 5, so round down (keep)'}.`;
+}
+rp.onchange=drawR;$('r-in').addEventListener('input',drawR);drawR();
+
+/* operation lab: expressions with parentheses and many terms */
+const OPN={'+':['Add','sum'],'−':['Subtract','difference'],'×':['Multiply','product'],'÷':['Divide','quotient']};
+['(',')','+','−','×','÷'].forEach(k=>{const b=document.createElement('button');b.textContent=k;b.style.fontSize='1.2rem';
+  b.onclick=()=>{const e=$('o-expr'),st=e.selectionStart??e.value.length,en=e.selectionEnd??st;e.setRangeText(k==='('||k===')'?k:` ${k} `,st,en,'end');e.focus();drawO()};$('o-btns').appendChild(b)});
+document.querySelectorAll('button.ex').forEach(b=>b.onclick=()=>{$('o-expr').value=b.textContent;drawO()});
+function tokenize(str){
+  const t=[];let i=0;str=str.replace(/,/g,'');
+  while(i<str.length){const c=str[i];
+    if(c===' '){i++;continue}
+    if(/\d/.test(c)){let n='';while(i<str.length&&/\d/.test(str[i]))n+=str[i++];if(n.length>12)throw 'Numbers can have at most 12 digits.';t.push(BigInt(n));continue}
+    if(c==='.')throw 'Whole numbers only: no decimal points yet.';
+    if(c==='('||c===')'){t.push(c);i++;continue}
+    if('+'.includes(c)){t.push('+');i++;continue}
+    if('-−–'.includes(c)){t.push('−');i++;continue}
+    if('×x*·X'.includes(c)){t.push('×');i++;continue}
+    if('÷/'.includes(c)){t.push('÷');i++;continue}
+    throw `I don’t understand “${c}”. Use digits, ( ), + − × ÷.`}
+  const out=[];
+  t.forEach((x,k)=>{const prev=out[out.length-1];
+    const isVal=v=>typeof v==='bigint'||v===')';
+    if(prev!==undefined&&isVal(prev)&&(typeof x==='bigint'||x==='('))out.push('×'); // 3(4+5) means 3 × (4+5)
+    out.push(x)});
+  return out;
+}
+const isOp=x=>typeof x==='string'&&'+−×÷'.includes(x);
+const show=t=>t.map(x=>typeof x==='bigint'?fmt(x.toString()):x).join(' ').replace(/\( /g,'(').replace(/ \)/g,')');
+function validate(t){
+  let d=0;
+  for(let k=0;k<t.length;k++){const x=t[k],p=t[k-1],n=t[k+1];
+    if(x==='(')d++;
+    if(x===')'){d--;if(d<0)throw 'There is a ) without a matching (.'}
+    if(isOp(x)){if(p===undefined||p==='('||isOp(p))throw 'An operation sign needs a number before it.';
+      if(n===undefined||n===')'||isOp(n))throw 'An operation sign needs a number after it.'}
+    if(x==='('&&n===')')throw 'There is nothing inside a pair of parentheses.'}
+  if(d!==0)throw 'There is a ( without a matching ).';
+}
+function solve(t){
+  const steps=[];
+  while(t.length>1){
+    // innermost parentheses first
+    let lo=0,hi=t.length;const open=t.lastIndexOf('(');
+    if(open>=0){lo=open+1;hi=t.indexOf(')',open)}
+    const seg=t.slice(lo,hi);
+    if(seg.length===1){ // (7) -> 7
+      if(open>=0){const before=show(t);t.splice(open,3,seg[0]);steps.push({text:`Parentheses done: ${show(t)}`,note:''});continue}
+      break}
+    let k=seg.findIndex(x=>x==='×'||x==='÷');if(k<0)k=seg.findIndex(x=>x==='+'||x==='−');
+    const a=seg[k-1],o=seg[k],b=seg[k+1];let r;
+    if(o==='+')r=a+b;
+    else if(o==='−'){if(a<b)throw `${fmt(a.toString())} − ${fmt(b.toString())} is below 0, and whole numbers can’t go below 0.`;r=a-b}
+    else if(o==='×')r=a*b;
+    else{if(b===0n)throw 'Division by zero is undefined!';if(a%b!==0n)throw `${fmt(a.toString())} ÷ ${fmt(b.toString())} isn’t a whole number (quotient ${fmt((a/b).toString())}, remainder ${fmt((a%b).toString())}). Try numbers that divide evenly.`;r=a/b}
+    t.splice(lo+k-1,3,r);
+    const inner=open>=0?' (inside parentheses)':'';
+    steps.push({text:show(t),note:`${OPN[o][0]}${inner}: ${fmt(a.toString())} ${o} ${fmt(b.toString())} = ${fmt(r.toString())}  (${OPN[o][1]})`});
+  }
+  return steps;
+}
+function drawO(){
+  const src=$('o-expr').value,err=$('o-err'),steps=$('o-steps');
+  err.hidden=true;steps.innerHTML='';$('o-res').textContent='';$('o-read').textContent='';
+  if(!src.trim()){return}
+  try{
+    const t=tokenize(src);validate(t);
+    const start=show(t);
+    const st=solve(t.slice());
+    const first=document.createElement('li');first.innerHTML=`Start: <b>${start}</b>`;steps.appendChild(first);
+    st.forEach(x=>{const li=document.createElement('li');li.innerHTML=`<b>${x.text}</b>${x.note?`<br><span style="font-size:.85rem">${x.note}</span>`:''}`;steps.appendChild(li)});
+    const ans=st.length?st[st.length-1].text:start;
+    $('o-res').innerHTML=`${start} = <b>${ans}</b>`;
+    const digits=ans.replace(/,/g,'');
+    $('o-read').textContent=`In words: ${words(digits)}`;
+  }catch(e){err.textContent='⚠️ '+(typeof e==='string'?e:'Check your expression.');err.hidden=false}
+}
+$('o-expr').addEventListener('input',drawO);drawO();
+
+/* quizzes */
+const qs=[
+ ['What is 53,208 in words?',['fifty-three thousand, two hundred eight','five thousand, three hundred two eight','fifty-three thousand, two hundred eighty'],0],
+ ['Round 6,481 to the nearest hundred.',['6,400','6,500','6,000'],0],
+ ['Round 2,950 to the nearest hundred.',['2,900','3,000','2,950'],1],
+ ['The product of 6 and 9 is…',['15','3','54'],2],
+ ['Which property says a + b = b + a?',['Identity','Commutative','Zero'],1],
+ ['What is 15 ÷ 0?',['0','15','Undefined'],2],
+ ['Translate: “the difference of 20 and 8”',['20 + 8','20 − 8','8 − 20'],1],
+ ['Check: if 90 − 34 = 56, which addition confirms it?',['56 + 34 = 90','90 + 34 = 124','56 − 34 = 22'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

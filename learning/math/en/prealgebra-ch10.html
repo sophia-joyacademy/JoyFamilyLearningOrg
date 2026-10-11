@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 10 — Polynomials | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#addsub">Add &amp; subtract</a><a href="#exp">Exponent rules</a><a href="#mul">Multiply</a><a href="#sci">Scientific notation</a><a href="#gcf">Factoring</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 10</span>
+    <h1><span>Polynomials</span></h1>
+    <p class="lead">Name polynomials by terms and degree, add, subtract and multiply them, use the exponent rules, write numbers in scientific notation, and factor out the greatest common factor.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Monomial</span><p>A term of the form ax<sup>m</sup>: a constant times a variable to a whole-number power.</p></div>
+      <div class="card"><span class="tag t">Polynomial</span><p>A monomial, or monomials combined by addition or subtraction.</p></div>
+      <div class="card"><span class="tag o">Binomial · trinomial</span><p>A polynomial with exactly two terms · exactly three terms.</p></div>
+      <div class="card"><span class="tag p">Degree</span><p>Degree of a term = the exponent of its variable (a constant has degree 0). Degree of a polynomial = the highest degree of its terms.</p></div>
+      <div class="card"><span class="tag t">Zero and negative exponents</span><p>a<sup>0</sup> = 1 (a ≠ 0) and a<sup>−n</sup> = 1/a<sup>n</sup>.</p></div>
+      <div class="card"><span class="tag o">Scientific notation</span><p>a × 10<sup>n</sup> with 1 ≤ a &lt; 10 and n an integer.</p></div>
+      <div class="card"><span class="tag p">Greatest common factor (GCF)</span><p>The largest expression that is a factor of all the terms.</p></div>
+    </div>
+    <h3 style="margin-top:28px">Exponent properties</h3>
+    <table>
+      <tr><th>Property</th><th>Rule</th></tr>
+      <tr><td>Product</td><td>a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup> (add the exponents)</td></tr>
+      <tr><td>Power</td><td>(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup> (multiply the exponents)</td></tr>
+      <tr><td>Product to a power</td><td>(ab)<sup>m</sup> = a<sup>m</sup>b<sup>m</sup></td></tr>
+      <tr><td>Quotient</td><td>a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup> (subtract the exponents)</td></tr>
+      <tr><td>Quotient to a power</td><td>(a/b)<sup>m</sup> = a<sup>m</sup>/b<sup>m</sup></td></tr>
+      <tr><td>Zero exponent</td><td>a<sup>0</sup> = 1 (a ≠ 0)</td></tr>
+      <tr><td>Negative exponent</td><td>a<sup>−n</sup> = 1/a<sup>n</sup></td></tr>
+    </table>
+  </section>
+
+  <section id="addsub">
+    <h2>➕ Add and subtract polynomials</h2>
+    <p class="sub">Only <b>like terms</b> (same variable and same power) can be combined. Edit the coefficients. When subtracting, every sign in the second polynomial flips.</p>
+    <div class="card">
+      <div><button id="as-t0" class="on" type="button">Add</button><button id="as-t1" type="button">Subtract</button></div>
+      <div class="rw" id="as-in"></div>
+      <div id="as-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="as-ctl"></div><ol class="steps" id="as-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="exp">
+    <h2>⚡ Exponent rules</h2>
+    <p class="sub">Pick a rule, then type a base (a number or a letter) and exponents. See it expanded, then shortened.</p>
+    <div class="card">
+      <div><button id="ex-t0" class="on" type="button">Product</button><button id="ex-t1" type="button">Power</button><button id="ex-t2" type="button">Product to a power</button><button id="ex-t3" type="button">Quotient</button><button id="ex-t4" type="button">Zero exponent</button><button id="ex-t5" type="button">Negative exponent</button></div>
+      <div class="rw" id="ex-in"></div>
+      <div id="ex-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="ex-ctl"></div><ol class="steps" id="ex-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="mul">
+    <h2>✖️ Multiply polynomials</h2>
+    <p class="sub">Multiply every term of one polynomial by every term of the other. The area model shows each partial product.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="mu-t0" class="on" type="button">Two binomials (FOIL)</button><button id="mu-t1" type="button">Trinomial × binomial</button></div>
+        <div class="rw" id="mu-in"></div>
+        <div id="mu-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="mu-ctl"></div><ol class="steps" id="mu-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Area model</span><div id="mu-area" style="margin-top:10px"></div>
+        <p style="margin-top:10px">Each cell is one term × one term. Add all the cells, then combine like terms.</p></div>
+    </div>
+  </section>
+
+  <section id="sci">
+    <h2>🔭 Scientific notation</h2>
+    <p class="sub">Very big and very small numbers are written as a × 10<sup>n</sup>. Move the decimal point so that a is at least 1 and less than 10.</p>
+    <div class="card">
+      <div><button id="sc-t0" class="on" type="button">Decimal → scientific</button><button id="sc-t1" type="button">Scientific → decimal</button></div>
+      <div class="rw" id="sc-in"></div>
+      <div id="sc-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="sc-ctl"></div><ol class="steps" id="sc-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="gcf">
+    <h2>🧩 Factor out the GCF</h2>
+    <p class="sub">Find what every term shares, then use the distributive property in reverse. Leave a coefficient at 0 to use just two terms.</p>
+    <div class="card">
+      <div class="rw" id="gc-in"></div>
+      <div id="gc-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="gc-ctl"></div><ol class="steps" id="gc-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Add / subtract</span>
+        <ol class="steps"><li>Write each polynomial in parentheses.</li><li>For subtraction, flip every sign in the second one.</li><li>Group like terms (same variable, same power).</li><li>Add the coefficients; the exponents stay.</li></ol></div>
+      <div class="card"><span class="tag t">Multiply</span>
+        <ol class="steps"><li>Multiply each term of the first by each term of the second.</li><li>Binomials: First, Outer, Inner, Last.</li><li>Multiply coefficients, add exponents of x.</li><li>Combine like terms.</li></ol></div>
+      <div class="card"><span class="tag o">Exponents</span>
+        <ul><li>Same base, multiplying: add exponents.</li><li>Same base, dividing: subtract exponents.</li><li>Power of a power: multiply exponents.</li><li>a⁰ = 1, and a<sup>−n</sup> is 1/a<sup>n</sup>.</li></ul></div>
+      <div class="card"><span class="tag p">Factoring the GCF</span>
+        <ol class="steps"><li>Find the GCF of the coefficients and the lowest power of x.</li><li>Divide each term by the GCF.</li><li>Write GCF( … ).</li><li>Check by multiplying back.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=4)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const gv=id=>parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));
+const sup=k=>`<sup>${String(k).replace('-','−')}</sup>`;
+const xp=k=>k===0?'':k===1?'x':'x'+sup(k);
+const termH=(c,k)=>{const a=Math.abs(c);return((a===1&&k>0)?'':f(a))+xp(k)};
+const list=ts=>{ts=ts.filter(t=>t[0]!==0);if(!ts.length)return'0';return ts.map((t,i)=>(t[0]<0?(i?' − ':'−'):(i?' + ':''))+termH(t[0],t[1])).join('')};
+const pf=co=>list(co.map((c,k)=>[c,k]).reverse());
+const pmul=(p,q)=>{const r=Array(p.length+q.length-1).fill(0);p.forEach((a,i)=>q.forEach((b,j)=>r[i+j]+=a*b));return r};
+const degOf=co=>{for(let k=co.length-1;k>=0;k--)if(co[k]!==0)return k;return 0};
+const nameOf=co=>{const n=co.filter(c=>c!==0).length;return['zero polynomial','monomial','binomial','trinomial'][n]||'polynomial'};
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()})}});
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+/* row: strings become text, [id,value,width] become inputs */
+const row=(id,parts)=>{$(id).innerHTML=parts.map(p=>typeof p==='string'?`<span>${p}</span>`:`<span class="${p[2]||'sm'}"><input id="${p[0]}" type="text" inputmode="decimal" value="${p[1]}"></span>`).join('')};
+const nums=(pre,n)=>Array.from({length:n},(_,i)=>gv(pre+i));
+const allNum=a=>a.every(x=>isFinite(x));
+
+/* ---------- 1. add / subtract ---------- */
+let asm=0;
+const asDef=[[2,5,-3,4],[2,-3,1,5]];
+function asBuild(){
+  row('as-in',['(',['as-p2',3],'x² +',['as-p1',2],'x +',['as-p0',-5],')',asm?'−':'+','(',['as-q2',2],'x² +',['as-q1',-4],'x +',['as-q0',7],')']);
+  asst.reset();
+}
+function asSteps(st){
+  const P=['as-p0','as-p1','as-p2'].map(gv),Q=['as-q0','as-q1','as-q2'].map(gv);
+  if(!allNum(P.concat(Q)))return bad('Enter numbers for every coefficient.');
+  const sg=asm?-1:1,Qs=Q.map(c=>c*sg),R=P.map((c,i)=>c+Qs[i]);
+  const pre=`(${pf(P)}) ${asm?'−':'+'} (${pf(Q)})`;
+  const unsorted=[...P.map((c,k)=>[c,k]).reverse(),...Q.map((c,k)=>[Qs[k],k]).reverse()];
+  const grp=[2,1,0].filter(k=>P[k]!==0||Q[k]!==0).map(k=>`${k===0?'constants':xp(k)+' terms'}: ${f(P[k])} ${asm?'−':'+'} ${Q[k]<0?'('+f(Q[k])+')':f(Q[k])} = <b>${f(R[k])}</b>`);
+  return out(st,pre,`${pre} = ${pf(R)}`,[
+    `Name each polynomial: the first is a <b>${nameOf(P)}</b> of degree ${degOf(P)}; the second is a <b>${nameOf(Q)}</b> of degree ${degOf(Q)}.`,
+    asm?`Subtraction flips <b>every</b> sign in the second polynomial: ${pf(P)} + (−1)(${pf(Q)}) = <b>${list(unsorted)}</b>`
+       :`Remove the parentheses (nothing changes for addition): <b>${list(unsorted)}</b>`,
+    `Group the like terms: ${grp.join(' &nbsp;·&nbsp; ')}`,
+    `Write the answer from highest power to lowest: <b>${pf(R)}</b> — a ${nameOf(R)}${R.some(c=>c!==0)?` of degree ${degOf(R)}`:''}.`]);
+}
+const asst=stepper('as',()=>['as-p0','as-p1','as-p2','as-q0','as-q1','as-q2'],asSteps);
+function asSet(m){asm=m;tog(['as-t0','as-t1'],m);asBuild()}
+$('as-t0').onclick=()=>asSet(0);$('as-t1').onclick=()=>asSet(1);asSet(0);
+
+/* ---------- 2. exponent rules ---------- */
+let exm=0;
+const isNum=s=>String(s).trim()!==''&&isFinite(Number(s));
+const B=s=>/^[A-Za-z]$|^\d+(\.\d+)?$/.test(s)?s:`(${s})`;
+const pw=(b,e)=>`${B(b)}${sup(e)}`;
+const rep=(b,n)=>Array(n).fill(B(b)).join('·');
+const vs=(b,e)=>{const v=Number(b)**e;return isFinite(v)&&Math.abs(v)<1e15?f(v,6):null};
+const ex=[
+ {n:'Product',def:{a:'x',m:3,n:4}},{n:'Power',def:{a:'x',m:3,n:2}},{n:'Product to a power',def:{a:'2',b:'x',m:3}},
+ {n:'Quotient',def:{a:'x',m:7,n:3}},{n:'Zero exponent',def:{a:'5'}},{n:'Negative exponent',def:{a:'2',n:3}}];
+function exBuild(){
+  const d=ex[exm].def,p=[];
+  if(exm===2)p.push('(',['ex-a',d.a,'sm'],'·',['ex-b',d.b,'sm'],')',['ex-m',d.m,'sm']);
+  else if(exm===1)p.push('(',['ex-a',d.a,'sm'],['ex-m',d.m,'sm'],')',['ex-n',d.n,'sm']);
+  else if(exm===0)p.push(['ex-a',d.a,'sm'],['ex-m',d.m,'sm'],'·',['ex-a2','(same base)','sm'],['ex-n',d.n,'sm']);
+  else if(exm===3)p.push(['ex-a',d.a,'sm'],['ex-m',d.m,'sm'],'÷',['ex-a2','(same base)','sm'],['ex-n',d.n,'sm']);
+  else if(exm===4)p.push(['ex-a',d.a,'sm'],['ex-z',0,'sm']);
+  else p.push(['ex-a',d.a,'sm'],['ex-n',-d.n,'sm']);
+  row('ex-in',p);
+  ['ex-a2','ex-z'].forEach(k=>{if($(k)){$(k).disabled=true;$(k).style.opacity=.5}});
+  if($('ex-m'))$('ex-m').style.cssText='font-size:.8rem';
+  if($('ex-n'))$('ex-n').style.cssText='font-size:.8rem';
+  exst.reset();
+}
+function exSteps(st){
+  const a=String($('ex-a').value).trim(),b=$('ex-b')?String($('ex-b').value).trim():'',m=$('ex-m')?gv('ex-m'):0,n=$('ex-n')?gv('ex-n'):0;
+  if(!a)return bad('Type a base such as x or 2.');
+  if(exm===2&&!b)return bad('Type a second base.');
+  if(![m,n].every(Number.isInteger))return bad('Exponents must be whole numbers (integers).');
+  if((exm>=3)&&isNum(a)&&Number(a)===0)return bad('The base cannot be 0 here.');
+  const nu=isNum(a),val=(e)=>nu?vs(a,e):null,vt=(e)=>{const v=val(e);return v===null?'':` = <b>${v}</b>`};
+  if(exm===0){
+    const k=m+n,ex2=(m>0&&n>0&&k<=10)?`${rep(a,m)} · ${rep(a,n)} = ${rep(a,k)}`:null;
+    return out(st,`${pw(a,m)} · ${pw(a,n)} = ?`,`${pw(a,m)} · ${pw(a,n)} = ${pw(a,k)}`,[
+      `Same base ${B(a)}, so use the <b>product property</b>: a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>.`,
+      ex2?`Expanded: ${pw(a,m)} · ${pw(a,n)} = ${ex2}`:`Add the exponents: ${m} + ${n} = ${k}`,
+      `Result: <b>${pw(a,k)}</b>${vt(k)}`]);
+  }
+  if(exm===1){
+    const k=m*n,ex2=(m>0&&n>0&&n<=4&&m<=4)?`(${rep(a,m)})·`.repeat(n).slice(0,-1):null;
+    return out(st,`(${pw(a,m)})${sup(n)} = ?`,`(${pw(a,m)})${sup(n)} = ${pw(a,k)}`,[
+      `A power of a power: <b>(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup></b>.`,
+      ex2?`Expanded: ${n} copies of ${pw(a,m)} = ${ex2}`:`Multiply the exponents: ${m} · ${n} = ${k}`,
+      `Result: <b>${pw(a,k)}</b>${vt(k)}`]);
+  }
+  if(exm===2){
+    const nb=isNum(b),res=`${pw(a,m)}${pw(b,m)}`,v=nu&&nb&&isFinite(Number(a)**m*Number(b)**m)?` = ${f(Number(a)**m*Number(b)**m,6)}`:'';
+    const ab=(nu&&nb)?f(Number(a)*Number(b)):`${B(a)}${B(b)}`;
+    return out(st,`(${B(a)}·${B(b)})${sup(m)} = ?`,`(${B(a)}·${B(b)})${sup(m)} = ${res}${v}`,[
+      `A product to a power: <b>(ab)<sup>m</sup> = a<sup>m</sup>b<sup>m</sup></b>. Raise <b>each factor</b> to the power.`,
+      `${B(a)}${sup(m)} · ${B(b)}${sup(m)} = <b>${pw(a,m)}·${pw(b,m)}</b>`,
+      `Result: <b>${res}</b>${nu&&nb?` (check: ${ab}${sup(m)}${v})`:''}`]);
+  }
+  if(exm===3){
+    const k=m-n,fin=k>0?pw(a,k):k===0?'1':frH('1',pw(a,-k));
+    return out(st,`${pw(a,m)} ÷ ${pw(a,n)} = ?`,`${pw(a,m)} ÷ ${pw(a,n)} = ${fin}`,[
+      `Same base ${B(a)}, so use the <b>quotient property</b>: a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup>.`,
+      `Subtract the exponents: ${m} − ${n} = <b>${k}</b>`,
+      k>0?`Positive exponent: <b>${pw(a,k)}</b>${vt(k)}`:k===0?`Anything (not 0) to the power 0 is 1: <b>1</b>`:`Negative exponent: ${pw(a,k)} = ${frH('1',pw(a,-k))}${nu?` = <b>${vs(a,k)}</b>`:''}. More on the bottom, so the answer is a fraction.`]);
+  }
+  if(exm===4)return out(st,`${B(a)}${sup(0)} = ?`,`${B(a)}${sup(0)} = 1`,[
+    `Use the quotient property on a<sup>3</sup> ÷ a<sup>3</sup>: it equals a<sup>3−3</sup> = a<sup>0</sup>.`,
+    `But anything divided by itself is 1, so a<sup>0</sup> = <b>1</b>.`,
+    `So <b>${B(a)}${sup(0)} = 1</b> for every base except 0.`]);
+  const e=n,k=Math.abs(e);
+  return out(st,`${pw(a,e)} = ?`,`${pw(a,e)} = ${e<0?frH('1',pw(a,k)):pw(a,k)}${nu?` = ${vs(a,e)}`:''}`,[
+    `Negative exponent rule: <b>a<sup>−n</sup> = 1/a<sup>n</sup></b> (a ≠ 0). A negative exponent means “flip it”.`,
+    e<0?`${pw(a,e)} = ${frH('1',pw(a,k))}`:`The exponent is already positive: ${pw(a,e)}.`,
+    nu?`Evaluate: <b>${vs(a,e)}</b>`:`Result: <b>${e<0?frH('1',pw(a,k)):pw(a,k)}</b>`]);
+}
+const exst=stepper('ex',()=>['ex-a','ex-b','ex-m','ex-n'],exSteps);
+function exSet(m){exm=m;tog([0,1,2,3,4,5].map(i=>'ex-t'+i),m);exBuild()}
+[0,1,2,3,4,5].forEach(i=>$('ex-t'+i).onclick=()=>exSet(i));exSet(0);
+
+/* ---------- 3. multiply polynomials ---------- */
+let mum=0;
+function areaTbl(P,Q){ /* P across the top, Q down the side; arrays of [coef,deg] */
+  const cell=(a,b)=>list([[a[0]*b[0],a[1]+b[1]]]);
+  const hd=t=>`<b style="color:var(--purple)">${list([t])}</b>`;
+  return `<table style="font-size:.9rem;text-align:center"><tr><th style="background:#fff"></th>${P.map(t=>`<th style="background:var(--purple-light);color:var(--purple);text-transform:none;text-align:center">${list([t])}</th>`).join('')}</tr>`+
+    Q.map(q=>`<tr><th style="background:var(--teal-light);color:var(--teal);text-transform:none;text-align:center">${list([q])}</th>${P.map(p=>`<td style="text-align:center">${cell(p,q)}</td>`).join('')}</tr>`).join('')+'</table>';
+}
+function muBuild(){
+  if(mum===0)row('mu-in',['(',['mu-0',2],'x +',['mu-1',3],')(',['mu-2',1],'x +',['mu-3',4],')']);
+  else row('mu-in',['(',['mu-0',1],'x² +',['mu-1',2],'x +',['mu-2',3],')(',['mu-3',2],'x +',['mu-4',-1],')']);
+  must.reset();
+}
+function muSteps(st){
+  if(mum===0){
+    const [a,b,c,d]=nums('mu-',4);
+    if(!allNum([a,b,c,d]))return bad('Enter numbers for every coefficient.');
+    $('mu-area').innerHTML=areaTbl([[a,1],[b,0]],[[c,1],[d,0]]);
+    const pre=`(${pf([b,a])})(${pf([d,c])})`,R=pmul([b,a],[d,c]);
+    return out(st,pre,`${pre} = ${pf(R)}`,[
+      `Use <b>FOIL</b>: First, Outer, Inner, Last. Start: ${pre}`,
+      `<b>F</b>irst: ${list([[a,1]])} · ${list([[c,1]])} = ${list([[a*c,2]])} &nbsp; <b>O</b>uter: ${list([[a,1]])} · ${list([[d,0]])} = ${list([[a*d,1]])}<br><b>I</b>nner: ${list([[b,0]])} · ${list([[c,1]])} = ${list([[b*c,1]])} &nbsp; <b>L</b>ast: ${list([[b,0]])} · ${list([[d,0]])} = ${list([[b*d,0]])}`,
+      `Add the four products: ${list([[a*c,2],[a*d,1],[b*c,1],[b*d,0]])}`,
+      `Combine the like terms (${list([[a*d,1]])} and ${list([[b*c,1]])}): <b>${pf(R)}</b>`]);
+  }
+  const [a,b,c,d,e]=nums('mu-',5);
+  if(!allNum([a,b,c,d,e]))return bad('Enter numbers for every coefficient.');
+  $('mu-area').innerHTML=areaTbl([[a,2],[b,1],[c,0]],[[d,1],[e,0]]);
+  const T=[c,b,a],U=[e,d],pre=`(${pf(T)})(${pf(U)})`,r1=T.map(x=>x*d),r2=T.map(x=>x*e),R=pmul(T,U);
+  return out(st,pre,`${pre} = ${pf(R)}`,[
+    `Multiply every term of the trinomial by every term of the binomial. Start: ${pre}`,
+    `Multiply by ${list([[d,1]])}: ${pf(T)} · ${list([[d,1]])} = <b>${list(r1.map((x,k)=>[x,k+1]).reverse())}</b>`,
+    `Multiply by ${f(e)}: ${pf(T)} · ${e<0?'('+f(e)+')':f(e)} = <b>${list(r2.map((x,k)=>[x,k]).reverse())}</b>`,
+    `Add the two rows and combine like terms: <b>${pf(R)}</b>`]);
+}
+const must=stepper('mu',()=>['mu-0','mu-1','mu-2','mu-3','mu-4'],muSteps);
+function muSet(m){mum=m;tog(['mu-t0','mu-t1'],m);muBuild()}
+$('mu-t0').onclick=()=>muSet(0);$('mu-t1').onclick=()=>muSet(1);muSet(0);
+
+/* ---------- 4. scientific notation ---------- */
+let scm=0;
+const insPt=(digs,p)=>{ /* digits with the point after p digits (p may be <=0 or >len) */
+  let s;if(p<=0)s='0.'+'0'.repeat(-p)+digs;else if(p>=digs.length)s=digs+'0'.repeat(p-digs.length);else s=digs.slice(0,p)+'.'+digs.slice(p);
+  s=s.replace(/^0+(?=\d)/,'');return s};
+function scBuild(){
+  if(scm===0)row('sc-in',[['sc-v','93000000','sm" style="width:230px'] ]);
+  else row('sc-in',[['sc-a','4.5'],'× 10',['sc-n','−3']]);
+  if(scm===0)$('sc-in').firstChild.className='';
+  scst.reset();
+}
+function scSteps(st){
+  if(scm===0){
+    let s=String($('sc-v').value).trim().replace(/,/g,'').replace('−','-');
+    const m=s.match(/^(-?)(\d*)\.?(\d*)$/);
+    if(!m||(m[2]+m[3])==='')return bad('Type a number such as 93,000,000 or 0.00045.');
+    const neg=m[1],ip=m[2],fp=m[3],all=ip+fp,z=all.search(/[1-9]/);
+    if(z<0)return bad('Zero cannot be written in scientific notation with a ≥ 1.');
+    const n=ip.length-z-1,dg=all.slice(z).replace(/0+$/,''),a=neg+dg[0]+(dg.length>1?'.'+dg.slice(1):'');
+    const shown=(neg?'−':'')+(ip||'0')+(fp?'.'+fp:'');
+    const k=Math.abs(n);
+    return out(st,`${com(shown)} = ?`,`${com(shown)} = ${a.replace('-','−')} × 10${sup(n<0?'−'+k:n)}`,[
+      `Move the decimal point so the first factor <b>a</b> is at least 1 and less than 10: <b>${a.replace('-','−')}</b>.`,
+      `Count how many places the point moved: <b>${k}</b> place${k===1?'':'s'} to the ${n>=0?'left':'right'}.`,
+      `${n>0?'The number was bigger than 10, so the exponent is <b>positive</b>.':n<0?'The number was between 0 and 1, so the exponent is <b>negative</b>.':'The point did not move, so the exponent is 0.'}`,
+      `Write the product: <b>${a.replace('-','−')} × 10${sup(n<0?'−'+k:n)}</b>`,
+      `Check: move the point ${k} places ${n>=0?'right':'left'} from ${a.replace('-','−')} → ${com((neg?'−':'')+insPt(dg.replace('.',''),1+n))} ✓`]);
+  }
+  let s=String($('sc-a').value).trim().replace('−','-');
+  const n=gv('sc-n'),m=s.match(/^(-?)(\d*)\.?(\d*)$/);
+  if(!m||(m[2]+m[3])===''||!Number.isInteger(n))return bad('Enter a number a and a whole-number exponent n.');
+  if(Math.abs(n)>40)return bad('Keep the exponent between −40 and 40.');
+  const digs=(m[2]+m[3]).replace(/^0+(?=\d)/,''),p=(m[2].replace(/^0+(?=\d)/,'')||'0').length+n;
+  const res=(m[1]?'−':'')+insPt(digs,m[2]==='0'||m[2]===''?p-0:p),k=Math.abs(n),aTxt=(m[1]?'−':'')+(m[2]||'0')+(m[3]?'.'+m[3]:'');
+  const warn=Math.abs(Number(aTxt.replace('−','-')))>=10||Math.abs(Number(aTxt.replace('−','-')))<1?' (Note: in true scientific notation a is at least 1 and less than 10, but the conversion still works.)':'';
+  return out(st,`${aTxt} × 10${sup(n<0?'−'+k:n)} = ?`,`${aTxt} × 10${sup(n<0?'−'+k:n)} = ${com(res)}`,[
+    `The exponent is <b>${n}</b>. ${n>0?'Positive: move the point to the <b>right</b>, making the number bigger.':n<0?'Negative: move the point to the <b>left</b>, making the number smaller.':'Zero: 10<sup>0</sup> = 1, so nothing changes.'}`,
+    `Move the decimal point <b>${k}</b> place${k===1?'':'s'} ${n>=0?'right':'left'}, adding zeros as needed.`,
+    `Result: <b>${com(res)}</b>${warn}`]);
+}
+const scst=stepper('sc',()=>['sc-v','sc-a','sc-n'],scSteps);
+function scSet(m){scm=m;tog(['sc-t0','sc-t1'],m);scBuild()}
+$('sc-t0').onclick=()=>scSet(0);$('sc-t1').onclick=()=>scSet(1);scSet(0);
+
+/* ---------- 5. GCF ---------- */
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const primes=n=>{if(n<2)return[n];const r=[];for(let p=2;p*p<=n;p++)while(n%p===0){r.push(p);n/=p}if(n>1)r.push(n);return r};
+function gcBuild(){
+  row('gc-in',[['gc-c0',12],'x',['gc-e0',3],'+',['gc-c1',18],'x',['gc-e1',2],'+',['gc-c2',0],'x',['gc-e2',1]]);
+  ['gc-e0','gc-e1','gc-e2'].forEach(k=>{$(k).style.cssText='font-size:.8rem;margin-top:-14px'});
+  gcst.reset();
+}
+function gcSteps(st){
+  const raw=[0,1,2].map(i=>[gv('gc-c'+i),gv('gc-e'+i)]);
+  if(!raw.every(t=>isFinite(t[0])&&Number.isInteger(t[0])&&Number.isInteger(t[1])&&t[1]>=0&&t[1]<=12))return bad('Use whole-number coefficients and exponents from 0 to 12.');
+  const T=raw.filter(t=>t[0]!==0);
+  if(T.length<2)return bad('Enter at least two terms with non-zero coefficients.');
+  const g=T.map(t=>Math.abs(t[0])).reduce(gcd),mn=Math.min(...T.map(t=>t[1]));
+  const gH=(g===1?'':f(g))+xp(mn)||'1';
+  const ord=T.slice().sort((a,b)=>b[1]-a[1]);
+  const pre=list(ord);
+  const xe=e=>e===0?'':e<=6?Array(e).fill('x').join('·'):`x${sup(e)}`;
+  const fac=t=>{const c=Math.abs(t[0]),p=primes(c).join('·'),x=xe(t[1]);return `${list([t])} = ${t[0]<0?'−':''}${p}${x?'·'+x:''}`};
+  const GH=(g===1&&mn===0)?'1':gH;
+  const qs=ord.map(t=>[t[0]/g,t[1]-mn]);
+  const fin=GH==='1'?`${pre} (no common factor but 1)`:`${pre} = ${GH}(${list(qs)})`;
+  const steps=[
+    `Write each term as prime factors, with the variables expanded:<br>${ord.map(fac).join('<br>')}`,
+    `Common factors: the largest number dividing every coefficient is <b>${g}</b>${mn>0?`; every term has at least <b>${mn}</b> x${mn>1?"'s":''}, so the variable part is <b>${xp(mn)}</b>`:'; the lowest power of x is 0, so there is no common x'}.`,
+    `Multiply the common factors: <b>GCF = ${GH}</b>`];
+  if(GH==='1'){steps.push(`The only common factor is 1, so there is nothing to factor out.`);return out(st,pre,pre+' — GCF = 1',steps)}
+  steps.push(`Rewrite each term as GCF × (what is left): ${ord.map((t,i)=>`${list([t])} = ${GH}·(${list([qs[i]])})`).join(' &nbsp;·&nbsp; ')}`,
+    `Use the distributive property in reverse: <b>${pre} = ${GH}(${list(qs)})</b>`,
+    `Check by multiplying: ${GH}·(${list(qs)}) = ${list(qs.map((q,i)=>[q[0]*g,q[1]+mn]))} ✓`);
+  return out(st,pre,fin,steps);
+}
+const gcst=stepper('gc',()=>['gc-c0','gc-e0','gc-c1','gc-e1','gc-c2','gc-e2'],gcSteps);
+gcBuild();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['(3x² + 2x) + (x² − 5x) =',['4x² − 3x','4x² + 7x','3x² − 3x'],0],
+ ['The degree of 5x³ + 2x − 7 is:',['1','3','7'],1],
+ ['x⁴ · x⁵ =',['x²⁰','x⁹','x¹'],1],
+ ['(x³)² =',['x⁵','x⁶','x⁹'],1],
+ ['7⁰ =',['0','7','1'],2],
+ ['x⁸ ÷ x³ =',['x⁵','x¹¹','x²⁴'],0],
+ ['2⁻³ =',['−8','1/8','−6'],1],
+ ['(x + 3)(x + 4) =',['x² + 12','x² + 7x + 12','x² + 7x + 7'],1],
+ ['(2x − 1)(x + 5) =',['2x² + 9x − 5','2x² − 5','2x² + 11x − 5'],0],
+ ['93,000,000 in scientific notation:',['9.3 × 10⁷','93 × 10⁶','9.3 × 10⁻⁷'],0],
+ ['The GCF of 12x³ and 18x² is:',['6x','6x²','36x⁵'],1],
+ ['Factor 6x² + 9x:',['3x(2x + 3)','6x(x + 9)','3(2x² + 3x)'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

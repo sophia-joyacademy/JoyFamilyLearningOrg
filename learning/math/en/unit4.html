@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 4 — Functions | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .fmr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 10px;margin-top:6px;border:2px solid var(--line);border-radius:14px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .fmr.sel{border-color:var(--purple);background:var(--purple-light)}
+    .fmr .sw{flex:none;width:14px;height:14px;border-radius:50%}
+    .fmr label{display:flex;align-items:center;gap:6px;font-weight:800;min-width:150px;cursor:pointer}
+    .fmr .sm{width:62px} .fmr .sm input{padding:4px 4px;text-align:center;font-weight:600;font-size:.9rem}
+    .fmr.off .ins{opacity:.5}
+    .fmr .pg{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    .rw .pg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+    #wr-in{font-weight:600;font-size:.95rem} #wr-in input{font-weight:600;font-size:.95rem}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit1.html">Unit 1</a><a href="unit2.html">Unit 2</a><a href="unit3.html">Unit 3</a><a href="#map">Lessons</a><a href="#vocab">Key terms</a><a href="#fm">Function machine</a><a href="#vt">Is it a function?</a><a href="#ft">Graph features</a><a href="#tr">Transformations</a><a href="#sq">Sequences</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 4</span>
+    <h1><span>Functions</span></h1>
+    <p class="lead">A function is a perfect machine: one input in, exactly one output out. Learn its notation, read its graph, shift and stretch it, find its domain and range, and follow sequences as they grow.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map</h2>
+    <p class="sub">How the big ideas of Unit 4 connect. Click any bubble to see the key idea and an example.</p>
+    <div class="card" style="padding:10px"><svg id="cmap" viewBox="0 0 1000 690" style="width:100%;height:auto;display:block"></svg></div>
+    <div class="card pill" id="lesson-info" style="background:var(--purple-light);color:var(--ink);margin-top:14px">Pick a bubble above 👆</div>
+  </section>
+
+  <section id="vocab">
+    <h2>📖 Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Function</span><p>A rule that gives <b>exactly one output</b> for each input.</p></div>
+      <div class="card"><span class="tag t">Input / Output</span><p>Independent variable <i>x</i> goes in; dependent variable <i>f(x)</i> comes out.</p></div>
+      <div class="card"><span class="tag o">Function notation</span><p><span class="m">f(3)=11</span> means “when the input is 3, the output is 11”.</p></div>
+      <div class="card"><span class="tag p">Intercepts</span><p>The <b>y-intercept</b> is <span class="m">f(0)</span>. A <b>zero</b> (x-intercept) is where <span class="m">f(x)=0</span>.</p></div>
+      <div class="card"><span class="tag t">Average rate of change</span><p><span class="m">\frac{f(b)-f(a)}{b-a}</span>: the slope between two points.</p></div>
+      <div class="card"><span class="tag o">Transformation</span><p>Shift, stretch or reflect: <span class="m">a\,f(x-c)+d</span>.</p></div>
+      <div class="card"><span class="tag p">Domain / Range</span><p>All possible inputs / all possible outputs.</p></div>
+      <div class="card"><span class="tag t">Arithmetic sequence</span><p>Add the same <b>common difference</b> <i>d</i> each time.</p></div>
+      <div class="card"><span class="tag o">Geometric sequence</span><p>Multiply by the same <b>common ratio</b> <i>r</i> each time.</p></div>
+    </div>
+  </section>
+
+  <section id="fm">
+    <h2>⚙️ Function machine</h2>
+    <p class="sub">Pick a rule, feed in an input, and watch the output. Then read the table.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw">Rule: <select id="fm-r"></select></div>
+        <div class="rw">Input <b>x</b> = <span class="sm"><input type="text" id="fm-x" value="3"></span></div>
+        <div class="big pu" id="fm-out" style="margin-top:14px"></div>
+        <div class="fb" id="fm-v"></div>
+        <div style="margin-top:12px" id="fm-tab"></div>
+      </div>
+      <div class="vis"><svg id="fm-g" viewBox="0 0 400 400"></svg></div>
+    </div>
+  </section>
+
+  <section id="vt">
+    <h2>📏 Is it a function?</h2>
+    <p class="sub">Type pairs (x, y) separated by spaces. A relation is a function if no input is used with two different outputs. The vertical line test says the same thing on a graph.</p>
+    <div class="card">
+      <div class="rw"><span style="flex:1;min-width:240px"><input type="text" id="vt-in" value="(1,2) (2,4) (3,6) (3,9)"></span><button id="vt-go">Check</button></div>
+      <div class="rw">Presets: <button data-p="(1,2) (2,4) (3,6) (4,8)">Function</button><button data-p="(1,2) (1,5) (2,3)">Not a function</button><button data-p="(1,5) (2,5) (3,5)">Same output ok</button></div>
+      <div class="pill" id="vt-out"></div>
+      <div class="explorer" style="margin-top:12px"><div id="vt-tab"></div><div class="vis"><svg id="vt-g" viewBox="0 0 400 300"></svg></div></div>
+    </div>
+  </section>
+
+  <section id="ft">
+    <h2>🔍 Graph features &amp; average rate of change</h2>
+    <p class="sub">Choose a function, then move the interval [a, b]. The orange segment’s slope is the average rate of change.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw">Function: <select id="ft-f"></select></div>
+        <div class="rw">a = <input type="range" id="ft-a" min="-4" max="4" step="0.5" value="0"> <b id="ft-ao">0</b></div>
+        <div class="rw">b = <input type="range" id="ft-b" min="-4" max="4" step="0.5" value="3"> <b id="ft-bo">3</b></div>
+        <div class="pill" id="ft-out" style="background:var(--orange-light)"></div>
+        <div class="pill" id="ft-feat" style="background:var(--teal-light)"></div>
+      </div>
+      <div class="vis"><svg id="ft-g" viewBox="0 0 400 400"></svg></div>
+    </div>
+  </section>
+
+  <section id="tr">
+    <h2>🎛️ Transformations lab</h2>
+    <p class="sub">Build <span class="m">g(x)=a\cdot f(x-c)+d</span> from a parent function <span class="m">f</span>. The blue curve is f; the purple one is g.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw">Parent f: <select id="tr-f"></select></div>
+        <div class="rw">a (stretch/flip) <input type="range" id="tr-a" min="-3" max="3" step="0.5" value="1"> <b id="tr-ao">1</b></div>
+        <div class="rw">c (right +) <input type="range" id="tr-c" min="-5" max="5" step="1" value="0"> <b id="tr-co">0</b></div>
+        <div class="rw">d (up +) <input type="range" id="tr-d" min="-5" max="5" step="1" value="0"> <b id="tr-do">0</b></div>
+        <div class="big pu" id="tr-eq" style="margin-top:12px"></div>
+        <div class="pill" id="tr-say" style="background:var(--purple-light)"></div>
+        <button id="tr-reset">Reset</button>
+      </div>
+      <div class="vis"><svg id="tr-g" viewBox="0 0 400 400"></svg></div>
+    </div>
+  </section>
+
+  <section id="dr">
+    <h2>↔️ Domain &amp; range</h2>
+    <p class="sub">Restrict the inputs of <span class="m">f(x)=x^2-2</span> and see the range. Notice “continuous” vs “discrete” inputs.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw">Domain from <input type="range" id="dr-lo" min="-4" max="4" step="0.5" value="-2"> <b id="dr-lo-o"></b></div>
+        <div class="rw">to <input type="range" id="dr-hi" min="-4" max="4" step="0.5" value="3"> <b id="dr-hi-o"></b></div>
+        <div class="rw"><label><input type="checkbox" id="dr-int"> Only whole numbers (discrete)</label></div>
+        <div class="pill" id="dr-out" style="background:var(--teal-light)"></div>
+      </div>
+      <div class="vis"><svg id="dr-g" viewBox="0 0 400 400"></svg></div>
+    </div>
+  </section>
+
+  <section id="sq">
+    <h2>🔢 Sequences lab</h2>
+    <p class="sub">A sequence is a function whose inputs are 1, 2, 3, … Compare the recursive and explicit rules.</p>
+    <div class="card explorer">
+      <div>
+        <div class="rw"><button id="sq-ar" class="on">Arithmetic (add d)</button><button id="sq-ge">Geometric (multiply by r)</button></div>
+        <div class="rw">First term a₁ <input type="range" id="sq-a" min="-10" max="10" step="1" value="3"> <b id="sq-ao"></b></div>
+        <div class="rw"><span id="sq-kl">d</span> <input type="range" id="sq-k" min="-5" max="5" step="1" value="4"> <b id="sq-ko"></b></div>
+        <div class="rw">Find term n = <input type="range" id="sq-n" min="1" max="12" step="1" value="8"> <b id="sq-no"></b></div>
+        <div class="pill" id="sq-rec" style="background:var(--purple-light)"></div>
+        <div class="pill" id="sq-exp" style="background:var(--teal-light)"></div>
+        <div class="pill" id="sq-ans" style="background:var(--orange-light)"></div>
+        <div id="sq-list" class="fb"></div>
+      </div>
+      <div class="vis"><svg id="sq-g" viewBox="0 0 400 400"></svg></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const NS='http://www.w3.org/2000/svg';
+const km=(t,el)=>{try{katex.render(t,el,{throwOnError:false})}catch(e){el.textContent=t}};
+document.querySelectorAll('.m').forEach(e=>km(e.textContent,e));
+const fmt=v=>{const r=Math.round(v*1000)/1000;return String(r)};
+
+/* ---------- lessons ---------- */
+const L=[
+['4.1','Describing & graphing situations','A function gives one output for each input. Parking: 2 hours → $6 is the point (2,6). Time is the input.'],
+['4.2','Function notation','f(2005)=300 means: in 2005 the value was 300. Write T=R(h) for “T depends on h”.'],
+['4.3','Interpreting function notation','If C(10)<C(5), the coffee was cooler after 10 min than after 5 min. T(4)=82 → 82 people on floor 4.'],
+['4.4','Function rules, part 1','f(x)=2x+4: multiply by 2, then add 4. g(x)=2(x+4): add 4, then multiply by 2. Order matters!'],
+['4.5','Function rules, part 2','C(g)=10+15g. C(2)=40 → $40 for 2 GB. Solve C(g)=130 → g=8.'],
+['4.6','Features of graphs','Intercepts, maximum, minimum, slope. f(x)=2x+6 has y-intercept (0,6) and zero at (−3,0).'],
+['4.7','Finding slope','Slope between (2,3) and (6,−4) is −7/4. Forms: y=mx+b, y−y₁=m(x−x₁), Ax+By=C.'],
+['4.8','Average rate of change','(f(b)−f(a))/(b−a). Coffee 185→120 in 40 min: −1.625 degrees per minute.'],
+['4.9','Interpreting & creating graphs','Match a story to a graph: steep = fast change, flat = no change, bounce = up and down.'],
+['4.10','Comparing graphs','Where two graphs cross, f(x)=g(x). Above means greater. Compare rates by steepness.'],
+['4.11','Transformations','f(x)+d: up d. f(x−c): right c. a·f(x): stretch (flip if a<0).'],
+['4.12','Domain & range, part 1','Domain = inputs allowed. f(x)=6/(x−2) can’t use x=2. Area A(s)=s² needs s≥0.'],
+['4.13','Domain & range, part 2','Discrete (whole objects) vs continuous (any value). P(t)=5t+10: domain t≥0, range P≥10.'],
+['4.14','Sequences','Follow a rule: ×(−2)+3 starting 5 gives 5, −7, 17, −31… Fibonacci: add the last two.'],
+['4.15','Geometric sequences','Multiply by r each time. 270, 90, 30, 10 has r=1/3, so next is 10/3.'],
+['4.16','Arithmetic sequences','Add d each time. f(n)=3n−7: f(10)=23, and f(5)−f(4)=3 = d.'],
+['4.17','Representing sequences','Recursive: R(1)=−1, R(n)=3R(n−1)+1 → −1, −2, −5, −14, −41…'],
+['4.18','The nth term','Arithmetic: aₙ=a₁+(n−1)d. Geometric: aₙ=a₁·rⁿ⁻¹. 21st term of 3, 8, 13… is 3+20·5=103.']
+];
+(function(){
+const NS='http://www.w3.org/2000/svg',svg=$('cmap');
+const col={c:['#7962cb','#f0edff'],t:['#087f79','#e3f5f0'],o:['#f07846','#fff0e6']};
+// id, label, x, y, color, lessons
+const N=[
+['rel','Relations between\ntwo quantities',520,50,'c',['<b>Relations</b>: a relation pairs inputs with outputs. Types: one-to-one, one-to-many, many-to-one, many-to-many. A function is the special kind where each input has exactly one output.']],
+['inp','Inputs',270,50,'t',['<b>Inputs</b>: the values you put in (usually x, the independent variable). The set of allowed inputs is the domain.']],
+['out','Outputs',770,50,'o',['<b>Outputs</b>: the values you get out (usually y, the dependent variable). The set of results is the range.']],
+['sit','Situations\n& stories',104,190,'o',[0]],
+['not','Function notation\nf(x), rules',330,190,'t',[1,2,3,4]],
+['dr','Domain & range\ndiscrete / continuous',710,190,'o',[11,12]],
+['lin','Linear / nonlinear\ny = mx + b',900,190,'t',['<b>Linear vs nonlinear</b>: a linear function has a constant rate of change and can be written y = mx + b. A nonlinear function changes at a varying rate, like y = x².']],
+['rate','Slope & rate\nof change',104,290,'o',[6,7]],
+['cmp','Comparing\ngraphs',104,410,'t',[9]],
+['tr','Transformations\nf(x)+d, f(x−c), a·f(x)',104,530,'o',[10]],
+['gr','Graphs\nvertical line test, intercepts',290,370,'t',['<b>Vertical line test</b>: if any vertical line crosses a graph more than once, it is not a function.',5,8]],
+['fn','FUNCTION\none input → one output',520,370,'c',[0,1,2]],
+['seq','Sequences',790,370,'t',[13]],
+['tab','Tables\nrates of change',300,520,'o',['<b>Tables</b> list input–output pairs. Use them to find rates of change (change in output ÷ change in input), and to tell if a function is linear.']],
+['eq','Equations\nf(x) = 2x + 4',450,520,'t',['<b>Equations</b> give the rule as a formula. Substitute an input to get the output: f(2)=2(2)+4=8.']],
+['ver','Verbal\ndescriptions',600,520,'o',['<b>Verbal descriptions</b> use words: “10 plus 15 per GB” translates to C(g)=10+15g.']],
+['ari','Arithmetic\n+d',630,640,'o',[15]],
+['geo','Geometric\n×r',735,640,'o',[14]],
+['nth','nth term',840,640,'t',[17]],
+['rec','Recursive\nform',945,640,'t',[16]]
+];
+const E=[['rel','inp'],['rel','out'],['rel','fn'],['fn','not'],['sit','not'],['fn','dr'],['fn','lin'],['fn','gr'],['gr','rate'],['gr','cmp'],['gr','tr'],['fn','seq'],['seq','geo'],['seq','ari'],['seq','rec'],['seq','nth'],['fn','tab'],['fn','eq'],['fn','ver']];
+const P={};N.forEach(n=>P[n[0]]=n);
+const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
+const lab={'rel-inp':'include','rel-out':'include','rel-fn':'exactly one output','fn-not':'uses','fn-dr':'inputs/outputs','fn-lin':'can be','gr-rate':'measure','fn-eq':'can be'};
+E.forEach(([a,b])=>{const p=P[a],q=P[b];mk('line',{x1:p[2],y1:p[3],x2:q[2],y2:q[3],stroke:'#b9c6c0','stroke-width':2.5,'stroke-dasharray':(a+b==='grtr'||a==='sit')?'6 5':''});
+  const t=lab[a+'-'+b];if(t){const x=(p[2]+q[2])/2,y=(p[3]+q[3])/2;const e=mk('text',{x,y:y-4,'text-anchor':'middle','font-size':12,fill:'#637681','font-style':'italic','paint-order':'stroke',stroke:'#fff','stroke-width':4});e.textContent=t}});
+const nodes={};
+N.forEach(n=>{const [id,txt,x,y,c,ls]=n,big=id==='fn',w=big?210:(['ari','geo','nth','rec'].includes(id)?100:['tab','eq','ver'].includes(id)?140:180),h=big?90:(txt.split('\n').length>2?74:60);
+  const g=mk('g',{style:'cursor:pointer',tabindex:0});
+  mk0(g,'rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:big?28:20,fill:big?col[c][0]:col[c][1],stroke:col[c][0],'stroke-width':big?0:2.5});
+  const lines=txt.split('\n'),y0=y-(lines.length-1)*8;
+  lines.forEach((l,i)=>{const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y0+i*16+4);t.setAttribute('text-anchor','middle');
+    t.setAttribute('font-size',i===0?(big?15:14):11);t.setAttribute('font-weight',i===0?800:600);t.setAttribute('fill',big?'#fff':(i===0?'#172c3a':'#637681'));t.textContent=l;g.appendChild(t)});
+  g.onclick=()=>{Object.values(nodes).forEach(r=>r.setAttribute('stroke-width',2.5));nodes[id].setAttribute('stroke-width',5);
+    const items=ls.map(k=>typeof k==='string'?k:'<b>'+L[k][1]+'</b><br>'+L[k][2]);
+    $('lesson-info').innerHTML=(id==='fn'?'<b>Function</b>: each input has exactly one output.<br><br>':'')+items.join('<br><br>')};
+  nodes[id]=g.firstChild});
+function mk0(g,t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);g.appendChild(e)}
+})();
+
+/* ---------- svg helpers ---------- */
+function mk(svg,R,w,h){ // R = [xmin,xmax,ymin,ymax]
+  const s=$(svg);s.innerHTML='';
+  const [x0,x1,y0,y1]=R,sx=x=>(x-x0)/(x1-x0)*w,sy=y=>h-(y-y0)/(y1-y0)*h;
+  const add=(t,a,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;s.appendChild(e);return e};
+  for(let x=Math.ceil(x0);x<=x1;x++){add('line',{x1:sx(x),x2:sx(x),y1:0,y2:h,stroke:x==0?'#172c3a':'#e4ebe6','stroke-width':x==0?2:1});if(x&&(x1-x0<=12||x%2==0))add('text',{x:sx(x),y:sy(0)+13,'font-size':10,'text-anchor':'middle',fill:'#637681'},x)}
+  for(let y=Math.ceil(y0);y<=y1;y++){add('line',{y1:sy(y),y2:sy(y),x1:0,x2:w,stroke:y==0?'#172c3a':'#e4ebe6','stroke-width':y==0?2:1});if(y&&(y1-y0<=12||y%2==0))add('text',{y:sy(y)+3,x:sx(0)-4,'font-size':10,'text-anchor':'end',fill:'#637681'},y)}
+  const curve=(f,col,wd,dash,lo,hi)=>{let d='',pen=false;lo=lo??x0;hi=hi??x1;for(let i=0;i<=300;i++){const x=lo+(hi-lo)*i/300,y=f(x);if(!isFinite(y)||y<y0-5||y>y1+5){pen=false;continue}d+=(pen?'L':'M')+sx(x)+' '+sy(y);pen=true}add('path',{d,fill:'none',stroke:col,'stroke-width':wd||3,'stroke-dasharray':dash||''})};
+  const dot=(x,y,col,r)=>add('circle',{cx:sx(x),cy:sy(y),r:r||5,fill:col});
+  return {add,sx,sy,curve,dot};
+}
+
+/* ---------- function machine ---------- */
+const FM=[['2x+4',x=>2*x+4],['2(x+4)',x=>2*(x+4)],['10−2x',x=>10-2*x],['x²',x=>x*x],['x³',x=>x*x*x],['x/3−7',x=>x/3-7],['(x−7)/3',x=>(x-7)/3],['5x+2',x=>5*x+2]];
+FM.forEach((f,i)=>{const o=document.createElement('option');o.value=i;o.textContent='f(x) = '+f[0];$('fm-r').appendChild(o)});
+function fmRun(){const f=FM[$('fm-r').value];const x=parseFloat($('fm-x').value);
+  if(isNaN(x)){$('fm-out').textContent='Enter a number';return}
+  $('fm-out').textContent='f('+fmt(x)+') = '+fmt(f[1](x));
+  $('fm-v').textContent='Rule: f(x) = '+f[0];
+  let t='<table class="lr"><tr><th>x</th>'+[-2,-1,0,1,2,3].map(v=>'<td>'+v+'</td>').join('')+'</tr><tr><th>f(x)</th>'+[-2,-1,0,1,2,3].map(v=>'<td><b>'+fmt(f[1](v))+'</b></td>').join('')+'</tr></table>';
+  $('fm-tab').innerHTML=t;
+  const g=mk('fm-g',[-6,6,-12,12],400,400);g.curve(f[1],'#7962cb',3.5);
+  if(Math.abs(x)<=6&&Math.abs(f[1](x))<=12){g.dot(x,f[1](x),'#f07846',7)}}
+$('fm-r').onchange=fmRun;$('fm-x').oninput=fmRun;fmRun();
+
+/* ---------- is it a function ---------- */
+function vtRun(){const pts=[...$('vt-in').value.matchAll(/\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/g)].map(m=>[+m[1],+m[2]]);
+  if(!pts.length){$('vt-out').textContent='Enter pairs like (1,2) (3,4)';return}
+  const m={};pts.forEach(([x,y])=>{(m[x]=m[x]||new Set()).add(y)});
+  const bad=Object.keys(m).filter(x=>m[x].size>1);
+  const o=$('vt-out');
+  if(bad.length){o.style.background='var(--orange-light)';o.innerHTML='❌ <b>Not a function.</b> Input '+bad.join(', ')+' has more than one output ('+[...m[bad[0]]].join(' and ')+').'}
+  else{o.style.background='var(--teal-light)';o.innerHTML='✅ <b>A function.</b> Every input has exactly one output.'}
+  $('vt-tab').innerHTML='<table class="lr"><tr><th>Input x</th><th>Output(s)</th></tr>'+Object.keys(m).map(x=>'<tr><td>'+x+'</td><td'+(m[x].size>1?' style="color:#f07846"><b>':'><b>')+[...m[x]].join(', ')+'</b></td></tr>').join('')+'</table>';
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const mx=Math.max(5,...xs.map(Math.abs))+1,my=Math.max(5,...ys.map(Math.abs))+1;
+  const g=mk('vt-g',[-mx,mx,-my,my],400,300);
+  bad.forEach(x=>g.add('line',{x1:g.sx(+x),x2:g.sx(+x),y1:0,y2:300,stroke:'#e2566b','stroke-width':2,'stroke-dasharray':'6 4'}));
+  pts.forEach(([x,y])=>g.dot(x,y,m[x].size>1?'#f07846':'#7962cb',6))}
+$('vt-go').onclick=vtRun;$('vt-in').oninput=vtRun;
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{$('vt-in').value=b.dataset.p;vtRun()});vtRun();
+
+/* ---------- graph features ---------- */
+const FT=[['f(x) = 2x + 6',x=>2*x+6,'linear'],['f(x) = −x² + 4',x=>-x*x+4,'max'],['f(x) = x² − 4',x=>x*x-4,'min'],['f(x) = |x| − 2',x=>Math.abs(x)-2,'min'],['f(x) = x³ − 3x',x=>x*x*x-3*x,'none']];
+FT.forEach((f,i)=>{const o=document.createElement('option');o.value=i;o.textContent=f[0];$('ft-f').appendChild(o)});
+function ftRun(){const F=FT[$('ft-f').value],f=F[1];let a=+$('ft-a').value,b=+$('ft-b').value;$('ft-ao').textContent=a;$('ft-bo').textContent=b;
+  const g=mk('ft-g',[-5,5,-10,10],400,400);g.curve(f,'#087f79',3.5);
+  g.dot(0,f(0),'#7962cb',6);
+  const zs=[];for(let x=-5;x<5;x+=0.01){if(f(x)*f(x+0.01)<=0&&!zs.some(z=>Math.abs(z-x)<0.1))zs.push(Math.round(x*100)/100+0.005)}
+  zs.forEach(z=>g.dot(Math.round(z*10)/10,0,'#e2566b',6));
+  if(a===b){$('ft-out').innerHTML='Choose different a and b.'}
+  else{g.add('line',{x1:g.sx(a),y1:g.sy(f(a)),x2:g.sx(b),y2:g.sy(f(b)),stroke:'#f07846','stroke-width':4});g.dot(a,f(a),'#f07846',6);g.dot(b,f(b),'#f07846',6);
+    $('ft-out').innerHTML='Average rate of change on ['+a+', '+b+']:<br><b>(f('+b+') − f('+a+')) / ('+b+' − '+a+') = ('+fmt(f(b))+' − '+fmt(f(a))+') / '+fmt(b-a)+' = '+fmt((f(b)-f(a))/(b-a))+'</b>'}
+  const feat={linear:'Linear: constant rate of change (slope 2).',max:'Maximum at (0, 4).',min:F[0].includes('|')?'Minimum at (0, −2).':'Minimum at (0, −4).',none:'Has a local max and min, but keeps rising and falling forever.'}[F[2]];
+  $('ft-feat').innerHTML='y-intercept: <b>(0, '+fmt(f(0))+')</b> · zeros (red): <b>'+(zs.length?zs.map(z=>Math.round(z*10)/10).join(', '):'none')+'</b><br>'+feat}
+['ft-f','ft-a','ft-b'].forEach(i=>$(i).oninput=ftRun);ftRun();
+
+/* ---------- transformations ---------- */
+const TR=[['x',x=>x],['x²',x=>x*x],['|x|',x=>Math.abs(x)],['x³',x=>x*x*x],['√x',x=>Math.sqrt(x)]];
+TR.forEach((f,i)=>{const o=document.createElement('option');o.value=i;o.textContent='f(x) = '+f[0];$('tr-f').appendChild(o)});
+function trRun(){const F=TR[$('tr-f').value][1],n=TR[$('tr-f').value][0],a=+$('tr-a').value,c=+$('tr-c').value,d=+$('tr-d').value;
+  $('tr-ao').textContent=a;$('tr-co').textContent=c;$('tr-do').textContent=d;
+  const g=mk('tr-g',[-8,8,-8,8],400,400);g.curve(F,'#1a73e8',2.5,'6 4');g.curve(x=>a*F(x-c)+d,'#7962cb',4);
+  const inner=c===0?'x':(c>0?'(x − '+c+')':'(x + '+(-c)+')');
+  $('tr-eq').textContent='g(x) = '+(a===1?'':a===-1?'−':a+'·')+'['+n.replace(/x/g,inner)+']'+(d?(d>0?' + '+d:' − '+(-d)):'');
+  const s=[];if(c)s.push('shifted '+(c>0?'right ':'left ')+Math.abs(c));if(d)s.push('shifted '+(d>0?'up ':'down ')+Math.abs(d));
+  if(a<0)s.push('reflected over the x-axis');if(Math.abs(a)>1)s.push('stretched vertically by '+Math.abs(a));if(Math.abs(a)<1&&a!==0)s.push('compressed vertically by '+Math.abs(a));if(a===0)s.push('flattened to a line');
+  $('tr-say').textContent=s.length?'g is f '+s.join(', ')+'.':'g is the same as f.'}
+['tr-f','tr-a','tr-c','tr-d'].forEach(i=>$(i).oninput=trRun);
+$('tr-reset').onclick=()=>{$('tr-a').value=1;$('tr-c').value=0;$('tr-d').value=0;trRun()};trRun();
+
+/* ---------- domain & range ---------- */
+function drRun(){let lo=+$('dr-lo').value,hi=+$('dr-hi').value;if(lo>hi)[lo,hi]=[hi,lo];const di=$('dr-int').checked;
+  $('dr-lo-o').textContent=lo;$('dr-hi-o').textContent=hi;
+  const f=x=>x*x-2,g=mk('dr-g',[-5,5,-5,10],400,400);g.curve(f,'#cfd8dc',2);
+  let ys=[];
+  if(di){for(let x=Math.ceil(lo);x<=hi;x++){ys.push(f(x));g.dot(x,f(x),'#7962cb',6)}}
+  else{g.curve(f,'#7962cb',4,'',lo,hi);g.dot(lo,f(lo),'#f07846',5);g.dot(hi,f(hi),'#f07846',5);
+    let mn=Infinity,mx=-Infinity;for(let i=0;i<=200;i++){const y=f(lo+(hi-lo)*i/200);mn=Math.min(mn,y);mx=Math.max(mx,y)}ys=[mn,mx]}
+  const mn=Math.min(...ys),mx=Math.max(...ys);
+  $('dr-out').innerHTML=di?'Domain: <b>{'+Array.from({length:Math.max(0,Math.floor(hi)-Math.ceil(lo)+1)},(_, i)=>Math.ceil(lo)+i).join(', ')+'}</b><br>Range: <b>{'+[...new Set(ys)].sort((p,q)=>p-q).join(', ')+'}</b>':'Domain: <b>'+lo+' ≤ x ≤ '+hi+'</b><br>Range: <b>'+fmt(mn)+' ≤ y ≤ '+fmt(mx)+'</b>'}
+['dr-lo','dr-hi','dr-int'].forEach(i=>$(i).oninput=drRun);drRun();
+
+/* ---------- sequences ---------- */
+let sqGeo=false;
+function sqRun(){const a=+$('sq-a').value,k=+$('sq-k').value,n=+$('sq-n').value;
+  $('sq-ao').textContent=a;$('sq-ko').textContent=k;$('sq-no').textContent=n;$('sq-kl').textContent=sqGeo?'r':'d';
+  const term=i=>sqGeo?a*Math.pow(k,i-1):a+(i-1)*k;
+  const rec=sqGeo?'a(1) = '+a+', a(n) = '+(k<0?'('+k+')':k)+'·a(n−1)':'a(1) = '+a+', a(n) = a(n−1) '+(k<0?'− '+(-k):'+ '+k);
+  const ex=sqGeo?'a(n) = '+a+'·'+(k<0?'('+k+')':k)+'^(n−1)':'a(n) = '+a+' + (n−1)·'+(k<0?'('+k+')':k);
+  $('sq-rec').innerHTML='Recursive: <b>'+rec+'</b>';$('sq-exp').innerHTML='Explicit: <b>'+ex+'</b>';
+  $('sq-ans').innerHTML='Term '+n+' = <b>'+fmt(term(n))+'</b>';
+  const ts=Array.from({length:12},(_,i)=>term(i+1));$('sq-list').textContent=ts.slice(0,8).map(fmt).join(', ')+', …';
+  const lim=Math.max(10,...ts.map(Math.abs).filter(v=>v<1e6));const R=Math.min(lim,Math.max(10,Math.abs(term(n))))*1.1;
+  const g=mk('sq-g',[0,13,-R,R],400,400);
+  ts.forEach((v,i)=>{if(Math.abs(v)<=R)g.dot(i+1,v,i+1===n?'#f07846':'#7962cb',i+1===n?8:5)})}
+$('sq-ar').onclick=()=>{sqGeo=false;$('sq-ar').classList.add('on');$('sq-ge').classList.remove('on');sqRun()};
+$('sq-ge').onclick=()=>{sqGeo=true;$('sq-ge').classList.add('on');$('sq-ar').classList.remove('on');sqRun()};
+['sq-a','sq-k','sq-n'].forEach(i=>$(i).oninput=sqRun);sqRun();
+
+/* ---------- quiz ---------- */
+const Q=[
+['Which relation is a function?',['(1,2) (1,3) (2,4)','(1,5) (2,5) (3,5)','(2,1) (2,2) (2,3)'],1],
+['f(x) = 5x + 2. What is f(3)?',['17','13','45'],0],
+['P(4) = 10 for water in a tub means…',['10 min after 4 gallons','10 gallons after 4 minutes','4 gallons after 10 minutes'],1],
+['Which rule means “add 4, then multiply by 2”?',['2x + 4','2(x + 4)','4x + 2'],1],
+['Average rate of change of a coffee cooling from 185° to 120° in 40 min:',['−1.625 °/min','−3.25 °/min','1.625 °/min'],0],
+['f(x) = 2x + 3 is moved to g(x) = 2x + 12. This is…',['up 9','right 9','a vertical stretch'],0],
+['f(x) = 6/(x − 2) cannot use the input…',['x = 6','x = 2','x = 0'],1],
+['Domain of A(s) = s² for a square’s side length:',['all real numbers','s ≥ 0','s ≤ 0'],1],
+['Next term of 270, 90, 30, 10?',['10/3','0','−10'],0],
+['The 21st term of 3, 8, 13, 18, … is',['103','108','98'],0],
+['R(1) = −1, R(n) = 3R(n−1) + 1. What is R(3)?',['−5','−2','2'],0],
+['Which graph is NOT a function?',['a V shape','a line','a circle'],2]
+];
+Q.forEach((q,i)=>{const c=document.createElement('div');c.className='card';c.innerHTML='<h3>'+(i+1)+'. '+q[0]+'</h3>';
+  const fb=document.createElement('div');fb.className='fb';
+  q[1].forEach((o,j)=>{const b=document.createElement('button');b.textContent=o;b.onclick=()=>{[...c.querySelectorAll('button')].forEach(x=>x.disabled=true);
+    b.classList.add(j===q[2]?'right':'wrong');if(j!==q[2])c.querySelectorAll('button')[q[2]].classList.add('right');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c)});
+</script>
+</body>
+</html>

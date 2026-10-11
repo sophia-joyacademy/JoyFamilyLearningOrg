@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 1 — Linear Equations | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .fmr{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 10px;margin-top:6px;border:2px solid var(--line);border-radius:14px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .fmr.sel{border-color:var(--purple);background:var(--purple-light)}
+    .fmr .sw{flex:none;width:14px;height:14px;border-radius:50%}
+    .fmr label{display:flex;align-items:center;gap:6px;font-weight:800;min-width:150px;cursor:pointer}
+    .fmr .sm{width:62px} .fmr .sm input{padding:4px 4px;text-align:center;font-weight:600;font-size:.9rem}
+    .fmr.off .ins{opacity:.5}
+    .fmr .pg{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    .rw .pg{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+    #wr-in{font-weight:600;font-size:.95rem} #wr-in input{font-weight:600;font-size:.95rem}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit2.html">Unit 2</a><a href="unit3.html">Unit 3</a><a href="#map">Concept map</a><a href="#forms">Forms</a><a href="#vocab">Key terms</a><a href="#expr">Equations</a><a href="#sol">Solutions</a><a href="#equiv">Equivalent</a><a href="#solvefor">Solve for</a><a href="#graph">Graphs</a><a href="#write">Write a line</a><a href="#par">Parallel</a><a href="#dv">Direct variation</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 1</span>
+    <h1><span>Linear Equations</span></h1>
+    <p class="lead">Use variables and expressions to model a situation, find and check solutions, rewrite equations without changing their meaning, then connect equations to lines: graph them, write them, and compare them.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map: linear equations</h2>
+    <p class="sub">The big picture of the unit. Click any box to see what it means, with an example.</p>
+    <div class="card">
+      <svg id="cm" viewBox="0 0 1100 700" style="width:100%;height:auto;display:block" role="img" aria-label="Concept map of linear equations">
+        <defs><marker id="cm-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e2566b"/></marker></defs>
+        <g stroke="#e2566b" stroke-width="2.5" fill="none" marker-end="url(#cm-a)">
+          <path d="M95 200V110"/><path d="M95 320V410"/><path d="M180 260H268"/>
+          <path d="M355 200V110"/><path d="M355 320V410"/><path d="M440 250H508"/>
+          <path d="M605 330V408"/>
+          <path d="M700 250H800V60H878" marker-end="none"/><path d="M800 60H878"/>
+          <path d="M800 250H878"/><path d="M800 250V630H878" marker-end="none"/><path d="M800 630H878"/><path d="M800 440H878"/>
+        </g>
+        <g font-size="15" fill="#172c3a" font-weight="500">
+          <text x="108" y="160">can be plotted as</text>
+          <text x="108" y="370">can be used to model</text>
+          <text x="190" y="218">written in</text><text x="190" y="236">the form</text>
+          <text x="368" y="160">where</text>
+          <text x="368" y="370">can be rewritten as</text>
+          <text x="455" y="240">where</text>
+          <text x="618" y="372">compare lines</text>
+          <text x="792" y="50" text-anchor="end">can be zero</text>
+          <text x="808" y="216">can be</text><text x="808" y="234">nonzero</text>
+          <text x="808" y="576">special case:</text><text x="808" y="594">b = 0</text><text x="808" y="406">can be</text><text x="808" y="424">undefined</text>
+        </g>
+        <g id="cm-nodes" font-size="17" text-anchor="middle" font-weight="700" fill="#172c3a" style="cursor:pointer">
+          <g data-k="lines"><rect x="10" y="20" width="170" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="95" y="60">Lines in the</text><text x="95" y="84">coordinate plane</text></g>
+          <g data-k="lin"><rect x="10" y="200" width="170" height="120" rx="18" fill="#e2566b" stroke="#b83a4f" stroke-width="2.5"/><text x="95" y="252" fill="#fff" font-size="20">Linear</text><text x="95" y="280" fill="#fff" font-size="20">Equations</text></g>
+          <g data-k="real"><rect x="10" y="410" width="170" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="95" y="450">Real-world</text><text x="95" y="474">problems</text></g>
+          <g data-k="smi"><rect x="270" y="200" width="170" height="120" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="355" y="268" font-size="22" font-style="italic">y = mx + b</text></g>
+          <g data-k="b"><rect x="270" y="20" width="170" height="90" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="355" y="60">b is the</text><text x="355" y="84">y-intercept</text></g>
+          <g data-k="forms"><rect x="270" y="410" width="170" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="355" y="450">Point-slope &amp;</text><text x="355" y="474">standard form</text></g>
+          <g data-k="slope"><rect x="510" y="190" width="190" height="140" rx="14" fill="#ece7ff" stroke="#7962cb" stroke-width="2.5"/><text x="605" y="235">Slope m</text><text x="605" y="265" font-size="15">= rise ÷ run</text><text x="605" y="295" font-size="15">= (y₂ − y₁) ÷ (x₂ − x₁)</text></g>
+          <g data-k="par"><rect x="510" y="410" width="190" height="90" rx="14" fill="#fff4cc" stroke="#d9a400" stroke-width="2.5"/><text x="605" y="450">Parallel &amp;</text><text x="605" y="474">perpendicular</text></g>
+          <g data-k="horiz"><rect x="880" y="10" width="210" height="100" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="985" y="45">y = 0x + b, or y = b</text><text x="985" y="70">horizontal line</text><text x="985" y="94" font-size="15">through (0, b)</text></g>
+          <g data-k="nz"><rect x="880" y="200" width="210" height="100" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="985" y="255">Positive, negative</text></g>
+          <g data-k="dv"><rect x="880" y="580" width="210" height="100" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="985" y="615">Direct variation</text><text x="985" y="640">y = kx</text><text x="985" y="664" font-size="15">through (0, 0)</text></g>
+          <g data-k="vert"><rect x="880" y="390" width="210" height="100" rx="14" fill="#fde8ea" stroke="#e2566b" stroke-width="2.5"/><text x="985" y="425">x = c</text><text x="985" y="450">vertical line</text><text x="985" y="474" font-size="15">through (c, 0)</text></g>
+        </g>
+      </svg>
+      <div id="cm-info" class="pill" style="background:var(--purple-light)"></div>
+    </div>
+  </section>
+
+  <section id="forms">
+    <h2>📈 Forms of a line on one grid</h2>
+    <p class="sub">Three forms and three special lines graphed together. Tick a line to show it and change its numbers (whole numbers, decimals or fractions like 1/2) to see the equation and graph update.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div id="fm-rows"></div>
+        <div><button id="fm-all" type="button">Show all</button><button id="fm-none" type="button">Hide all</button><button id="fm-reset" type="button">↺ Reset values</button></div>
+        <div id="fm-info" class="pill" style="background:var(--purple-light)"></div>
+      </div>
+      <div class="vis"><svg id="fm-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Variable · constant</span><p>A <b>variable</b> is a quantity that can change (a letter stands for it). A <b>constant</b> stays fixed.</p></div>
+      <div class="card"><span class="tag t">Expression</span><p>Numbers, letters and operations with no equal sign, such as 24 + 4n. It names a quantity.</p></div>
+      <div class="card"><span class="tag o">Constraint</span><p>A limit on what is possible, such as a budget. It can be written as an equation or an inequality.</p></div>
+      <div class="card"><span class="tag p">Equation · solution</span><p>An equation says two expressions are equal. A <b>solution</b> is a value (or pair of values) that makes it true.</p></div>
+      <div class="card"><span class="tag t">Equivalent equations</span><p>Equations that have exactly the same solutions. Legal moves turn an equation into an equivalent one.</p></div>
+      <div class="card"><span class="tag o">Solve for a variable</span><p>Rearrange an equation so that one chosen variable is alone on one side.</p></div>
+      <div class="card"><span class="tag p">Slope · rate of change</span><p>m = rise ÷ run = (y₂ − y₁) ÷ (x₂ − x₁). How much y changes when x increases by 1.</p></div>
+      <div class="card"><span class="tag t">Intercepts</span><p><b>y-intercept</b> (0, b): where the line crosses the y-axis. <b>x-intercept</b> (a, 0): where it crosses the x-axis.</p></div>
+      <div class="card"><span class="tag o">Direct variation</span><p>y = kx. The ratio y ÷ x is always the same number k, and the line passes through the origin.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:28px">
+      <div>
+        <h3>Three forms of a line</h3>
+        <table>
+          <tr><th>Form</th><th>Equation</th><th>Best for</th></tr>
+          <tr><td>Slope-intercept</td><td><b>y = mx + b</b></td><td>Reading m and b, graphing fast</td></tr>
+          <tr><td>Point-slope</td><td><b>y − y₁ = m(x − x₁)</b></td><td>Given a point and the slope</td></tr>
+          <tr><td>Standard</td><td><b>Ax + By = C</b></td><td>Intercepts, whole-number coefficients</td></tr>
+          <tr><td>Horizontal</td><td><b>y = b</b></td><td>Slope 0</td></tr>
+          <tr><td>Vertical</td><td><b>x = a</b></td><td>Slope undefined</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Legal moves for equivalent equations</h3>
+        <table>
+          <tr><th>Move</th><th>Safe?</th></tr>
+          <tr><td>Add or subtract the same number on both sides</td><td><b>✔ Yes</b></td></tr>
+          <tr><td>Multiply or divide both sides by the same <b>non-zero</b> number</td><td><b>✔ Yes</b></td></tr>
+          <tr><td>Simplify one side (distribute, combine like terms)</td><td><b>✔ Yes</b></td></tr>
+          <tr><td>Multiply both sides by 0</td><td><b>✘ No</b> — gives 0 = 0, true for everything</td></tr>
+          <tr><td>Divide both sides by a variable</td><td><b>✘ No</b> — can lose a solution</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="expr">
+    <h2>🎟️ Expressions, constraints and equations</h2>
+    <p class="sub">Which quantities change and which stay fixed? Write an expression for the cost, then turn the budget into an equation. Edit the numbers.</p>
+    <div class="card">
+      <div class="rw" id="ex-in"></div>
+      <div id="ex-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="ex-ctl"></div><ol class="steps" id="ex-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="sol">
+    <h2>✅ Solutions of an equation in two variables</h2>
+    <p class="sub">A solution of Ax + By = C is a pair (x, y). Test a pair; if it fails, keep x and find the y that works. Every point on the graph is a solution.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="so-in"></div>
+        <div id="so-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="so-ctl"></div><ol class="steps" id="so-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="so-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="equiv">
+    <h2>⚖️ Equivalent equations</h2>
+    <p class="sub">Apply a move to both sides of a x + b = c x + d and check whether the solution stays the same. Try multiplying by 0 or dividing by 0 to see what breaks.</p>
+    <div class="card">
+      <div><button id="eq-m0" class="on" type="button">Add k</button><button id="eq-m1" type="button">Subtract k</button><button id="eq-m2" type="button">Multiply by k</button><button id="eq-m3" type="button">Divide by k</button></div>
+      <div class="rw" id="eq-in"></div>
+      <div id="eq-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="eq-ctl"></div><ol class="steps" id="eq-steps"></ol></div>
+      <div class="pill" style="background:var(--orange-light)">⚠️ <b>Why not divide by a variable?</b> Take x² = 3x. It has two solutions, x = 0 and x = 3. Divide both sides by x and you get x = 3: the solution x = 0 is lost. Instead, move everything to one side and factor: x² − 3x = 0, so x(x − 3) = 0.</div>
+    </div>
+  </section>
+
+  <section id="solvefor">
+    <h2>🔧 Solve for a variable</h2>
+    <p class="sub">Choose which variable to isolate. Undo operations in reverse order, the same way you solve an equation. Edit A, B and C in the first two.</p>
+    <div class="card">
+      <div id="sf-tabs"></div>
+      <div class="rw" id="sf-in"></div>
+      <div id="sf-eq" class="big" style="margin-top:12px"></div>
+      <div class="stp"><div class="bt" id="sf-ctl"></div><ol class="steps" id="sf-steps"></ol></div>
+    </div>
+  </section>
+
+  <section id="graph">
+    <h2>📈 Connect an equation to its graph</h2>
+    <p class="sub">Rewrite Ax + By = C as y = mx + b. Then b is where the line starts on the y-axis and m is the rate of change: count rise and run.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="gr-in"></div>
+        <div id="gr-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="gr-ctl"></div><ol class="steps" id="gr-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="gr-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="lx">
+    <h2>🎛️ Line explorer</h2>
+    <p class="sub">Drag the sliders and watch the line and all three forms update.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <label>Slope m = <b id="lx-mv">2</b></label>
+        <input id="lx-m" type="range" min="-5" max="5" step="1" value="2" style="width:100%">
+        <label>y-intercept b = <b id="lx-bv">1</b></label>
+        <input id="lx-b" type="range" min="-8" max="8" step="1" value="1" style="width:100%">
+        <div id="lx-f" style="margin-top:12px"></div>
+      </div>
+      <div class="vis"><svg id="lx-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="write">
+    <h2>✍️ Write the equation of a line</h2>
+    <p class="sub">Pick what you are given: slope and y-intercept, slope and a point, two points, or a table. The steps build y = mx + b and standard form.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="wr-t0" class="on" type="button">Slope &amp; y-intercept</button><button id="wr-t1" type="button">Slope &amp; a point</button><button id="wr-t2" type="button">Two points</button><button id="wr-t3" type="button">A table</button></div>
+        <div class="rw" id="wr-in"></div>
+        <div id="wr-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="wr-ctl"></div><ol class="steps" id="wr-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="wr-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="par">
+    <h2>∥ ⊥ Parallel and perpendicular lines</h2>
+    <p class="sub">Parallel lines have the same slope. Perpendicular lines have slopes that are negative reciprocals (their product is −1). Write the new line through a point.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="pa-t0" class="on" type="button">Parallel</button><button id="pa-t1" type="button">Perpendicular</button></div>
+        <div class="rw" id="pa-in"></div>
+        <div id="pa-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="pa-ctl"></div><ol class="steps" id="pa-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="pa-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="dv">
+    <h2>🔁 Direct variation</h2>
+    <p class="sub">y varies directly with x when y = kx. Give one pair (x, y) to find k, then predict y for another x.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="dv-in"></div>
+        <div id="dv-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="dv-ctl"></div><ol class="steps" id="dv-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="dv-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Model a situation</span>
+        <ol class="steps"><li>Decide which quantities change (variables) and which are fixed.</li><li>Write an expression for the quantity you care about.</li><li>Use the constraint to make an equation or inequality.</li></ol></div>
+      <div class="card"><span class="tag t">Equivalent equations</span>
+        <ol class="steps"><li>Add or subtract the same value on both sides.</li><li>Multiply or divide by the same non-zero value.</li><li>Never divide by a variable; never multiply by 0.</li></ol></div>
+      <div class="card"><span class="tag o">Write a line</span>
+        <ul><li>Two points: m = (y₂ − y₁) ÷ (x₂ − x₁).</li><li>Plug m and a point into y − y₁ = m(x − x₁).</li><li>Solve for y, or rearrange to Ax + By = C.</li></ul></div>
+      <div class="card"><span class="tag p">Special lines</span>
+        <ul><li>Parallel: same slope.</li><li>Perpendicular: negative reciprocal slope.</li><li>Direct variation: y = kx, passes through (0, 0).</li></ul></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+(()=>{const T={
+lin:'<b>Linear equation</b>: an equation whose graph is a straight line, like y = 2x + 1 or 3x + 2y = 6.',
+lines:'<b>Lines in the coordinate plane</b>: every solution (x, y) is a point, and all the solutions together make a line. Example: (0, 1) and (1, 3) both lie on y = 2x + 1.',
+real:'<b>Real-world problems</b>: constraints and direct variation. Example: a $5 fee plus $2 per game gives y = 2x + 5.',
+smi:'<b>Slope-intercept form</b>: y = mx + b. Example: y = −2x + 3 has slope −2 and y-intercept 3.',
+b:'<b>The y-intercept b</b>: where the line crosses the y-axis, at the point (0, b). Example: in y = 4x − 1 the line crosses at (0, −1).',
+forms:'<b>Other forms</b>: point-slope y − y₁ = m(x − x₁), and standard form Ax + By = C. Example: y − 1 = 2(x − 3) is the same line as y = 2x − 5 and 2x − y = 5.',
+slope:'<b>Slope m</b> = rise ÷ run = (y₂ − y₁) ÷ (x₂ − x₁), the same between any two points on a line. Example: (1, 2) and (3, 8) give m = 6 ÷ 2 = 3.',
+par:'<b>Parallel lines</b> have the same slope; <b>perpendicular lines</b> have slopes that are opposite reciprocals (m and −1/m). Example: y = 2x + 1 ∥ y = 2x − 4, and y = 2x ⊥ y = −½x.',
+horiz:'<b>Slope zero</b>: y = b is a horizontal line through (0, b). Example: y = 3 is flat at height 3.',
+nz:'<b>Slope not zero</b>: positive slope rises left to right, negative slope falls. Example: y = 2x rises, y = −2x falls.',
+dv:'<b>Direct variation</b>: y = kx, the special case of y = mx + b where b = 0. The line passes through the origin (0, 0) and the constant of variation k is the slope. Example: y = 3x means y is always 3 times x.',
+vert:'<b>Slope undefined</b>: x = c is a vertical line through (c, 0), because the run is 0. Example: x = −4.'};
+const show=k=>{$('cm-info').innerHTML=T[k];document.querySelectorAll('#cm-nodes g').forEach(g=>g.querySelector('rect').style.strokeWidth=g.dataset.k===k?'5':'2.5')};
+document.querySelectorAll('#cm-nodes g').forEach(g=>g.onclick=()=>show(g.dataset.k));show('lin')})();
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=4)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const gv=id=>parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));
+const sgn=n=>n<0?`(${f(n)})`:f(n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const fracS=(n,d)=>{
+  if(!Number.isInteger(n)||!Number.isInteger(d))return f(n/d,3);
+  if(d<0){n=-n;d=-d}
+  const g=gcd(n,d)||1;n/=g;d/=g;
+  return d===1?f(n):(n<0?'−':'')+frH(Math.abs(n),d);
+};
+const ptS=(x,y)=>`(${f(x,2)}, ${f(y,2)})`;
+const lin=(A,B)=>{const t=[];[[A,'x'],[B,'y']].forEach(([c,v])=>{if(c===0)return;const a=Math.abs(c);t.push((c<0?(t.length?' − ':'−'):(t.length?' + ':''))+(a===1?'':f(a))+v)});return t.length?t.join(''):'0'};
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()})}});
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+const row=(id,parts)=>{const one=p=>typeof p==='string'?`<span>${p}</span>`:p.g?`<span class="pg">${p.g.map(one).join('')}</span>`:`<span class="${p[2]||'sm'}"><input id="${p[0]}" type="text" inputmode="decimal" value="${p[1]}"></span>`;$(id).innerHTML=parts.map(one).join('')};
+const allNum=a=>a.every(x=>isFinite(x));
+const tooBig=a=>a.some(x=>Math.abs(x)>30);
+const RANGES=[5,6,8,10,12,15,20,25,30,40,60,90];
+const Rof=vals=>{const m=Math.max(5,Math.ceil(Math.max(...vals.map(Math.abs)))+1);return RANGES.find(r=>r>=m)||m};
+
+/* ---------- coordinate plane ---------- */
+const CL={p:'var(--purple)',t:'var(--teal)',o:'var(--orange)',k:'var(--ink)'};
+const P=(x,y,c,l)=>({t:'pt',x,y,c,l});
+const S=(x1,y1,x2,y2,c,l)=>({t:'seg',x1,y1,x2,y2,c,l});
+const L=(x,y,dx,dy,c)=>({t:'line',x,y,dx,dy,c});
+function plane(id,R,items,quad){
+  const X=x=>200+x*176/R,Y=y=>200-y*176/R;
+  const st=R<=10?1:R<=20?2:R<=40?5:10,n=Math.floor(R/st);
+  let s='<rect x="24" y="24" width="352" height="352" style="fill:#fff;stroke:#d8d4ea"/>';
+  if(quad)[['I',1,1],['II',-1,1],['III',-1,-1],['IV',1,-1]].forEach(([q,a,b])=>s+=`<text x="${X(a*R*.55)}" y="${Y(b*R*.55)+10}" text-anchor="middle" style="font-size:30px;font-weight:800;fill:#e4e0f4">${q}</text>`);
+  for(let i=-n;i<=n;i++){
+    if(i===0)continue;
+    const k=i*st;
+    s+=`<line x1="${X(k)}" y1="24" x2="${X(k)}" y2="376" style="stroke:#ebe8f5"/><line x1="24" y1="${Y(k)}" x2="376" y2="${Y(k)}" style="stroke:#ebe8f5"/>`;
+    s+=`<text x="${X(k)}" y="${Y(0)+14}" text-anchor="middle" style="font-size:10px;fill:#777">${f(k)}</text><text x="${X(0)-5}" y="${Y(k)+3}" text-anchor="end" style="font-size:10px;fill:#777">${f(k)}</text>`;
+  }
+  s+=`<line x1="24" y1="${Y(0)}" x2="376" y2="${Y(0)}" style="stroke:var(--ink);stroke-width:2"/><line x1="${X(0)}" y1="24" x2="${X(0)}" y2="376" style="stroke:var(--ink);stroke-width:2"/>`;
+  s+=`<text x="366" y="${Y(0)-7}" style="font-size:13px;font-weight:800">x</text><text x="${X(0)+8}" y="38" style="font-size:13px;font-weight:800">y</text>`;
+  const arrow=(ex,ey,ux,uy,c)=>{const px=-uy,py=ux;return `<polygon points="${ex},${ey} ${ex-ux*11+px*5},${ey-uy*11+py*5} ${ex-ux*11-px*5},${ey-uy*11-py*5}" style="fill:${c}"/>`};
+  items.forEach(it=>{
+    const c=CL[it.c||'p'];
+    if(it.t==='line'){
+      let lo=-1e9,hi=1e9,ok=true;
+      [[it.x,it.dx],[it.y,it.dy]].forEach(([p,d])=>{
+        if(d===0){if(Math.abs(p)>R)ok=false;return}
+        const a=(-R-p)/d,b=(R-p)/d;lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
+      });
+      if(!ok||lo>=hi)return;
+      const x1=X(it.x+it.dx*lo),y1=Y(it.y+it.dy*lo),x2=X(it.x+it.dx*hi),y2=Y(it.y+it.dy*hi);
+      const len=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/len,uy=(y2-y1)/len;
+      s+=`<line x1="${x1}" y1="${y1}" x2="${x2-ux*8}" y2="${y2-uy*8}" style="stroke:${c};stroke-width:3.5"/>`+arrow(x2,y2,ux,uy,c)+arrow(x1,y1,-ux,-uy,c);
+    }else if(it.t==='seg'){
+      s+=`<line x1="${X(it.x1)}" y1="${Y(it.y1)}" x2="${X(it.x2)}" y2="${Y(it.y2)}" style="stroke:${c};stroke-width:3.5;stroke-dasharray:7 5"/>`;
+      if(it.l)s+=`<text x="${(X(it.x1)+X(it.x2))/2+(it.x1===it.x2?10:0)}" y="${(Y(it.y1)+Y(it.y2))/2+(it.x1===it.x2?4:18)}" text-anchor="${it.x1===it.x2?'start':'middle'}" style="font-size:13px;font-weight:800;fill:${c}">${it.l}</text>`;
+    }else if(it.t==='pt'){
+      const px=X(it.x),py=Y(it.y),r=px>290;
+      s+=`<circle cx="${px}" cy="${py}" r="6.5" style="fill:${c};stroke:#fff;stroke-width:2"/>`;
+      if(it.l)s+=`<text x="${px+(r?-10:10)}" y="${py<50?py+20:py-9}" text-anchor="${r?'end':'start'}" style="font-size:12px;font-weight:800;fill:${c};paint-order:stroke;stroke:#fff;stroke-width:3px">${it.l}</text>`;
+    }
+  });
+  $(id).innerHTML=s;
+}
+
+
+const isInt=x=>Number.isInteger(x);
+const rat=(n,d=1)=>{if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return[n/g,d/g]};
+const radd=(a,b)=>rat(a[0]*b[1]+b[0]*a[1],a[1]*b[1]),rsub=(a,b)=>radd(a,[-b[0],b[1]]),rmul=(a,b)=>rat(a[0]*b[0],a[1]*b[1]),rdiv=(a,b)=>rat(a[0]*b[1],a[1]*b[0]);
+const rv=r=>r[0]/r[1];
+const rs=r=>r[1]===1?f(r[0]):(r[0]<0?'−':'')+frH(Math.abs(r[0]),r[1]);
+const rsg=r=>r[0]<0?`(${rs(r)})`:rs(r);
+const mx=m=>m[0]===0?'':(m[0]===1&&m[1]===1)?'x':(m[0]===-1&&m[1]===1)?'−x':rs(m)+'x';
+const sideS=(m,b)=>{const a=mx(m);if(b[0]===0)return a||'0';return a?a+(b[0]<0?' − ':' + ')+rs(rat(Math.abs(b[0]),b[1])):rs(b)};
+const eqY=(m,b)=>'y = '+sideS(m,b);
+const lcm=(a,b)=>a/gcd(a,b)*b;
+function stdForm(m,b){
+  const L2=lcm(m[1],b[1]);let A=-m[0]*(L2/m[1]),B=L2,C=b[0]*(L2/b[1]);
+  const g=gcd(gcd(A,B),C)||1;A/=g;B/=g;C/=g;
+  if(A<0||(A===0&&B<0)){A=-A;B=-B;C=-C}
+  return{A,B,C,s:`${lin(A,B)} = ${f(C)}`};
+}
+const term=(v,n)=>v===0?n:`${n} ${v<0?'+':'−'} ${f(Math.abs(v))}`;
+const psForm=(x1,y1,m)=>`${term(y1,'y')} = ${m[0]===0?'0':rs(m)}(${term(x1,'x')})`;
+const money=x=>'$'+f(x,2);
+
+/* ---------- 1. expressions, constraints, equations ---------- */
+row('ex-in',['Budget $',['ex-b',60],'&nbsp; ticket $',['ex-t',24],'&nbsp; each snack $',['ex-s',4]]);
+function exSteps(st){
+  const [B,T,s]=['ex-b','ex-t','ex-s'].map(gv);
+  if(!allNum([B,T,s])||s<=0||T<0||B<0)return bad('Enter positive numbers (the snack price must be above 0).');
+  const rowsH=[0,1,2,3,4].map(n=>`<tr><td>${n}</td><td>${f(T)} + ${f(s)}·${n}</td><td><b>${money(T+s*n)}</b></td><td>${T+s*n<=B?'✔ within budget':'✘ over budget'}</td></tr>`).join('');
+  const nmax=B<T?-1:Math.floor((B-T)/s+1e-9),exact=Math.abs((B-T)/s-Math.round((B-T)/s))<1e-9;
+  const nn=(B-T)/s;
+  const steps=[
+    `Read the situation. <b>Fixed</b> (constants): budget ${money(B)}, ticket ${money(T)}, snack price ${money(s)}. <b>Can vary</b>: the number of snacks <b class="or">n</b>, and so the total cost.`,
+    `Write an <b>expression</b> for the total cost: <b>${f(T)} + ${f(s)}n</b> (ticket plus n snacks). It names a quantity; it is not a statement yet.`,
+    `Try values and look for the pattern: each extra snack adds ${money(s)}.<table class="lr"><tr><th>n</th><th>work</th><th>cost</th><th>budget ${money(B)}</th></tr>${rowsH}</table>`,
+    `The budget is a <b>constraint</b>: the cost cannot be more than ${money(B)}, so <b>${f(T)} + ${f(s)}n ≤ ${f(B)}</b>. If you spend exactly the budget, you get the <b>equation ${f(T)} + ${f(s)}n = ${f(B)}</b>.`,
+    B<T?`Solve: ${f(s)}n = ${f(B)} − ${f(T)} = ${f(B-T)} is negative, so n would be negative. The ticket alone costs more than the budget: <b>no solution</b>.`
+      :`Solve the equation: ${f(s)}n = ${f(B)} − ${f(T)} = ${f(B-T)}, so n = ${f(B-T)} ÷ ${f(s)} = <b>${f(nn,3)}</b>. ${exact?`Exactly ${f(nn)} snack${nn===1?'':'s'} use up the budget.`:`Only whole snacks are possible, so the most you can buy is <b>${nmax}</b>, and you will have ${money(B-T-s*nmax)} left.`}`];
+  return out(st,`${f(T)} + ${f(s)}n = ${f(B)}`,B<T?`${f(T)} + ${f(s)}n = ${f(B)} has no solution`:`${f(T)} + ${f(s)}n = ${f(B)} → n = ${f(nn,3)}`,steps);
+}
+const exst=stepper('ex',()=>['ex-b','ex-t','ex-s'],exSteps);
+exst.reset();
+
+/* ---------- 2. solutions ---------- */
+row('so-in',[['so-a',2],'x +',['so-b',3],'y =',['so-c',12],'&nbsp; test (',['so-x',3],',',['so-y',4],')']);
+function soSteps(st){
+  const [A,B,C,x,y]=['so-a','so-b','so-c','so-x','so-y'].map(gv);
+  if(!allNum([A,B,C,x,y])||tooBig([A,B,C,x,y])||B===0){if(st!==99)plane('so-g',5,[]);return bad('Enter numbers between −30 and 30 (B cannot be 0 here).')}
+  const lhs=A*x+B*y,ok=Math.abs(lhs-C)<1e-9,y2=(C-A*x)/B,eqS=`${lin(A,B)} = ${f(C)}`,R=Rof([x,y,y2,0,C/B]);
+  const steps=[
+    `The equation is <b>${eqS}</b>. A solution is a pair (x, y) that makes it true. Test ${ptS(x,y)}.`,
+    `Substitute x = <b class="or">${f(x)}</b> and y = <b class="te">${f(y)}</b>: ${f(A)}(${f(x)}) + ${f(B)}(${f(y)}) <b>=?</b> ${f(C)}`,
+    `Simplify: ${f(A*x)} + ${sgn(B*y)} = <b>${f(lhs)}</b>. Since ${f(lhs)} ${ok?'=':'≠'} ${f(C)}, ${ptS(x,y)} <b>${ok?'is':'is not'}</b> a solution.`,
+    ok?`Graph the solutions. ${ptS(x,y)} lies <b>on the line</b>. Every point on the line is a solution, and every solution is a point on the line.`
+      :`To fix it, keep x = ${f(x)} and solve for y: ${f(B)}y = ${f(C)} − ${f(A)}(${f(x)}) → y = <b>${f(y2,2)}</b>. The pair <b>${ptS(x,y2)}</b> is a solution, on the line. Your point is off the line.`];
+  if(st!==99){
+    const it=[L(0,C/B,1,-A/B,'t')];
+    if(st>=1)it.push(P(x,y,st>=2?(ok?'t':'o'):'p',ptS(x,y)));
+    if(st>=3&&!ok)it.push(P(x,y2,'t',ptS(x,y2)));
+    plane('so-g',R,it);
+  }
+  return out(st,`Is ${ptS(x,y)} a solution of ${eqS}?`,ok?`${ptS(x,y)} <span class="te">is</span> a solution of ${eqS}`:`${ptS(x,y)} <span class="or">is not</span> a solution. With x = ${f(x)}, the solution is ${ptS(x,y2)}`,steps);
+}
+const sost=stepper('so',()=>['so-a','so-b','so-c','so-x','so-y'],soSteps);
+sost.reset();
+
+/* ---------- 3. equivalent equations ---------- */
+let eqm=0;
+const eqNames=['Add','Subtract','Multiply by','Divide by'];
+function eqBuild(){
+  row('eq-in',[['eq-a',3],'x +',['eq-b',5],'=',['eq-c',1],'x +',['eq-d',9],'&nbsp;&nbsp;<small>k =</small>',['eq-k',2]]);
+  eqst.reset();
+}
+const solSet=(a,b,c,d)=>{
+  const da=rsub(a,c),db=rsub(d,b);
+  if(da[0]===0)return db[0]===0?{k:'all',s:'every number'}:{k:'none',s:'no solution'};
+  const v=rdiv(db,da);return{k:'x',v,s:'x = '+rs(v)};
+};
+const sideH=(a,b)=>sideS(a,b);
+function eqSteps(st){
+  const raw=['eq-a','eq-b','eq-c','eq-d','eq-k'].map(gv);
+  if(!raw.every(isInt)||tooBig(raw))return bad('Enter whole numbers between −30 and 30.');
+  const [a,b,c,d]=raw.slice(0,4).map(v=>rat(v)),kv=raw[4],k=rat(kv);
+  if(eqm===3&&kv===0)return bad('You cannot divide by 0. Choose another k.');
+  const s0=solSet(a,b,c,d);
+  let a2,b2,c2,d2,desc;
+  if(eqm===0){a2=a;b2=radd(b,k);c2=c;d2=radd(d,k);desc=`Add ${f(kv)} to both sides`}
+  else if(eqm===1){a2=a;b2=rsub(b,k);c2=c;d2=rsub(d,k);desc=`Subtract ${f(kv)} from both sides`}
+  else if(eqm===2){a2=rmul(a,k);b2=rmul(b,k);c2=rmul(c,k);d2=rmul(d,k);desc=`Multiply both sides by ${rsg(k)}`}
+  else{a2=rdiv(a,k);b2=rdiv(b,k);c2=rdiv(c,k);d2=rdiv(d,k);desc=`Divide both sides by ${rsg(k)}`}
+  const s1=solSet(a2,b2,c2,d2),same=s0.s===s1.s;
+  const e0=`${sideH(a,b)} = ${sideH(c,d)}`,e1=`${sideH(a2,b2)} = ${sideH(c2,d2)}`;
+  const mv=eqm<2?`${desc}: (${sideH(a,b)}) ${eqm?'−':'+'} ${f(kv)} = (${sideH(c,d)}) ${eqm?'−':'+'} ${f(kv)}`:`${desc}: ${rsg(k)}·(${sideH(a,b)}) = ${rsg(k)}·(${sideH(c,d)})`;
+  const steps=[
+    `Start with <b>${e0}</b>. Solve it: ${s0.k==='x'?`collect x on one side and numbers on the other → <b>${s0.s}</b>.`:`the x terms cancel, leaving ${s0.k==='all'?'a true statement':'a false statement'}: <b>${s0.s}</b>.`}`,
+    `${mv}.<br>New equation: <b>${e1}</b>`,
+    `Solve the new equation: <b>${s1.s}</b>.`,
+    same?`The solutions match (<b>${s0.s}</b>), so the two equations are <b class="te">equivalent</b>. This move is safe.`
+        :`The solutions differ (<b>${s0.s}</b> before, <b>${s1.s}</b> after), so the equations are <b class="or">not equivalent</b>. ${eqm===2&&kv===0?'Multiplying by 0 turns every equation into 0 = 0.':'Check your move.'}`];
+  return out(st,e0,same?`${e0} ⟺ ${e1} <span class="te">(equivalent)</span>`:`${e0} and ${e1} are <span class="or">not equivalent</span>`,steps);
+}
+const eqst=stepper('eq',()=>['eq-a','eq-b','eq-c','eq-d','eq-k'],eqSteps);
+[0,1,2,3].forEach(i=>$('eq-m'+i).onclick=()=>{eqm=i;tog(['eq-m0','eq-m1','eq-m2','eq-m3'],i);eqst.reset()});
+eqBuild();
+
+/* ---------- 4. solve for a variable ---------- */
+const sfTabs=[['Ax + By = C → y','n'],['Ax + By = C → x','n'],['d = rt → t','s'],['P = 2l + 2w → w','s'],['y = mx + b → x','s'],['F = <span class="fr"><span>9</span><span>5</span></span>C + 32 → C','s']];
+let sfm=0;
+$('sf-tabs').innerHTML=sfTabs.map((t,i)=>`<button type="button" id="sf-t${i}">${t[0]}</button>`).join('');
+const sfStatic=[
+  null,null,
+  {s:['Goal: get <b>t</b> alone. Right now t is multiplied by r.','Divide both sides by r (undo the multiplication): <b>d ÷ r = t</b>.','Write t on the left: <b>t = d ÷ r</b> (r ≠ 0).'],eq:'d = rt',fin:'t = d ÷ r'},
+  {s:['Goal: get <b>w</b> alone. First move the term 2l.','Subtract 2l from both sides: <b>P − 2l = 2w</b>.','Divide both sides by 2: <b>(P − 2l) ÷ 2 = w</b>.','Write w on the left: <b>w = (P − 2l) ÷ 2</b>, or w = P ÷ 2 − l.'],eq:'P = 2l + 2w',fin:'w = (P − 2l) ÷ 2'},
+  {s:['Goal: get <b>x</b> alone. First move b.','Subtract b from both sides: <b>y − b = mx</b>.','Divide both sides by m: <b>(y − b) ÷ m = x</b>.','Write x on the left: <b>x = (y − b) ÷ m</b> (m ≠ 0).'],eq:'y = mx + b',fin:'x = (y − b) ÷ m'},
+  {s:['Goal: get <b>C</b> alone. First move 32.','Subtract 32 from both sides: <b>F − 32 = '+frH(9,5)+'C</b>.','Multiply both sides by the reciprocal '+frH(5,9)+': <b>'+frH(5,9)+'(F − 32) = C</b>.','Write C on the left: <b>C = '+frH(5,9)+'(F − 32)</b>.'],eq:'F = '+frH(9,5)+'C + 32',fin:'C = '+frH(5,9)+'(F − 32)'}
+];
+function sfBuild(){
+  tog(sfTabs.map((_,i)=>'sf-t'+i),sfm);
+  if(sfm<2)row('sf-in',[['sf-a',3],'x +',['sf-b',2],'y =',['sf-c',12]]);else $('sf-in').innerHTML='';
+  sfst.reset();
+}
+function sfSteps(st){
+  if(sfm>=2){const o=sfStatic[sfm];return out(st,o.eq,`${o.eq} → ${o.fin}`,o.s)}
+  const [A,B,C]=['sf-a','sf-b','sf-c'].map(gv);
+  if(!allNum([A,B,C])||!isInt(A)||!isInt(B)||!isInt(C)||tooBig([A,B,C]))return bad('Enter whole numbers between −30 and 30.');
+  const eqS=`${lin(A,B)} = ${f(C)}`,v=sfm?'x':'y',o=sfm?'y':'x',Av=sfm?B:A,Ao=sfm?A:B;
+  if(Av===0)return bad(`The coefficient of ${v} is 0, so ${v} cannot be isolated. Change the numbers.`);
+  const m=rat(-Ao,Av),b=rat(C,Av);
+  const steps=[
+    `Goal: get <b>${v}</b> alone. The equation is <b>${eqS}</b>.`,
+    `Subtract the ${o} term from both sides: <b>${f(Av)}${v} = ${f(C)} ${Ao<0?'+':'−'} ${f(Math.abs(Ao))}${o}</b>`,
+    `Divide <b>every</b> term by ${f(Av)}: <b>${v} = ${frH(f(C)+(Ao<0?' + ':' − ')+f(Math.abs(Ao))+o,f(Av))}</b>`,
+    `Simplify each part: <b>${v} = ${sideS(rat(-Ao,Av),b).replace(/x/g,o)}</b>${v==='y'?'. This is slope-intercept form: slope '+rs(m)+', y-intercept '+rs(b)+'.':'.'}`];
+  return out(st,eqS,`${eqS} → ${v} = ${sideS(m,b).replace(/x/g,o)}`,steps);
+}
+const sfst=stepper('sf',()=>['sf-a','sf-b','sf-c'],sfSteps);
+sfTabs.forEach((_,i)=>$('sf-t'+i).onclick=()=>{sfm=i;sfBuild()});
+sfBuild();
+
+/* ---------- 5. equation to graph ---------- */
+row('gr-in',[['gr-a',2],'x +',['gr-b',3],'y =',['gr-c',6]]);
+function grSteps(st){
+  const [A,B,C]=['gr-a','gr-b','gr-c'].map(gv);
+  if(![A,B,C].every(isInt)||tooBig([A,B,C])){if(st!==99)plane('gr-g',5,[]);return bad('Enter whole numbers between −30 and 30.')}
+  if(B===0){if(st!==99)plane('gr-g',Rof([C/(A||1)]),A?[L(C/A,0,0,1,'t')]:[]);return bad('B = 0 gives a vertical line x = a. Its slope is undefined and it has no y-intercept. Try B ≠ 0.')}
+  const m=rat(-A,B),b=rat(C,B),eqS=`${lin(A,B)} = ${f(C)}`,rise=m[0],run=m[1],x2=run,y2=rv(b)+rise;
+  const xi=A!==0?rat(C,A):null;
+  const steps=[
+    `Start with <b>${eqS}</b>. To read the slope and y-intercept, solve for y.`,
+    `Subtract ${f(A)}x: <b>${f(B)}y = ${f(C)} ${A<0?'+':'−'} ${f(Math.abs(A))}x</b>. Divide every term by ${f(B)}: <b>${eqY(m,b)}</b>.`,
+    `Compare with y = mx + b: slope <b class="te">m = ${rs(m)}</b> (the rate of change) and y-intercept <b class="or">b = ${rs(b)}</b> (the starting value).`,
+    `Plot the y-intercept <b>(0, ${rs(b)})</b>.`,
+    `Use the slope ${rs(m)} = rise ÷ run: from (0, ${rs(b)}) go <b class="te">${rise>0?'up':rise<0?'down':'0 vertically'} ${rise===0?'':f(Math.abs(rise))}</b> and <b class="or">right ${f(run)}</b> to reach <b>${ptS(x2,y2)}</b>.`,
+    `Draw the line through the points with arrows on both ends.${xi?` Its x-intercept is (${rs(xi)}, 0), found by setting y = 0.`:''}`];
+  if(st!==99){
+    const it=[];
+    if(st>=5)it.push(L(0,rv(b),run,rise,'t'));
+    if(st>=4){it.push(S(0,rv(b),x2,rv(b),'o','run '+f(run)));if(rise!==0)it.push(S(x2,rv(b),x2,y2,'t','rise '+f(rise)));it.push(P(x2,y2,'p',ptS(x2,y2)))}
+    if(st>=3)it.push(P(0,rv(b),'o','(0, '+f(rv(b),2)+')'));
+    plane('gr-g',Rof([rv(b),x2,y2,1]),it);
+  }
+  return out(st,eqS,`${eqS} → ${eqY(m,b)}, slope ${rs(m)}, y-intercept ${rs(b)}`,steps);
+}
+const grst=stepper('gr',()=>['gr-a','gr-b','gr-c'],grSteps);
+grst.reset();
+
+/* ---------- 5b. line explorer ---------- */
+function lxDraw(){
+  const m=+$('lx-m').value,b=+$('lx-b').value;
+  $('lx-mv').textContent=m;$('lx-bv').textContent=b;
+  const sf=stdForm(rat(m),rat(b));
+  plane('lx-g',10,[L(0,b,1,m,'t'),P(0,b,'o','(0, '+b+')')]);
+  $('lx-f').innerHTML=`<div class="pill" style="background:var(--teal-light)">Slope-intercept: <b>${eqY(rat(m),rat(b))}</b></div><div class="pill" style="background:var(--orange-light)">Point-slope (through (1, ${m+b})): <b>${psForm(1,m+b,rat(m))}</b></div><div class="pill" style="background:var(--purple-light)">Standard: <b>${sf.s}</b></div><div class="pill" style="background:#fff;border:1px solid var(--line)">${m>0?'Positive slope: the line rises ↗':m<0?'Negative slope: the line falls ↘':'Slope 0: horizontal line y = '+b}</div>`;
+}
+$('lx-m').oninput=lxDraw;$('lx-b').oninput=lxDraw;lxDraw();
+
+/* ---------- 6. write the equation of a line ---------- */
+let wrm=0;
+function wrBuild(){
+  const sl=['slope m =',['wr-r',2],'÷',['wr-n',3]];
+  if(wrm===0)row('wr-in',[...sl,'&nbsp; y-intercept b =',['wr-b',-1]]);
+  if(wrm===1)row('wr-in',[...sl,{g:['point (',['wr-x1',3],',',['wr-y1',1],')']}]);
+  if(wrm===2)row('wr-in',[{g:['Point 1 (',['wr-x1',-1],',',['wr-y1',-3],')']},{g:['Point 2 (',['wr-x2',2],',',['wr-y2',3],')']}]);
+  if(wrm===3)row('wr-in',['x:',['wr-x1',0],['wr-x2',1],['wr-x3',2],'&nbsp; y:',['wr-y1',-1],['wr-y2',1],['wr-y3',3]]);
+  wrst.reset();
+}
+function wrSteps(st){
+  const g=gv,ids=wrm===0?['wr-r','wr-n','wr-b']:wrm===1?['wr-r','wr-n','wr-x1','wr-y1']:wrm===2?['wr-x1','wr-y1','wr-x2','wr-y2']:['wr-x1','wr-x2','wr-x3','wr-y1','wr-y2','wr-y3'];
+  const v=ids.map(g),draw=(it,R)=>{if(st!==99)plane('wr-g',R||5,it)};
+  if(!v.every(isInt)||tooBig(v)){draw([]);return bad('Enter whole numbers between −30 and 30.')}
+  let m,x1,y1,head=[],pts=[],vertical=false,nonlin=false;
+  if(wrm<=1){
+    if(v[1]===0){draw([]);return bad('The run (the number after ÷) cannot be 0.')}
+    m=rat(v[0],v[1]);
+  }
+  if(wrm===0){
+    const b=rat(v[2]);x1=0;y1=v[2];pts=[[0,y1],[v[1],y1+m[0]*v[1]/m[1]]];
+    head=[`Given: slope <b>m = ${rs(m)}</b> and y-intercept <b>b = ${f(v[2])}</b>, which is the point (0, ${f(v[2])}).`];
+  }else if(wrm===1){
+    x1=v[2];y1=v[3];pts=[[x1,y1],[x1+m[1],y1+m[0]]];
+    head=[`Given: slope <b>m = ${rs(m)}</b> and the point <b>${ptS(x1,y1)}</b>.`];
+  }else if(wrm===2){
+    const [ax,ay,bx,by]=v;
+    if(ax===bx&&ay===by){draw([]);return bad('Choose two different points.')}
+    x1=ax;y1=ay;pts=[[ax,ay],[bx,by]];
+    if(ax===bx)vertical=true;else m=rat(by-ay,bx-ax);
+    head=[`Given two points: ${ptS(ax,ay)} and ${ptS(bx,by)}.`,
+      vertical?`The x-values are equal, so the run is 0. The slope is <b>undefined</b>: this is a <b>vertical line</b>.`
+      :`Find the slope: <b>m = (y₂ − y₁) ÷ (x₂ − x₁)</b> = (${f(by)} − ${sgn(ay)}) ÷ (${f(bx)} − ${sgn(ax)}) = ${f(by-ay)} ÷ ${f(bx-ax)} = <b>${rs(m)}</b>.`];
+  }else{
+    const X=v.slice(0,3),Y=v.slice(3);
+    pts=X.map((x,i)=>[x,Y[i]]);x1=X[0];y1=Y[0];
+    if(X[0]===X[1]||X[1]===X[2]){draw([]);return bad('Use three different x-values.')}
+    m=rat(Y[1]-Y[0],X[1]-X[0]);const m2=rat(Y[2]-Y[1],X[2]-X[1]);nonlin=m[0]!==m2[0]||m[1]!==m2[1];
+    head=[`The table:<table class="lr"><tr><th>x</th>${X.map(x=>`<td>${f(x)}</td>`).join('')}</tr><tr><th>y</th>${Y.map(y=>`<td>${f(y)}</td>`).join('')}</tr></table>`,
+      `Rate of change between the first two points: (${f(Y[1])} − ${sgn(Y[0])}) ÷ (${f(X[1])} − ${sgn(X[0])}) = <b>${rs(m)}</b>. Between the last two: <b>${rs(m2)}</b>.`,
+      nonlin?`The rates are <b>not equal</b>, so the points do not lie on one line: this table is <b>not linear</b>.`:`The rates match, so the table is <b>linear</b> with slope <b>${rs(m)}</b>.`];
+  }
+  const R=Rof(pts.flat());
+  const lineIt=()=>vertical?[L(x1,y1,0,1,'t')]:[L(x1,y1,m[1],m[0],'t')];
+  const pI=pts.map(p=>P(p[0],p[1],'p',ptS(p[0],p[1])));
+  if(vertical){
+    const steps=[...head,`The line passes through every point with x = ${f(x1)}.`,`Equation: <b>x = ${f(x1)}</b>.`];
+    draw(st>=steps.length-1?[...lineIt(),...pI]:pI,R);
+    return out(st,'Write the equation',`x = ${f(x1)} (vertical line)`,steps);
+  }
+  if(nonlin){draw(pI,R);return out(st,'Write the equation','The points are not on one line',head)}
+  const b=wrm===0?rat(v[2]):rsub(rat(y1),rmul(m,rat(x1))),sf=stdForm(m,b);
+  const tail=wrm===0?[`Substitute into <b>y = mx + b</b>: <b>${eqY(m,b)}</b>.`]:
+    [`Use <b>point-slope form</b> y − y₁ = m(x − x₁) with ${ptS(x1,y1)}: <b>${psForm(x1,y1,m)}</b>.`,
+     `Find b: <b>b = y₁ − m·x₁</b> = ${f(y1)} − ${rsg(m)}(${f(x1)}) = <b>${rs(b)}</b>. (Or distribute and solve for y.)`,
+     `Slope-intercept form: <b>${eqY(m,b)}</b>.`];
+  const steps=[...head,...tail,`Standard form (whole numbers, A ≥ 0): multiply to clear fractions and move x: <b>${sf.s}</b>.`];
+  draw(st>=steps.length-2?[...lineIt(),...pI]:pI,Math.max(R,Rof([rv(b)])));
+  return out(st,'Write the equation',`${eqY(m,b)} &nbsp;·&nbsp; ${sf.s}`,steps);
+}
+const wrst=stepper('wr',()=>wrm===0?['wr-r','wr-n','wr-b']:wrm===1?['wr-r','wr-n','wr-x1','wr-y1']:wrm===2?['wr-x1','wr-y1','wr-x2','wr-y2']:['wr-x1','wr-x2','wr-x3','wr-y1','wr-y2','wr-y3'],wrSteps);
+[0,1,2,3].forEach(i=>$('wr-t'+i).onclick=()=>{wrm=i;tog(['wr-t0','wr-t1','wr-t2','wr-t3'],i);wrBuild()});
+wrBuild();
+
+/* ---------- 7. parallel and perpendicular ---------- */
+let pam=0;
+row('pa-in',['Given line: slope',['pa-r',2],'÷',['pa-n',1],'&nbsp; b =',['pa-b',1],'&nbsp; through point (',['pa-x',2],',',['pa-y',5],')']);
+function paSteps(st){
+  const ids=['pa-r','pa-n','pa-b','pa-x','pa-y'],v=ids.map(gv);
+  if(!v.every(isInt)||tooBig(v)||v[1]===0){if(st!==99)plane('pa-g',5,[]);return bad('Enter whole numbers between −30 and 30 (the run cannot be 0).')}
+  const [r,n,b0,x0,y0]=v,m=rat(r,n),gb=rat(b0),perp=pam===1,name=perp?'perpendicular':'parallel';
+  const g=L(0,b0,m[1],m[0],'o');
+  let steps,fin,newItems,R=Rof([b0,x0,y0,m[0],1]);
+  if(perp&&m[0]===0){
+    steps=[`The given line is <b>${eqY(m,gb)}</b>, a horizontal line (slope 0).`,
+      `A line perpendicular to a horizontal line is a <b>vertical line</b>. (The negative reciprocal of 0 does not exist.)`,
+      `A vertical line through ${ptS(x0,y0)} has the equation <b>x = ${f(x0)}</b>.`];
+    fin=`x = ${f(x0)}`;newItems=[L(x0,y0,0,1,'t')];
+  }else{
+    const m2=perp?rat(-m[1],m[0]):m,b2=rsub(rat(y0),rmul(m2,rat(x0)));
+    steps=[`The given line is <b>${eqY(m,gb)}</b>, with slope <b>${rs(m)}</b>. We want a ${name} line through <b>${ptS(x0,y0)}</b>.`,
+      perp?`Perpendicular lines have <b>negative reciprocal</b> slopes: flip ${rs(m)} and change the sign. New slope <b class="te">${rs(m2)}</b>. Check: ${rs(m)} · ${rsg(m2)} = −1.`
+          :`Parallel lines have the <b>same slope</b>. New slope <b class="te">${rs(m2)}</b>.`,
+      `Use the point: <b>b = y − m·x</b> = ${f(y0)} − ${rsg(m2)}(${f(x0)}) = <b>${rs(b2)}</b>. In point-slope form: ${psForm(x0,y0,m2)}.`,
+      `The ${name} line is <b>${eqY(m2,b2)}</b>.`];
+    fin=eqY(m2,b2);newItems=[L(x0,y0,m2[1],m2[0],'t')];R=Rof([b0,x0,y0,m[0],rv(b2),1]);
+  }
+  if(st!==99){
+    const it=[g];
+    if(st>=steps.length-1)it.push(...newItems);
+    it.push(P(x0,y0,'p',ptS(x0,y0)));
+    plane('pa-g',R,it);
+  }
+  return out(st,`${perp?'Perpendicular':'Parallel'} to ${eqY(m,gb)} through ${ptS(x0,y0)}`,`${perp?'Perpendicular':'Parallel'} line: ${fin}`,steps);
+}
+const past=stepper('pa',()=>['pa-r','pa-n','pa-b','pa-x','pa-y'],paSteps);
+$('pa-t0').onclick=()=>{pam=0;tog(['pa-t0','pa-t1'],0);past.reset()};
+$('pa-t1').onclick=()=>{pam=1;tog(['pa-t0','pa-t1'],1);past.reset()};
+past.reset();
+
+/* ---------- 8. direct variation ---------- */
+row('dv-in',['y =',['dv-y1',12],'when x =',['dv-x1',4],'&nbsp; predict y when x =',['dv-x2',7]]);
+function dvSteps(st){
+  const [y1,x1,x2]=['dv-y1','dv-x1','dv-x2'].map(gv);
+  if(![y1,x1,x2].every(isInt)||tooBig([y1,x1,x2])||x1===0){if(st!==99)plane('dv-g',5,[]);return bad('Enter whole numbers between −30 and 30 (x cannot be 0).')}
+  const k=rat(y1,x1),y2=rmul(k,rat(x2)),xs=[1,2,3,x2];
+  const tbl=`<table class="lr"><tr><th>x</th>${xs.map(x=>`<td>${f(x)}</td>`).join('')}</tr><tr><th>y = ${rs(k)}x</th>${xs.map(x=>`<td>${rs(rmul(k,rat(x)))}</td>`).join('')}</tr></table>`;
+  const steps=[
+    `<b>Direct variation</b> means y = kx: y is a constant multiple of x. The constant <b>k</b> is the constant of variation (it is also the slope).`,
+    `Find k from the known pair (${f(x1)}, ${f(y1)}): <b>k = y ÷ x</b> = ${f(y1)} ÷ ${f(x1)} = <b>${rs(k)}</b>.`,
+    `Write the equation: <b>y = ${k[0]===1&&k[1]===1?'':rs(k)}x</b>. The graph is a line through the origin (0, 0).`,
+    `Predict: when x = ${f(x2)}, y = ${rsg(k)}·${f(x2)} = <b>${rs(y2)}</b>.${tbl}Every column has the same ratio y ÷ x = ${rs(k)}.`];
+  if(st!==99){
+    const it=[];
+    if(st>=2)it.push(L(0,0,k[1],k[0],'t'));
+    it.push(P(x1,y1,'p',ptS(x1,y1)));
+    if(st>=3)it.push(P(x2,rv(y2),'o',ptS(x2,rv(y2))));
+    if(st>=2)it.push(P(0,0,'k','O'));
+    plane('dv-g',Rof([x1,y1,x2,rv(y2),1]),it);
+  }
+  return out(st,`y varies directly with x`,`y = ${k[0]===1&&k[1]===1?'':rs(k)}x, so y = ${rs(y2)} when x = ${f(x2)}`,steps);
+}
+const dvst=stepper('dv',()=>['dv-y1','dv-x1','dv-x2'],dvSteps);
+dvst.reset();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['In “a ticket costs $24 and each snack costs $4”, the quantity that can vary is:',['the ticket price','the number of snacks','the snack price'],1],
+ ['Is (2, 3) a solution of x + 2y = 8?',['Yes','No'],1],
+ ['Which move does NOT give an equivalent equation?',['Add 5 to both sides','Multiply both sides by 0','Divide both sides by 2'],1],
+ ['Solve 2x + y = 7 for y:',['y = 7 − 2x','y = 2x − 7','y = (7 − x) ÷ 2'],0],
+ ['Solve d = rt for r:',['r = dt','r = d ÷ t','r = t ÷ d'],1],
+ ['The slope and y-intercept of 3x + y = 6 are:',['m = 3, b = 6','m = −3, b = 6','m = −3, b = −6'],1],
+ ['The slope of the line through (1, 2) and (3, 8) is:',['3','1/3','6'],0],
+ ['The line through (0, 4) with slope −2 is:',['y = 4x − 2','y = −2x + 4','y = 2x + 4'],1],
+ ['A line parallel to y = 3x + 1 has slope:',['3','−3','−1/3'],0],
+ ['A line perpendicular to y = 2x − 5 has slope:',['2','−2','−1/2'],2],
+ ['The line perpendicular to y = 3 through (4, 7) is:',['y = 7','x = 4','x = 7'],1],
+ ['y varies directly with x and y = 10 when x = 5. Then k =',['2','1/2','50'],0],
+ ['A table has points (0, 1), (1, 3), (2, 5). The equation is:',['y = x + 1','y = 2x + 1','y = 3x + 1'],1],
+ ['Which equation is a direct variation?',['y = 2x + 3','y = 5x','y = x − 1'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+
+/* ---------- forms of a line on one grid ---------- */
+(()=>{
+CL.r='#e2566b';CL.b='#2f7de1';CL.g='#3d9a3d';
+const num=t=>{t=String(t).trim().replace('−','-');if(t==='')return null;let v;
+  if(/^-?\d*\.?\d+$/.test(t))v=parseFloat(t);
+  else{const m=t.match(/^(-?\d+)\s*\/\s*(\d+)$/);if(!m||+m[2]===0)return null;v=+m[1]/+m[2]}
+  return Math.abs(v)>30?null:{v,t:t.includes('/')?t:String(Math.round(v*100)/100)}};
+const sg=n=>(n.t[0]==='-'?'−'+n.t.slice(1):n.t);
+const ab=n=>n.t[0]==='-'?n.t.slice(1):n.t;
+const coef=n=>{const a=ab(n);return a==='1'?'':a.includes('/')?`(${a})`:a};
+const sx=(n,v,first)=>{if(n.v===0)return '';const c=coef(n)+v;return n.v<0?(first?'−':' − ')+c:(first?'':' + ')+c};
+const plus=(n)=>n.v===0?'':(n.v<0?' − ':' + ')+ab(n);
+const F=[
+ {n:'Slope-intercept form',c:'t',f:[['m','2'],['b','-3']],pre:['m =','b ='],
+  eq:v=>`y = ${(sx(v[0],'x',true)+plus(v[1])).replace(/^ \+ /,'')||'0'}`.replace(/^y = −?\s*$/,'y = 0'),
+  line:v=>[0,v[1].v,1,v[0].v],pts:v=>[[0,v[1].v]],
+  i:v=>`<b>y = mx + b</b>: slope m = ${sg(v[0])} and y-intercept b = ${sg(v[1])}. Start at (0, ${sg(v[1])}) and use the slope (rise ÷ run) to find the next point.`},
+ {n:'Point-slope form',c:'p',f:[['m','-1/2'],['x₁','2'],['y₁','1']],pre:['m =','point (',','],post:['','',')'],
+  eq:v=>`y ${v[2].v<0?'+':'−'} ${ab(v[2])} = ${v[0].v<0?'−':''}${coef(v[0])===''?'':ab(v[0]).includes('/')?`(${ab(v[0])})`:ab(v[0])}(x ${v[1].v<0?'+':'−'} ${ab(v[1])})`.replace('= (x','= (x'),
+  line:v=>[v[1].v,v[2].v,1,v[0].v],pts:v=>[[v[1].v,v[2].v]],
+  i:v=>`<b>y − y₁ = m(x − x₁)</b>: the line passes through (${sg(v[1])}, ${sg(v[2])}) and has slope ${sg(v[0])}.`},
+ {n:'Standard form',c:'o',f:[['A','3'],['B','2'],['C','12']],pre:['A =','B =','C ='],
+  eq:v=>{const l=sx(v[0],'x',true)+sx(v[1],'y',!v[0].v);return `${l||'0'} = ${sg(v[2])}`},
+  line:v=>{const[A,B,C]=v.map(x=>x.v);if(B!==0)return[0,C/B,B,-A];if(A!==0)return[C/A,0,0,1];return null},
+  pts:v=>{const[A,B,C]=v.map(x=>x.v),r=[];if(A!==0)r.push([C/A,0]);if(B!==0)r.push([0,C/B]);return r},
+  i:v=>`<b>Ax + By = C</b>: x-intercept (let y = 0): ${v[0].v?`(${Math.round(v[2].v/v[0].v*100)/100}, 0)`:'none'}; y-intercept (let x = 0): ${v[1].v?`(0, ${Math.round(v[2].v/v[1].v*100)/100})`:'none'}. Join the intercepts.`},
+ {n:'Horizontal line',c:'r',f:[['b','-2']],pre:['y ='],
+  eq:v=>`y = ${sg(v[0])}`,line:v=>[0,v[0].v,1,0],pts:v=>[[0,v[0].v]],
+  i:v=>`<b>y = b</b>: slope 0. Every point has y = ${sg(v[0])}, so the line is flat and passes through (0, ${sg(v[0])}).`},
+ {n:'Vertical line',c:'b',f:[['c','-6']],pre:['x ='],
+  eq:v=>`x = ${sg(v[0])}`,line:v=>[v[0].v,0,0,1],pts:v=>[[v[0].v,0]],
+  i:v=>`<b>x = c</b>: slope undefined. Every point has x = ${sg(v[0])}, so the line is straight up and down through (${sg(v[0])}, 0).`},
+ {n:'Direct variation',c:'g',f:[['k','1/2']],pre:['k ='],
+  eq:v=>v[0].v===0?'y = 0':`y = ${sx(v[0],'x',true)}`,line:v=>[0,0,1,v[0].v],pts:v=>[[0,0]],
+  i:v=>`<b>y = kx</b>: slope k = ${sg(v[0])} and b = 0, so the line always passes through the origin (0, 0).`}
+];
+const def=F.map(d=>d.f.map(x=>x[1]));
+const on=F.map(()=>true);let cur=0;
+$('fm-rows').innerHTML=F.map((d,k)=>{
+  const ins=d.f.map((x,j)=>`<span class="pg">${d.pre[j]||''}<span class="sm"><input type="text" inputmode="decimal" data-k="${k}" data-j="${j}" value="${x[1]}"></span>${(d.post&&d.post[j])||''}</span>`).join('');
+  return `<div class="fmr" data-k="${k}"><label><input type="checkbox" checked data-c="${k}"><span class="sw" style="background:${CL[d.c]}"></span>${d.n}</label><span class="ins" style="display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center">${ins}</span></div>`}).join('');
+const vals=k=>{const v=[...document.querySelectorAll(`#fm-rows input[data-k="${k}"]`)].map(i=>num(i.value));return v.every(x=>x)?v:null};
+function draw(){
+  const items=[],labs=[];let R=8;
+  const data=F.map((d,k)=>{const v=vals(k);if(!v)return{bad:true};return{v,ln:d.line(v),pts:d.pts(v)}});
+  data.forEach((q,k)=>{if(q.bad||!on[k])return;q.pts.forEach(p=>{R=Math.max(R,Rof(p))})});
+  data.forEach((q,k)=>{
+    const d=F[k];
+    document.querySelector(`.fmr[data-k="${k}"]`).classList.toggle('off',!on[k]);
+    if(q.bad||!on[k]||!q.ln)return;
+    items.push({t:'line',x:q.ln[0],y:q.ln[1],dx:q.ln[2],dy:q.ln[3],c:d.c});
+    q.pts.forEach(p=>items.push(P(p[0],p[1],d.c)));
+    const[x0,y0,dx,dy]=q.ln;let pos=null;
+    if(dx===0)pos=[x0,-R*(.55+.1*(k%3)),'start'];
+    else if(dy===0)pos=[-R*(.9-.1*(k%3)),y0,'start'];
+    else{const w=d.eq(q.v).length*6.6/176*R,h=16/176*R;
+      for(const fx of [.7,-.7,.5,-.5,.85,-.85,.3,-.3,.15,-.15,.6,-.6,.4,-.4,.95,-.95]){const x=fx*R,y=y0+(x-x0)*dy/dx;
+        const bx=fx>0?x-w:x;if(Math.abs(y)<R*.92&&Math.abs(x)+0<R*.97&&bx>-R&&bx+w<R&&!labs.some(l=>Math.abs(l.bx-bx)<Math.max(w,l.w)&&Math.abs(l.by-y)<h*1.3)){pos=[x,y,fx>0?'end':'start'];pos.bx=bx;pos.w=w;pos.by=y;break}}}
+    if(pos){if(pos.bx===undefined){const w=d.eq(q.v).length*6.6/176*R;pos.bx=pos[2]==='end'?pos[0]-w:pos[0];pos.w=w;pos.by=pos[1]}pos.push(d);labs.push(pos)}
+  });
+  plane('fm-g',R,items);
+  let t='';
+  labs.forEach(l=>{const d=l[3],k=F.indexOf(d),v=vals(k),x=200+l[0]*176/R,y=200-l[1]*176/R-9;
+    t+=`<text x="${x}" y="${y}" text-anchor="${l[2]}" style="font-size:12px;font-weight:800;fill:${CL[d.c]};paint-order:stroke;stroke:#fff;stroke-width:3px">${d.eq(v)}</text>`});
+  $('fm-g').insertAdjacentHTML('beforeend',t);
+  document.querySelectorAll('.fmr').forEach(r=>r.classList.toggle('sel',+r.dataset.k===cur));
+  const v=vals(cur);
+  $('fm-info').innerHTML=!v?`<b style="color:var(--orange)">${F[cur].n}:</b> enter whole numbers, decimals or fractions (like 1/2) between −30 and 30.`
+   :`<b style="color:${CL[F[cur].c]}">${F[cur].n}:</b> <b>${F[cur].eq(v)}</b><br>${F[cur].i(v)}${F[cur].line(v)?'':' (A and B cannot both be 0.)'}`;
+}
+$('fm-rows').addEventListener('input',e=>{if(e.target.dataset.k!==undefined){cur=+e.target.dataset.k;draw()}});
+$('fm-rows').addEventListener('change',e=>{if(e.target.dataset.c!==undefined){const k=+e.target.dataset.c;on[k]=e.target.checked;cur=k;draw()}});
+$('fm-rows').addEventListener('focusin',e=>{const r=e.target.closest('.fmr');if(r&&+r.dataset.k!==cur){cur=+r.dataset.k;draw()}});
+const setAll=b=>{on.fill(b);document.querySelectorAll('#fm-rows [data-c]').forEach(c=>c.checked=b);draw()};
+$('fm-all').onclick=()=>setAll(true);$('fm-none').onclick=()=>setAll(false);
+$('fm-reset').onclick=()=>{document.querySelectorAll('#fm-rows input[data-k]').forEach(i=>i.value=def[+i.dataset.k][+i.dataset.j]);setAll(true)};
+draw();
+})();
+</script>
+</body>
+</html>

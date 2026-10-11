@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 11 — Graphs | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    select{font:inherit;font-weight:800;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:#fff}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1rem;font-weight:600}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .bar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin-top:12px;font-weight:900;color:#fff}
+    .bar div{display:grid;place-items:center;white-space:nowrap;overflow:hidden;min-width:0}
+    .vis svg{width:100%;height:auto;display:block}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    .katex{font-size:1.05em}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}.stp{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#plot">Plot a point</a><a href="#sol">Solutions</a><a href="#pts">Plot points</a><a href="#int">Intercepts</a><a href="#slope">Slope</a><a href="#ps">Point &amp; slope</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 11</span>
+    <h1><span>Graphs</span></h1>
+    <p class="lead">Plot points on the coordinate plane, test whether a point solves an equation, graph lines by plotting points or by finding intercepts, and measure how steep a line is with slope.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Ordered pair</span><p>(x, y) gives the location of a point. The first number is the <b>x-coordinate</b> (left–right), the second is the <b>y-coordinate</b> (up–down).</p></div>
+      <div class="card"><span class="tag t">Axes · origin</span><p>The <b>x-axis</b> is horizontal, the <b>y-axis</b> is vertical. They cross at the <b>origin</b> (0, 0).</p></div>
+      <div class="card"><span class="tag o">Quadrants</span><p>The axes split the plane into four regions, numbered I–IV counter-clockwise starting at the upper right.</p></div>
+      <div class="card"><span class="tag p">Linear equation</span><p>An equation of the form Ax + By = C (A and B not both 0). Its graph is a straight line.</p></div>
+      <div class="card"><span class="tag t">Solution</span><p>An ordered pair (x, y) that makes the equation true. Every point on the line is a solution, and every solution is a point on the line.</p></div>
+      <div class="card"><span class="tag o">Intercepts</span><p>Where the line crosses the axes. <b>x-intercept</b> (a, 0): y is 0. <b>y-intercept</b> (0, b): x is 0.</p></div>
+      <div class="card"><span class="tag p">Slope</span><p>m = rise ÷ run. Rise is the vertical change, run is the horizontal change.</p></div>
+      <div class="card"><span class="tag t">Horizontal line</span><p>y = b. Passes through (0, b). Slope is 0.</p></div>
+      <div class="card"><span class="tag o">Vertical line</span><p>x = a. Passes through (a, 0). Slope is undefined.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:28px">
+      <div>
+        <h3>Sign patterns of the quadrants</h3>
+        <table>
+          <tr><th>Quadrant</th><th>(x, y)</th><th>Where</th></tr>
+          <tr><td>I</td><td><b>(+, +)</b></td><td>upper right</td></tr>
+          <tr><td>II</td><td><b>(−, +)</b></td><td>upper left</td></tr>
+          <tr><td>III</td><td><b>(−, −)</b></td><td>lower left</td></tr>
+          <tr><td>IV</td><td><b>(+, −)</b></td><td>lower right</td></tr>
+          <tr><td>On x-axis</td><td><b>(a, 0)</b></td><td>y is 0</td></tr>
+          <tr><td>On y-axis</td><td><b>(0, b)</b></td><td>x is 0</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Choose the most convenient way to graph a line</h3>
+        <table>
+          <tr><th>If the equation …</th><th>Then</th></tr>
+          <tr><td>has one variable: x = a or y = b</td><td>Vertical or horizontal line</td></tr>
+          <tr><td>has y alone: y = mx + b</td><td><b>Plot points</b> (pick x, find y)</td></tr>
+          <tr><td>looks like Ax + By = C</td><td>Find the <b>intercepts</b>, then a third point</td></tr>
+          <tr><td>gives a point and a slope</td><td>Plot the point, then count rise and run</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="plot">
+    <h2>📍 Plot a point</h2>
+    <p class="sub">Type an ordered pair, or just click on the grid. Walk from the origin: first along x, then along y.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="pl-in"></div>
+        <div id="pl-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="pl-ctl"></div><ol class="steps" id="pl-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="pl-g" viewBox="0 0 400 400" style="cursor:crosshair"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="sol">
+    <h2>✅ Is it a solution?</h2>
+    <p class="sub">Substitute the point into the equation. If the equation is true, the point lies on the line.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="sl-in"></div>
+        <div id="sl-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="sl-ctl"></div><ol class="steps" id="sl-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="sl-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="pts">
+    <h2>✏️ Graph a line by plotting points</h2>
+    <p class="sub">Choose three x-values, find each y, plot the points and draw the line. Pick x-values that give whole-number y's.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div><button id="pt-t0" class="on" type="button">y = mx + b</button><button id="pt-t1" type="button">Ax + By = C</button></div>
+        <div class="rw" id="pt-in"></div>
+        <div class="rw" id="pt-xs"></div>
+        <div id="pt-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="pt-ctl"></div><ol class="steps" id="pt-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="pt-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="int">
+    <h2>🎯 Graph with intercepts</h2>
+    <p class="sub">For Ax + By = C: let y = 0 to find the x-intercept, let x = 0 to find the y-intercept, then find a third point as a check.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div id="ic-pre"></div>
+        <div class="rw" id="ic-in"></div>
+        <div id="ic-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ic-ctl"></div><ol class="steps" id="ic-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="ic-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="slope">
+    <h2>⛰️ Slope from two points</h2>
+    <p class="sub">Slope tells how steep a line is: how far it rises for each step it runs. Move the points and watch the rise and run.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="sp-in"></div>
+        <div id="sp-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="sp-ctl"></div><ol class="steps" id="sp-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="sp-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="ps">
+    <h2>🧭 Graph from a point and a slope</h2>
+    <p class="sub">Plot the point, then count the rise and run to find a second point. A negative rise goes down; a negative run goes left.</p>
+    <div class="card"><div class="explorer">
+      <div>
+        <div class="rw" id="ps-in"></div>
+        <div id="ps-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ps-ctl"></div><ol class="steps" id="ps-steps"></ol></div>
+      </div>
+      <div class="vis"><svg id="ps-g" viewBox="0 0 400 400"></svg></div>
+    </div></div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Plot by points</span>
+        <ol class="steps"><li>Find three solutions; organize them in a table.</li><li>Plot the points; check that they line up.</li><li>Draw the line and extend it with arrows on both ends.</li></ol></div>
+      <div class="card"><span class="tag t">Intercepts</span>
+        <ol class="steps"><li>x-intercept: let y = 0 and solve for x.</li><li>y-intercept: let x = 0 and solve for y.</li><li>Find a third point, plot all three, draw the line.</li></ol></div>
+      <div class="card"><span class="tag o">Slope</span>
+        <ul><li>m = rise ÷ run = (y₂ − y₁) ÷ (x₂ − x₁)</li><li>Up to the right: positive. Down to the right: negative.</li><li>Horizontal line: slope 0. Vertical line: undefined.</li></ul></div>
+      <div class="card"><span class="tag p">Point and slope</span>
+        <ol class="steps"><li>Plot the given point.</li><li>Write the slope as rise ÷ run.</li><li>Count the rise and run to mark a second point.</li><li>Connect the points with a line.</li></ol></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+const com=s=>s.replace(/^(-?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const f=(x,k=4)=>com(trimZ((Math.abs(x)<5e-9?0:x).toFixed(k))).replace('-','−');
+const gv=id=>parseFloat(String($(id).value).replace(/,/g,'').replace('−','-'));
+const sgn=n=>n<0?`(${f(n)})`:f(n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const fracS=(n,d)=>{
+  if(!Number.isInteger(n)||!Number.isInteger(d))return f(n/d,3);
+  if(d<0){n=-n;d=-d}
+  const g=gcd(n,d)||1;n/=g;d/=g;
+  return d===1?f(n):(n<0?'−':'')+frH(Math.abs(n),d);
+};
+const ptS=(x,y)=>`(${f(x,2)}, ${f(y,2)})`;
+const lin=(A,B)=>{const t=[];[[A,'x'],[B,'y']].forEach(([c,v])=>{if(c===0)return;const a=Math.abs(c);t.push((c<0?(t.length?' − ':'−'):(t.length?' + ':''))+(a===1?'':f(a))+v)});return t.length?t.join(''):'0'};
+
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  const bind=()=>inputs().forEach(k=>{const e=$(k);if(e&&!e.dataset.b){e.dataset.b=1;e.addEventListener('input',()=>{st=0;draw()})}});
+  return{reset(){bind();st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+const row=(id,parts)=>{$(id).innerHTML=parts.map(p=>typeof p==='string'?`<span>${p}</span>`:`<span class="${p[2]||'sm'}"><input id="${p[0]}" type="text" inputmode="decimal" value="${p[1]}"></span>`).join('')};
+const allNum=a=>a.every(x=>isFinite(x));
+const tooBig=a=>a.some(x=>Math.abs(x)>30);
+const RANGES=[5,6,8,10,12,15,20,25,30,40,60,90];
+const Rof=vals=>{const m=Math.max(5,Math.ceil(Math.max(...vals.map(Math.abs)))+1);return RANGES.find(r=>r>=m)||m};
+
+/* ---------- coordinate plane ---------- */
+const CL={p:'var(--purple)',t:'var(--teal)',o:'var(--orange)',k:'var(--ink)'};
+const P=(x,y,c,l)=>({t:'pt',x,y,c,l});
+const S=(x1,y1,x2,y2,c,l)=>({t:'seg',x1,y1,x2,y2,c,l});
+const L=(x,y,dx,dy,c)=>({t:'line',x,y,dx,dy,c});
+function plane(id,R,items,quad){
+  const X=x=>200+x*176/R,Y=y=>200-y*176/R;
+  const st=R<=10?1:R<=20?2:R<=40?5:10,n=Math.floor(R/st);
+  let s='<rect x="24" y="24" width="352" height="352" style="fill:#fff;stroke:#d8d4ea"/>';
+  if(quad)[['I',1,1],['II',-1,1],['III',-1,-1],['IV',1,-1]].forEach(([q,a,b])=>s+=`<text x="${X(a*R*.55)}" y="${Y(b*R*.55)+10}" text-anchor="middle" style="font-size:30px;font-weight:800;fill:#e4e0f4">${q}</text>`);
+  for(let i=-n;i<=n;i++){
+    if(i===0)continue;
+    const k=i*st;
+    s+=`<line x1="${X(k)}" y1="24" x2="${X(k)}" y2="376" style="stroke:#ebe8f5"/><line x1="24" y1="${Y(k)}" x2="376" y2="${Y(k)}" style="stroke:#ebe8f5"/>`;
+    s+=`<text x="${X(k)}" y="${Y(0)+14}" text-anchor="middle" style="font-size:10px;fill:#777">${f(k)}</text><text x="${X(0)-5}" y="${Y(k)+3}" text-anchor="end" style="font-size:10px;fill:#777">${f(k)}</text>`;
+  }
+  s+=`<line x1="24" y1="${Y(0)}" x2="376" y2="${Y(0)}" style="stroke:var(--ink);stroke-width:2"/><line x1="${X(0)}" y1="24" x2="${X(0)}" y2="376" style="stroke:var(--ink);stroke-width:2"/>`;
+  s+=`<text x="366" y="${Y(0)-7}" style="font-size:13px;font-weight:800">x</text><text x="${X(0)+8}" y="38" style="font-size:13px;font-weight:800">y</text>`;
+  const arrow=(ex,ey,ux,uy,c)=>{const px=-uy,py=ux;return `<polygon points="${ex},${ey} ${ex-ux*11+px*5},${ey-uy*11+py*5} ${ex-ux*11-px*5},${ey-uy*11-py*5}" style="fill:${c}"/>`};
+  items.forEach(it=>{
+    const c=CL[it.c||'p'];
+    if(it.t==='line'){
+      let lo=-1e9,hi=1e9,ok=true;
+      [[it.x,it.dx],[it.y,it.dy]].forEach(([p,d])=>{
+        if(d===0){if(Math.abs(p)>R)ok=false;return}
+        const a=(-R-p)/d,b=(R-p)/d;lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));
+      });
+      if(!ok||lo>=hi)return;
+      const x1=X(it.x+it.dx*lo),y1=Y(it.y+it.dy*lo),x2=X(it.x+it.dx*hi),y2=Y(it.y+it.dy*hi);
+      const len=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/len,uy=(y2-y1)/len;
+      s+=`<line x1="${x1}" y1="${y1}" x2="${x2-ux*8}" y2="${y2-uy*8}" style="stroke:${c};stroke-width:3.5"/>`+arrow(x2,y2,ux,uy,c)+arrow(x1,y1,-ux,-uy,c);
+    }else if(it.t==='seg'){
+      s+=`<line x1="${X(it.x1)}" y1="${Y(it.y1)}" x2="${X(it.x2)}" y2="${Y(it.y2)}" style="stroke:${c};stroke-width:3.5;stroke-dasharray:7 5"/>`;
+      if(it.l)s+=`<text x="${(X(it.x1)+X(it.x2))/2+(it.x1===it.x2?10:0)}" y="${(Y(it.y1)+Y(it.y2))/2+(it.x1===it.x2?4:18)}" text-anchor="${it.x1===it.x2?'start':'middle'}" style="font-size:13px;font-weight:800;fill:${c}">${it.l}</text>`;
+    }else if(it.t==='pt'){
+      const px=X(it.x),py=Y(it.y),r=px>290;
+      s+=`<circle cx="${px}" cy="${py}" r="6.5" style="fill:${c};stroke:#fff;stroke-width:2"/>`;
+      if(it.l)s+=`<text x="${px+(r?-10:10)}" y="${py<50?py+20:py-9}" text-anchor="${r?'end':'start'}" style="font-size:12px;font-weight:800;fill:${c};paint-order:stroke;stroke:#fff;stroke-width:3px">${it.l}</text>`;
+    }
+  });
+  $(id).innerHTML=s;
+}
+
+/* ---------- 1. plot a point ---------- */
+let plR=5;
+row('pl-in',['Point (',['pl-x',3],',',['pl-y',-2],')','<small>or click the grid</small>']);
+function plSteps(st){
+  const x=gv('pl-x'),y=gv('pl-y');
+  if(!allNum([x,y])||tooBig([x,y])){if(st!==99)plane('pl-g',5,[],1);return bad('Enter x and y between −30 and 30.')}
+  const R=Rof([x,y]);plR=R;
+  const q=x>0&&y>0?'in <b>Quadrant I</b> (+, +)':x<0&&y>0?'in <b>Quadrant II</b> (−, +)':x<0&&y<0?'in <b>Quadrant III</b> (−, −)':x>0&&y<0?'in <b>Quadrant IV</b> (+, −)':x===0&&y===0?'at the <b>origin</b>':y===0?'<b>on the x-axis</b> (y = 0)':'<b>on the y-axis</b> (x = 0)';
+  const steps=[
+    `Read the ordered pair: the <b class="or">x-coordinate</b> is ${f(x)} (left–right) and the <b class="te">y-coordinate</b> is ${f(y)} (up–down).`,
+    `Start at the origin (0, 0).`,
+    x===0?`x = 0, so do not move sideways.`:`Move <b class="or">${f(Math.abs(x))} unit${Math.abs(x)===1?'':'s'} ${x>0?'right':'left'}</b> along the x-axis.`,
+    y===0?`y = 0, so do not move up or down.`:`Move <b class="te">${f(Math.abs(y))} unit${Math.abs(y)===1?'':'s'} ${y>0?'up':'down'}</b> parallel to the y-axis.`,
+    `Plot the point ${ptS(x,y)}. It is ${q}.`];
+  if(st!==99){
+    const it=[];
+    if(st>=1)it.push(P(0,0,'k','O'));
+    if(st>=2&&x!==0)it.push(S(0,0,x,0,'o'));
+    if(st>=3&&y!==0)it.push(S(x,0,x,y,'t'));
+    if(st>=4)it.push(P(x,y,'p',ptS(x,y)));
+    plane('pl-g',R,it,1);
+  }
+  return out(st,`Plot ${ptS(x,y)}`,`${ptS(x,y)} is ${q}`,steps);
+}
+const plst=stepper('pl',()=>['pl-x','pl-y'],plSteps);
+plst.reset();
+$('pl-g').addEventListener('click',e=>{
+  const r=$('pl-g').getBoundingClientRect();
+  const x=Math.round(((e.clientX-r.left)/r.width*400-200)*plR/176),y=Math.round((200-(e.clientY-r.top)/r.height*400)*plR/176);
+  if(Math.abs(x)>plR||Math.abs(y)>plR)return;
+  $('pl-x').value=x;$('pl-y').value=y;$('pl-x').dispatchEvent(new Event('input'));
+  for(let i=0;i<6&&!$('pl-next').disabled;i++)$('pl-next').click();
+});
+
+/* ---------- 2. is it a solution ---------- */
+row('sl-in',[['sl-a',2],'x +',['sl-b',3],'y =',['sl-c',6],'&nbsp;&nbsp;test (',['sl-x',3],',',['sl-y',0],')']);
+function slSteps(st){
+  const [A,B,C,x,y]=['sl-a','sl-b','sl-c','sl-x','sl-y'].map(gv);
+  if(!allNum([A,B,C,x,y])||tooBig([A,B,C,x,y])||(A===0&&B===0)){if(st!==99)plane('sl-g',5,[]);return bad('Enter numbers (A and B not both 0).')}
+  const lhs=A*x+B*y,ok=Math.abs(lhs-C)<1e-9,R=Rof([x,y]);
+  const eqS=`${lin(A,B)} = ${f(C)}`;
+  const steps=[
+    `The equation is <b>${eqS}</b>. Test the ordered pair ${ptS(x,y)}: <b class="or">x = ${f(x)}</b>, <b class="te">y = ${f(y)}</b>.`,
+    `Substitute: ${f(A)}(<b class="or">${f(x)}</b>) + ${f(B)}(<b class="te">${f(y)}</b>) <b>=?</b> ${f(C)}`,
+    `Simplify the left side: ${f(A*x)} + ${sgn(B*y)} = <b>${f(lhs)}</b>`,
+    `Compare: ${f(lhs)} ${ok?'=':'≠'} ${f(C)}, so the statement is <b>${ok?'true':'false'}</b>. ${ptS(x,y)} <b>${ok?'is':'is not'}</b> a solution — the point ${ok?'lies on':'is off'} the line.`];
+  if(st!==99){
+    const it=B!==0?[L(0,C/B,1,-A/B,'t')]:[L(C/A,0,0,1,'t')];
+    if(st>=1)it.push(P(x,y,st>=3?(ok?'t':'o'):'p',ptS(x,y)));
+    plane('sl-g',R,it);
+  }
+  return out(st,`Is ${ptS(x,y)} a solution of ${eqS}?`,`${ptS(x,y)} ${ok?'<span class="te">is</span>':'<span class="or">is not</span>'} a solution of ${eqS}`,steps);
+}
+const slst=stepper('sl',()=>['sl-a','sl-b','sl-c','sl-x','sl-y'],slSteps);
+slst.reset();
+
+/* ---------- 3. plot points ---------- */
+let ptm=0;
+function ptBuild(){
+  if(ptm===0){
+    row('pt-in',['y =',['pt-m',2],'x +',['pt-b',-1]]);
+    row('pt-xs',['x-values:',['pt-x0',-1],['pt-x1',0],['pt-x2',1]]);
+  }else{
+    row('pt-in',[['pt-a',3],'x +',['pt-bb',2],'y =',['pt-c',6]]);
+    row('pt-xs',['x-values:',['pt-x0',0],['pt-x1',2],['pt-x2',4]]);
+  }
+  ptst.reset();
+}
+function ptSteps(st){
+  const X=[0,1,2].map(i=>gv('pt-x'+i));
+  let Y,d,work,s0,eqS,ps=[];
+  if(ptm===0){
+    const m=gv('pt-m'),b=gv('pt-b');
+    if(!allNum([m,b,...X])||tooBig([m,b,...X])){if(st!==99)plane('pt-g',5,[]);return bad('Enter numbers for m, b and the x-values.')}
+    Y=X.map(x=>m*x+b);d=[1,m];
+    work=x=>`y = ${f(m)}·${sgn(x)} + ${sgn(b)}`;
+    eqS=`y = ${m===0?'':(m===1?'':m===-1?'−':f(m))+'x'}${b===0?(m===0?'0':''):(m===0?f(b):(b<0?' − ':' + ')+f(Math.abs(b)))}`;
+    s0=`<b>y</b> is already alone: y = ${f(m)}x ${b<0?'−':'+'} ${f(Math.abs(b))}. Choose three x-values (they are in the boxes above) and find each y.`;
+  }else{
+    const A=gv('pt-a'),B=gv('pt-bb'),C=gv('pt-c');
+    if(!allNum([A,B,C,...X])||tooBig([A,B,C,...X])){if(st!==99)plane('pt-g',5,[]);return bad('Enter numbers for A, B, C and the x-values.')}
+    if(B===0)return(st!==99&&plane('pt-g',5,[]),bad('B = 0 makes a vertical line — try the intercepts section below.'));
+    Y=X.map(x=>(C-A*x)/B);d=[B,-A];
+    work=x=>`y = (${f(C)} − ${f(A)}·${sgn(x)}) ÷ ${sgn(B)}`;
+    eqS=`${lin(A,B)} = ${f(C)}`;
+    s0=`Solve for y: ${eqS} → <b>y = (${f(C)} − ${f(A)}x) ÷ ${sgn(B)}</b>. Choose three x-values and find each y.`;
+  }
+  if(tooBig(Y)){if(st!==99)plane('pt-g',5,[]);return bad('These values give points that are too far away. Try other x-values.')}
+  const pts=X.map((x,i)=>[x,Y[i]]);
+  const whole=Y.every(y=>Math.abs(y-Math.round(y))<1e-9);
+  const rows=pts.map(([x,y])=>`<tr><td><b class="or">${f(x)}</b></td><td>${work(x)}</td><td><b class="te">${f(y,2)}</b></td><td>${ptS(x,y)}</td></tr>`).join('');
+  const steps=[s0,
+    `Table of solutions:<table class="lr"><tr><th>x</th><th>work</th><th>y</th><th>(x, y)</th></tr>${rows}</table>${whole?'':'<small>Tip: pick x-values that give whole-number y’s so the points are easy to plot.</small>'}`,
+    `Plot the three points: ${pts.map(p=>ptS(...p)).join(', ')}.`,
+    `Check that the points line up. If they do not, recheck your arithmetic.`,
+    `Draw the line through the points. Extend it to fill the grid and put arrows on both ends.`];
+  if(st!==99){
+    const it=[];
+    if(st>=4)it.push(L(pts[0][0],pts[0][1],d[0],d[1],'t'));
+    if(st>=2)pts.forEach(p=>it.push(P(p[0],p[1],'p',ptS(...p))));
+    plane('pt-g',Rof(pts.flat()),it);
+  }
+  return out(st,eqS,`The graph of ${eqS} is the line through ${pts.map(p=>ptS(...p)).join(', ')}`,steps);
+}
+const ptst=stepper('pt',()=>ptm===0?['pt-m','pt-b','pt-x0','pt-x1','pt-x2']:['pt-a','pt-bb','pt-c','pt-x0','pt-x1','pt-x2'],ptSteps);
+$('pt-t0').onclick=()=>{ptm=0;tog(['pt-t0','pt-t1'],0);ptBuild()};
+$('pt-t1').onclick=()=>{ptm=1;tog(['pt-t0','pt-t1'],1);ptBuild()};
+ptBuild();
+
+/* ---------- 4. intercepts ---------- */
+const icPre=[[2,3,6,'2x + 3y = 6'],[1,0,4,'x = 4 (vertical)'],[0,1,-2,'y = −2 (horizontal)'],[3,-4,0,'3x − 4y = 0 (origin)'],[4,-3,12,'4x − 3y = 12']];
+$('ic-pre').innerHTML=icPre.map((p,i)=>`<button type="button" id="ic-p${i}">${p[3]}</button>`).join('');
+row('ic-in',[['ic-a',2],'x +',['ic-b',3],'y =',['ic-c',6]]);
+function icSteps(st){
+  const A=gv('ic-a'),B=gv('ic-b'),C=gv('ic-c');
+  if(!allNum([A,B,C])||tooBig([A,B,C])||(A===0&&B===0)){if(st!==99)plane('ic-g',5,[]);return bad('Enter numbers (A and B not both 0).')}
+  const eqS=`${lin(A,B)} = ${f(C)}`;
+  let P_,steps,fin,d;
+  if(B===0){
+    const a=C/A;d=[0,1];P_=[P_pt(a,-2,'p'),P_pt(a,0,'o'),P_pt(a,2,'p')];
+    steps=[[`This equation has only one variable: ${f(A)}x = ${f(C)} → <b>x = ${fracS(C,A)}</b>.`,0,0],
+      [`Every point on the line has x = ${fracS(C,A)}, whatever y is. Choose y = −2, 0, 2 and plot them.`,3,0],
+      [`Draw the line: a <b>vertical line</b> through (${f(a,2)}, 0). ${a===0?'It is the y-axis itself.':'It has an x-intercept at ('+f(a,2)+', 0) and no y-intercept.'}`,3,1]];
+    fin=`${eqS} → x = ${f(a,2)} is a <b>vertical line</b>`;
+  }else if(A===0){
+    const b=C/B;d=[1,0];P_=[P_pt(-2,b,'p'),P_pt(0,b,'t'),P_pt(2,b,'p')];
+    steps=[[`This equation has only one variable: ${f(B)}y = ${f(C)} → <b>y = ${fracS(C,B)}</b>.`,0,0],
+      [`Every point on the line has y = ${fracS(C,B)}, whatever x is. Choose x = −2, 0, 2 and plot them.`,3,0],
+      [`Draw the line: a <b>horizontal line</b> through (0, ${f(b,2)}). ${b===0?'It is the x-axis itself.':'It has a y-intercept at (0, '+f(b,2)+') and no x-intercept.'}`,3,1]];
+    fin=`${eqS} → y = ${f(b,2)} is a <b>horizontal line</b>`;
+  }else if(C===0){
+    d=[B,-A];P_=[P_pt(0,0,'o'),P_pt(B,-A,'p'),P_pt(-B,A,'p')];
+    steps=[[`<b class="or">x-intercept</b> (let y = 0): ${f(A)}x = 0 → x = 0. <b class="te">y-intercept</b> (let x = 0): ${f(B)}y = 0 → y = 0. Both intercepts are the same point, the origin (0, 0).`,1,0],
+      [`The intercepts give only one point, so find two more. Try x = ${f(B)}: ${f(A)}(${f(B)}) + ${f(B)}y = 0 → y = ${f(-A)}. Point: ${ptS(B,-A)}.`,2,0],
+      [`Try x = ${f(-B)}: y = ${f(A)}. Point: ${ptS(-B,A)}.`,3,0],
+      [`Plot the three points and check that they line up.`,3,0],
+      [`Draw the line through the points. It passes through the origin.`,3,1]];
+    fin=`${eqS} → the line passes through the origin (0, 0)`;
+  }else{
+    const xi=C/A,yi=C/B,x3=2*xi,y3=-yi;d=[B,-A];
+    P_=[P_pt(xi,0,'o'),P_pt(0,yi,'t'),P_pt(x3,y3,'p')];
+    steps=[[`<b class="or">x-intercept</b>: let <b>y = 0</b>. ${f(A)}x + ${f(B)}(0) = ${f(C)} → x = ${fracS(C,A)}. Point: <b>(${fracS(C,A)}, 0)</b>.`,1,0],
+      [`<b class="te">y-intercept</b>: let <b>x = 0</b>. ${f(A)}(0) + ${f(B)}y = ${f(C)} → y = ${fracS(C,B)}. Point: <b>(0, ${fracS(C,B)})</b>.`,2,0],
+      [`Find a <b>third point</b> as a check. Try x = ${f(x3,2)}: ${f(A)}(${f(x3,2)}) + ${f(B)}y = ${f(C)} → y = ${f(y3,2)}. Point: ${ptS(x3,y3)}.`,3,0],
+      [`Plot the three points and check that they line up.`,3,0],
+      [`Draw the line through the points, with arrows on both ends.`,3,1]];
+    fin=`${eqS} → x-intercept (${fracS(C,A)}, 0), y-intercept (0, ${fracS(C,B)})`;
+  }
+  if(st!==99){
+    const n=steps[Math.min(st,steps.length-1)];
+    const shown=P_.slice(0,n[1]);
+    const it=[];
+    if(n[2])it.push(L(P_[0].x,P_[0].y,d[0],d[1],'t'));
+    shown.forEach(p=>it.push({...p,l:ptS(p.x,p.y)}));
+    plane('ic-g',Rof(P_.flatMap(p=>[p.x,p.y])),it);
+  }
+  return out(st,eqS,fin,steps.map(s=>s[0]));
+}
+function P_pt(x,y,c){return{t:'pt',x,y,c}}
+const icst=stepper('ic',()=>['ic-a','ic-b','ic-c'],icSteps);
+icPre.forEach((p,i)=>$('ic-p'+i).onclick=()=>{$('ic-a').value=p[0];$('ic-b').value=p[1];$('ic-c').value=p[2];$('ic-a').dispatchEvent(new Event('input'));tog(icPre.map((_,j)=>'ic-p'+j),i)});
+icst.reset();tog(icPre.map((_,j)=>'ic-p'+j),0);
+
+/* ---------- 5. slope from two points ---------- */
+row('sp-in',['P₁ (',['sp-x1',-2],',',['sp-y1',-1],')','&nbsp; P₂ (',['sp-x2',1],',',['sp-y2',3],')']);
+function spSteps(st){
+  const [x1,y1,x2,y2]=['sp-x1','sp-y1','sp-x2','sp-y2'].map(gv);
+  if(!allNum([x1,y1,x2,y2])||tooBig([x1,y1,x2,y2])){if(st!==99)plane('sp-g',5,[]);return bad('Enter four numbers between −30 and 30.')}
+  if(x1===x2&&y1===y2){if(st!==99)plane('sp-g',Rof([x1,y1]),[P(x1,y1,'p',ptS(x1,y1))]);return bad('Choose two different points.')}
+  const rise=y2-y1,run=x2-x1,m=run===0?null:rise/run;
+  const kind=run===0?'The line is <b>vertical</b>: the slope is undefined.':rise===0?'The line is <b>horizontal</b>: the slope is 0.':m>0?'The slope is <b>positive</b>: the line goes <b>up</b> as you move right.':'The slope is <b>negative</b>: the line goes <b>down</b> as you move right.';
+  const steps=[
+    `Two points on the line: P₁ = ${ptS(x1,y1)} and P₂ = ${ptS(x2,y2)}. Slope measures steepness: <b>m = rise ÷ run</b>.`,
+    `<b class="te">Rise</b> = y₂ − y₁ = ${f(y2)} − ${sgn(y1)} = <b>${f(rise)}</b> (${rise>0?'up':rise<0?'down':'no vertical change'}).<br><b class="or">Run</b> = x₂ − x₁ = ${f(x2)} − ${sgn(x1)} = <b>${f(run)}</b> (${run>0?'right':run<0?'left':'no horizontal change'}).`,
+    run===0?`The run is 0, and we cannot divide by 0, so the slope is <b>undefined</b>.`:`<b>m</b> = ${frH(f(rise),f(run))} = <b>${fracS(rise,run)}</b>`,
+    kind];
+  if(st!==99){
+    const it=[];
+    if(run===0)it.push(L(x1,y1,0,1,'t'));else it.push(L(x1,y1,run,rise,'t'));
+    if(st>=1){
+      if(run!==0)it.push(S(x1,y1,x2,y1,'o','run '+f(run)));
+      if(rise!==0)it.push(S(x2,y1,x2,y2,'t','rise '+f(rise)));
+    }
+    it.push(P(x1,y1,'p','P₁'),P(x2,y2,'p','P₂'));
+    plane('sp-g',Rof([x1,y1,x2,y2]),it);
+  }
+  return out(st,`Slope through ${ptS(x1,y1)} and ${ptS(x2,y2)}`,run===0?`m is <span class="or">undefined</span> (vertical line)`:`m = ${fracS(rise,run)}`,steps);
+}
+const spst=stepper('sp',()=>['sp-x1','sp-y1','sp-x2','sp-y2'],spSteps);
+spst.reset();
+
+/* ---------- 6. point and slope ---------- */
+row('ps-in',['Point (',['ps-x',-2],',',['ps-y',3],')','&nbsp; slope: rise',['ps-r',-2],'run',['ps-n',3]]);
+function psSteps(st){
+  const [x,y,r,n]=['ps-x','ps-y','ps-r','ps-n'].map(gv);
+  if(!allNum([x,y,r,n])||tooBig([x,y,r,n])){if(st!==99)plane('ps-g',5,[]);return bad('Enter four numbers between −30 and 30.')}
+  if(n===0){if(st!==99)plane('ps-g',Rof([x,y]),[P(x,y,'p',ptS(x,y)),L(x,y,0,1,'t')]);return bad('A run of 0 means a vertical line, and its slope is undefined. Choose a run that is not 0.')}
+  const x2=x+n,y2=y+r,x3=x+2*n,y3=y+2*r,all=[x,y,x2,y2,x3,y3];
+  const vert=r===0?'stay level':`${r>0?'up':'down'} ${f(Math.abs(r))}`,hor=`${n>0?'right':'left'} ${f(Math.abs(n))}`;
+  const steps=[
+    `Plot the given point ${ptS(x,y)}.`,
+    `Write the slope as rise ÷ run: <b>m = ${frH(f(r),f(n))}</b>. <b class="te">Rise ${f(r)}</b>: ${vert}. <b class="or">Run ${f(n)}</b>: ${hor}.`,
+    `From ${ptS(x,y)} count <b class="or">${hor}</b> and <b class="te">${vert}</b>. You reach <b>${ptS(x2,y2)}</b>. Mark it.`,
+    `Connect the points with a line and extend it with arrows. Check: counting once more gives ${ptS(x3,y3)}, also on the line.`];
+  if(st!==99){
+    const it=[];
+    if(st>=3)it.push(L(x,y,n,r,'t'));
+    if(st>=2){it.push(S(x,y,x2,y,'o','run '+f(n)));if(r!==0)it.push(S(x2,y,x2,y2,'t','rise '+f(r)));it.push(P(x2,y2,'p',ptS(x2,y2)))}
+    if(st>=3)it.push(P(x3,y3,'k',ptS(x3,y3)));
+    it.push(P(x,y,'p',ptS(x,y)));
+    plane('ps-g',Rof(all),it);
+  }
+  return out(st,`Graph the line through ${ptS(x,y)} with slope ${fracS(r,n)}`,`The line through ${ptS(x,y)} and ${ptS(x2,y2)} has slope ${fracS(r,n)}`,steps);
+}
+const psst=stepper('ps',()=>['ps-x','ps-y','ps-r','ps-n'],psSteps);
+psst.reset();
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['The point (−3, 4) is in:',['Quadrant I','Quadrant II','Quadrant III'],1],
+ ['The point (0, −5) lies on the:',['x-axis','y-axis','origin'],1],
+ ['Is (1, 4) a solution of 2x + y = 5?',['Yes','No'],1],
+ ['Is (2, 1) a solution of x + y = 3?',['Yes','No'],0],
+ ['The y-intercept of 2x + 3y = 6 is:',['(0, 2)','(3, 0)','(0, 3)'],0],
+ ['The x-intercept of 2x + 3y = 6 is:',['(0, 3)','(3, 0)','(2, 0)'],1],
+ ['The slope of the line through (1, 2) and (3, 8) is:',['3','1/3','6'],0],
+ ['The slope of the horizontal line y = 4 is:',['4','0','undefined'],1],
+ ['The slope of the vertical line x = −2 is:',['0','−2','undefined'],2],
+ ['The graph of x = 3 is:',['a horizontal line','a vertical line','a line through the origin'],1],
+ ['A line that goes down from left to right has a slope that is:',['positive','negative','zero'],1],
+ ['Best way to graph 3x + 2y = 12:',['It is a vertical line','Find the intercepts','Slope is undefined'],1]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>

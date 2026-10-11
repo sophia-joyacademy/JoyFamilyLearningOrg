@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit 9 — Solving Quadratics with Completing the Square and the Formula | Algebra 1 | Joy Family Learning Math Study Guide</title>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <script src="katex/katex.min.js"></script>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:24px;align-items:start}
+    input[type=range]{width:100%;accent-color:var(--purple)}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .rw{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-weight:600}
+    .sl{display:grid;grid-template-columns:110px 1fr 52px;gap:10px;align-items:center;margin-top:10px;font-weight:700}
+    .sl output{font-weight:850;color:var(--purple);text-align:right}
+    .katex{font-size:1.05em}
+    .calc{margin-top:10px;display:grid;gap:6px}
+    .calc div{padding:8px 12px;border-radius:12px;background:var(--purple-light);font-weight:500}
+    .calc div.ok{background:var(--teal-light)}
+    .calc div.bad{background:var(--orange-light)}
+    table.tb{border-collapse:collapse;margin-top:12px;font-weight:700;width:100%}
+    table.tb td,table.tb th{padding:6px 10px;text-align:center;border-bottom:1px solid var(--line)}
+    table.tb th{color:var(--purple)}
+    table.tb tr.hit td{background:var(--teal-light)}
+    canvas{width:100%;max-width:460px;aspect-ratio:1/1;background:#fff;border:2px solid var(--line);border-radius:16px;display:block;margin-top:12px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="algebra1.html">← Algebra 1</a><a href="unit8.html">Unit 8</a><a href="#map">Concept map</a><a href="#vocab">Key terms</a><a href="#square">Complete the square</a><a href="#formula">Formula</a><a href="#vertex">Vertex form</a><a href="#quiz">Quiz</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Algebra 1 · Unit 9</span>
+    <h1><span>Quadratic Equations, Part 2</span></h1>
+    <p class="lead">The Ensemble Theatre wants the best ticket price. Learn three powerful tools: completing the square, the quadratic formula, and vertex form, which solve any quadratic and find its maximum or minimum.</p>
+  </header>
+
+  <section id="map">
+    <h2>🗺️ Concept map</h2>
+    <p class="sub">How the big ideas of Unit 9 connect. Click any bubble to see the key idea and an example.</p>
+    <div class="card" style="padding:10px"><svg id="cmap" viewBox="0 0 1000 560" style="width:100%;height:auto;display:block"></svg></div>
+    <div class="card pill" id="lesson-info" style="background:var(--purple-light);color:var(--ink);margin-top:14px">Pick a bubble above 👆</div>
+  </section>
+
+  <section id="vocab">
+    <h2>📖 Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Perfect square</span><p><span class="m">(x+b)^2=x^2+2bx+b^2</span>. The constant is half the middle coefficient, squared.</p></div>
+      <div class="card"><span class="tag t">Completing the square</span><p>Add <span class="m">(b/2)^2</span> to <span class="m">x^2+bx</span> to make <span class="m">(x+b/2)^2</span>. Add it to <b>both</b> sides.</p></div>
+      <div class="card"><span class="tag o">Quadratic formula</span><p><span class="m">x=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}</span> solves <span class="m">ax^2+bx+c=0</span>.</p></div>
+      <div class="card"><span class="tag p">Discriminant</span><p><span class="m">b^2-4ac</span>: positive gives 2 solutions, zero gives 1, negative gives none.</p></div>
+      <div class="card"><span class="tag t">Vertex form</span><p><span class="m">a(x-h)^2+k</span> has vertex <span class="m">(h,k)</span>. Minimum if <span class="m">a>0</span>, maximum if <span class="m">a<0</span>.</p></div>
+      <div class="card"><span class="tag o">Three forms</span><p>Standard <span class="m">ax^2+bx+c</span>, factored <span class="m">a(x-r)(x-s)</span>, vertex <span class="m">a(x-h)^2+k</span>.</p></div>
+    </div>
+  </section>
+
+  <section id="square">
+    <h2>🟦 Completing the square</h2>
+    <p class="sub">Solve <span class="m">ax^2+bx+c=0</span> step by step: divide by <i>a</i>, move <i>c</i>, add <span class="m">(b/2a)^2</span> to both sides, factor, and take <span class="m">\pm\sqrt{}</span>. Try <span class="m">x^2+8x-48=0</span> (answers 4 and −12) or <span class="m">16x^2+40x-11=0</span>.</p>
+    <div class="card explorer">
+      <div>
+        <div id="cs-sl"></div>
+        <div class="rw"><button id="cp1">x²+8x−48</button><button id="cp2">x²−10x+16</button><button id="cp3">16x²+40x−11</button><button id="cp4">x²+4x+1</button></div>
+        <div class="calc" id="cs-out"></div>
+      </div>
+      <canvas id="cs-cv" width="560" height="560"></canvas>
+    </div>
+  </section>
+
+  <section id="formula">
+    <h2>🧮 The quadratic formula</h2>
+    <p class="sub">Read <i>a</i>, <i>b</i>, <i>c</i> from <span class="m">ax^2+bx+c=0</span> (watch the signs!), then substitute. The discriminant tells how many solutions to expect.</p>
+    <div class="card explorer">
+      <div>
+        <div id="qf-sl"></div>
+        <div class="rw"><button id="qp1">2x²+9x−5</button><button id="qp2">x²−8x+15</button><button id="qp3">9x²−6x+1</button><button id="qp4">2x²−6x+3</button><button id="qp5">x²+2x+5</button></div>
+        <div class="calc" id="qf-out"></div>
+      </div>
+      <canvas id="qf-cv" width="560" height="560"></canvas>
+    </div>
+  </section>
+
+  <section id="vertex">
+    <h2>🎯 Vertex form and the best price</h2>
+    <p class="sub">Complete the square on <span class="m">ax^2+bx+c</span> to get <span class="m">a(x-h)^2+k</span>. Then <span class="m">(h,k)</span> is the highest or lowest point. Try <span class="m">-x^2-14x-60</span>: a maximum of −11 at <span class="m">x=-7</span>.</p>
+    <div class="card explorer">
+      <div>
+        <div id="vt-sl"></div>
+        <div class="rw"><button id="vp1">x²+6x+13</button><button id="vp2">2x²+8x+4</button><button id="vp3">−x²−14x−60</button><button id="vp4">−2x²−4x+6</button></div>
+        <div class="calc" id="vt-out"></div>
+      </div>
+      <canvas id="vt-cv" width="560" height="560"></canvas>
+    </div>
+  </section>
+
+  <section id="strategy">
+    <h2>🧭 Which method should I use?</h2>
+    <p class="sub">Choose the quickest tool. Click one to see when it fits.</p>
+    <div class="grid3" id="steps"></div>
+    <div class="card pill" id="step-info" style="background:var(--teal-light);color:var(--ink);margin-top:14px">Pick a method above 👆</div>
+  </section>
+
+  <section id="err">
+    <h2>🚧 Common traps</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag o">Add to both sides</span><p><span class="m">x^2+14x=-24</span>: add <span class="m">49</span> (half of 14, squared) to <b>both</b> sides, not 28. Solutions −2 and −12.</p></div>
+      <div class="card"><span class="tag o">Keep both roots</span><p><span class="m">(x-3)^2=16</span> gives <span class="m">x-3=\pm4</span>, so <span class="m">x=7</span> <b>and</b> <span class="m">x=-1</span>.</p></div>
+      <div class="card"><span class="tag o">Sign of b and c</span><p>For <span class="m">x^2+3x=10</span> move first: <span class="m">c=-10</span>. For <span class="m">-b</span> with <span class="m">b=-8</span> you get <span class="m">+8</span>, and <span class="m">(-8)^2=64</span>.</p></div>
+      <div class="card"><span class="tag o">Whole numerator</span><p>In <span class="m">\dfrac{8\pm\sqrt{40}}{4}</span> divide <b>every</b> term: <span class="m">\dfrac{4\pm\sqrt{10}}{2}</span>, not <span class="m">2\pm\sqrt{10}</span>.</p></div>
+      <div class="card"><span class="tag o">a ≠ 1 in vertex form</span><p>Factor <i>a</i> out of the <i>x</i> terms first: <span class="m">2x^2+8x+4=2(x+2)^2-4</span>. Remember to multiply the added number by <i>a</i>.</p></div>
+      <div class="card"><span class="tag o">Not a perfect square</span><p><span class="m">(x-5)^2\ne x^2+25</span>. It is <span class="m">x^2-10x+25</span>.</p></div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>🧠 Quick quiz</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="algebra1.html">Algebra 1</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const km=(t,el)=>{try{katex.render(t,el,{throwOnError:false})}catch(e){el.textContent=t}};
+const ktx=t=>{try{return katex.renderToString(t,{throwOnError:false})}catch(e){return t}};
+document.querySelectorAll('.m').forEach(e=>km(e.textContent,e));
+const f2=n=>{const r=Math.round(n*100)/100;return Object.is(r,-0)?'0':String(r)};
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+
+function poly(c,v='x'){
+  const n=c.length-1;let s='';
+  c.forEach((k,i)=>{const p=n-i;if(!k)return;const a=Math.abs(k);
+    const body=p===0?f2(a):(a===1?'':f2(a))+v+(p>1?'^{'+p+'}':'');
+    s+=s===''?(k<0?'-':'')+body:(k<0?' - ':' + ')+body});
+  return s||'0'}
+const lead=a=>a===1?'':a===-1?'-':f2(a);
+const shift=(h,v='x')=>v+(h>0?' - '+f2(h):h<0?' + '+f2(-h):'');
+function lin(a,b){ // tex of ax+b
+  const x=a===1?'x':a===-1?'-x':f2(a)+'x';
+  return b===0?x:x+(b<0?' - ':' + ')+f2(Math.abs(b))}
+
+function sliders(host,defs,onchange){
+  const h=$(host);h.innerHTML='';
+  defs.forEach(([id,label,min,max,val,step])=>{
+    const d=document.createElement('div');d.className='sl';
+    d.innerHTML='<span>'+label+'</span><input type="range" id="'+id+'" min="'+min+'" max="'+max+'" step="'+(step||1)+'" value="'+val+'"><output id="'+id+'o"></output>';
+    h.appendChild(d)});
+  const run=()=>{defs.forEach(([id])=>{$(id+'o').textContent=$(id).value});onchange()};
+  h.querySelectorAll('input').forEach(i=>i.oninput=run);run();
+  return run}
+const val=id=>+$(id).value;
+function setVals(o){for(const k in o){$(k).value=o[k]};$(Object.keys(o)[0]).dispatchEvent(new Event('input'))}
+function lines(host,arr){$(host).innerHTML=arr.map(([t,c])=>'<div class="'+(c||'')+'">'+ktx(t)+'</div>').join('')}
+
+function plot(cv,box,f,pts,opt={}){
+  const g=cv.getContext('2d'),W=cv.width,H=cv.height,[x0,x1,y0,y1]=box;
+  const X=x=>(x-x0)/(x1-x0)*W,Y=y=>H-(y-y0)/(y1-y0)*H;
+  g.clearRect(0,0,W,H);
+  const step=opt.step||1,ystep=opt.ystep||step;
+  g.lineWidth=1;g.font='14px sans-serif';g.fillStyle='#637681';
+  for(let x=Math.ceil(x0/step)*step;x<=x1;x+=step){g.strokeStyle=x===0?'#172c3a':'#e4ebe6';g.lineWidth=x===0?2:1;g.beginPath();g.moveTo(X(x),0);g.lineTo(X(x),H);g.stroke();
+    if(x!==0)g.fillText(f2(x),X(x)+2,Math.min(H-4,Math.max(14,Y(0)+14)))}
+  for(let y=Math.ceil(y0/ystep)*ystep;y<=y1;y+=ystep){g.strokeStyle=y===0?'#172c3a':'#e4ebe6';g.lineWidth=y===0?2:1;g.beginPath();g.moveTo(0,Y(y));g.lineTo(W,Y(y));g.stroke();
+    if(y!==0)g.fillText(f2(y),Math.min(W-30,Math.max(2,X(0)+4)),Y(y)-3)}
+  if(opt.hline!==undefined){g.setLineDash([6,5]);g.strokeStyle='#f07846';g.lineWidth=2.5;g.beginPath();g.moveTo(0,Y(opt.hline));g.lineTo(W,Y(opt.hline));g.stroke();g.setLineDash([])}
+  g.strokeStyle='#7962cb';g.lineWidth=3.5;g.beginPath();let on=false;
+  for(let i=0;i<=W;i++){const x=x0+i/W*(x1-x0),y=f(x);if(!isFinite(y)){on=false;continue}
+    if(!on){g.moveTo(i,Y(y));on=true}else g.lineTo(i,Y(y))}
+  g.stroke();
+  (pts||[]).forEach(([x,y,c])=>{g.fillStyle=c;g.beginPath();g.arc(X(x),Y(y),7,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=2;g.stroke()})}
+
+
+/* ---------- lessons ---------- */
+const L=[
+['9.1','What are perfect squares?','(a+b)²=a²+2ab+b². Solve (x−6)²=25 by taking square roots: x−6=±5, so x=11 or 1. Square root property: x²=k gives x=±√k.'],
+['9.2','Completing the square, part 1','Add (b/2)² to x²+bx to get (x+b/2)². x²+8x=48 → x²+8x+16=64 → (x+4)²=64 → x=4 or −12.'],
+['9.3','Completing the square, part 2','Works with fractions and decimals. x²+½x=3/16: add 1/16, (x+¼)²=1/4, x=¼ or −¾. Always take both ± roots and add to both sides.'],
+['9.4','Completing the square, part 3 (a≠1)','(kx+m)²=k²x²+2kmx+m². 16x²+40x=11: add 25 to both sides, (4x+5)²=36, so 4x+5=±6 and x=¼ or −11/4.'],
+['9.5','Irrational solutions','Not every answer is a whole number. (x+4)²=11 gives x=−4±√11 ≈ −0.68 or −7.32. x²+6x+7=0 gives x=−3±√2. Check on a graph.'],
+['9.6','The quadratic formula','x=(−b±√(b²−4ac))/(2a). For 2x²+9x−5=0: a=2, b=9, c=−5, so x=(−9±√121)/4 = ½ or −5. 2x²−6x+3=0 gives (6±√12)/4 = (3±√3)/2.'],
+['9.7','Applying the quadratic formula','Write the equation as =0 first and watch signs. Pumpkin h(t)=2+30t−5t² reaches 47 m at t=3 s. Tennis ball 0=4+12t−16t²: t=1 s (reject −¼). Revenue r(p)=80p−p² is about $1000 at p=15.5 or 74.5.'],
+['9.8','Deriving the quadratic formula','Complete the square on ax²+bx+c=0 in general: multiply by 4a, 4a²x²+4abx=−4ac, add b², (2ax+b)²=b²−4ac, so 2ax=−b±√(b²−4ac) and x=(−b±√(b²−4ac))/(2a).'],
+['9.9','Writing quadratics in different forms','Standard, factored, vertex. x²+6x+13=(x+3)²+4, vertex (−3,4). (x−2)(x+8)=x²+6x−16=(x+3)²−25. Vertex (5,8) through (−3,6): a=−1/32.'],
+['9.10','Rewriting in vertex form','Complete the square: x²+14x−3=(x+7)²−52. With a≠1: 3x²+12x+9=3(x+2)²−3, vertex (−2,−3). −2x²−4x+6=−2(x+1)²+8.'],
+['9.11','Vertex form to solve problems','(x−8)²≥0, so (x−8)²+1 has minimum 1. a<0 gives a maximum. A(p)=p(600−75p) peaks at p=4 with 1200. Newspaper R=p(−2500p+159000) peaks at $31.80 with $2,528,100.'],
+['Project','Modeling a dive','h(t)=−5t²+10t+7.5: board height 7.5 m, maximum 12.5 m at t=1 s, hits the water at t=1+√2.5≈2.58 s. A line and parabola (x−4)²−5=x−7 meet at x=3 and 6. River cruise profit −d²+100d−900 peaks at d=$50 with $1600.']
+];
+(function(){
+const NS='http://www.w3.org/2000/svg',svg=$('cmap');
+const col={c:['#7962cb','#f0edff'],t:['#087f79','#e3f5f0'],o:['#f07846','#fff0e6']};
+const N=[
+['fn','SOLVING QUADRATICS\nax² + bx + c = 0',500,280,'c',[]],
+['ps','Perfect squares\n(x+b)² = x²+2bx+b²',200,60,'t',[0]],
+['cs','Completing the square\nadd (b/2)² to both sides',500,60,'o',[1,2,3]],
+['irr','Irrational solutions\nx = −4 ± √11',800,60,'t',[4]],
+['qf','Quadratic formula\nx = (−b ± √(b²−4ac)) / 2a',200,280,'o',[5,6]],
+['der','Deriving the formula\ncomplete the square on ax²+bx+c',810,280,'o',[7]],
+['forms','Three forms\nstandard, factored, vertex',200,490,'t',[8]],
+['vx','Vertex form\na(x−h)² + k, max or min',500,490,'o',[9,10]],
+['pr','Project\ndive, profit, line and parabola',810,490,'t',[11]]
+];
+const E=N.filter(n=>n[0]!=='fn').map(n=>['fn',n[0]]);
+const P={};N.forEach(n=>P[n[0]]=n);
+const mk=(p,t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+E.forEach(([a,b])=>{const p=P[a],q=P[b];mk(svg,'line',{x1:p[2],y1:p[3],x2:q[2],y2:q[3],stroke:'#b9c6c0','stroke-width':2.5})});
+const nodes={};
+N.forEach(n=>{const [id,txt,x,y,c,ls]=n,big=id==='fn',w=big?260:230,h=big?90:74;
+  const g=mk(svg,'g',{style:'cursor:pointer',tabindex:0});
+  const r=mk(g,'rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:big?28:20,fill:big?col[c][0]:col[c][1],stroke:col[c][0],'stroke-width':big?0:2.5});
+  const lines=txt.split('\n'),y0=y-(lines.length-1)*8;
+  lines.forEach((l,i)=>{const t=mk(g,'text',{x,y:y0+i*16+4,'text-anchor':'middle','font-size':i===0?(big?15:14):11,'font-weight':i===0?800:600,fill:big?'#fff':(i===0?'#172c3a':'#637681')});t.textContent=l});
+  g.onclick=()=>{Object.values(nodes).forEach(q=>q.setAttribute('stroke-width',2.5));r.setAttribute('stroke-width',5);
+    $('lesson-info').innerHTML=(id==='fn'?'<b>Every quadratic can be solved by completing the square, and the quadratic formula is that method done once and for all. The same idea rewrites a quadratic in vertex form to find its maximum or minimum.</b><br><br>':'')+ls.map(k=>'<b>'+L[k][0]+' '+L[k][1]+'</b><br>'+L[k][2]).join('<br><br>')};
+  nodes[id]=r});
+})();
+
+const box10=[-10,10,-10,10];
+const fr=(n)=>{ // decimal to simple fraction text when denominator <= 64
+  for(let d=1;d<=64;d++){const m=Math.round(n*d);if(Math.abs(n*d-m)<1e-9){const g=gcd(m,d);const p=m/g,q=d/g;return q===1?String(p):'\\tfrac{'+p+'}{'+q+'}'}}
+  return f2(n)};
+const rad=(D,den,pre)=>{ // (pre ± sqrt(D))/den, simplified radical
+  let k=1,r=D;for(let i=Math.floor(Math.sqrt(D));i>1;i--){if(D%(i*i)===0){k=i;r=D/(i*i);break}}return{k,r}};
+
+/* ---------- completing the square ---------- */
+sliders('cs-sl',[['sa','a',1,16,1,1],['sb','b',-40,40,8,1],['sc','c',-60,60,-48,1]],()=>{
+  const a=val('sa'),b=val('sb'),c=val('sc'),h=b/(2*a),rhs=-c/a+h*h,F=x=>a*x*x+b*x+c;
+  const out=[['\\text{Solve }'+poly([a,b,c])+'=0','ok']];
+  if(a!==1)out.push(['\\text{Divide by }'+a+':\\ x^2+'+fr(b/a)+'x='+fr(-c/a)]);
+  else out.push(['\\text{Move }c:\\ x^2+'+fr(b)+'x='+fr(-c)]);
+  out.push(['\\text{Add }\\left(\\tfrac{b}{2a}\\right)^2='+fr(h*h)+'\\text{ to both sides}']);
+  out.push(['('+shift(-h)+')^2='+fr(rhs)]);
+  let pts=[];
+  if(rhs<-1e-9)out.push(['\\text{A square cannot be negative: no real solution}','bad']);
+  else if(Math.abs(rhs)<1e-9){out.push(['x='+fr(-h)+'\\ \\text{(one solution)}','ok']);pts=[[-h,0,'#087f79']]}
+  else{const s=Math.sqrt(rhs);out.push(['x='+fr(-h)+'\\pm'+f2(s)+'\\ \\Rightarrow\\ x='+f2(-h-s)+'\\ \\text{or}\\ x='+f2(-h+s),'ok']);pts=[[-h-s,0,'#087f79'],[-h+s,0,'#087f79']]}
+  lines('cs-out',out);
+  plot($('cs-cv'),box10,F,pts,{})});
+const cpre={cp1:{sa:1,sb:8,sc:-48},cp2:{sa:1,sb:-10,sc:16},cp3:{sa:16,sb:40,sc:-11},cp4:{sa:1,sb:4,sc:1}};
+for(const id in cpre)$(id).onclick=()=>setVals(cpre[id]);
+
+/* ---------- quadratic formula ---------- */
+sliders('qf-sl',[['qa','a',-6,6,2,1],['qb','b',-20,20,9,1],['qc','c',-30,30,-5,1]],()=>{
+  const a=val('qa'),b=val('qb'),c=val('qc');
+  if(a===0){lines('qf-out',[['\\text{Pick } a\\ne0','bad']]);plot($('qf-cv'),box10,x=>NaN,[],{});return}
+  const D=b*b-4*a*c,F=x=>a*x*x+b*x+c;
+  const out=[['a='+a+',\\ b='+b+',\\ c='+c,'ok'],
+    ['x=\\dfrac{-('+b+')\\pm\\sqrt{('+b+')^2-4('+a+')('+c+')}}{2('+a+')}'],
+    ['x=\\dfrac{'+(-b)+'\\pm\\sqrt{'+D+'}}{'+(2*a)+'}\\quad(b^2-4ac='+D+')']];
+  let pts=[];
+  if(D<0)out.push(['\\text{Discriminant}<0:\\ \\text{no real solutions}','bad']);
+  else{const s=Math.sqrt(D),r1=(-b-s)/(2*a),r2=(-b+s)/(2*a);
+    const exact=Number.isInteger(s);
+    if(!exact){const q=rad(D);if(q.k>1)out.push(['\\sqrt{'+D+'}='+q.k+'\\sqrt{'+q.r+'}'])}
+    out.push([D===0?'x='+f2(r1)+'\\ \\text{(one solution)}':'x='+f2(Math.min(r1,r2))+'\\ \\text{or}\\ x='+f2(Math.max(r1,r2))+(exact?'':'\\ \\text{(approx.)}'),'ok']);
+    pts=D===0?[[r1,0,'#087f79']]:[[r1,0,'#087f79'],[r2,0,'#087f79']]}
+  lines('qf-out',out);
+  plot($('qf-cv'),box10,F,pts,{})});
+const qpre={qp1:{qa:2,qb:9,qc:-5},qp2:{qa:1,qb:-8,qc:15},qp3:{qa:9,qb:-6,qc:1},qp4:{qa:2,qb:-6,qc:3},qp5:{qa:1,qb:2,qc:5}};
+for(const id in qpre)$(id).onclick=()=>setVals(qpre[id]);
+
+/* ---------- vertex form ---------- */
+sliders('vt-sl',[['va','a',-6,6,1,1],['vb','b',-20,20,6,1],['vc','c',-30,30,13,1]],()=>{
+  const a=val('va'),b=val('vb'),c=val('vc');
+  if(a===0){lines('vt-out',[['\\text{Pick } a\\ne0','bad']]);plot($('vt-cv'),box10,x=>NaN,[],{});return}
+  const h=-b/(2*a),k=c-b*b/(4*a),F=x=>a*x*x+b*x+c;
+  const out=[['\\text{Standard: }'+poly([a,b,c]),'ok'],
+    ['\\text{Factor }a\\text{ from the }x\\text{ terms: }'+(a===1?'':lead(a))+'(x^2+'+fr(b/a)+'x)+'+c],
+    ['\\text{Add and subtract }'+fr(a)+'\\cdot'+fr(h*h)+'='+fr(a*h*h)],
+    ['\\text{Vertex form: }'+lead(a)+'('+shift(h)+')^2'+(k<0?' - ':' + ')+fr(Math.abs(k)),'ok'],
+    ['\\text{Vertex }('+fr(h)+','+fr(k)+')\\text{: a '+(a>0?'minimum':'maximum')+' value of }'+fr(k)+'\\text{ at }x='+fr(h)]];
+  lines('vt-out',out);
+  plot($('vt-cv'),box10,F,[[h,k,'#f07846']],{})});
+const vpre={vp1:{va:1,vb:6,vc:13},vp2:{va:2,vb:8,vc:4},vp3:{va:-1,vb:-14,vc:-60},vp4:{va:-2,vb:-4,vc:6}};
+for(const id in vpre)$(id).onclick=()=>setVals(vpre[id]);
+
+/* ---------- strategy ---------- */
+const S=[
+['Square root property','Use when the equation is already (x−h)²=k: (x+5)²=81 → x+5=±9 → x=4 or −14.'],
+['Factoring','Use when numbers pair up neatly: x²−8x+15=0 → (x−3)(x−5)=0 → x=3 or 5.'],
+['Completing the square','Use when a=1 and b is even: x²+8x=48 → (x+4)²=64 → x=4 or −12. Also needed for vertex form.'],
+['Quadratic formula','Use for any quadratic, especially ugly ones: 2x²−6x+3=0 → x=(6±√12)/4 = (3±√3)/2.'],
+['Vertex form','Use for max/min questions: −x²−14x−60=−(x+7)²−11, maximum −11 at x=−7.'],
+['Graph with technology','Use to check solutions or when only approximate answers are needed.']
+];
+(function(){const c=$('steps');S.forEach(l=>{const b=document.createElement('button');b.style.cssText='text-align:left;margin:0;padding:16px';b.innerHTML='<b>'+l[0]+'</b>';
+  b.onclick=()=>{c.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('step-info').innerHTML='<b>'+l[0]+'</b><br>'+l[1]};c.appendChild(b)})})();
+
+/* ---------- quiz ---------- */
+const Q=[
+['Solve (x−6)² = 25.',['x = 11 or 1','x = 11','x = 31 or −19'],0],
+['What number completes x² + 12x + ___ as a perfect square?',['36','12','144'],0],
+['Solve x² + 8x = 48.',['x = 4 or −12','x = −4 or 12','x = 4 or 12'],0],
+['x² + 4x = 5 gives',['x = 1 or −5','x = −1 or 5','x = 1 or 5'],0],
+['To complete the square on 4x² + 12x, add',['9','36','3'],0],
+['Solve (x+4)² = 11.',['x = −4 ± √11','x = 4 ± √11','x = −4 ± 11'],0],
+['In the quadratic formula, for 2x² + 9x − 5 = 0 the value of c is',['−5','5','9'],0],
+['Solve x² − 8x + 15 = 0 with the formula.',['x = 3 or 5','x = −3 or −5','x = 3 or −5'],0],
+['The discriminant of x² + 2x + 5 is',['−16 (no real solutions)','24','16'],0],
+['9x² − 6x + 1 = 0 has',['one solution, x = 1/3','two solutions','no solutions'],0],
+['x² + 6x + 13 in vertex form is',['(x+3)² + 4','(x−3)² + 4','(x+3)² + 13'],0],
+['The vertex of −x² − 14x − 60 is',['(−7, −11)','(7, −11)','(−7, 11)'],0],
+['f(x) = −3(x−2)² + 5 has',['a maximum of 5','a minimum of 5','a maximum of 2'],0],
+['Vertex (4, −2) through (6, 5): a =',['7/4','7','−7/4'],0],
+['A(p) = p(600−75p) is largest at p =',['4','8','300'],0],
+['In the derivation, after (2ax+b)² = b² − 4ac, the next step is to',['take ± square roots','multiply by 4a','divide by a'],0]
+];
+Q.forEach((q,i)=>{const order=q[1].map((_,j)=>j).sort(()=>Math.random()-.5);const c=document.createElement('div');c.className='card';c.innerHTML='<h3>'+(i+1)+'. '+q[0]+'</h3>';
+  const fb=document.createElement('div');fb.className='fb';const bs=[];
+  order.forEach(j=>{const b=document.createElement('button');b.textContent=q[1][j];bs.push([b,j]);b.onclick=()=>{bs.forEach(([x,k])=>{x.disabled=true;if(k===q[2])x.classList.add('right')});
+    if(j!==q[2])b.classList.add('wrong');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c)});
+</script>
+</body>
+</html>

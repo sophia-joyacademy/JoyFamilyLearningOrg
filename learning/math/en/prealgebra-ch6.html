@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 6 — Percents | Pre-Algebra | Joy Family Learning Math Study Guide</title>
+  <style>
+    :root {
+      --ink:#172c3a; --muted:#637681; --paper:#f7f8f2; --line:#e4ebe6;
+      --teal:#087f79; --teal-light:#e3f5f0; --orange:#f07846; --orange-light:#fff0e6;
+      --purple:#7962cb; --purple-light:#f0edff; --shadow:0 18px 55px rgba(34,62,62,.08);
+      font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:22px 0}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
+    .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--ink);color:#fff;font-size:1.2rem;transform:rotate(-5deg)}
+    nav a{color:var(--teal);font-weight:800;text-decoration:none;margin-left:16px;font-size:.9rem}
+    nav a:hover{text-decoration:underline}
+    .eyebrow{color:var(--purple);font-size:.78rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:10px 0 14px;font-size:clamp(1.8rem,4vw,2.2rem);line-height:1.1;letter-spacing:-.04em}
+    h1 span{color:var(--purple)}
+    h2{margin:0 0 8px;font-size:1.3rem;letter-spacing:-.03em}
+    h3{margin:0 0 6px;font-size:1rem}
+    .lead{max-width:660px;color:var(--muted);font-size:.95rem;margin:0}
+    section{margin:50px 0}
+    .sub{color:var(--muted);margin:0 0 18px;max-width:720px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tag{display:inline-block;padding:3px 11px;border-radius:99px;font-size:.75rem;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+    .t{background:var(--teal-light);color:var(--teal)} .o{background:var(--orange-light);color:var(--orange)} .p{background:var(--purple-light);color:var(--purple)}
+    .card ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+    .card p{margin:6px 0;color:var(--muted)}
+    .explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px;align-items:start}
+    label{display:block;font-weight:800;margin-top:12px}
+    input[type=text]{font:inherit;font-weight:800;padding:8px 12px;border:2px solid var(--line);border-radius:12px;width:100%}
+    input:disabled{background:var(--orange-light);color:var(--orange);border-color:var(--orange)}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:.93rem}
+    th{background:var(--ink);color:#fff;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    td b{color:var(--purple)}
+    .steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0}
+    .steps li{counter-increment:s;position:relative;padding-left:36px;margin:8px 0;color:var(--muted)}
+    .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:850;display:grid;place-items:center;font-size:.85rem}
+    button{font:inherit;font-weight:800;border:2px solid var(--line);background:#fff;border-radius:14px;padding:9px 14px;margin:6px 6px 0 0;cursor:pointer}
+    button:hover,button.on{border-color:var(--purple)}
+    button.on{background:var(--purple-light)}
+    button.right{background:var(--teal-light);border-color:var(--teal)}
+    button.wrong{background:var(--orange-light);border-color:var(--orange)}
+    button:disabled{opacity:.45;cursor:default}
+    .fb{min-height:1.5em;font-weight:800;margin-top:8px}
+    .pill{padding:10px 14px;border-radius:14px;margin-top:10px;font-weight:500}
+    .big{font-size:1.3rem;font-weight:900}
+    .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.2;font-weight:900}
+    .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 5px}
+    .fr>span:last-child{padding:0 5px}
+    .pu{color:var(--purple)} .te{color:var(--teal)} .or{color:var(--orange)}
+    .ov{text-decoration:overline;text-decoration-thickness:2px}
+    .rw{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:1.3rem;font-weight:900}
+    .rw .di{width:130px} .rw .di input{text-align:center;padding:6px 8px}
+    .rw .sm{width:92px} .rw .sm input{text-align:center;padding:6px 4px}
+    .rw small{font-size:.8rem;color:var(--muted);font-weight:800}
+    .stp{display:flex;gap:18px;align-items:flex-start;margin-top:10px}
+    .stp .bt{display:flex;flex-direction:column;align-items:stretch;flex:none}
+    .stp .steps{flex:1;min-width:0}
+    .stp .steps li{color:var(--ink)}
+    .pg{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:300px;margin:8px auto}
+    .pg i{aspect-ratio:1;border-radius:4px;background:#e9edf0}
+    .pg i.on{background:var(--purple)}
+    .bar{height:32px;border-radius:10px;background:#e9edf0;overflow:hidden;margin:6px 0 12px}
+    .bf{height:100%;background:var(--purple);color:#fff;font-weight:800;padding:4px 10px;white-space:nowrap;overflow:hidden;min-width:2px}
+    .bf.te{background:var(--teal)} .bf.or{background:var(--orange)}
+    .lr td,.lr th{font-size:.85rem;padding:7px 10px}
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}footer a{color:var(--teal);text-decoration:none}footer a:hover{text-decoration:underline}
+    [hidden]{display:none!important}
+    @media(max-width:860px){.grid3,.grid2,.explorer{grid-template-columns:1fr}table{font-size:.85rem}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
+  <nav><a href="prealgebra.html">← Pre-Algebra</a><a href="#vocab">Key terms</a><a href="#convert">Convert</a><a href="#pe">Percent equations</a><a href="#chg">Increase/decrease</a><a href="#shop">Tax &amp; discounts</a><a href="#si">Interest</a><a href="#pp">Proportions</a></nav>
+</div></header>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Pre-Algebra · Chapter 6</span>
+    <h1><span>Percents</span></h1>
+    <p class="lead">A percent is a ratio out of 100. Convert between percents, fractions and decimals; solve percent problems; find percent increase and decrease; work out sales tax, discounts, commission, mark-up and simple interest; and solve proportions.</p>
+  </header>
+
+  <section id="vocab">
+    <h2>Key terms</h2>
+    <div class="grid3">
+      <div class="card"><span class="tag p">Percent</span>
+        <p>A ratio whose denominator is 100. 35% means 35 out of 100.</p></div>
+      <div class="card"><span class="tag t">Percent increase</span>
+        <p>The percent the amount of increase is of the <b>original</b> amount.</p></div>
+      <div class="card"><span class="tag o">Percent decrease</span>
+        <p>The percent the amount of decrease is of the <b>original</b> amount.</p></div>
+      <div class="card"><span class="tag p">Sales tax</span>
+        <p>A percent of the purchase price.</p></div>
+      <div class="card"><span class="tag t">Commission</span>
+        <p>A percentage of total sales, determined by the rate of commission.</p></div>
+      <div class="card"><span class="tag o">Discount</span>
+        <p>A percent off the original price, determined by the discount rate.</p></div>
+      <div class="card"><span class="tag p">Mark-up</span>
+        <p>The amount added to the wholesale price, determined by the mark-up rate.</p></div>
+      <div class="card"><span class="tag t">Simple interest</span>
+        <p>Interest earned on a principal P at annual rate r for t years: I = Prt.</p></div>
+      <div class="card"><span class="tag o">Proportion</span>
+        <p>An equation saying two ratios or rates are equal: a/b = c/d. Read “a is to b as c is to d”.</p></div>
+    </div>
+    <h3 style="margin-top:28px">Notation table</h3>
+    <table>
+      <tr><th>Idea</th><th>Rule</th></tr>
+      <tr><td>Percent</td><td>p% = p/100 = p ÷ 100</td></tr>
+      <tr><td>Percent equation</td><td>amount = percent · base (“of” means multiply, “is” means =)</td></tr>
+      <tr><td>Percent proportion</td><td>amount/base = percent/100</td></tr>
+      <tr><td>Percent change</td><td>change ÷ <b>original</b> amount, then × 100</td></tr>
+      <tr><td>Sales tax, total cost</td><td>tax = rate · price; total = price + tax</td></tr>
+      <tr><td>Discount, sale price</td><td>discount = rate · original; sale = original − discount</td></tr>
+      <tr><td>Mark-up, list price</td><td>mark-up = rate · wholesale; list = wholesale + mark-up</td></tr>
+      <tr><td>Simple interest</td><td>I = P · r · t</td></tr>
+      <tr><td>Cross products</td><td>if a/b = c/d then a·d = b·c</td></tr>
+    </table>
+  </section>
+
+  <section id="convert">
+    <h2>🔁 Percents, fractions and decimals</h2>
+    <p class="sub">Pick a direction, type a number, and walk through the conversion. The 10 × 10 grid shows what the percent looks like out of 100.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="cv-t0" class="on" type="button">Percent → fraction &amp; decimal</button><button id="cv-t1" type="button">Decimal → percent</button><button id="cv-t2" type="button">Fraction → percent</button></div>
+        <div class="rw"><span class="di"><input id="cv-a" type="text" inputmode="decimal" value="35"></span><span id="cv-suf">%</span><span id="cv-bw" hidden><span>/</span> <span class="sm"><input id="cv-b" type="text" inputmode="decimal" value="8"></span></span></div>
+        <div id="cv-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="cv-ctl"></div><ol class="steps" id="cv-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">100 squares</span>
+        <div class="pg" id="cv-grid"></div>
+        <div class="pill" style="background:var(--purple-light)" id="cv-cap"></div>
+        <p style="margin-top:12px"><b>Memory aids:</b> 50% = 1/2 · 25% = 1/4 · 10% = 1/10 · 100% = 1 whole</p></div>
+    </div>
+    <h3 style="margin-top:28px">Common conversions</h3>
+    <table class="lr">
+      <tr><th>Fraction</th><th>1/2</th><th>1/4</th><th>3/4</th><th>1/5</th><th>1/10</th><th>1/3</th><th>2/3</th><th>1/8</th></tr>
+      <tr><td>Decimal</td><td>0.5</td><td>0.25</td><td>0.75</td><td>0.2</td><td>0.1</td><td>0.<span class="ov">3</span></td><td>0.<span class="ov">6</span></td><td>0.125</td></tr>
+      <tr><td>Percent</td><td>50%</td><td>25%</td><td>75%</td><td>20%</td><td>10%</td><td>33.<span class="ov">3</span>%</td><td>66.<span class="ov">6</span>%</td><td>12.5%</td></tr>
+    </table>
+  </section>
+
+  <section id="pe">
+    <h2>🧮 Percent equations</h2>
+    <p class="sub">Every percent problem has three parts: the <b>amount</b>, the <b>percent</b> and the <b>base</b>. Know two, find the third. The key words: “of” means multiply, “is” means equals.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="pe-t0" class="on" type="button">What is p% of b?</button><button id="pe-t1" type="button">a is what % of b?</button><button id="pe-t2" type="button">a is p% of what?</button></div>
+        <div class="rw"><small id="pe-lx"></small><span class="sm"><input id="pe-x" type="text" inputmode="decimal" value="35"></span><small id="pe-ly"></small><span class="sm"><input id="pe-y" type="text" inputmode="decimal" value="80"></span></div>
+        <div id="pe-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="pe-ctl"></div><ol class="steps" id="pe-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag t">The percent proportion</span>
+        <div id="pe-viz" style="margin-top:10px"></div>
+        <p>The amount is to the base as the percent is to 100.</p></div>
+    </div>
+  </section>
+
+  <section id="chg">
+    <h2>📈 Percent increase and decrease</h2>
+    <p class="sub">Find the amount of change, then divide by the <b>original</b> amount. Always the original, never the new one.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><small>Original</small><span class="sm"><input id="ch-o" type="text" inputmode="decimal" value="40"></span><small>New</small><span class="sm"><input id="ch-n" type="text" inputmode="decimal" value="50"></span></div>
+        <div id="ch-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="ch-ctl"></div><ol class="steps" id="ch-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag o">Original vs new</span>
+        <div id="ch-viz" style="margin-top:10px"></div></div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <h2>🛍️ Sales tax, discount, commission and mark-up</h2>
+    <p class="sub">All four use the same move: rate × amount. Then add or subtract to finish the story.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="sh-t0" class="on" type="button">Sales tax</button><button id="sh-t1" type="button">Discount</button><button id="sh-t2" type="button">Commission</button><button id="sh-t3" type="button">Mark-up</button></div>
+        <div class="rw"><small id="sh-lp"></small><span class="sm"><input id="sh-p" type="text" inputmode="decimal" value="80"></span><small id="sh-lr"></small><span class="sm"><input id="sh-r" type="text" inputmode="decimal" value="7.5"></span><span>%</span></div>
+        <div id="sh-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="sh-ctl"></div><ol class="steps" id="sh-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag p">Formulas</span>
+        <ul><li>sales tax = tax rate · purchase price<br>total cost = price + sales tax</li>
+        <li>discount = discount rate · original price<br>sale price = original − discount</li>
+        <li>commission = rate of commission · total sales</li>
+        <li>mark-up = mark-up rate · wholesale price<br>list price = wholesale + mark-up</li></ul>
+        <p>Money answers are rounded to the nearest cent.</p></div>
+    </div>
+  </section>
+
+  <section id="si">
+    <h2>🏦 Simple interest</h2>
+    <p class="sub">Money earns the same interest every year: I = P · r · t. The principal P is what you start with, r is the yearly rate as a decimal, t is the time in years.</p>
+    <div class="explorer">
+      <div class="card">
+        <div class="rw"><small>P = $</small><span class="sm"><input id="si-p" type="text" inputmode="decimal" value="2500"></span><small>r =</small><span class="sm"><input id="si-r" type="text" inputmode="decimal" value="4"></span><span>%</span><small>t =</small><span class="sm"><input id="si-t" type="text" inputmode="decimal" value="3"></span><small>years</small></div>
+        <div id="si-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="si-ctl"></div><ol class="steps" id="si-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag t">Year by year</span>
+        <div id="si-tbl" style="margin-top:10px"></div></div>
+    </div>
+  </section>
+
+  <section id="pp">
+    <h2>⚖️ Proportions</h2>
+    <p class="sub">A proportion says two ratios are equal. Pick the missing number, and use cross products: the diagonal products are equal.</p>
+    <div class="explorer">
+      <div class="card">
+        <div><button id="pp-t0" type="button">Find a</button><button id="pp-t1" type="button">Find b</button><button id="pp-t2" class="on" type="button">Find c</button><button id="pp-t3" type="button">Find d</button></div>
+        <div class="rw"><span class="fr"><span class="sm"><input id="pp-a" type="text" inputmode="decimal" value="3"></span><span class="sm"><input id="pp-b" type="text" inputmode="decimal" value="4"></span></span><span>=</span><span class="fr"><span class="sm"><input id="pp-c" type="text" inputmode="decimal" value="9"></span><span class="sm"><input id="pp-d" type="text" inputmode="decimal" value="12"></span></span></div>
+        <div id="pp-eq" class="big" style="margin-top:12px"></div>
+        <div class="stp"><div class="bt" id="pp-ctl"></div><ol class="steps" id="pp-steps"></ol></div>
+      </div>
+      <div class="card"><span class="tag o">Try a real problem</span>
+        <div><button id="pp-e0" type="button">🍪 Recipe</button><button id="pp-e1" type="button">🚗 Speed</button><button id="pp-e2" type="button">🗺️ Map</button></div>
+        <div class="pill" style="background:var(--orange-light)" id="pp-story">Pick a problem to load it into the proportion.</div>
+        <p style="margin-top:12px">Keep like with like: units on top must match units on top, and units on the bottom must match units on the bottom.</p></div>
+    </div>
+  </section>
+
+  <section id="strategies">
+    <h2>Strategies cheat sheet</h2>
+    <div class="grid2">
+      <div class="card"><span class="tag p">Percent → fraction / decimal</span>
+        <ol class="steps"><li>Write the percent over 100.</li><li>Simplify the fraction.</li><li>Or divide by 100 (move the point 2 places left) for the decimal.</li></ol></div>
+      <div class="card"><span class="tag t">Decimal / fraction → percent</span>
+        <ol class="steps"><li>Fraction: divide the top by the bottom first.</li><li>Move the decimal point 2 places right.</li><li>Add the % sign.</li></ol></div>
+      <div class="card"><span class="tag o">Percent equation</span>
+        <ol class="steps"><li>Name what you are looking for.</li><li>Translate: “of” → ·, “is” → =, “what” → n.</li><li>Change the percent to a decimal.</li><li>Solve, then answer in a sentence and check.</li></ol></div>
+      <div class="card"><span class="tag p">Percent change</span>
+        <ol class="steps"><li>Amount of change = bigger − smaller.</li><li>Divide the change by the <b>original</b> amount.</li><li>Move the point 2 places right.</li></ol></div>
+      <div class="card"><span class="tag t">Tax, discount, commission, mark-up</span>
+        <ol class="steps"><li>Amount = rate · base.</li><li>Tax and mark-up: add to the base.</li><li>Discount: subtract from the base.</li></ol></div>
+      <div class="card"><span class="tag o">Proportions</span>
+        <ol class="steps"><li>Write the proportion with x for the unknown.</li><li>Cross multiply: a·d = b·c.</li><li>Divide both sides by the number next to x.</li><li>Check that the cross products match.</li></ol></div>
+    </div>
+    <h3 style="margin-top:28px">Translating words</h3>
+    <table>
+      <tr><th>Words</th><th>Algebra</th></tr>
+      <tr><td>35% of 80</td><td>0.35 · 80</td></tr>
+      <tr><td>28 is 35% of what number?</td><td>28 = 0.35 · n</td></tr>
+      <tr><td>what percent of 80 is 28?</td><td>n · 80 = 28</td></tr>
+      <tr><td>20% off a $50 shirt</td><td>sale = 50 − 0.20 · 50 = 0.80 · 50</td></tr>
+      <tr><td>5% interest on $1,000 for 3 years</td><td>I = 1,000 · 0.05 · 3</td></tr>
+    </table>
+  </section>
+
+  <section id="quiz">
+    <h2>✅ Check yourself</h2>
+    <div class="grid2" id="quizzes"></div>
+  </section>
+</div>
+<footer><a href="index.html">Joy Family Learning Math Study Guide</a> · <a href="prealgebra.html">Pre-Algebra</a> · Contributed by Sophia</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const frH=(top,bot)=>`<span class="fr"><span>${top}</span><span>${bot}</span></span>`;
+
+/* ---------- exact rational helpers (BigInt) ---------- */
+const gcdB=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b]}return a};
+const R=(n,d=1n)=>{if(d<0n){n=-n;d=-d}const g=gcdB(n,d)||1n;return{n:n/g,d:d/g}};
+const rAdd=(x,y)=>R(x.n*y.d+y.n*x.d,x.d*y.d), rSub=(x,y)=>R(x.n*y.d-y.n*x.d,x.d*y.d);
+const rMul=(x,y)=>R(x.n*y.n,x.d*y.d), rDiv=(x,y)=>R(x.n*y.d,x.d*y.n);
+const rCmp=(x,y)=>{const t=x.n*y.d-y.n*x.d;return t<0n?-1:t>0n?1:0};
+const H=R(100n), Z=R(0n);
+const toNum=r=>Number(r.n)/Number(r.d);
+const pd=(s,def='0')=>{
+  s=String(s).trim().replace('−','-').replace(/,/g,'').replace(/%/g,'');
+  const m=s.match(/^(-?)(\d*)\.?(\d*)$/);
+  if(!m||(m[2]===''&&m[3]==='')){return def===null?null:pd(def)}
+  const i=(m[2].replace(/^0+(?=\d)/,'')||'0').slice(0,9),f=m[3].slice(0,6);
+  return{neg:m[1]==='-'&&!/^0*$/.test(m[2]+m[3]),i,f};
+};
+const toR=p=>R(BigInt((p.neg?'-':'')+p.i+p.f),10n**BigInt(p.f.length));
+const num=id=>toR(pd($(id).value,'0'));
+const trimZ=s=>s.includes('.')?s.replace(/0+$/,'').replace(/\.$/,''):s;
+const com=s=>s.replace(/^(−?)(\d+)/,(m,g,d)=>g+d.replace(/\B(?=(\d{3})+(?!\d))/g,','));
+function dec(r){
+  const neg=r.n<0n,n=neg?-r.n:r.n,d=r.d,ip=(n/d).toString();
+  let rem=n%d,rs=-1;const seen=new Map(),dig=[];
+  while(rem!==0n&&dig.length<40){const k=rem.toString();if(seen.has(k)){rs=seen.get(k);break}seen.set(k,dig.length);rem*=10n;dig.push((rem/d).toString());rem%=d}
+  const nr=rs<0?dig.join(''):dig.slice(0,rs).join(''),rp=rs<0?'':dig.slice(rs).join('');
+  const sg=neg&&n!==0n?'−':'',more=rs<0&&rem!==0n;
+  return{ip,nr,rp,sg,term:rs<0&&rem===0n,html:`${sg}${com(ip)}${nr||rp||more?'.':''}${nr}${rp?`<span class="ov">${rp}</span>`:''}${more?'…':''}`};
+}
+const D=r=>dec(r).html;
+const RF=r=>r.d===1n?D(r):frH(r.n<0n?'−'+com((-r.n).toString()):com(r.n.toString()),com(r.d.toString()));
+/* round to k decimal places, as text */
+function rs(r,k){
+  const neg=r.n<0n,n=neg?-r.n:r.n,sc=10n**BigInt(k),q=(n*sc*2n+r.d)/(r.d*2n);
+  const s=q.toString().padStart(k+1,'0'),ip=s.slice(0,s.length-k),fp=s.slice(s.length-k);
+  return(neg&&q!==0n?'−':'')+ip+(k?'.'+fp:'');
+}
+const nice=(r,k=2)=>{const t=dec(r);if(t.term&&t.nr.length<=k)return com(t.sg+t.ip+(t.nr?'.'+t.nr:''));return'≈ '+com(trimZ(rs(r,k)))};
+const E=r=>nice(r,6), N=r=>nice(r,2);
+const rC=r=>{const neg=r.n<0n,n=neg?-r.n:r.n,q=(n*200n+r.d)/(2n*r.d);return R(neg?-q:q,100n)};
+const money=r=>{const s=rs(rC(r),2);return s.startsWith('−')?'−$'+com(s.slice(1)):'$'+com(s)};
+const exactC=r=>rCmp(rC(r),r)===0;
+
+/* stepper: Reset / Step / Back on the left, steps on the right */
+function stepper(pre,inputs,getSteps){
+  $(pre+'-ctl').innerHTML=`<button id="${pre}-reset" type="button">↺ Reset</button><button id="${pre}-next" type="button"></button><button id="${pre}-back" type="button">◀ Back</button>`;
+  let st=0;
+  const draw=()=>{
+    const last=getSteps(99).steps.length-1;
+    st=Math.min(st,last);
+    const o=getSteps(st);
+    $(pre+'-eq').innerHTML=o.eq;
+    $(pre+'-steps').innerHTML=o.steps.slice(0,st+1).map(x=>`<li>${x}</li>`).join('');
+    $(pre+'-back').disabled=st===0;$(pre+'-next').disabled=st===last;
+    $(pre+'-next').textContent=st===last?'Done':`Step ${st+1} ▶`;
+  };
+  $(pre+'-next').onclick=()=>{st++;draw()};$(pre+'-back').onclick=()=>{st--;draw()};$(pre+'-reset').onclick=()=>{st=0;draw()};
+  inputs.forEach(k=>$(k).addEventListener('input',()=>{st=0;draw()}));
+  return{reset(){st=0;draw()}};
+}
+const tog=(ids,cur)=>ids.forEach((k,i)=>$(k).className=i===cur?'on':'');
+const out=(st,pre,fin,steps)=>({eq:st>=steps.length-1?fin:pre,steps});
+const bad=msg=>({eq:'?',steps:[msg]});
+
+/* ---------- 1. convert ---------- */
+let cvm=0;
+const cvDef=[['35','8'],['0.375','8'],['3','8']];
+function cvPct(){
+  if(cvm===0)return num('cv-a');
+  if(cvm===1)return rMul(num('cv-a'),H);
+  const b=num('cv-b');return b.n===0n?Z:rMul(rDiv(num('cv-a'),b),H);
+}
+function cvGrid(){
+  const p=toNum(cvPct()),k=Math.max(0,Math.min(100,Math.round(p)));
+  $('cv-grid').innerHTML=Array.from({length:100},(_,i)=>`<i class="${i<k?'on':''}"></i>`).join('');
+  $('cv-cap').innerHTML=p>100?`${N(cvPct())}% is more than the whole grid (100%).`:p<0?'A negative percent has no squares.':`${N(cvPct())}% = ${k} of 100 squares shaded.`;
+}
+function cvSteps(st){
+  if(cvm===0){
+    const p=num('cv-a'),P=E(p),fr=R(p.n,p.d*100n);
+    return out(st,`${P}% = ?`,`${P}% = ${RF(fr)} = ${D(fr)}`,[
+      `Percent means “per 100”. Write ${P}% as a ratio with denominator 100: ${frH(P,100)}`,
+      `${p.d===1n?'Simplify':'Clear the decimal and simplify'}: ${frH(P,100)} = <b>${RF(fr)}</b>`,
+      `Divide by 100 (move the point 2 places left): ${P} ÷ 100 = <b>${D(fr)}</b>`]);
+  }
+  if(cvm===1){
+    const d=num('cv-a'),p=rMul(d,H);
+    return out(st,`${E(d)} = ?%`,`${E(d)} = ${D(p)}%`,[
+      `Write the decimal as a fraction: ${E(d)} = ${RF(d)}`,
+      `Rewrite it with denominator 100: ${RF(d)} = ${frH(E(p),100)}`,
+      `Write the ratio as a percent: ${frH(E(p),100)} = <b>${D(p)}%</b> (shortcut: move the point 2 places right)`]);
+  }
+  const a=num('cv-a'),b=num('cv-b');
+  if(b.n===0n)return bad('The denominator cannot be 0.');
+  const r=rDiv(a,b),p=rMul(r,H);
+  return out(st,`${frH(E(a),E(b))} = ?%`,`${frH(E(a),E(b))} = ${D(p)}%`,[
+    `Convert the fraction to a decimal: ${frH(E(a),E(b))} = ${E(a)} ÷ ${E(b)} = <b>${D(r)}</b>`,
+    `Convert the decimal to a percent (move the point 2 places right): ${D(r)} = <b>${D(p)}%</b>${dec(p).term?'':` ≈ ${rs(p,2)}%`}`]);
+}
+const cvst=stepper('cv',['cv-a','cv-b'],cvSteps);
+function cvSet(m){
+  cvm=m;tog(['cv-t0','cv-t1','cv-t2'],m);
+  $('cv-a').value=cvDef[m][0];$('cv-b').value=cvDef[m][1];
+  $('cv-bw').hidden=m!==2;$('cv-suf').textContent=m===0?'%':'';
+  cvst.reset();cvGrid();
+}
+[0,1,2].forEach(i=>$('cv-t'+i).onclick=()=>cvSet(i));
+['cv-a','cv-b'].forEach(k=>$(k).addEventListener('input',cvGrid));
+cvSet(0);
+
+/* ---------- 2. percent equations ---------- */
+let pet=0;
+const peLab=[['Percent','Base'],['Amount','Base'],['Amount','Percent']];
+const peDef=[['35','80'],['28','80'],['28','35']];
+function peCalc(){
+  const x=num('pe-x'),y=num('pe-y');
+  if(pet===0)return{p:x,b:y,a:rDiv(rMul(x,y),H)};
+  if(pet===1){if(y.n===0n)return null;return{a:x,b:y,p:rMul(rDiv(x,y),H)}}
+  if(y.n===0n)return null;return{a:x,p:y,b:rDiv(rMul(x,H),y)};
+}
+function peSteps(st){
+  const c=peCalc();
+  if(!c)return bad(pet===1?'The base cannot be 0.':'The percent cannot be 0.');
+  const {a,b,p}=c;
+  if(pet===0){
+    const d=rDiv(p,H),P=E(p),B=E(b);
+    return out(st,`${P}% of ${B} = ?`,`${P}% of ${B} = ${N(a)}`,[
+      `Translate. “of” means multiply, “is” means equals: <b>What is ${P}% of ${B}?</b> → <span class="pu">n</span> = ${P}% · ${B}`,
+      `Change the percent to a decimal: ${P}% = ${frH(P,100)} = <b>${D(d)}</b>`,
+      `Multiply: n = ${D(d)} × ${B} = <b>${N(a)}</b>`,
+      `${P}% of ${B} is <b>${N(a)}</b>.`]);
+  }
+  if(pet===1){
+    const A=E(a),B=E(b),r=rDiv(a,b);
+    return out(st,`${A} is ?% of ${B}`,`${A} is ${N(p)}% of ${B}`,[
+      `Translate: <b>${A} is what percent of ${B}?</b> → ${A} = <span class="pu">n</span> · ${B}`,
+      `Divide both sides by ${B}: n = ${frH(A,B)} = <b>${D(r)}</b>`,
+      `Change the decimal to a percent (move the point 2 places right): <b>${D(rMul(r,H))}%</b>`,
+      `${A} is <b>${N(p)}%</b> of ${B}.`]);
+  }
+  const A=E(a),P=E(p),d=rDiv(p,H);
+  return out(st,`${A} is ${P}% of ?`,`${A} is ${P}% of ${N(b)}`,[
+    `Translate: <b>${A} is ${P}% of what number?</b> → ${A} = ${P}% · <span class="pu">n</span>`,
+    `Change the percent to a decimal: ${P}% = <b>${D(d)}</b>`,
+    `Divide both sides by ${D(d)}: n = ${frH(A,D(d))} = <b>${N(b)}</b>`,
+    `${A} is ${P}% of <b>${N(b)}</b>.`]);
+}
+function peViz(){
+  const c=peCalc();
+  if(!c){$('pe-viz').innerHTML='';return}
+  const pc=Math.max(0,Math.min(100,toNum(c.p)));
+  $('pe-viz').innerHTML=`<div><small><b>Base</b> (100%) = ${N(c.b)}</small></div><div class="bar"><div class="bf te" style="width:100%">100%</div></div>
+    <div><small><b>Amount</b> = ${N(c.a)}</small></div><div class="bar"><div class="bf" style="width:${pc}%">${N(c.p)}%</div></div>
+    <div class="big" style="text-align:center">${frH(N(c.a),N(c.b))} = ${frH(N(c.p),100)}</div>`;
+}
+const pest=stepper('pe',['pe-x','pe-y'],peSteps);
+function peSet(m){
+  pet=m;tog(['pe-t0','pe-t1','pe-t2'],m);
+  $('pe-lx').textContent=peLab[m][0]+(m===0?' (%)':'');$('pe-ly').textContent=peLab[m][1]+(m===2?' (%)':'');
+  $('pe-x').value=peDef[m][0];$('pe-y').value=peDef[m][1];pest.reset();peViz();
+}
+[0,1,2].forEach(i=>$('pe-t'+i).onclick=()=>peSet(i));
+['pe-x','pe-y'].forEach(k=>$(k).addEventListener('input',peViz));
+peSet(0);
+
+/* ---------- 3. percent increase / decrease ---------- */
+function chSteps(st){
+  const o=num('ch-o'),n=num('ch-n');
+  if(o.n<=0n)return bad('Use a positive original amount.');
+  const diff=rSub(n,o),inc=diff.n>=0n,ad=inc?diff:R(-diff.n,diff.d),O=E(o),Nw=E(n),word=inc?'increase':'decrease';
+  if(diff.n===0n)return out(st,`${O} → ${Nw}: ?`,`${O} → ${Nw}: 0% change`,['The new amount equals the original, so the change is <b>0%</b>.']);
+  const r=rDiv(ad,o),pc=rMul(r,H),steps=[
+    `Find the amount of ${word}: ${inc?`${Nw} − ${O}`:`${O} − ${Nw}`} = <b>${E(ad)}</b>`,
+    `Divide the change by the <b>original</b> amount: ${frH(E(ad),O)} = <b>${D(r)}</b>`,
+    `Move the point 2 places right: <b>${N(pc)}%</b> ${word}`];
+  if(n.n>0n){const back=rMul(rDiv(ad,n),H);steps.push(`<span class="or">Watch out:</span> going back from ${Nw} to ${O} is a ${N(back)}% ${inc?'decrease':'increase'}, because now ${Nw} is the original.`)}
+  return out(st,`${O} → ${Nw}: ?% change`,`${O} → ${Nw}: ${N(pc)}% ${word}`,steps);
+}
+function chViz(){
+  const o=num('ch-o'),n=num('ch-n'),mx=Math.max(toNum(o),toNum(n));
+  if(!(mx>0)||o.n<0n||n.n<0n){$('ch-viz').innerHTML='';return}
+  const wo=toNum(o)/mx*100,wn=toNum(n)/mx*100,inc=n.n>=o.n;
+  $('ch-viz').innerHTML=`<div><small><b>Original</b> ${N(o)}</small></div><div class="bar"><div class="bf te" style="width:${wo}%"></div></div>
+    <div><small><b>New</b> ${N(n)}</small></div><div class="bar"><div class="bf ${inc?'':'or'}" style="width:${wn}%"></div></div>`;
+}
+stepper('ch',['ch-o','ch-n'],chSteps);
+['ch-o','ch-n'].forEach(k=>$(k).addEventListener('input',chViz));chViz();
+$('ch-n').dispatchEvent(new Event('input'));
+
+/* ---------- 4. tax, discount, commission, mark-up ---------- */
+let sht=0;
+const shLab=[['Purchase price $','Tax rate'],['Original price $','Discount rate'],['Total sales $','Commission rate'],['Wholesale price $','Mark-up rate']];
+const shDef=[['80','7.5'],['120','25'],['5000','6'],['40','60']];
+function shSteps(st){
+  const price=num('sh-p'),rate=num('sh-r'),d=rDiv(rate,H),P=E(price),Rt=E(rate),dd=D(d);
+  const amt=rC(rMul(d,price)),note=exactC(rMul(d,price))?'':' (rounded to the nearest cent)';
+  const s2=`Change the rate to a decimal: ${Rt}% = ${frH(Rt,100)} = <b>${dd}</b>`;
+  if(sht===0){
+    const tot=rAdd(price,amt);
+    return out(st,'Total cost = ?',`Total cost = ${money(tot)}`,[
+      'Sales tax = <span class="pu">tax rate</span> · <span class="te">purchase price</span>',s2,
+      `Sales tax = ${dd} × ${money(price)} = <b>${money(amt)}</b>${note}`,
+      `Total cost = purchase price + sales tax = ${money(price)} + ${money(amt)} = <b>${money(tot)}</b>`]);
+  }
+  if(sht===1){
+    const sale=rSub(price,amt),keep=rSub(H,rate),steps=[
+      'Amount of discount = <span class="pu">discount rate</span> · <span class="te">original price</span>',s2,
+      `Discount = ${dd} × ${money(price)} = <b>${money(amt)}</b>${note}`,
+      `Sale price = original − discount = ${money(price)} − ${money(amt)} = <b>${money(sale)}</b>`];
+    if(rate.n>=0n&&rCmp(rate,H)<=0)steps.push(`<span class="or">Shortcut:</span> you pay (100 − ${Rt})% = ${E(keep)}% of the original: ${D(rDiv(keep,H))} × ${money(price)} = ${money(rMul(rDiv(keep,H),price))}`);
+    return out(st,'Sale price = ?',`Sale price = ${money(sale)}`,steps);
+  }
+  if(sht===2)return out(st,'Commission = ?',`Commission = ${money(amt)}`,[
+    'Commission = <span class="pu">rate of commission</span> · <span class="te">total sales</span>',s2,
+    `Commission = ${dd} × ${money(price)} = <b>${money(amt)}</b>${note}`]);
+  const list=rAdd(price,amt);
+  return out(st,'List price = ?',`List price = ${money(list)}`,[
+    'Amount of mark-up = <span class="pu">mark-up rate</span> · <span class="te">wholesale price</span>',s2,
+    `Mark-up = ${dd} × ${money(price)} = <b>${money(amt)}</b>${note}`,
+    `List price = wholesale price + mark-up = ${money(price)} + ${money(amt)} = <b>${money(list)}</b>`]);
+}
+const shst=stepper('sh',['sh-p','sh-r'],shSteps);
+function shSet(m){
+  sht=m;tog(['sh-t0','sh-t1','sh-t2','sh-t3'],m);
+  $('sh-lp').textContent=shLab[m][0];$('sh-lr').textContent=shLab[m][1];
+  $('sh-p').value=shDef[m][0];$('sh-r').value=shDef[m][1];shst.reset();
+}
+[0,1,2,3].forEach(i=>$('sh-t'+i).onclick=()=>shSet(i));
+shSet(0);
+
+/* ---------- 5. simple interest ---------- */
+function siSteps(st){
+  const P=num('si-p'),r=num('si-r'),t=num('si-t'),d=rDiv(r,H),I=rC(rMul(rMul(P,d),t)),A=rAdd(P,I);
+  return out(st,'I = P · r · t = ?',`I = ${money(I)}, total = ${money(A)}`,[
+    'Simple interest: <b>I = <span class="pu">P</span> · <span class="te">r</span> · <span class="or">t</span></b> (principal · rate as a decimal · years)',
+    `Change the rate to a decimal: ${E(r)}% = <b>${D(d)}</b>`,
+    `I = ${money(P)} × ${D(d)} × ${E(t)} = <b>${money(I)}</b>${exactC(rMul(rMul(P,d),t))?'':' (rounded to the nearest cent)'}`,
+    `Total amount = principal + interest = ${money(P)} + ${money(I)} = <b>${money(A)}</b>`]);
+}
+function siTbl(){
+  const P=num('si-p'),d=rDiv(num('si-r'),H),t=num('si-t');
+  if(t.n<=0n){$('si-tbl').innerHTML='';return}
+  const ys=[];for(let k=1;rCmp(R(BigInt(k)),t)<0&&ys.length<14;k++)ys.push(R(BigInt(k)));ys.push(t);
+  $('si-tbl').innerHTML=`<table class="lr"><tr><th>Year</th><th>Interest so far</th><th>Balance</th></tr>${ys.map(y=>{const I=rC(rMul(rMul(P,d),y));return`<tr><td>${E(y)}</td><td>${money(I)}</td><td>${money(rAdd(P,I))}</td></tr>`}).join('')}</table>
+    <p>Every year adds the same ${money(rMul(P,d))}. The balance grows in a straight line.</p>`;
+}
+stepper('si',['si-p','si-r','si-t'],siSteps);
+['si-p','si-r','si-t'].forEach(k=>$(k).addEventListener('input',siTbl));siTbl();
+$('si-p').dispatchEvent(new Event('input'));
+
+/* ---------- 6. proportions ---------- */
+const L=['a','b','c','d'];let ppu=-1;
+function ppSteps(st){
+  const v=L.map((k,i)=>i===ppu?null:num('pp-'+k)),u=ppu;
+  const [a,b,c,d]=v;
+  if((u!==1&&b.n===0n)||(u!==3&&d.n===0n))return bad('A denominator cannot be 0.');
+  let K,C,x;
+  if(u===0){K=rMul(b,c);C=d;x=C.n===0n?null:rDiv(K,C)}
+  else if(u===1){K=rMul(a,d);C=c;x=C.n===0n?null:rDiv(K,C)}
+  else if(u===2){K=rMul(a,d);C=b;x=rDiv(K,C)}
+  else{K=rMul(b,c);C=a;x=C.n===0n?null:rDiv(K,C)}
+  if(!x)return bad('Dividing by 0: the number next to x cannot be 0.');
+  const show=(i,fin)=>i===u?(fin?`<b class="pu">${E(x)}</b>`:'<b class="pu">x</b>'):E(v[i]);
+  const fr=fin=>`${frH(show(0,fin),show(1,fin))} = ${frH(show(2,fin),show(3,fin))}`;
+  const [A,B,Cc,Dd]=[0,1,2,3].map(i=>show(i,true));
+  const lhs=rMul(i2(v,x,u,0),i2(v,x,u,3));
+  return out(st,fr(false),fr(true),[
+    `Write the proportion with the unknown as <b class="pu">x</b>: ${fr(false)}`,
+    `Cross products are equal: ${show(0)}·${show(3)} = ${show(1)}·${show(2)}`,
+    `Multiply the known numbers: <b>${E(K)} = ${E(C)}·x</b>`,
+    `Divide both sides by ${E(C)}: x = ${frH(E(K),E(C))} = <b>${D(x)}</b>`,
+    `Check the cross products: ${A}·${Dd} = ${D(lhs)} and ${B}·${Cc} = ${D(lhs)} ✓`]);
+}
+const i2=(v,x,u,i)=>i===u?x:v[i];
+const ppst=stepper('pp',['pp-a','pp-b','pp-c','pp-d'],ppSteps);
+L.forEach(k=>{const e=$('pp-'+k);e.dataset.v=e.value;e.addEventListener('input',()=>{if(!e.disabled)e.dataset.v=e.value})});
+function ppSet(i){
+  if(ppu>=0){const o=$('pp-'+L[ppu]);o.disabled=false;o.value=o.dataset.v}
+  const e=$('pp-'+L[i]);e.dataset.v=e.dataset.v||e.value;e.disabled=true;e.value='?';ppu=i;
+  tog(['pp-t0','pp-t1','pp-t2','pp-t3'],i);ppst.reset();
+}
+function ppLoad(vals,u,story){
+  L.forEach((k,j)=>{const e=$('pp-'+k);e.disabled=false;e.dataset.v=vals[j];e.value=vals[j]});
+  ppu=-1;ppSet(u);$('pp-story').textContent=story;
+}
+[0,1,2,3].forEach(i=>$('pp-t'+i).onclick=()=>{ppSet(i);$('pp-story').textContent='Pick a problem to load it into the proportion.'});
+$('pp-e0').onclick=()=>ppLoad(['3','24','5','40'],3,'3 cups of flour make 24 cookies. How many cookies can 5 cups make? (cups / cookies = cups / cookies)');
+$('pp-e1').onclick=()=>ppLoad(['150','3','250','5'],2,'A car goes 150 miles in 3 hours. How far in 5 hours? (miles / hours = miles / hours)');
+$('pp-e2').onclick=()=>ppLoad(['2','30','7','105'],3,'On a map, 2 inches stand for 30 miles. How many miles do 7 inches stand for? (inches / miles = inches / miles)');
+ppSet(2);
+
+/* ---------- quizzes ---------- */
+const qs=[
+ ['35% as a decimal:',['3.5','0.35','0.035'],1],
+ ['40% as a simplified fraction:',['2/5','4/10','1/4'],0],
+ ['0.08 as a percent:',['0.8%','8%','80%'],1],
+ ['3/4 as a percent:',['34%','75%','7.5%'],1],
+ ['What is 20% of 60?',['12','30','3'],0],
+ ['15 is what percent of 60?',['25%','40%','9%'],0],
+ ['18 is 30% of what number?',['5.4','54','60'],2],
+ ['A $50 shirt is 20% off. The sale price is:',['$10','$40','$45'],1],
+ ['A price rises from 40 to 50. The percent increase is:',['10%','20%','25%'],2],
+ ['Simple interest on $1,000 at 5% for 3 years:',['$50','$150','$1,150'],1],
+ ['Solve 3/5 = x/20.',['x = 12','x = 15','x = 33'],0],
+ ['Sales tax of 6% on $50 is:',['$3','$30','$0.30'],0]
+];
+qs.forEach(([q,opts,ans])=>{
+  const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${q}</h3>`;
+  const fb=document.createElement('div');fb.className='fb';
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.textContent=o;
+    b.onclick=()=>{b.className=i===ans?'right':'wrong';fb.textContent=i===ans?'🎉 Correct!':'Try again.'};c.appendChild(b)});
+  c.appendChild(fb);$('quizzes').appendChild(c);
+});
+</script>
+</body>
+</html>
