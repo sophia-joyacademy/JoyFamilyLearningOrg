@@ -1,0 +1,15 @@
+# Publish website assets, not repository history or local tooling.
+.git/
+.github/
+.venv/
+.wrangler/
+node_modules/
+_to_delete/
+**/.DS_Store
+.gitattributes
+.gitignore
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
