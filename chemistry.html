@@ -139,6 +139,11 @@
       <h3>④ 水合物的化学式</h3>
       <p>像 CuSO₄·5H₂O 这样「带着水」的晶体，里面到底藏了几个水分子？</p>
     </a>
+    <a class="chem-card live" href="#part5">
+      <span class="chem-badge live">可以学了</span>
+      <h3>⑤ 化学计量（Stoichiometry）</h3>
+      <p>看懂配平方程式背后的「摩尔比」，学会反应物与生成物之间的换算、找出限量反应物、算出产率。</p>
+    </a>
   </div>
 
   <section class="chem-section" id="part1">
@@ -336,9 +341,123 @@ O:53.3</textarea>
     </div>
   </section>
 
+  <section class="chem-section" id="part5">
+    <h2>⑤ 化学计量（Stoichiometry）：用方程式做计算</h2>
+    <p class="chem-sub">
+      一个<b>配平好的化学方程式</b>，不仅告诉我们哪些物质参与反应，它前面的<b>系数</b>还藏着一个秘密——
+      <b>摩尔比</b>。比如 <span class="eq">2H₂ + O₂ → 2H₂O</span> 就是在说：
+      「每 2 摩尔 H₂ 和 1 摩尔 O₂ 反应，会生成 2 摩尔 H₂O」。
+      <b>化学计量（stoichiometry）</b>就是利用这个摩尔比，在反应物和生成物之间互相换算摩尔数或质量的学问——
+      而「摩尔」依然是换算路上的中间枢纽：<span class="eq">已知物质的质量 → 摩尔 → （乘以摩尔比）→ 未知物质的摩尔 → 质量</span>。
+    </p>
+
+    <div class="sim-card">
+      <h3>🧮 模拟器 7：化学计量转换器（摩尔比计算）</h3>
+      <p class="chem-sub">
+        输入一个配平好的化学方程式（用 <code>-&gt;</code> 或 <code>=</code> 分隔反应物和生成物，<code>+</code> 分隔不同物质），
+        点击「解析方程式」后，选择你已知的物质和想求出的物质，输入已知量，就能看到完整的换算步骤。
+      </p>
+      <div class="quick-chips">
+        <button type="button" onclick="setStoichEquation('2H2 + O2 -> 2H2O')">2H2 + O2 -&gt; 2H2O</button>
+        <button type="button" onclick="setStoichEquation('N2 + 3H2 -> 2NH3')">N2 + 3H2 -&gt; 2NH3</button>
+        <button type="button" onclick="setStoichEquation('2KClO3 -> 2KCl + 3O2')">2KClO3 -&gt; 2KCl + 3O2</button>
+        <button type="button" onclick="setStoichEquation('CH4 + 2O2 -> CO2 + 2H2O')">CH4 + 2O2 -&gt; CO2 + 2H2O</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="stoich-eq">配平好的化学方程式</label>
+          <input id="stoich-eq" type="text" value="2H2 + O2 -> 2H2O" placeholder="例如 2H2 + O2 -> 2H2O">
+          <button class="sim-btn" type="button" onclick="parseStoichEquation()">① 解析方程式</button>
+          <div id="stoich-parse-msg" class="hint"></div>
+          <label for="stoich-known">已知的物质</label>
+          <select id="stoich-known"></select>
+          <label for="stoich-known-type">已知量的类型</label>
+          <select id="stoich-known-type">
+            <option value="mass">质量（g）</option>
+            <option value="mole">摩尔数（mol）</option>
+          </select>
+          <label for="stoich-known-value">已知数值</label>
+          <input id="stoich-known-value" type="number" value="4" step="any">
+          <label for="stoich-want">想求出的物质</label>
+          <select id="stoich-want"></select>
+          <label for="stoich-want-type">想求出的类型</label>
+          <select id="stoich-want-type">
+            <option value="mass">质量（g）</option>
+            <option value="mole">摩尔数（mol）</option>
+          </select>
+          <button class="sim-btn" type="button" onclick="runStoich()">② 计算</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="stoich-out">先点击「解析方程式」，再选择已知/求出的物质并输入数值。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sim-card">
+      <h3>🧯 模拟器 8：限量反应物（谁先用完？）</h3>
+      <p class="chem-sub">
+        两种反应物按一定摩尔比反应，如果它们的实际数量不是刚刚好的比例，总会有一种先用完——它叫<b>限量反应物</b>
+        （limiting reactant），决定了到底能生成多少产物；另一种则是<b>过量反应物</b>，反应结束后还会剩下一些。
+        就像做三明治需要「2片面包 + 1片奶酪」，如果你有 10 片面包却只有 3 片奶酪，奶酪就是限量的材料。
+      </p>
+      <div class="quick-chips">
+        <button type="button" onclick="setLimitingExample('N2 + 3H2 -> 2NH3','N2','H2',28,10)">N2 + 3H2 → 2NH3</button>
+        <button type="button" onclick="setLimitingExample('2H2 + O2 -> 2H2O','H2','O2',10,20)">2H2 + O2 → 2H2O</button>
+        <button type="button" onclick="setLimitingExample('CH4 + 2O2 -> CO2 + 2H2O','CH4','O2',16,48)">CH4 + 2O2 → CO2+2H2O</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="lim-eq">配平好的化学方程式</label>
+          <input id="lim-eq" type="text" value="N2 + 3H2 -> 2NH3" placeholder="例如 N2 + 3H2 -> 2NH3">
+          <label for="lim-a-formula">反应物 A 的化学式</label>
+          <input id="lim-a-formula" type="text" value="N2">
+          <label for="lim-a-mass">反应物 A 的质量（g）</label>
+          <input id="lim-a-mass" type="number" value="28" step="any">
+          <label for="lim-b-formula">反应物 B 的化学式</label>
+          <input id="lim-b-formula" type="text" value="H2">
+          <label for="lim-b-mass">反应物 B 的质量（g）</label>
+          <input id="lim-b-mass" type="number" value="10" step="any">
+          <label for="lim-product">想求出的生成物</label>
+          <input id="lim-product" type="text" value="NH3">
+          <button class="sim-btn" type="button" onclick="runLimiting()">计算限量反应物</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="lim-out">输入方程式、两种反应物的质量和目标生成物，然后点击「计算限量反应物」。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sim-card">
+      <h3>🎯 模拟器 9：产率（实际产率 ÷ 理论产率）</h3>
+      <p class="chem-sub">
+        按方程式算出来的「应该能生成多少」叫<b>理论产率</b>（theoretical yield）；
+        但实际做实验时，总会因为反应不完全、产物损失等原因，实际收集到的量——<b>实际产率</b>（actual yield）——通常会少一些。
+        <span class="eq">产率% = 实际产率 ÷ 理论产率 × 100%</span>，用来衡量这次实验做得有多「值」。
+      </p>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="yield-theory">理论产率（g）</label>
+          <input id="yield-theory" type="number" value="34" step="any">
+          <label for="yield-actual">实际产率（g）</label>
+          <input id="yield-actual" type="number" value="28.9" step="any">
+          <button class="sim-btn" type="button" onclick="runPercentYield()">计算产率</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="yield-out">输入理论产率和实际产率，然后点击「计算产率」。</div>
+        </div>
+      </div>
+    </div>
+
+    <blockquote style="margin-top:20px;">
+      💡 <b>你知道吗？</b>汽车的安全气囊能在碰撞发生的 <b>0.04 秒内</b>瞬间充满气体，
+      靠的正是化学计量——叠氮化钠（NaN₃）在撞击触发下迅速分解，<span class="eq">2NaN₃ → 2Na + 3N₂</span>，
+      工程师正是用摩尔比精确计算出需要多少 NaN₃，才能刚好产生足够把气囊撑满的 N₂ 气体，既不会太少，也不会炸得太猛。
+    </blockquote>
+  </section>
+
   <section class="chem-section" id="summary">
     <h2>📝 本页总结</h2>
-    <p class="chem-sub">把以上四节的核心公式整理在这里，复习的时候可以直接回来看。</p>
+    <p class="chem-sub">把以上五节的核心公式整理在这里，复习的时候可以直接回来看。</p>
     <div class="summary-grid">
       <div class="summary-card">
         <h4>阿伏加德罗常数</h4>
@@ -376,9 +495,25 @@ O:53.3</textarea>
         <h4>水合物中的 x</h4>
         <p><span class="eq">x = 失去的水的摩尔数 ÷ 无水化合物的摩尔数</span>，四舍五入取整数。</p>
       </div>
+      <div class="summary-card">
+        <h4>摩尔比</h4>
+        <p>配平方程式中各物质前的<b>系数</b>就是摩尔比，例如 2H₂+O₂→2H₂O 中 H₂ : O₂ : H₂O = 2 : 1 : 2。</p>
+      </div>
+      <div class="summary-card">
+        <h4>化学计量四步法</h4>
+        <p>配平方程式 → 已知量换算成摩尔数 → 用摩尔比换算成未知物质的摩尔数 → 再换算成需要的单位（质量/粒子数）。</p>
+      </div>
+      <div class="summary-card">
+        <h4>限量反应物</h4>
+        <p>分别假设每种反应物「用完」，算出能生成的产物量，<b>生成量较少</b>的那个对应的反应物就是限量反应物。</p>
+      </div>
+      <div class="summary-card">
+        <h4>产率</h4>
+        <p><span class="eq">产率% = 实际产率 ÷ 理论产率 × 100%</span>，理论产率由限量反应物通过摩尔比算出。</p>
+      </div>
     </div>
     <blockquote style="margin-top:20px;">
-      这四站——摩尔换算、质量百分比、实验式与分子式、水合物——是「摩尔」这个单位最核心的应用，
+      这五站——摩尔换算、质量百分比、实验式与分子式、水合物、化学计量——是「摩尔」这个单位最核心的应用，
       也是学好化学定量计算的基础。欢迎多试试上面的模拟器，换几组不同的数字看看！
     </blockquote>
   </section>
@@ -770,6 +905,217 @@ function runHydrate(){
   }
 }
 
+// ---------- 化学计量（摩尔比） ----------
+function splitEquationSide(side){
+  return side.split('+').map(function(term){
+    term = term.trim();
+    var m = term.match(/^([0-9]+)\s*(.+)$/);
+    var coeff = 1, formula = term;
+    if(m){ coeff = parseInt(m[1], 10); formula = m[2].trim(); }
+    if(!formula) throw new Error('方程式格式有误：「' + term + '」缺少化学式');
+    return { coeff: coeff, formula: formula, counts: parseFormula(formula) };
+  });
+}
+
+function parseEquation(str){
+  if(!str || !str.trim()) throw new Error('请输入化学方程式');
+  var normalized = str.replace(/=>/g, '->').replace(/→/g, '->').replace(/=/g, '->');
+  var sides = normalized.split('->');
+  if(sides.length !== 2) throw new Error('请用 "->" 或 "=" 分隔反应物和生成物，例如 2H2 + O2 -> 2H2O');
+  var reactants = splitEquationSide(sides[0]);
+  var products = splitEquationSide(sides[1]);
+  reactants.forEach(function(t){ t.side = 'reactant'; });
+  products.forEach(function(t){ t.side = 'product'; });
+  return { reactants: reactants, products: products, all: reactants.concat(products) };
+}
+
+function equationBalanced(eq){
+  var left = {}, right = {};
+  eq.reactants.forEach(function(t){ for(var el in t.counts){ left[el] = (left[el] || 0) + t.counts[el] * t.coeff; } });
+  eq.products.forEach(function(t){ for(var el in t.counts){ right[el] = (right[el] || 0) + t.counts[el] * t.coeff; } });
+  var elements = {};
+  for(var el in left) elements[el] = 1;
+  for(var el2 in right) elements[el2] = 1;
+  for(var e in elements){ if(Math.abs((left[e] || 0) - (right[e] || 0)) > 1e-9) return false; }
+  return true;
+}
+
+function findTerm(eq, formula){
+  var target = formula.replace(/\s+/g, '').toLowerCase();
+  for(var i = 0; i < eq.all.length; i++){
+    if(eq.all[i].formula.replace(/\s+/g, '').toLowerCase() === target) return eq.all[i];
+  }
+  return null;
+}
+
+var currentStoichEquation = null;
+
+function setStoichEquation(eqStr){
+  document.getElementById('stoich-eq').value = eqStr;
+  parseStoichEquation();
+}
+
+function populateStoichSelect(selectEl, eq){
+  selectEl.innerHTML = '';
+  eq.all.forEach(function(term, idx){
+    var opt = document.createElement('option');
+    opt.value = idx;
+    opt.textContent = (term.coeff > 1 ? term.coeff : '') + term.formula + (term.side === 'reactant' ? '（反应物）' : '（生成物）');
+    selectEl.appendChild(opt);
+  });
+}
+
+function parseStoichEquation(){
+  var msgEl = document.getElementById('stoich-parse-msg');
+  var eqStr = document.getElementById('stoich-eq').value;
+  try{
+    var eq = parseEquation(eqStr);
+    currentStoichEquation = eq;
+    populateStoichSelect(document.getElementById('stoich-known'), eq);
+    populateStoichSelect(document.getElementById('stoich-want'), eq);
+    if(eq.all.length > 1) document.getElementById('stoich-want').selectedIndex = Math.min(1, eq.all.length - 1);
+    var balanced = equationBalanced(eq);
+    msgEl.innerHTML = balanced
+      ? '✅ 已解析方程式，两边的原子个数是配平的。'
+      : '⚠️ 已解析方程式，但两边的原子个数好像没有配平，请检查系数。';
+    msgEl.style.color = balanced ? '' : '#b23';
+  }catch(e){
+    currentStoichEquation = null;
+    msgEl.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+function runStoich(){
+  var out = document.getElementById('stoich-out');
+  if(!currentStoichEquation){
+    out.innerHTML = '<span class="sim-err">⚠️ 请先点击「解析方程式」</span>';
+    return;
+  }
+  var knownIdx = parseInt(document.getElementById('stoich-known').value, 10);
+  var wantIdx = parseInt(document.getElementById('stoich-want').value, 10);
+  var knownType = document.getElementById('stoich-known-type').value;
+  var wantType = document.getElementById('stoich-want-type').value;
+  var knownValue = parseFloat(document.getElementById('stoich-known-value').value);
+  if(isNaN(knownValue) || knownValue < 0){
+    out.innerHTML = '<span class="sim-err">⚠️ 请输入一个非负的已知数值</span>';
+    return;
+  }
+  try{
+    var eq = currentStoichEquation;
+    var known = eq.all[knownIdx];
+    var want = eq.all[wantIdx];
+    var knownMolar = molarMassOf(known.counts).mass;
+    var wantMolar = molarMassOf(want.counts).mass;
+    var steps = [];
+    var knownMoles;
+    if(knownType === 'mass'){
+      knownMoles = knownValue / knownMolar;
+      steps.push('已知 ' + known.formula + ' 的质量 = ' + fmt(knownValue) + ' g，摩尔质量 = ' + fmt(knownMolar) + ' g/mol');
+      steps.push(known.formula + ' 的摩尔数 = ' + fmt(knownValue) + ' ÷ ' + fmt(knownMolar) + ' = ' + fmt(knownMoles) + ' mol');
+    } else {
+      knownMoles = knownValue;
+      steps.push('已知 ' + known.formula + ' 的摩尔数 = ' + fmt(knownMoles) + ' mol');
+    }
+    var wantMoles = knownMoles * (want.coeff / known.coeff);
+    steps.push('摩尔比（' + want.formula + ' : ' + known.formula + '）= ' + want.coeff + ' : ' + known.coeff);
+    steps.push(want.formula + ' 的摩尔数 = ' + fmt(knownMoles) + ' × (' + want.coeff + ' ÷ ' + known.coeff + ') = ' + fmt(wantMoles) + ' mol');
+    var resultValue = wantMoles, resultUnit = 'mol';
+    if(wantType === 'mass'){
+      resultValue = wantMoles * wantMolar;
+      resultUnit = 'g';
+      steps.push(want.formula + ' 的质量 = ' + fmt(wantMoles) + ' × ' + fmt(wantMolar) + ' = ' + fmt(resultValue) + ' g');
+    }
+    out.innerHTML =
+      '<ol class="steps">' + steps.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol>' +
+      '<div class="big">' + want.formula + ' ≈ ' + fmt(resultValue) + ' ' + resultUnit + '</div>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+// ---------- 限量反应物 ----------
+function setLimitingExample(eqStr, aFormula, bFormula, aMass, bMass){
+  document.getElementById('lim-eq').value = eqStr;
+  document.getElementById('lim-a-formula').value = aFormula;
+  document.getElementById('lim-a-mass').value = aMass;
+  document.getElementById('lim-b-formula').value = bFormula;
+  document.getElementById('lim-b-mass').value = bMass;
+  try{
+    var eq = parseEquation(eqStr);
+    if(eq.products[0]) document.getElementById('lim-product').value = eq.products[0].formula;
+  }catch(e){}
+  runLimiting();
+}
+
+function runLimiting(){
+  var out = document.getElementById('lim-out');
+  try{
+    var eq = parseEquation(document.getElementById('lim-eq').value);
+    var aFormula = document.getElementById('lim-a-formula').value;
+    var bFormula = document.getElementById('lim-b-formula').value;
+    var productFormula = document.getElementById('lim-product').value;
+    var aMass = parseFloat(document.getElementById('lim-a-mass').value);
+    var bMass = parseFloat(document.getElementById('lim-b-mass').value);
+    if(isNaN(aMass) || isNaN(bMass) || aMass < 0 || bMass < 0){
+      out.innerHTML = '<span class="sim-err">⚠️ 请输入非负的质量数值</span>';
+      return;
+    }
+    var termA = findTerm(eq, aFormula);
+    var termB = findTerm(eq, bFormula);
+    var termP = findTerm(eq, productFormula);
+    if(!termA || !termB) throw new Error('在方程式中找不到反应物 ' + (!termA ? aFormula : bFormula));
+    if(!termP) throw new Error('在方程式中找不到生成物 ' + productFormula);
+
+    var molarA = molarMassOf(termA.counts).mass;
+    var molarB = molarMassOf(termB.counts).mass;
+    var molarP = molarMassOf(termP.counts).mass;
+    var molesA = aMass / molarA;
+    var molesB = bMass / molarB;
+    var productFromA = molesA * (termP.coeff / termA.coeff);
+    var productFromB = molesB * (termP.coeff / termB.coeff);
+
+    var limiting, excess, productMoles, molesExcessInitial, molarExcess, coeffExcess;
+    if(productFromA <= productFromB){
+      limiting = termA.formula; excess = termB.formula; productMoles = productFromA;
+      molesExcessInitial = molesB; molarExcess = molarB; coeffExcess = termB.coeff;
+    } else {
+      limiting = termB.formula; excess = termA.formula; productMoles = productFromB;
+      molesExcessInitial = molesA; molarExcess = molarA; coeffExcess = termA.coeff;
+    }
+    var molesExcessUsed = productMoles * (coeffExcess / termP.coeff);
+    var massExcessLeft = Math.max(0, molesExcessInitial - molesExcessUsed) * molarExcess;
+    var theoreticalYield = productMoles * molarP;
+
+    out.innerHTML =
+      '<ol class="steps">' +
+      '<li>' + termA.formula + ' 的摩尔数 = ' + fmt(aMass) + ' ÷ ' + fmt(molarA) + ' = ' + fmt(molesA) + ' mol，若全部反应可生成 ' + termP.formula + ' ' + fmt(productFromA) + ' mol</li>' +
+      '<li>' + termB.formula + ' 的摩尔数 = ' + fmt(bMass) + ' ÷ ' + fmt(molarB) + ' = ' + fmt(molesB) + ' mol，若全部反应可生成 ' + termP.formula + ' ' + fmt(productFromB) + ' mol</li>' +
+      '<li>生成量较少的是 ' + fmt(Math.min(productFromA, productFromB)) + ' mol，所以 <b>' + limiting + '</b> 是限量反应物，<b>' + excess + '</b> 是过量反应物</li>' +
+      '<li>过量反应物（' + excess + '）剩余 ≈ ' + fmt(massExcessLeft) + ' g</li>' +
+      '</ol>' +
+      '<div class="big">限量反应物：' + limiting + '　|　理论产率（' + termP.formula + '）≈ ' + fmt(theoreticalYield) + ' g</div>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+// ---------- 产率 ----------
+function runPercentYield(){
+  var out = document.getElementById('yield-out');
+  var theory = parseFloat(document.getElementById('yield-theory').value);
+  var actual = parseFloat(document.getElementById('yield-actual').value);
+  if(isNaN(theory) || isNaN(actual) || theory <= 0 || actual < 0){
+    out.innerHTML = '<span class="sim-err">⚠️ 请检查数值：理论产率应大于 0，实际产率不能为负数</span>';
+    return;
+  }
+  var percent = (actual / theory) * 100;
+  out.innerHTML =
+    '<ol class="steps">' +
+    '<li>产率% = 实际产率 ÷ 理论产率 × 100% = ' + fmt(actual) + ' ÷ ' + fmt(theory) + ' × 100%</li>' +
+    '</ol>' +
+    '<div class="big">产率 ≈ ' + fmt(percent, 4) + '%</div>';
+}
+
 // 页面载入时先跑一次示例
 runMolarMass();
 runAvogadro();
@@ -777,6 +1123,10 @@ runTriangle();
 runPercentComp();
 runEmpirical();
 runHydrate();
+parseStoichEquation();
+runStoich();
+runLimiting();
+runPercentYield();
 </script>
 
 </body>
