@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有趣的化学 — 美嘉河畔书房</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root{
+    --chem:#0e8a6d; --chem-light:#e3f6ef; --chem-dark:#0b6d57;
+    --amber:#e08a1e; --amber-light:#fdf1df;
+    --line:#e4ebe6; --shadow:0 14px 40px rgba(20,60,50,.08);
+  }
+  .chem-wrap{max-width:1040px;margin:0 auto;}
+  .chem-roadmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0 40px;}
+  .chem-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px 20px;}
+  .chem-card h3{margin:0 0 6px;font-size:1.02rem;color:var(--chem-dark);}
+  .chem-card p{margin:0;color:var(--muted);font-size:.9rem;}
+  .chem-card.live{border-left:5px solid var(--chem);}
+  .chem-card.soon{border-left:5px solid var(--border);opacity:.8;}
+  .chem-badge{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:99px;margin-bottom:8px;}
+  .chem-badge.live{background:var(--chem-light);color:var(--chem-dark);}
+  .chem-badge.soon{background:#f1f1f1;color:#888;}
+
+  .chem-section{margin:46px 0;}
+  .chem-section h2{color:var(--chem-dark);}
+  .chem-sub{color:var(--muted);max-width:720px;margin:0 0 18px;}
+
+  .triangle-wrap{display:flex;justify-content:center;margin:24px 0 34px;}
+  .triangle{position:relative;width:min(100%,460px);}
+  .tri-box{background:var(--chem-light);border:2px solid var(--chem);color:var(--chem-dark);font-weight:700;
+    border-radius:14px;padding:10px 16px;text-align:center;position:absolute;font-size:.95rem;}
+  .tri-mass{top:0;left:0;}
+  .tri-particles{top:0;right:0;}
+  .tri-mole{top:150px;left:50%;transform:translateX(-50%);background:var(--amber-light);border-color:var(--amber);color:#7a4a0c;}
+  .triangle svg{width:100%;height:190px;display:block;}
+  .tri-label{position:absolute;font-size:.78rem;color:var(--muted);font-weight:700;background:#fff;padding:1px 6px;border-radius:6px;}
+
+  .sim-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:24px;margin:18px 0;}
+  .sim-card h3{margin-top:0;color:var(--chem-dark);}
+  .sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
+  .sim-field label{display:block;font-weight:700;margin:10px 0 4px;font-size:.9rem;}
+  .sim-field input[type=text], .sim-field input[type=number], .sim-field select{
+    font:inherit;font-weight:700;padding:9px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:320px;
+  }
+  .sim-field .hint{color:var(--muted);font-size:.8rem;font-weight:400;margin-top:4px;}
+  .sim-btn{font:inherit;font-weight:800;border:2px solid var(--chem);background:var(--chem);color:#fff;
+    border-radius:12px;padding:10px 20px;margin-top:14px;cursor:pointer;}
+  .sim-btn:hover{background:var(--chem-dark);border-color:var(--chem-dark);}
+  .sim-out{background:var(--chem-light);border-radius:14px;padding:16px 18px;min-height:60px;font-size:.92rem;}
+  .sim-out .big{font-size:1.3rem;font-weight:800;color:var(--chem-dark);margin:4px 0;}
+  .sim-out table{width:100%;border-collapse:collapse;margin-top:10px;background:#fff;border-radius:10px;overflow:hidden;}
+  .sim-out th,.sim-out td{padding:6px 8px;text-align:left;font-size:.82rem;border-bottom:1px solid var(--line);}
+  .sim-out th{background:var(--chem-dark);color:#fff;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;}
+  .sim-err{color:#b23;font-weight:700;}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:10px 0 0;}
+  .steps li{counter-increment:s;position:relative;padding-left:32px;margin:7px 0;color:var(--muted);font-size:.88rem;}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:22px;height:22px;border-radius:50%;
+    background:var(--chem);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.76rem;}
+
+  .formula-table{width:100%;border-collapse:collapse;margin:12px 0;}
+  .formula-table th,.formula-table td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:.85rem;text-align:left;}
+  .formula-table th{background:var(--chem-dark);color:#fff;font-size:.72rem;text-transform:uppercase;}
+
+  .quick-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px;}
+  .quick-chips button{font:inherit;font-size:.8rem;font-weight:700;border:1px solid var(--chem);background:var(--chem-light);
+    color:var(--chem-dark);border-radius:99px;padding:5px 14px;cursor:pointer;}
+  .quick-chips button:hover{background:var(--chem);color:#fff;}
+
+  .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px;}
+  .summary-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);}
+  .summary-card h4{margin:0 0 6px;color:var(--chem-dark);font-size:.95rem;}
+  .summary-card .eq{font-weight:800;color:var(--amber);}
+
+  @media(max-width:760px){.sim-grid{grid-template-columns:1fr;}.tri-mole{top:130px;}.triangle svg{height:160px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="美嘉河畔书房" class="nav-logo-img">
+      <span class="nav-logo-text">
+        <span class="nav-logo-name">美嘉河畔书房</span>
+        <span class="nav-logo-motto">柔和谦卑 · 静心学习 · 生命传承 · 做光做盐</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="菜单" aria-expanded="false"
+            onclick="var n=this.closest('nav');var o=n.classList.toggle('nav-open');this.setAttribute('aria-expanded',o)">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="parentchild.html">亲子在家学习</a></li>
+      <li><a href="kidsgroupclass.html">儿童小组学习</a></li>
+      <li><a href="resources.html">资源分享</a></li>
+      <li><a href="learning/index.html">亲子数学天地</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="ask.html">问问美嘉 <span class="ai-badge">AI</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>⚗️ 有趣的化学</h1>
+    <p class="subtitle">用小小的模拟器，一步步看懂化学 · 从「摩尔」这个奇妙的单位开始</p>
+  </div>
+</div>
+
+<div class="container chem-wrap">
+
+  <p>化学里有很多看不见摸不着的东西——原子、分子、离子，数量多到无法直接数清楚。科学家于是发明了「摩尔」（mole）这个单位，把微观世界和我们能称量的宏观世界连接起来。这个系列会用可以动手试一试的小模拟器，带你理解这些核心概念。</p>
+
+  <h2>📍 学习地图</h2>
+  <div class="chem-roadmap">
+    <div class="chem-card live">
+      <span class="chem-badge live">现在开始</span>
+      <h3>① 摩尔、质量与粒子数的相互换算</h3>
+      <p>认识阿伏加德罗常数、摩尔质量，学会在「质量 ⇄ 摩尔 ⇄ 粒子数」之间自由换算。</p>
+    </div>
+    <div class="chem-card soon">
+      <span class="chem-badge soon">即将上线</span>
+      <h3>② 质量百分比组成</h3>
+      <p>一个化合物里，每种元素占了百分之多少的质量？</p>
+    </div>
+    <div class="chem-card soon">
+      <span class="chem-badge soon">即将上线</span>
+      <h3>③ 实验式与分子式</h3>
+      <p>从实验数据反推化合物最简单的原子比例，再求出真正的分子式。</p>
+    </div>
+    <div class="chem-card soon">
+      <span class="chem-badge soon">即将上线</span>
+      <h3>④ 水合物的化学式</h3>
+      <p>像 CuSO₄·5H₂O 这样「带着水」的晶体，里面到底藏了几个水分子？</p>
+    </div>
+  </div>
+
+  <section class="chem-section" id="part1">
+    <h2>① 摩尔、质量与粒子数的相互换算</h2>
+    <p class="chem-sub">
+      <b>摩尔（mol）</b>是化学里的「数数单位」，就像「一打」代表12个一样，
+      <b>1 摩尔</b>代表 <b>6.02 × 10²³</b> 个微粒（这个数字叫<b>阿伏加德罗常数</b>）。
+      而<b>摩尔质量</b>则是 1 摩尔某物质的质量（克/摩尔），数值上等于它在元素周期表里的相对原子/分子质量。
+      有了这两座桥梁，「质量」「摩尔数」「粒子数」三者就可以互相换算——摩尔永远是中间的枢纽。
+    </p>
+
+    <div class="triangle-wrap">
+      <div class="triangle">
+        <svg viewBox="0 0 460 190" aria-hidden="true">
+          <line x1="110" y1="35" x2="230" y2="150" stroke="#0e8a6d" stroke-width="2"/>
+          <line x1="350" y1="35" x2="230" y2="150" stroke="#0e8a6d" stroke-width="2"/>
+          <line x1="110" y1="35" x2="350" y2="35" stroke="#0e8a6d" stroke-width="2" stroke-dasharray="5 5"/>
+        </svg>
+        <div class="tri-box tri-mass">质量 (g)</div>
+        <div class="tri-box tri-particles">粒子数（原子/分子）</div>
+        <div class="tri-box tri-mole">摩尔数 (mol)</div>
+        <div class="tri-label" style="top:70px;left:40px;">÷ 摩尔质量</div>
+        <div class="tri-label" style="top:70px;right:10px;">÷ 阿伏加德罗常数</div>
+      </div>
+    </div>
+
+    <div class="sim-card">
+      <h3>🧪 模拟器 1：摩尔质量计算器</h3>
+      <p class="chem-sub">输入化学式，自动算出它的摩尔质量，并显示每种元素的计算过程。支持括号和水合物（用 · 或 . 表示结晶水，比如 <code>CuSO4·5H2O</code>）。</p>
+      <div class="quick-chips">
+        <button type="button" onclick="setFormula('mm-formula','H2O')">H2O</button>
+        <button type="button" onclick="setFormula('mm-formula','CO2')">CO2</button>
+        <button type="button" onclick="setFormula('mm-formula','NaCl')">NaCl</button>
+        <button type="button" onclick="setFormula('mm-formula','C6H12O6')">C6H12O6</button>
+        <button type="button" onclick="setFormula('mm-formula','Ca(OH)2')">Ca(OH)2</button>
+        <button type="button" onclick="setFormula('mm-formula','Al2(SO4)3')">Al2(SO4)3</button>
+        <button type="button" onclick="setFormula('mm-formula','CuSO4.5H2O')">CuSO4·5H2O</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="mm-formula">化学式</label>
+          <input id="mm-formula" type="text" value="H2O" placeholder="例如 NaCl 或 CuSO4.5H2O">
+          <div class="hint">元素符号用大写字母开头，括号和下标都支持。</div>
+          <button class="sim-btn" type="button" onclick="runMolarMass()">计算摩尔质量</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="mm-out">在左边输入化学式，然后点击「计算摩尔质量」。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sim-card">
+      <h3>🔢 模拟器 2：摩尔 ⇄ 粒子数 转换器</h3>
+      <p class="chem-sub">利用阿伏加德罗常数（6.02 × 10²³ 个/摩尔），在摩尔数和粒子（原子、分子、离子）个数之间互相换算。</p>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="ap-value">数值</label>
+          <input id="ap-value" type="number" value="2" step="any">
+          <label for="ap-dir">换算方向</label>
+          <select id="ap-dir">
+            <option value="toParticles">摩尔数 → 粒子数</option>
+            <option value="toMoles">粒子数 → 摩尔数</option>
+          </select>
+          <button class="sim-btn" type="button" onclick="runAvogadro()">开始换算</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="ap-out">输入数值并选择方向，然后点击「开始换算」。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sim-card">
+      <h3>⚖️ 模拟器 3：质量 ⇄ 摩尔 ⇄ 粒子数 综合转换器</h3>
+      <p class="chem-sub">这是本节最核心的模拟器：输入化学式，再输入你已知的任意一个量（质量、摩尔数或粒子数），一键算出另外两个量，并展示完整的换算步骤。</p>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="tri-formula">化学式</label>
+          <input id="tri-formula" type="text" value="H2O" placeholder="例如 CO2">
+          <label for="tri-type">已知的量</label>
+          <select id="tri-type">
+            <option value="mass">质量（克）</option>
+            <option value="mole">摩尔数（mol）</option>
+            <option value="particles">粒子数（个）</option>
+          </select>
+          <label for="tri-value">数值</label>
+          <input id="tri-value" type="number" value="18" step="any">
+          <button class="sim-btn" type="button" onclick="runTriangle()">计算另外两个量</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="tri-out">输入化学式和已知量，然后点击「计算另外两个量」。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chem-section" id="summary">
+    <h2>📝 本节总结</h2>
+    <p class="chem-sub">把这一节的核心公式整理在这里，复习的时候可以直接回来看。</p>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h4>阿伏加德罗常数</h4>
+        <p>1 mol 任何物质都含有 <span class="eq">6.02 × 10²³</span> 个代表性粒子（原子/分子/离子）。</p>
+      </div>
+      <div class="summary-card">
+        <h4>摩尔 ⇄ 粒子数</h4>
+        <p><span class="eq">粒子数 = 摩尔数 × 6.02×10²³</span><br><span class="eq">摩尔数 = 粒子数 ÷ 6.02×10²³</span></p>
+      </div>
+      <div class="summary-card">
+        <h4>摩尔质量</h4>
+        <p>化合物的摩尔质量 = 各元素「原子数 × 原子质量」之和，单位是 g/mol。</p>
+      </div>
+      <div class="summary-card">
+        <h4>质量 ⇄ 摩尔</h4>
+        <p><span class="eq">质量 = 摩尔数 × 摩尔质量</span><br><span class="eq">摩尔数 = 质量 ÷ 摩尔质量</span></p>
+      </div>
+      <div class="summary-card">
+        <h4>质量 ⇄ 粒子数</h4>
+        <p>没有直接公式——必须先换算成摩尔数，摩尔永远是中间的桥梁。</p>
+      </div>
+    </div>
+    <blockquote style="margin-top:20px;">
+      下一站，我们会继续探索「质量百分比组成」「实验式与分子式」和「水合物」，敬请期待！
+    </blockquote>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="美嘉河畔书房" class="footer-logo">
+      <div class="footer-brand-text">
+        <span class="footer-brand-name">美嘉河畔书房</span>
+        <span class="footer-brand-motto">柔和谦卑 · 静心学习 · 生命传承 · 做光做盐</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>快速链接</h4>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="parentchild.html">亲子在家学习</a></li>
+        <li><a href="kidsgroupclass.html">儿童小组学习</a></li>
+        <li><a href="resources.html">资源分享</a></li>
+        <li><a href="learning/index.html">亲子数学天地</a></li>
+        <li><a href="faq.html">常见问题</a></li>
+        <li><a href="ask.html">问问美嘉 <span class="ai-badge">AI</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>更多</h4>
+      <ul>
+        <li><a href="privacy-policy.html">隐私政策</a></li>
+        <li><a href="https://hearthandheight.org" target="_blank" rel="noopener">美嘉旷野书房 · 父母生命成长</a></li>
+        <li><a href="https://joyacademy.online" target="_blank" rel="noopener">美嘉在线学堂 · 5-12年级AP学校</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-motto">愿每个孩子都成为各行各业的专业人才 · 做世上的光和盐</p>
+    <p>© 2025 Joy Family Learning · 美嘉河畔书房</p>
+  </div>
+</footer>
+
+<script>
+// ---------- 元素周期表：原子量（g/mol） ----------
+var ATOMIC_MASS = {
+  H:1.008, He:4.003, Li:6.94, Be:9.012, B:10.81, C:12.01, N:14.01, O:16.00, F:19.00, Ne:20.18,
+  Na:22.99, Mg:24.31, Al:26.98, Si:28.09, P:30.97, S:32.07, Cl:35.45, Ar:39.95, K:39.10, Ca:40.08,
+  Sc:44.96, Ti:47.87, V:50.94, Cr:52.00, Mn:54.94, Fe:55.85, Co:58.93, Ni:58.69, Cu:63.55, Zn:65.38,
+  Ga:69.72, Ge:72.63, As:74.92, Se:78.97, Br:79.90, Kr:83.80, Rb:85.47, Sr:87.62, Y:88.91, Zr:91.22,
+  Nb:92.91, Mo:95.95, Tc:98, Ru:101.07, Rh:102.91, Pd:106.42, Ag:107.87, Cd:112.41, In:114.82, Sn:118.71,
+  Sb:121.76, Te:127.60, I:126.90, Xe:131.29, Cs:132.91, Ba:137.33, La:138.91, Ce:140.12, Pr:140.91, Nd:144.24,
+  Pm:145, Sm:150.36, Eu:151.96, Gd:157.25, Tb:158.93, Dy:162.50, Ho:164.93, Er:167.26, Tm:168.93, Yb:173.05,
+  Lu:174.97, Hf:178.49, Ta:180.95, W:183.84, Re:186.21, Os:190.23, Ir:192.22, Pt:195.08, Au:196.97, Hg:200.59,
+  Tl:204.38, Pb:207.2, Bi:208.98, Po:209, At:210, Rn:222, Fr:223, Ra:226, Ac:227, Th:232.04,
+  Pa:231.04, U:238.03, Np:237, Pu:244, Am:243, Cm:247, Bk:247, Cf:251, Es:252, Fm:257,
+  Md:258, No:259, Lr:266, Rf:267, Db:268, Sg:269, Bh:270, Hs:269, Mt:278, Ds:281,
+  Rg:282, Cn:285, Nh:286, Fl:289, Mc:290, Lv:293, Ts:294, Og:294
+};
+var AVOGADRO = 6.02e23;
+
+function setFormula(id, value){
+  document.getElementById(id).value = value;
+  if(id === 'mm-formula') runMolarMass();
+}
+
+// 解析括号内的一段化学式，返回 {元素计数}
+function parseGroup(str, i){
+  var counts = {};
+  while(i < str.length){
+    var ch = str[i];
+    if(ch === '('){
+      var res = parseGroup(str, i + 1);
+      var sub = res.counts; i = res.i;
+      var numStr = '';
+      while(i < str.length && /[0-9]/.test(str[i])){ numStr += str[i]; i++; }
+      var mult = numStr ? parseInt(numStr, 10) : 1;
+      for(var el in sub){ counts[el] = (counts[el] || 0) + sub[el] * mult; }
+    } else if(ch === ')'){
+      return { counts: counts, i: i + 1 };
+    } else if(/[A-Z]/.test(ch)){
+      var sym = ch; i++;
+      while(i < str.length && /[a-z]/.test(str[i])){ sym += str[i]; i++; }
+      var n2 = '';
+      while(i < str.length && /[0-9]/.test(str[i])){ n2 += str[i]; i++; }
+      var count = n2 ? parseInt(n2, 10) : 1;
+      if(!(sym in ATOMIC_MASS)){ throw new Error('无法识别的元素符号：' + sym); }
+      counts[sym] = (counts[sym] || 0) + count;
+    } else {
+      i++; // 跳过空格等符号
+    }
+  }
+  return { counts: counts, i: i };
+}
+
+// 支持用 · 或 . 表示水合物，例如 CuSO4.5H2O
+function parseFormula(formula){
+  var clean = formula.replace(/\s+/g, '').replace(/·/g, '.');
+  if(!clean) throw new Error('请输入化学式');
+  var parts = clean.split('.');
+  var total = {};
+  parts.forEach(function(part){
+    var m = part.match(/^([0-9]+)([A-Z].*)$/);
+    var coeff = 1, rest = part;
+    if(m){ coeff = parseInt(m[1], 10); rest = m[2]; }
+    if(!rest) return;
+    var parsed = parseGroup(rest, 0).counts;
+    for(var el in parsed){ total[el] = (total[el] || 0) + parsed[el] * coeff; }
+  });
+  if(Object.keys(total).length === 0) throw new Error('没有识别出任何元素，请检查化学式格式');
+  return total;
+}
+
+function molarMassOf(counts){
+  var mass = 0, rows = [];
+  for(var el in counts){
+    var sub = ATOMIC_MASS[el] * counts[el];
+    mass += sub;
+    rows.push({ el: el, am: ATOMIC_MASS[el], n: counts[el], sub: sub });
+  }
+  return { mass: mass, rows: rows };
+}
+
+function fmt(n, d){
+  if(d === undefined) d = 3;
+  if(!isFinite(n)) return '—';
+  return Number(n.toPrecision(Math.max(d, 1))).toLocaleString('en-US', { maximumFractionDigits: 6 });
+}
+
+function sciNotation(n){
+  if(n === 0) return '0';
+  var exp = Math.floor(Math.log10(Math.abs(n)));
+  var mant = n / Math.pow(10, exp);
+  return fmt(mant, 4) + ' × 10' + toSuperscript(exp);
+}
+function toSuperscript(n){
+  var map = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+  return String(n).split('').map(function(c){ return map[c] !== undefined ? map[c] : c; }).join('');
+}
+
+function runMolarMass(){
+  var out = document.getElementById('mm-out');
+  var formula = document.getElementById('mm-formula').value;
+  try{
+    var counts = parseFormula(formula);
+    var r = molarMassOf(counts);
+    var rowsHtml = r.rows.map(function(row){
+      return '<tr><td>' + row.el + '</td><td>' + fmt(row.am) + '</td><td>' + row.n + '</td><td>' + fmt(row.sub) + '</td></tr>';
+    }).join('');
+    out.innerHTML =
+      '<div>化学式：<b>' + formula + '</b></div>' +
+      '<table><thead><tr><th>元素</th><th>原子量</th><th>原子个数</th><th>小计</th></tr></thead><tbody>' + rowsHtml + '</tbody></table>' +
+      '<div class="big">摩尔质量 ≈ ' + fmt(r.mass) + ' g/mol</div>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+function runAvogadro(){
+  var out = document.getElementById('ap-out');
+  var value = parseFloat(document.getElementById('ap-value').value);
+  var dir = document.getElementById('ap-dir').value;
+  if(isNaN(value) || value < 0){
+    out.innerHTML = '<span class="sim-err">⚠️ 请输入一个非负数值</span>';
+    return;
+  }
+  if(dir === 'toParticles'){
+    var particles = value * AVOGADRO;
+    out.innerHTML =
+      '<ol class="steps">' +
+      '<li>已知摩尔数：' + fmt(value) + ' mol</li>' +
+      '<li>粒子数 = 摩尔数 × 6.02×10²³ = ' + fmt(value) + ' × 6.02×10²³</li>' +
+      '</ol>' +
+      '<div class="big">≈ ' + sciNotation(particles) + ' 个粒子</div>';
+  } else {
+    var moles = value / AVOGADRO;
+    out.innerHTML =
+      '<ol class="steps">' +
+      '<li>已知粒子数：' + sciNotation(value) + ' 个</li>' +
+      '<li>摩尔数 = 粒子数 ÷ 6.02×10²³ = ' + sciNotation(value) + ' ÷ 6.02×10²³</li>' +
+      '</ol>' +
+      '<div class="big">≈ ' + fmt(moles) + ' mol</div>';
+  }
+}
+
+function runTriangle(){
+  var out = document.getElementById('tri-out');
+  var formula = document.getElementById('tri-formula').value;
+  var type = document.getElementById('tri-type').value;
+  var value = parseFloat(document.getElementById('tri-value').value);
+  if(isNaN(value) || value < 0){
+    out.innerHTML = '<span class="sim-err">⚠️ 请输入一个非负数值</span>';
+    return;
+  }
+  try{
+    var counts = parseFormula(formula);
+    var molar = molarMassOf(counts).mass;
+    var moles, mass, particles, stepsHtml = '';
+
+    if(type === 'mass'){
+      mass = value;
+      moles = mass / molar;
+      particles = moles * AVOGADRO;
+      stepsHtml =
+        '<li>已知质量：' + fmt(mass) + ' g，摩尔质量 = ' + fmt(molar) + ' g/mol</li>' +
+        '<li>摩尔数 = 质量 ÷ 摩尔质量 = ' + fmt(mass) + ' ÷ ' + fmt(molar) + ' = ' + fmt(moles) + ' mol</li>' +
+        '<li>粒子数 = 摩尔数 × 6.02×10²³ = ' + fmt(moles) + ' × 6.02×10²³</li>';
+    } else if(type === 'mole'){
+      moles = value;
+      mass = moles * molar;
+      particles = moles * AVOGADRO;
+      stepsHtml =
+        '<li>已知摩尔数：' + fmt(moles) + ' mol，摩尔质量 = ' + fmt(molar) + ' g/mol</li>' +
+        '<li>质量 = 摩尔数 × 摩尔质量 = ' + fmt(moles) + ' × ' + fmt(molar) + ' = ' + fmt(mass) + ' g</li>' +
+        '<li>粒子数 = 摩尔数 × 6.02×10²³ = ' + fmt(moles) + ' × 6.02×10²³</li>';
+    } else {
+      particles = value;
+      moles = particles / AVOGADRO;
+      mass = moles * molar;
+      stepsHtml =
+        '<li>已知粒子数：' + sciNotation(particles) + ' 个</li>' +
+        '<li>摩尔数 = 粒子数 ÷ 6.02×10²³ = ' + sciNotation(particles) + ' ÷ 6.02×10²³ = ' + fmt(moles) + ' mol</li>' +
+        '<li>质量 = 摩尔数 × 摩尔质量 = ' + fmt(moles) + ' × ' + fmt(molar) + ' g/mol</li>';
+    }
+
+    out.innerHTML =
+      '<div>化学式：<b>' + formula + '</b>（摩尔质量 ≈ ' + fmt(molar) + ' g/mol）</div>' +
+      '<ol class="steps">' + stepsHtml + '</ol>' +
+      '<table><thead><tr><th>量</th><th>数值</th></tr></thead><tbody>' +
+      '<tr><td>质量</td><td>' + fmt(mass) + ' g</td></tr>' +
+      '<tr><td>摩尔数</td><td>' + fmt(moles) + ' mol</td></tr>' +
+      '<tr><td>粒子数</td><td>' + sciNotation(particles) + ' 个</td></tr>' +
+      '</tbody></table>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+// 页面载入时先跑一次示例
+runMolarMass();
+runAvogadro();
+runTriangle();
+</script>
+
+</body>
+</html>
