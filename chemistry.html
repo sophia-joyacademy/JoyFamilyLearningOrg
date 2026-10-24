@@ -13,7 +13,9 @@
   }
   .chem-wrap{max-width:1040px;margin:0 auto;}
   .chem-roadmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0 40px;}
-  .chem-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px 20px;}
+  .chem-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px 20px;
+    display:block;text-decoration:none;color:inherit;transition:transform .15s;}
+  .chem-card.live:hover{transform:translateY(-3px);}
   .chem-card h3{margin:0 0 6px;font-size:1.02rem;color:var(--chem-dark);}
   .chem-card p{margin:0;color:var(--muted);font-size:.9rem;}
   .chem-card.live{border-left:5px solid var(--chem);}
@@ -40,9 +42,10 @@
   .sim-card h3{margin-top:0;color:var(--chem-dark);}
   .sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
   .sim-field label{display:block;font-weight:700;margin:10px 0 4px;font-size:.9rem;}
-  .sim-field input[type=text], .sim-field input[type=number], .sim-field select{
+  .sim-field input[type=text], .sim-field input[type=number], .sim-field select, .sim-field textarea{
     font:inherit;font-weight:700;padding:9px 12px;border:2px solid var(--line);border-radius:12px;width:100%;max-width:320px;
   }
+  .sim-field textarea{font-weight:600;resize:vertical;}
   .sim-field .hint{color:var(--muted);font-size:.8rem;font-weight:400;margin-top:4px;}
   .sim-btn{font:inherit;font-weight:800;border:2px solid var(--chem);background:var(--chem);color:#fff;
     border-radius:12px;padding:10px 20px;margin-top:14px;cursor:pointer;}
@@ -116,26 +119,26 @@
 
   <h2>📍 学习地图</h2>
   <div class="chem-roadmap">
-    <div class="chem-card live">
-      <span class="chem-badge live">现在开始</span>
+    <a class="chem-card live" href="#part1">
+      <span class="chem-badge live">可以学了</span>
       <h3>① 摩尔、质量与粒子数的相互换算</h3>
       <p>认识阿伏加德罗常数、摩尔质量，学会在「质量 ⇄ 摩尔 ⇄ 粒子数」之间自由换算。</p>
-    </div>
-    <div class="chem-card soon">
-      <span class="chem-badge soon">即将上线</span>
+    </a>
+    <a class="chem-card live" href="#part2">
+      <span class="chem-badge live">可以学了</span>
       <h3>② 质量百分比组成</h3>
       <p>一个化合物里，每种元素占了百分之多少的质量？</p>
-    </div>
-    <div class="chem-card soon">
-      <span class="chem-badge soon">即将上线</span>
+    </a>
+    <a class="chem-card live" href="#part3">
+      <span class="chem-badge live">可以学了</span>
       <h3>③ 实验式与分子式</h3>
       <p>从实验数据反推化合物最简单的原子比例，再求出真正的分子式。</p>
-    </div>
-    <div class="chem-card soon">
-      <span class="chem-badge soon">即将上线</span>
+    </a>
+    <a class="chem-card live" href="#part4">
+      <span class="chem-badge live">可以学了</span>
       <h3>④ 水合物的化学式</h3>
       <p>像 CuSO₄·5H₂O 这样「带着水」的晶体，里面到底藏了几个水分子？</p>
-    </div>
+    </a>
   </div>
 
   <section class="chem-section" id="part1">
@@ -231,9 +234,111 @@
     </div>
   </section>
 
+  <section class="chem-section" id="part2">
+    <h2>② 质量百分比组成</h2>
+    <p class="chem-sub">
+      <b>质量百分比组成</b>告诉我们：在 1 摩尔（或任意多）化合物里，每一种元素各占了多少百分比的质量。
+      算法很简单——<b>某元素的质量百分比 = 该元素在化合物中的小计质量 ÷ 化合物的摩尔质量 × 100%</b>。
+      所有元素的百分比加起来应该是 100%（通常会有一点点四舍五入的误差）。
+    </p>
+
+    <div class="sim-card">
+      <h3>🥧 模拟器 4：质量百分比组成计算器</h3>
+      <p class="chem-sub">输入化学式，自动算出每种元素的质量百分比。</p>
+      <div class="quick-chips">
+        <button type="button" onclick="setFormula('pc-formula','H2O')">H2O</button>
+        <button type="button" onclick="setFormula('pc-formula','C6H12O6')">C6H12O6</button>
+        <button type="button" onclick="setFormula('pc-formula','Fe2O3')">Fe2O3</button>
+        <button type="button" onclick="setFormula('pc-formula','NH4NO3')">NH4NO3</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="pc-formula">化学式</label>
+          <input id="pc-formula" type="text" value="C6H12O6" placeholder="例如 Fe2O3">
+          <button class="sim-btn" type="button" onclick="runPercentComp()">计算质量百分比</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="pc-out">在左边输入化学式，然后点击「计算质量百分比」。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chem-section" id="part3">
+    <h2>③ 实验式与分子式</h2>
+    <p class="chem-sub">
+      做实验的时候，我们常常只能测出一个化合物里各元素的<b>质量（或质量百分比）</b>，并不知道它的化学式。
+      <b>实验式</b>（empirical formula）就是把每种元素的质量换算成摩尔数，再找出<b>最简单的整数比</b>得到的化学式——
+      它只告诉我们「比例」，不一定是分子里原子的真实个数。如果我们另外知道这个化合物<b>真实的摩尔质量</b>，
+      就可以用 <span class="eq">n = 实验摩尔质量 ÷ 实验式的摩尔质量</span> 求出倍数 n，把实验式的下标都乘以 n，
+      得到<b>分子式</b>（molecular formula）。
+    </p>
+
+    <div class="sim-card">
+      <h3>🔬 模拟器 5：实验式与分子式计算器</h3>
+      <p class="chem-sub">
+        每行输入一种元素和它的质量或质量百分比，格式为 <code>元素:数值</code>（比如 <code>C:40.0</code>）。
+        如果还知道化合物真实的摩尔质量，填在下面「实验摩尔质量」里，就能同时求出分子式。
+      </p>
+      <div class="quick-chips">
+        <button type="button" onclick="setEmpiricalExample('glucose')">葡萄糖示例</button>
+        <button type="button" onclick="setEmpiricalExample('peroxide')">过氧化氢示例</button>
+        <button type="button" onclick="setEmpiricalExample('clear')">清空</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="ef-data">元素与质量（或百分比），每行一个</label>
+          <textarea id="ef-data" rows="6">C:40.0
+H:6.7
+O:53.3</textarea>
+          <label for="ef-molar">实验摩尔质量（g/mol，选填）</label>
+          <input id="ef-molar" type="number" value="180" step="any">
+          <div class="hint">不知道的话可以留空或填 0，只求实验式。</div>
+          <button class="sim-btn" type="button" onclick="runEmpirical()">计算实验式 / 分子式</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="ef-out">输入元素数据，然后点击「计算实验式 / 分子式」。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chem-section" id="part4">
+    <h2>④ 水合物的化学式</h2>
+    <p class="chem-sub">
+      有些晶体在形成的时候，会把水分子一起「锁」进自己的结构里，这样的化合物叫<b>水合物</b>，
+      写作 <b>化合物·xH₂O</b>（比如 CuSO₄·5H₂O）。把水合物加热，水分子会跑掉，只剩下<b>无水化合物</b>。
+      只要知道加热前后的质量变化，就能算出 1 摩尔无水化合物「锁住」了几摩尔水——也就是下标 x。
+    </p>
+
+    <div class="sim-card">
+      <h3>💧 模拟器 6：水合物的化学式计算器</h3>
+      <p class="chem-sub">输入无水化合物的化学式，再填入「加热前水合物的质量」和「加热后无水化合物的质量」，自动算出 x 并写出完整的水合物化学式。</p>
+      <div class="quick-chips">
+        <button type="button" onclick="setHydrateExample('CuSO4',2.50,1.60)">CuSO4</button>
+        <button type="button" onclick="setHydrateExample('MgSO4',5.00,2.44)">MgSO4</button>
+        <button type="button" onclick="setHydrateExample('Na2CO3',3.00,1.11)">Na2CO3</button>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label for="hy-formula">无水化合物的化学式</label>
+          <input id="hy-formula" type="text" value="CuSO4" placeholder="例如 MgSO4">
+          <label for="hy-before">加热前水合物的质量（g）</label>
+          <input id="hy-before" type="number" value="2.50" step="any">
+          <label for="hy-after">加热后无水化合物的质量（g）</label>
+          <input id="hy-after" type="number" value="1.60" step="any">
+          <button class="sim-btn" type="button" onclick="runHydrate()">计算水合物公式</button>
+        </div>
+        <div class="sim-field">
+          <div class="sim-out" id="hy-out">输入数据，然后点击「计算水合物公式」。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="chem-section" id="summary">
-    <h2>📝 本节总结</h2>
-    <p class="chem-sub">把这一节的核心公式整理在这里，复习的时候可以直接回来看。</p>
+    <h2>📝 本页总结</h2>
+    <p class="chem-sub">把以上四节的核心公式整理在这里，复习的时候可以直接回来看。</p>
     <div class="summary-grid">
       <div class="summary-card">
         <h4>阿伏加德罗常数</h4>
@@ -255,9 +360,26 @@
         <h4>质量 ⇄ 粒子数</h4>
         <p>没有直接公式——必须先换算成摩尔数，摩尔永远是中间的桥梁。</p>
       </div>
+      <div class="summary-card">
+        <h4>质量百分比组成</h4>
+        <p><span class="eq">元素百分比 = 元素小计质量 ÷ 化合物摩尔质量 × 100%</span></p>
+      </div>
+      <div class="summary-card">
+        <h4>实验式</h4>
+        <p>把各元素的质量换算成摩尔数，再除以其中最小的摩尔数，得到最简单的整数比。</p>
+      </div>
+      <div class="summary-card">
+        <h4>分子式</h4>
+        <p><span class="eq">n = 实验摩尔质量 ÷ 实验式摩尔质量</span><br>分子式 = 实验式的每个下标都乘以 n</p>
+      </div>
+      <div class="summary-card">
+        <h4>水合物中的 x</h4>
+        <p><span class="eq">x = 失去的水的摩尔数 ÷ 无水化合物的摩尔数</span>，四舍五入取整数。</p>
+      </div>
     </div>
     <blockquote style="margin-top:20px;">
-      下一站，我们会继续探索「质量百分比组成」「实验式与分子式」和「水合物」，敬请期待！
+      这四站——摩尔换算、质量百分比、实验式与分子式、水合物——是「摩尔」这个单位最核心的应用，
+      也是学好化学定量计算的基础。欢迎多试试上面的模拟器，换几组不同的数字看看！
     </blockquote>
   </section>
 
@@ -317,9 +439,10 @@ var ATOMIC_MASS = {
 };
 var AVOGADRO = 6.02e23;
 
+var FORMULA_HANDLERS = { 'mm-formula': runMolarMass, 'pc-formula': runPercentComp, 'hy-formula': runHydrate };
 function setFormula(id, value){
   document.getElementById(id).value = value;
-  if(id === 'mm-formula') runMolarMass();
+  if(FORMULA_HANDLERS[id]) FORMULA_HANDLERS[id]();
 }
 
 // 解析括号内的一段化学式，返回 {元素计数}
@@ -494,10 +617,166 @@ function runTriangle(){
   }
 }
 
+// ---------- 质量百分比组成 ----------
+function runPercentComp(){
+  var out = document.getElementById('pc-out');
+  var formula = document.getElementById('pc-formula').value;
+  try{
+    var counts = parseFormula(formula);
+    var r = molarMassOf(counts);
+    var rowsHtml = r.rows.map(function(row){
+      var pct = row.sub / r.mass * 100;
+      return '<tr><td>' + row.el + '</td><td>' + fmt(row.sub) + ' g</td><td>' + fmt(pct) + ' %</td></tr>';
+    }).join('');
+    out.innerHTML =
+      '<div>化学式：<b>' + formula + '</b>（摩尔质量 ≈ ' + fmt(r.mass) + ' g/mol）</div>' +
+      '<table><thead><tr><th>元素</th><th>1 mol 中的质量</th><th>质量百分比</th></tr></thead><tbody>' + rowsHtml + '</tbody></table>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+// ---------- 实验式与分子式 ----------
+function parseElementLines(text){
+  var lines = text.split('\n');
+  var data = [];
+  lines.forEach(function(line){
+    var m = line.trim().match(/^([A-Za-z]{1,2})\s*[:：=]\s*([0-9.]+)/);
+    if(m){
+      var sym = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
+      var val = parseFloat(m[2]);
+      if(!(sym in ATOMIC_MASS)) throw new Error('无法识别的元素符号：' + m[1]);
+      if(!isNaN(val) && val > 0) data.push({ el: sym, value: val });
+    }
+  });
+  if(data.length === 0) throw new Error('请至少输入一行「元素:数值」，比如 C:40.0');
+  return data;
+}
+
+function setEmpiricalExample(type){
+  var ta = document.getElementById('ef-data');
+  var molarInput = document.getElementById('ef-molar');
+  if(type === 'glucose'){
+    ta.value = 'C:40.0\nH:6.7\nO:53.3';
+    molarInput.value = 180;
+  } else if(type === 'peroxide'){
+    ta.value = 'H:5.9\nO:94.1';
+    molarInput.value = 34;
+  } else {
+    ta.value = '';
+    molarInput.value = 0;
+  }
+  runEmpirical();
+}
+
+function runEmpirical(){
+  var out = document.getElementById('ef-out');
+  var text = document.getElementById('ef-data').value;
+  var experimentalMolar = parseFloat(document.getElementById('ef-molar').value) || 0;
+  try{
+    var data = parseElementLines(text);
+    var moles = data.map(function(d){ return d.value / ATOMIC_MASS[d.el]; });
+    var minMoles = Math.min.apply(null, moles);
+    var ratios = moles.map(function(m){ return m / minMoles; });
+
+    // 尝试找到让所有比例都接近整数的最小倍数 k（1~12）
+    var k = 1, found = false, tol = 0.08;
+    for(k = 1; k <= 12; k++){
+      var ok = ratios.every(function(r){
+        var scaled = r * k;
+        return Math.abs(scaled - Math.round(scaled)) < tol;
+      });
+      if(ok){ found = true; break; }
+    }
+    if(!found) k = 1;
+
+    var subscripts = ratios.map(function(r){ return Math.round(r * k); });
+    var rowsHtml = data.map(function(d, idx){
+      return '<tr><td>' + d.el + '</td><td>' + fmt(d.value) + '</td><td>' + fmt(moles[idx]) + '</td>' +
+        '<td>' + fmt(ratios[idx]) + '</td><td>' + subscripts[idx] + '</td></tr>';
+    }).join('');
+
+    var empiricalFormula = data.map(function(d, idx){
+      return d.el + (subscripts[idx] === 1 ? '' : subscripts[idx]);
+    }).join('');
+    var empiricalCounts = {};
+    data.forEach(function(d, idx){ empiricalCounts[d.el] = subscripts[idx]; });
+    var empiricalMass = molarMassOf(empiricalCounts).mass;
+
+    var html =
+      '<table><thead><tr><th>元素</th><th>质量/百分比</th><th>摩尔数</th><th>相对比例</th><th>下标</th></tr></thead><tbody>' + rowsHtml + '</tbody></table>' +
+      '<div class="big">实验式 ≈ ' + empiricalFormula + '</div>' +
+      '<div>实验式摩尔质量 ≈ ' + fmt(empiricalMass) + ' g/mol</div>';
+
+    if(experimentalMolar > 0){
+      var n = Math.max(1, Math.round(experimentalMolar / empiricalMass));
+      var molecularFormula = data.map(function(d, idx){
+        var count = subscripts[idx] * n;
+        return d.el + (count === 1 ? '' : count);
+      }).join('');
+      html +=
+        '<ol class="steps">' +
+        '<li>n = 实验摩尔质量 ÷ 实验式摩尔质量 = ' + fmt(experimentalMolar) + ' ÷ ' + fmt(empiricalMass) + ' ≈ ' + n + '</li>' +
+        '<li>分子式 = 实验式各下标 × ' + n + '</li>' +
+        '</ol>' +
+        '<div class="big">分子式 ≈ ' + molecularFormula + '</div>';
+    }
+    out.innerHTML = html;
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
+// ---------- 水合物的化学式 ----------
+function setHydrateExample(formula, before, after){
+  document.getElementById('hy-formula').value = formula;
+  document.getElementById('hy-before').value = before;
+  document.getElementById('hy-after').value = after;
+  runHydrate();
+}
+
+function runHydrate(){
+  var out = document.getElementById('hy-out');
+  var formula = document.getElementById('hy-formula').value;
+  var before = parseFloat(document.getElementById('hy-before').value);
+  var after = parseFloat(document.getElementById('hy-after').value);
+  if(isNaN(before) || isNaN(after) || before <= 0 || after <= 0 || after > before){
+    out.innerHTML = '<span class="sim-err">⚠️ 请检查质量数据：加热后的质量应大于 0，且小于加热前的质量</span>';
+    return;
+  }
+  try{
+    var anhydrousCounts = parseFormula(formula);
+    var molarAnhydrous = molarMassOf(anhydrousCounts).mass;
+    var molarWater = molarMassOf(parseFormula('H2O')).mass;
+    var massWater = before - after;
+    var molesAnhydrous = after / molarAnhydrous;
+    var molesWater = massWater / molarWater;
+    var x = molesWater / molesAnhydrous;
+    var xRounded = Math.max(1, Math.round(x));
+    var hydrateFormula = formula + '·' + xRounded + 'H2O';
+    var hydrateMolar = molarAnhydrous + xRounded * molarWater;
+
+    out.innerHTML =
+      '<ol class="steps">' +
+      '<li>失去的水的质量 = ' + fmt(before) + ' − ' + fmt(after) + ' = ' + fmt(massWater) + ' g</li>' +
+      '<li>无水化合物的摩尔数 = ' + fmt(after) + ' ÷ ' + fmt(molarAnhydrous) + ' = ' + fmt(molesAnhydrous) + ' mol</li>' +
+      '<li>水的摩尔数 = ' + fmt(massWater) + ' ÷ ' + fmt(molarWater) + ' = ' + fmt(molesWater) + ' mol</li>' +
+      '<li>x = 水的摩尔数 ÷ 无水化合物的摩尔数 = ' + fmt(molesWater) + ' ÷ ' + fmt(molesAnhydrous) + ' ≈ ' + fmt(x, 3) + ' ≈ ' + xRounded + '</li>' +
+      '</ol>' +
+      '<div class="big">水合物化学式 ≈ ' + hydrateFormula + '</div>' +
+      '<div>水合物理论摩尔质量 ≈ ' + fmt(hydrateMolar) + ' g/mol</div>';
+  }catch(e){
+    out.innerHTML = '<span class="sim-err">⚠️ ' + e.message + '</span>';
+  }
+}
+
 // 页面载入时先跑一次示例
 runMolarMass();
 runAvogadro();
 runTriangle();
+runPercentComp();
+runEmpirical();
+runHydrate();
 </script>
 
 </body>
