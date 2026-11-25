@@ -13,7 +13,7 @@
     }
     *{box-sizing:border-box}
     body{margin:0;font-size:.95rem;color:var(--ink);line-height:1.55;background:radial-gradient(ellipse at 85% 8%,rgba(255,209,157,.2),transparent 32rem),var(--paper)}
-    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .wrap{width:min(1280px,calc(100% - 40px));margin-inline:auto}
     .topbar{padding:22px 0}
     .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
     .brand{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:800;text-decoration:none;color:inherit}
@@ -128,8 +128,9 @@
     .compare-table{width:100%;border-collapse:collapse;margin:12px 0}
     .compare-table th,.compare-table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}
     .compare-table th{color:var(--purple)}
-    .learning-path{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .learning-path{display:grid;grid-template-columns:1fr;gap:14px}
     .path-stage{padding:16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .path-stage .fraction-bar{max-width:720px}
     .path-stage h3{margin:0 0 8px;color:var(--purple);font-size:1.04rem}
     .path-stage p{margin:7px 0;color:var(--muted)}
     .path-core{font-weight:750;color:var(--ink)!important}
@@ -140,6 +141,12 @@
     .path-model{margin:8px 0}
     .path-jump{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:10px;background:var(--purple-light);color:var(--ink);font-weight:800;text-decoration:none}
     .path-jump:hover{text-decoration:underline}
+    .path-simulator{margin-top:12px}
+    .path-index{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+    .path-index a,.back-to-directory{display:inline-block;padding:7px 10px;border-radius:10px;background:var(--purple-light);color:var(--ink);font-weight:800;text-decoration:none}
+    .path-index a:hover,.back-to-directory:hover{text-decoration:underline}
+    .path-return{margin:12px 0}
+    .learning-path>.path-stage{scroll-margin-top:20px}
     .compare-line{width:100%;height:auto;display:block;background:#fbfdfb;border:1px solid var(--line);border-radius:14px;margin:12px 0}
     .compare-details{padding:12px 14px;margin-top:12px;background:var(--purple-light);border-radius:14px}
     .compare-details summary{cursor:pointer;font-weight:850;color:var(--purple)}
@@ -181,20 +188,31 @@
   <section id="learning-path">
     <h2>🧭 Chapter 2 learning sequence · 第二章学习顺序</h2>
     <p class="sub">Follow these ideas in order, or freely change the numbers in each interactive model. The detailed lessons, number lines, and original activities remain below. · 建议按以下顺序学习，也可以自由修改互动模型中的数字。详细讲解、数轴和原有活动仍保留在下方。</p>
+    <nav class="path-index" aria-label="Jump to a fraction lesson">
+      <a href="#path-01">1. Same denominator · 相同分母</a><a href="#path-02">2. Same numerator · 相同分子</a>
+      <a href="#path-03">3. Like-fraction operations · 同分母加减</a><a href="#path-04">4. Fraction types · 分数类型</a>
+      <a href="#path-05">5. Conversion · 互相转换</a><a href="#path-06">6. Equivalent fractions · 等值分数</a>
+      <a href="#path-07">7. Simplify · 约分</a><a href="#path-08">8. Common denominator · 通分</a>
+      <a href="#path-09">9. Compare · 分数比较</a><a href="#path-10">10. Unlike-fraction operations · 异分母加减</a>
+      <a href="#path-11">11. Mixed-number operations · 带分数加减</a><a href="#path-12">12. Multiply · 分数乘整数</a>
+      <a href="#path-extra">Extra practice · 拓展练习</a>
+    </nav>
     <div class="learning-path">
-      <article class="path-stage">
+      <article class="path-stage" id="path-01">
         <h3>1. Compare fractions with the same denominator · 相同分母的大小比较</h3>
         <p class="path-core">Same-sized parts: compare how many parts. · 每一份大小相同，比较份数。</p>
         <p>Change both numerators and the shared denominator in the original model. · 在原有模拟器中修改两个分子和共同分母。</p>
-        <a class="path-jump" href="#sd-n1">Open simulator · 打开模拟器</a>
+        <div class="path-simulator" id="path-sim-01"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-02">
         <h3>2. Compare fractions with the same numerator · 相同分子的大小比较</h3>
         <p class="path-core">Same number of parts: compare the size of each part. · 份数相同，比较每一份的大小。</p>
         <p>Use either of the two editable comparisons. · 使用两个可编辑比较器中的任意一个。</p>
-        <a class="path-jump" href="#sn-a-n">Open simulator · 打开模拟器</a>
+        <div class="path-simulator" id="path-sim-02"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-03">
         <h3>3. Add and subtract fractions with the same denominator · 相同分母的分数加减法</h3>
         <p class="path-core">Like-sized parts can be combined or taken away directly. · 单位相同的份可以直接合并或取走。</p>
         <div class="path-controls">
@@ -207,8 +225,9 @@
         </div>
         <div id="likeop-equation" class="path-result" aria-live="polite"></div>
         <div id="likeop-bars" class="path-model"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-04">
         <h3>4. Proper, improper, and mixed numbers · 真分数、假分数、带分数</h3>
         <p class="path-core">A fraction can be less than, equal to, or greater than one whole. · 分数可以小于、等于或大于一个整体。</p>
         <div class="path-controls">
@@ -217,23 +236,23 @@
         </div>
         <div id="type-result" class="path-result" aria-live="polite"></div>
         <div id="type-bar" class="path-model"></div>
-        <p>Change the fraction in the improper-fraction model and notice how many wholes it contains. · 在假分数模型中修改分数，观察它包含几个整体。</p>
-        <a class="path-jump" href="#mn">Open fraction model · 打开分数模型</a>
+        <div class="path-simulator" id="path-sim-04"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-05">
         <h3>5. Convert between improper fractions and mixed numbers · 假分数与带分数互相转换</h3>
         <p class="path-core">Count complete groups, then name the leftover parts. · 先数出完整的整体，再表示剩下的部分。</p>
-        <p>Try both directions in the original conversion controls. · 使用原有的两个转换模拟器练习正反两种转换。</p>
-        <a class="path-jump" href="#mi-w">Open conversion model · 打开转换模型</a>
+        <div class="path-simulator" id="path-sim-05"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-06">
         <h3>6. Equivalent fractions · 等值分数</h3>
         <p class="path-core">Different names can describe the same amount. · 不同的分数写法可以表示相同的大小。</p>
         <p>Multiply both parts by the same number, then compare the bars and matching number-line points. · 分子和分母同时乘以同一个数，再观察分数条和数轴上的对应位置。</p>
-        <a class="path-jump" href="#eq-n">Open equivalent-fraction simulator · 打开等值分数模拟器</a>
-        <a class="path-jump" href="#numberline-sim">Explore on number lines · 在数轴上探索</a>
+        <div class="path-simulator" id="path-sim-06"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-07">
         <h3>7. Simplify fractions · 约分</h3>
         <p class="path-core">Use a simpler name for the same number by dividing both parts by the same factor. · 分子、分母同时除以相同的因数，用更简单的方式表示同一个数。</p>
         <div class="path-controls">
@@ -242,8 +261,9 @@
         </div>
         <div id="simplify-equation" class="path-result" aria-live="polite"></div>
         <div id="simplify-bars" class="path-model"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-08">
         <h3>8. Find a common denominator · 通分</h3>
         <p class="path-core">Rename fractions so the parts have the same size. · 把分数改写成分母相同的等值分数，让每一份大小相同。</p>
         <div class="path-controls">
@@ -254,8 +274,9 @@
         </div>
         <div id="common-equation" class="path-result" aria-live="polite"></div>
         <div id="common-bars" class="path-model"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-09">
         <h3>9. Compare fractions with different denominators · 不同分母的大小比较</h3>
         <p class="path-core">Rewrite with a common denominator, then compare the numerators. · 先通分，再比较分子。</p>
         <div class="path-controls">
@@ -266,20 +287,22 @@
         </div>
         <div id="unlikecmp-equation" class="path-result" aria-live="polite"></div>
         <div id="unlikecmp-bars" class="path-model"></div>
+        <div class="path-simulator" id="path-sim-09"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-10">
         <h3>10. Add and subtract fractions with different denominators · 不同分母的分数加减法</h3>
         <p class="path-core">Make equal-sized parts first, then combine or take away. · 先把每一份变成相同大小，再相加或相减。</p>
-        <p>Use the step-by-step model to change the fractions and operation. · 在分步模拟器中修改分数和运算方式。</p>
-        <a class="path-jump" href="#un1">Open unlike-fraction simulator · 打开不同分母分数模拟器</a>
+        <div class="path-simulator" id="path-sim-10"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-11">
         <h3>11. Add and subtract mixed numbers · 带分数的加减法</h3>
         <p class="path-core">Combine the whole-number and fraction parts; regroup when needed. · 分别处理整数部分和分数部分，需要时进行进位或借位。</p>
-        <p>Try addition and subtraction in the step-by-step model. · 在分步模拟器中练习加法和减法。</p>
-        <a class="path-jump" href="#mw1">Open mixed-number simulator · 打开带分数模拟器</a>
+        <div class="path-simulator" id="path-sim-11"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
-      <article class="path-stage">
+      <article class="path-stage" id="path-12">
         <h3>12. Multiply a fraction by a whole number · 分数乘整数</h3>
         <p class="path-core">Repeated equal groups connect multiplication with repeated addition. · 相同份数的累加可以用乘法表示。</p>
         <div class="path-controls">
@@ -289,9 +312,16 @@
         </div>
         <div id="multfrac-equation" class="path-result" aria-live="polite"></div>
         <div id="multfrac-bars" class="path-model"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
+      </article>
+      <article class="path-stage" id="path-extra">
+        <h3>Extra practice · 拓展练习</h3>
+        <p class="path-core">Explore fractions as division and solve a visual fraction word problem. · 探索分数与除法的关系，并通过图示解决分数应用题。</p>
+        <div class="path-simulator" id="path-sim-extra"></div>
+        <p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>
       </article>
     </div>
-    <p class="sub">The detailed lesson library below keeps the original explanations, number lines, and simulators for further exploration. · 下方的详细课程保留原有讲解、数轴和模拟器，供继续探索。</p>
+    <p class="sub">The detailed lesson library below keeps the original explanations and examples. All interactive fraction simulators are gathered above. · 下方的详细课程保留原有讲解和例题；所有分数互动模拟器都集中在上方目录中。</p>
   </section>
 
   <section id="compare">
@@ -486,7 +516,7 @@
   <section id="div">
     <h2>➗ Fractions and division</h2>
     <p class="sub">Share <b>a</b> whole bars equally among <b>b</b> people. Each person gets <b>a ÷ b</b>, which is the fraction <b>a/b</b>.</p>
-    <div class="card">
+    <div class="card" id="division-sim-card">
       <div id="dv-sl"></div>
       <div class="stage"><svg id="dv-svg" viewBox="0 0 680 100"></svg></div>
       <div class="calc" id="dv-out"></div>
@@ -496,12 +526,14 @@
   <section id="mixed">
     <h2>🔄 Improper fractions and mixed numbers</h2>
     <p class="sub">Pick any improper fraction. Count the whole bars and the leftover pieces.</p>
-    <div class="card">
+    <div class="card" id="improper-fraction-sim-card">
       <div id="mx-sl"></div>
       <div class="stage"><svg id="mx-svg" viewBox="0 0 680 100"></svg></div>
       <div class="calc" id="mx-out"></div>
-      <h3 style="margin-top:16px">Now the other way: mixed number → improper fraction</h3>
-      <div class="rw"><label style="margin:0">Whole <input type="number" id="mi-w" min="1" max="9" value="3" style="max-width:80px"></label>
+    </div>
+    <div class="card" id="mixed-to-improper-sim-card">
+      <h3>Mixed number → improper fraction · 带分数化假分数</h3>
+      <div class="rw" id="mi-controls"><label style="margin:0">Whole <input type="number" id="mi-w" min="1" max="9" value="3" style="max-width:80px"></label>
         <label style="margin:0">Numerator <input type="number" id="mi-n" min="1" max="11" value="2" style="max-width:80px"></label>
         <label style="margin:0">Denominator <input type="number" id="mi-d" min="2" max="12" value="5" style="max-width:80px"></label></div>
       <div class="calc" id="mi-out"></div>
@@ -511,7 +543,7 @@
   <section id="unlike">
     <h2>➕ Adding and subtracting unlike fractions</h2>
     <p class="sub">Unlike fractions have different denominators. Press <b>Next step</b> to find a common denominator, rewrite, then add or subtract.</p>
-    <div class="card">
+    <div class="card" id="unlike-sim-card">
       <div class="rw"><button id="ul-add" class="on">+ Add</button><button id="ul-sub">− Subtract</button></div>
       <div class="rw big" id="ul-in"></div>
       <div class="rw"><button id="ul-back">◀ Back</button><button id="ul-next">Next step ▶</button><button id="ul-reset">↺ Reset</button></div>
@@ -523,7 +555,7 @@
   <section id="mixop">
     <h2>🧩 Adding and subtracting mixed numbers</h2>
     <p class="sub">Work with the whole numbers and the fractions separately. Watch for regrouping: carrying when the fractions add up to 1 or more, and borrowing when you can't subtract the fractions.</p>
-    <div class="card">
+    <div class="card" id="mixed-operations-sim-card">
       <div class="rw"><button id="mo-add" class="on">+ Add</button><button id="mo-sub">− Subtract</button></div>
       <div class="rw big" id="mo-in"></div>
       <div class="rw"><button id="mo-back">◀ Back</button><button id="mo-next">Next step ▶</button><button id="mo-reset">↺ Reset</button></div>
@@ -534,7 +566,7 @@
   <section id="left">
     <h2>🎀 Fraction word problems with bar models</h2>
     <p class="sub">A ribbon is cut for two jobs. Choose the fractions used and find what is left.</p>
-    <div class="card">
+    <div class="card" id="ribbon-sim-card">
       <div class="rw"><label style="margin:0">Used for a gift
         <select id="lf-a" style="max-width:100px"></select></label>
         <label style="margin:0">Used for a card
@@ -994,6 +1026,29 @@ Q.forEach((q,i)=>{const order=q[1].map((_,j)=>j).sort(()=>Math.random()-.5);cons
   order.forEach(j=>{const b=document.createElement('button');b.textContent=q[1][j];bs.push([b,j]);b.onclick=()=>{bs.forEach(([x,k])=>{x.disabled=true;if(k===q[2])x.classList.add('right')});
     if(j!==q[2])b.classList.add('wrong');fb.textContent=j===q[2]?'🎉 Correct!':'Not quite — the right answer is highlighted.'};c.appendChild(b)});
   c.appendChild(fb);$('quizzes').appendChild(c)});
+
+function placeSimulator(selector,target){
+  const simulator=document.querySelector(selector);
+  if(!simulator)throw new Error('Missing simulator: '+selector);
+  $(target).appendChild(simulator);
+}
+placeSimulator('#same-den-sim','path-sim-01');
+placeSimulator('#same-num-sim-a','path-sim-02');
+placeSimulator('#same-num-sim-b','path-sim-02');
+placeSimulator('#improper-fraction-sim-card','path-sim-04');
+placeSimulator('#mixed-to-improper-sim-card','path-sim-05');
+placeSimulator('#equivalent-sim','path-sim-06');
+placeSimulator('#numberline-sim','path-sim-06');
+placeSimulator('#half-benchmark-sim','path-sim-09');
+placeSimulator('#unlike-sim-card','path-sim-10');
+placeSimulator('#mixed-operations-sim-card','path-sim-11');
+placeSimulator('#division-sim-card','path-sim-extra');
+placeSimulator('#ribbon-sim-card','path-sim-extra');
+
+document.querySelectorAll('section:not(#learning-path)').forEach(section=>{
+  const heading=section.querySelector(':scope > h2');
+  if(heading)heading.insertAdjacentHTML('afterend','<p class="path-return"><a class="back-to-directory" href="#learning-path">↑ Back to learning directory · 返回学习目录</a></p>');
+});
 </script>
 </body>
 </html>
