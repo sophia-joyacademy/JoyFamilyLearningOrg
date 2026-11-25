@@ -89,19 +89,74 @@
     .big .fr,.big{font-size:1.25rem}
     .stage{background:#fbfdfb;border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:12px;overflow-x:auto}
     .stage svg{width:100%;height:auto;display:block}
+    .compare-stage{margin:18px 0;padding:20px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+    .compare-stage h3{margin:0 0 12px;color:var(--purple)}
+    .compare-stage p{margin:8px 0;color:var(--muted)}
+    .compare-stage ul{color:var(--muted);padding-left:22px}
+    .compare-stage li{margin:5px 0}
+    .compare-pair{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:12px 0;font-size:1.15rem;font-weight:800}
+    .fraction-bar{display:grid;max-width:440px;height:30px;margin:6px 0 12px;border:1px solid var(--ink);border-right:0}
+    .fraction-bar span{border-right:1px solid var(--ink);background:#fff}
+    .fraction-bar span.filled{background:var(--purple)}
+    .fraction-bar.teal span.filled{background:var(--teal)}
+    .fraction-bar.orange span.filled{background:var(--orange)}
+    .compare-sim{margin-top:16px;padding:16px;background:#fbfdfb;border:1px solid var(--line);border-radius:16px}
+    .compare-sim h4{margin:0 0 10px;color:var(--ink)}
+    .compare-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap}
+    .compare-controls label{margin:0}
+    .compare-controls input{width:84px;max-width:84px}
+    .compare-answer{font-weight:800;color:var(--teal)}
+    .compare-sim .fraction-bar{height:auto;grid-auto-rows:30px}
+    @media(max-width:600px){.compare-controls{gap:8px}.compare-controls input{width:72px;max-width:72px}}
+    .numberline-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:12px 0}
+    .numberline-controls fieldset{min-width:0;padding:12px;border:1px solid var(--line);border-radius:14px}
+    .numberline-controls legend{padding:0 6px;font-weight:850;color:var(--purple)}
+    .numberline-controls label{display:inline-flex;align-items:center;gap:6px;margin:5px 10px 5px 0;font-size:.88rem}
+    .numberline-controls input{width:68px;max-width:68px;padding:6px 8px}
+    .point-key{font-weight:850}
+    .point-key.a{color:var(--purple)}
+    .point-key.b{color:var(--orange)}
+    .numberline-result{padding:12px 14px;background:var(--teal-light);border-radius:14px;font-weight:750}
+    .numberline-result:empty{display:none}
+    .halfline-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap}
+    .halfline-controls label{margin:0}
+    .halfline-controls input{width:78px;max-width:78px}
+    .halfline-svg{width:100%;height:auto;display:block;margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:14px}
+    .halfline-result{min-height:1.5em;margin:4px 0 14px!important;font-weight:800;color:var(--teal)!important}
+    .compare-callout{padding:12px 16px;margin-top:12px;background:var(--teal-light);border-radius:14px;color:var(--ink)}
+    .compare-callout strong{color:var(--teal)}
+    .compare-table{width:100%;border-collapse:collapse;margin:12px 0}
+    .compare-table th,.compare-table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}
+    .compare-table th{color:var(--purple)}
+    .learning-path{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .path-stage{padding:16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .path-stage h3{margin:0 0 8px;color:var(--purple);font-size:1.04rem}
+    .path-stage p{margin:7px 0;color:var(--muted)}
+    .path-core{font-weight:750;color:var(--ink)!important}
+    .path-controls{display:flex;align-items:end;gap:8px;flex-wrap:wrap;margin:10px 0}
+    .path-controls label{margin:0;font-size:.88rem}
+    .path-controls input,.path-controls select{width:76px;max-width:76px;padding:7px}
+    .path-result{font-weight:800;color:var(--teal)!important}
+    .path-model{margin:8px 0}
+    .path-jump{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:10px;background:var(--purple-light);color:var(--ink);font-weight:800;text-decoration:none}
+    .path-jump:hover{text-decoration:underline}
+    .compare-line{width:100%;height:auto;display:block;background:#fbfdfb;border:1px solid var(--line);border-radius:14px;margin:12px 0}
+    .compare-details{padding:12px 14px;margin-top:12px;background:var(--purple-light);border-radius:14px}
+    .compare-details summary{cursor:pointer;font-weight:850;color:var(--purple)}
+    @media(max-width:600px){.compare-stage{padding:15px}.compare-table th,.compare-table td{padding:7px 5px;font-size:.86rem}}
   </style>
 </head>
 <body>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="index.html"><span class="brand-icon">∑</span> JOY FAMILY LEARNING MATH STUDY GUIDE</a>
-  <nav><a href="grade5.html">← Grade 5</a><a href="#map">Concept map</a><a href="#div">Fractions and division</a><a href="#mixed">Mixed numbers</a><a href="#unlike">Unlike fractions</a><a href="#mixop">Mixed number operations</a><a href="#left">Word problems</a><a href="#quiz">Quiz</a></nav>
+  <nav><a href="grade5.html">← Grade 5</a><a href="#learning-path">12-step sequence</a><a href="#map">Concept map</a><a href="#compare">Compare fractions</a><a href="#div">Fractions and division</a><a href="#mixed">Mixed numbers</a><a href="#unlike">Unlike fractions</a><a href="#mixop">Mixed number operations</a><a href="#left">Word problems</a><a href="#quiz">Quiz</a></nav>
 </div></header>
 
 <div class="wrap">
   <header>
     <span class="eyebrow">Grade 5 · Chapter 2</span>
     <h1><span>Fractions and Mixed Numbers</span></h1>
-    <p class="lead">See a fraction as a division answer, switch between improper fractions and mixed numbers, and add and subtract unlike fractions and mixed numbers one step at a time.</p>
+    <p class="lead">Follow a 12-step learning sequence from comparing fractions to multiplying a fraction by a whole number, with interactive models throughout. · 按照从分数比较到分数乘整数的12步顺序学习，并通过互动模型自由探索。</p>
   </header>
 
   <section id="map">
@@ -121,6 +176,311 @@
       <div class="card"><span class="tag t">Improper fraction</span><p>The numerator is greater than or equal to the denominator: <span class="fr"><span>7</span><span>4</span></span>.</p></div>
       <div class="card"><span class="tag o">Mixed number</span><p>A whole number and a fraction together: 1<span class="fr"><span>3</span><span>4</span></span>. Same value as <span class="fr"><span>7</span><span>4</span></span>.</p></div>
     </div>
+  </section>
+
+  <section id="learning-path">
+    <h2>🧭 Chapter 2 learning sequence · 第二章学习顺序</h2>
+    <p class="sub">Follow these ideas in order, or freely change the numbers in each interactive model. The detailed lessons, number lines, and original activities remain below. · 建议按以下顺序学习，也可以自由修改互动模型中的数字。详细讲解、数轴和原有活动仍保留在下方。</p>
+    <div class="learning-path">
+      <article class="path-stage">
+        <h3>1. Compare fractions with the same denominator · 相同分母的大小比较</h3>
+        <p class="path-core">Same-sized parts: compare how many parts. · 每一份大小相同，比较份数。</p>
+        <p>Change both numerators and the shared denominator in the original model. · 在原有模拟器中修改两个分子和共同分母。</p>
+        <a class="path-jump" href="#sd-n1">Open simulator · 打开模拟器</a>
+      </article>
+      <article class="path-stage">
+        <h3>2. Compare fractions with the same numerator · 相同分子的大小比较</h3>
+        <p class="path-core">Same number of parts: compare the size of each part. · 份数相同，比较每一份的大小。</p>
+        <p>Use either of the two editable comparisons. · 使用两个可编辑比较器中的任意一个。</p>
+        <a class="path-jump" href="#sn-a-n">Open simulator · 打开模拟器</a>
+      </article>
+      <article class="path-stage">
+        <h3>3. Add and subtract fractions with the same denominator · 相同分母的分数加减法</h3>
+        <p class="path-core">Like-sized parts can be combined or taken away directly. · 单位相同的份可以直接合并或取走。</p>
+        <div class="path-controls">
+          <label>First numerator · 分子1 <input id="likeop-a" type="number" min="0" max="12" value="2"></label>
+          <label>Second numerator · 分子2 <input id="likeop-b" type="number" min="0" max="12" value="1"></label>
+          <label>Denominator · 分母 <input id="likeop-d" type="number" min="2" max="12" value="5"></label>
+          <label>Operation · 运算
+            <select id="likeop-sign"><option value="+">Add · 加</option><option value="-">Subtract · 减</option></select>
+          </label>
+        </div>
+        <div id="likeop-equation" class="path-result" aria-live="polite"></div>
+        <div id="likeop-bars" class="path-model"></div>
+      </article>
+      <article class="path-stage">
+        <h3>4. Proper, improper, and mixed numbers · 真分数、假分数、带分数</h3>
+        <p class="path-core">A fraction can be less than, equal to, or greater than one whole. · 分数可以小于、等于或大于一个整体。</p>
+        <div class="path-controls">
+          <label>Numerator · 分子 <input id="type-n" type="number" min="1" max="40" value="7"></label>
+          <label>Denominator · 分母 <input id="type-d" type="number" min="2" max="12" value="4"></label>
+        </div>
+        <div id="type-result" class="path-result" aria-live="polite"></div>
+        <div id="type-bar" class="path-model"></div>
+        <p>Change the fraction in the improper-fraction model and notice how many wholes it contains. · 在假分数模型中修改分数，观察它包含几个整体。</p>
+        <a class="path-jump" href="#mn">Open fraction model · 打开分数模型</a>
+      </article>
+      <article class="path-stage">
+        <h3>5. Convert between improper fractions and mixed numbers · 假分数与带分数互相转换</h3>
+        <p class="path-core">Count complete groups, then name the leftover parts. · 先数出完整的整体，再表示剩下的部分。</p>
+        <p>Try both directions in the original conversion controls. · 使用原有的两个转换模拟器练习正反两种转换。</p>
+        <a class="path-jump" href="#mi-w">Open conversion model · 打开转换模型</a>
+      </article>
+      <article class="path-stage">
+        <h3>6. Equivalent fractions · 等值分数</h3>
+        <p class="path-core">Different names can describe the same amount. · 不同的分数写法可以表示相同的大小。</p>
+        <p>Multiply both parts by the same number, then compare the bars and matching number-line points. · 分子和分母同时乘以同一个数，再观察分数条和数轴上的对应位置。</p>
+        <a class="path-jump" href="#eq-n">Open equivalent-fraction simulator · 打开等值分数模拟器</a>
+        <a class="path-jump" href="#numberline-sim">Explore on number lines · 在数轴上探索</a>
+      </article>
+      <article class="path-stage">
+        <h3>7. Simplify fractions · 约分</h3>
+        <p class="path-core">Use a simpler name for the same number by dividing both parts by the same factor. · 分子、分母同时除以相同的因数，用更简单的方式表示同一个数。</p>
+        <div class="path-controls">
+          <label>Numerator · 分子 <input id="simplify-n" type="number" min="1" max="24" value="6"></label>
+          <label>Denominator · 分母 <input id="simplify-d" type="number" min="2" max="24" value="8"></label>
+        </div>
+        <div id="simplify-equation" class="path-result" aria-live="polite"></div>
+        <div id="simplify-bars" class="path-model"></div>
+      </article>
+      <article class="path-stage">
+        <h3>8. Find a common denominator · 通分</h3>
+        <p class="path-core">Rename fractions so the parts have the same size. · 把分数改写成分母相同的等值分数，让每一份大小相同。</p>
+        <div class="path-controls">
+          <label>Fraction 1 numerator · 分数1分子 <input id="common-n1" type="number" min="1" max="11" value="1"></label>
+          <label>Denominator · 分母 <input id="common-d1" type="number" min="2" max="12" value="4"></label>
+          <label>Fraction 2 numerator · 分数2分子 <input id="common-n2" type="number" min="1" max="11" value="1"></label>
+          <label>Denominator · 分母 <input id="common-d2" type="number" min="2" max="12" value="6"></label>
+        </div>
+        <div id="common-equation" class="path-result" aria-live="polite"></div>
+        <div id="common-bars" class="path-model"></div>
+      </article>
+      <article class="path-stage">
+        <h3>9. Compare fractions with different denominators · 不同分母的大小比较</h3>
+        <p class="path-core">Rewrite with a common denominator, then compare the numerators. · 先通分，再比较分子。</p>
+        <div class="path-controls">
+          <label>Fraction 1 numerator · 分数1分子 <input id="unlikecmp-n1" type="number" min="1" max="11" value="2"></label>
+          <label>Denominator · 分母 <input id="unlikecmp-d1" type="number" min="2" max="12" value="3"></label>
+          <label>Fraction 2 numerator · 分数2分子 <input id="unlikecmp-n2" type="number" min="1" max="11" value="3"></label>
+          <label>Denominator · 分母 <input id="unlikecmp-d2" type="number" min="2" max="12" value="4"></label>
+        </div>
+        <div id="unlikecmp-equation" class="path-result" aria-live="polite"></div>
+        <div id="unlikecmp-bars" class="path-model"></div>
+      </article>
+      <article class="path-stage">
+        <h3>10. Add and subtract fractions with different denominators · 不同分母的分数加减法</h3>
+        <p class="path-core">Make equal-sized parts first, then combine or take away. · 先把每一份变成相同大小，再相加或相减。</p>
+        <p>Use the step-by-step model to change the fractions and operation. · 在分步模拟器中修改分数和运算方式。</p>
+        <a class="path-jump" href="#un1">Open unlike-fraction simulator · 打开不同分母分数模拟器</a>
+      </article>
+      <article class="path-stage">
+        <h3>11. Add and subtract mixed numbers · 带分数的加减法</h3>
+        <p class="path-core">Combine the whole-number and fraction parts; regroup when needed. · 分别处理整数部分和分数部分，需要时进行进位或借位。</p>
+        <p>Try addition and subtraction in the step-by-step model. · 在分步模拟器中练习加法和减法。</p>
+        <a class="path-jump" href="#mw1">Open mixed-number simulator · 打开带分数模拟器</a>
+      </article>
+      <article class="path-stage">
+        <h3>12. Multiply a fraction by a whole number · 分数乘整数</h3>
+        <p class="path-core">Repeated equal groups connect multiplication with repeated addition. · 相同份数的累加可以用乘法表示。</p>
+        <div class="path-controls">
+          <label>Numerator · 分子 <input id="multfrac-n" type="number" min="1" max="8" value="2"></label>
+          <label>Denominator · 分母 <input id="multfrac-d" type="number" min="2" max="8" value="5"></label>
+          <label>Whole number · 整数 <input id="multfrac-w" type="number" min="2" max="5" value="3"></label>
+        </div>
+        <div id="multfrac-equation" class="path-result" aria-live="polite"></div>
+        <div id="multfrac-bars" class="path-model"></div>
+      </article>
+    </div>
+    <p class="sub">The detailed lesson library below keeps the original explanations, number lines, and simulators for further exploration. · 下方的详细课程保留原有讲解、数轴和模拟器，供继续探索。</p>
+  </section>
+
+  <section id="compare">
+    <h2>⚖️ Comparing fractions · 分数的大小比较</h2>
+    <p class="sub">Compare the amounts, not just the digits. Use equal parts, number lines, benchmarks, and equivalent fractions to explain why one fraction is greater than another. · 比较的是分数表示的大小，而不只是数字。可以借助相同大小的份、数轴、基准数和等值分数，解释分数为什么更大。</p>
+
+    <article class="compare-stage">
+      <h3>Same denominator · 相同分母的分数比较</h3>
+      <p>Start with <span class="fr"><span>2</span><span>5</span></span> and <span class="fr"><span>3</span><span>5</span></span>. Change the numerators or the shared denominator and watch what happens. · 先看 <span class="fr"><span>2</span><span>5</span></span> 和 <span class="fr"><span>3</span><span>5</span></span>。修改分子或共同的分母，观察分数的大小如何变化。</p>
+      <div class="compare-sim" id="same-den-sim" role="group" aria-labelledby="same-den-title">
+        <h4 id="same-den-title">Try it · 试试看</h4>
+        <div class="compare-controls">
+          <label>First numerator · 第一个分子 <input id="sd-n1" type="number" min="1" max="12" value="2"></label>
+          <label>Second numerator · 第二个分子 <input id="sd-n2" type="number" min="1" max="12" value="3"></label>
+          <label>Shared denominator · 共同分母 <input id="sd-d" type="number" min="2" max="12" value="5"></label>
+        </div>
+        <div class="compare-pair" id="sd-equation" aria-live="polite"></div>
+        <div id="sd-bars"></div>
+        <p class="compare-answer" id="sd-result" aria-live="polite"></p>
+      </div>
+      <p><strong>Think together · 一起想一想：</strong></p>
+      <ul>
+        <li>How many equal parts is each whole divided into? · 两个整体都被平均分成了几份？</li>
+        <li>Are the pieces the same size? · 每一份的大小相同吗？</li>
+        <li>Which fraction has more pieces? · 哪个分数表示的份数更多？</li>
+        <li>What can we conclude when denominators are the same? · 分母相同时，我们可以得出什么结论？</li>
+      </ul>
+      <div class="compare-callout"><strong>When the denominators are the same, the fraction with the greater numerator is greater.</strong><br>分母相同，分子越大，分数越大。</div>
+    </article>
+
+    <article class="compare-stage">
+      <h3>Same numerator · 相同分子的分数比较</h3>
+      <p>This is a chance to look beyond the size of the denominator: when the numerator stays the same, the pieces get smaller as the whole is divided into more parts. · 这一步要特别留意：分子相同时，不能只看哪个数字大。整体分得越多，每一份就越小。</p>
+      <p>Imagine two identical cakes. One is shared equally among 3 people; the other is shared equally among 8. Which person gets a larger piece, and why? · 想象两个一样大的蛋糕：一个平均分给3个人，一个平均分给8个人。哪一个人分到的蛋糕更大？为什么？</p>
+      <div class="compare-sim" id="same-num-sim-a" role="group" aria-labelledby="same-num-title-a">
+        <h4 id="same-num-title-a">Compare two fractions · 比较两个分数</h4>
+        <div class="compare-controls">
+          <label>Shared numerator · 共同分子 <input id="sn-a-n" type="number" min="1" max="12" value="2"></label>
+          <label>First denominator · 第一个分母 <input id="sn-a-d1" type="number" min="2" max="12" value="3"></label>
+          <label>Second denominator · 第二个分母 <input id="sn-a-d2" type="number" min="2" max="12" value="5"></label>
+        </div>
+        <div class="compare-pair" id="sn-a-equation" aria-live="polite"></div>
+        <div id="sn-a-bars"></div>
+        <p class="compare-answer" id="sn-a-result" aria-live="polite"></p>
+      </div>
+      <div class="compare-sim" id="same-num-sim-b" role="group" aria-labelledby="same-num-title-b">
+        <h4 id="same-num-title-b">Compare two fractions · 比较两个分数</h4>
+        <div class="compare-controls">
+          <label>Shared numerator · 共同分子 <input id="sn-b-n" type="number" min="1" max="12" value="3"></label>
+          <label>First denominator · 第一个分母 <input id="sn-b-d1" type="number" min="2" max="12" value="4"></label>
+          <label>Second denominator · 第二个分母 <input id="sn-b-d2" type="number" min="2" max="12" value="8"></label>
+        </div>
+        <div class="compare-pair" id="sn-b-equation" aria-live="polite"></div>
+        <div id="sn-b-bars"></div>
+        <p class="compare-answer" id="sn-b-result" aria-live="polite"></p>
+      </div>
+      <div class="compare-callout"><strong>When the numerators are the same, the fraction with the smaller denominator is greater.</strong><br>分子相同，分母越小，分数越大。</div>
+    </article>
+
+    <article class="compare-stage">
+      <h3>Fractions on a number line · 利用数轴理解分数</h3>
+      <p>A fraction is a number, not only a piece of a cake. Mark fractions on a number line and explain where each one belongs. · 分数不只是蛋糕的一部分，它本身也是一个数。请把分数标在数轴上，并说说每个分数应该放在哪里。</p>
+      <svg class="compare-line" viewBox="0 0 680 150" role="img" aria-labelledby="fraction-line-title fraction-line-desc">
+        <title id="fraction-line-title">Fractions on a number line · 分数数轴</title>
+        <desc id="fraction-line-desc">One half and two fourths share the same point; three eighths is to the left, and four sevenths is to the right. · 二分之一和四分之二在同一点，八分之三在左侧，七分之四在右侧。</desc>
+        <line x1="70" y1="82" x2="610" y2="82" stroke="#172c3a" stroke-width="3"/>
+        <path d="M70 82 l12 -7 v14 z M610 82 l-12 -7 v14 z" fill="#172c3a"/>
+        <line x1="340" y1="24" x2="340" y2="115" stroke="#f07846" stroke-width="3" stroke-dasharray="7 6"/>
+        <g stroke="#172c3a" stroke-width="2">
+          <line x1="70" y1="72" x2="70" y2="92"/><line x1="272.5" y1="73" x2="272.5" y2="91"/>
+          <line x1="340" y1="70" x2="340" y2="94"/><line x1="378.6" y1="73" x2="378.6" y2="91"/>
+          <line x1="610" y1="72" x2="610" y2="92"/>
+        </g>
+        <circle cx="272.5" cy="82" r="6" fill="#7962cb"/><circle cx="340" cy="82" r="7" fill="#f07846"/><circle cx="378.6" cy="82" r="6" fill="#087f79"/>
+        <text x="70" y="120" text-anchor="middle" font-size="16" fill="#172c3a">0</text>
+        <text x="272.5" y="52" text-anchor="middle" font-size="15" font-weight="800" fill="#7962cb">3/8</text>
+        <text x="340" y="136" text-anchor="middle" font-size="15" font-weight="800" fill="#f07846">1/2 = 2/4</text>
+        <text x="378.6" y="52" text-anchor="middle" font-size="15" font-weight="800" fill="#087f79">4/7</text>
+        <text x="610" y="120" text-anchor="middle" font-size="16" fill="#172c3a">1</text>
+        <text x="352" y="20" font-size="12" font-weight="700" fill="#f07846">half · 整体的一半</text>
+      </svg>
+      <div class="compare-sim" id="numberline-sim" role="group" aria-labelledby="numberline-sim-title">
+        <h4 id="numberline-sim-title">Explore equivalent fractions · 探索等值分数</h4>
+        <p>Each number line shows one whole. Choose how many equal parts to divide it into, then choose two numerators on each line. Look for fractions whose points line up vertically. · 每条数轴都表示一个整体。选择把整体平均分成几份，再为每条数轴选择两个分子。观察哪些分数的点在竖直方向上重合。</p>
+        <div class="numberline-controls">
+          <fieldset>
+            <legend>Number line 1 · 数轴一</legend>
+            <label>Denominator · 分母 <input id="nl1-d" type="number" min="2" max="12" value="2"></label>
+            <label><span class="point-key a">● A</span> Numerator · 分子 <input id="nl1-a" type="number" min="0" max="2" value="1"></label>
+            <label><span class="point-key b">● B</span> Numerator · 分子 <input id="nl1-b" type="number" min="0" max="2" value="0"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Number line 2 · 数轴二</legend>
+            <label>Denominator · 分母 <input id="nl2-d" type="number" min="2" max="12" value="4"></label>
+            <label><span class="point-key a">● A</span> Numerator · 分子 <input id="nl2-a" type="number" min="0" max="4" value="2"></label>
+            <label><span class="point-key b">● B</span> Numerator · 分子 <input id="nl2-b" type="number" min="0" max="4" value="3"></label>
+          </fieldset>
+        </div>
+        <div class="stage"><svg id="numberline-sim-svg" viewBox="0 0 800 230" role="img" aria-labelledby="numberline-sim-svg-title numberline-sim-svg-desc"></svg></div>
+        <p class="numberline-result" id="numberline-sim-result" aria-live="polite"></p>
+      </div>
+      <ul>
+        <li>Numbers farther to the right are greater. · 越靠右的数越大。</li>
+        <li>The denominator tells how many equal parts make one unit. · 分母表示一个单位平均分成多少份。</li>
+        <li>The numerator tells how many parts to count from 0. · 分子表示从0开始数多少份。</li>
+        <li>Different fractions can land at the same point. For example, <span class="fr"><span>1</span><span>2</span></span> and <span class="fr"><span>2</span><span>4</span></span> are at the same point. · 不同的分数可能落在数轴上的同一点，例如 <span class="fr"><span>1</span><span>2</span></span> 和 <span class="fr"><span>2</span><span>4</span></span>。这自然引出了等值分数。</li>
+      </ul>
+    </article>
+
+    <article class="compare-stage">
+      <h3>Compare with one-half · 与二分之一比较</h3>
+      <p>One-half is a useful benchmark. Adjust each fraction and compare its point with the marked <span class="fr"><span>1</span><span>2</span></span> on its number line. You can reason about some fractions without finding a common denominator. · 二分之一是一个很有用的基准数。修改分数，观察它在数轴上的位置与标出的 <span class="fr"><span>1</span><span>2</span></span> 相比如何。有些分数不需要通分也能比较。</p>
+      <div class="compare-pair"><span><span class="fr"><span>3</span><span>8</span></span></span><span>&lt;</span><span><span class="fr"><span>1</span><span>2</span></span></span><span>&lt;</span><span><span class="fr"><span>4</span><span>7</span></span></span></div>
+      <div class="compare-sim" id="half-benchmark-sim" role="group" aria-labelledby="half-benchmark-title">
+        <h4 id="half-benchmark-title">Try two fractions · 试试比较两个分数</h4>
+        <p>Choose a numerator and denominator for each fraction. The orange dashed mark on both number lines is always <span class="fr"><span>1</span><span>2</span></span>. · 分别选择两个分数的分子和分母。两条数轴上的橙色虚线都固定表示 <span class="fr"><span>1</span><span>2</span></span>。</p>
+        <div class="compare-stage">
+          <div class="halfline-controls">
+            <label>Fraction 1 numerator · 分数1的分子 <input id="half1-n" type="number" min="0" max="12" value="3"></label>
+            <label>Fraction 1 denominator · 分数1的分母 <input id="half1-d" type="number" min="2" max="12" value="8"></label>
+          </div>
+          <svg id="halfline1" class="halfline-svg" viewBox="0 0 800 100" role="img" aria-label="Fraction 1 and one-half on a number line"></svg>
+          <p class="halfline-result" id="half-result1" aria-live="polite"></p>
+        </div>
+        <div class="compare-stage">
+          <div class="halfline-controls">
+            <label>Fraction 2 numerator · 分数2的分子 <input id="half2-n" type="number" min="0" max="12" value="4"></label>
+            <label>Fraction 2 denominator · 分数2的分母 <input id="half2-d" type="number" min="2" max="12" value="7"></label>
+          </div>
+          <svg id="halfline2" class="halfline-svg" viewBox="0 0 800 100" role="img" aria-label="Fraction 2 and one-half on a number line"></svg>
+          <p class="halfline-result" id="half-result2" aria-live="polite"></p>
+        </div>
+      </div>
+      <p>Decide whether each fraction is less than, equal to, or greater than <span class="fr"><span>1</span><span>2</span></span>. Try to explain without converting to a common denominator. · 判断每个分数小于、等于还是大于 <span class="fr"><span>1</span><span>2</span></span>。试着不通分，解释你的想法。</p>
+      <table class="compare-table">
+        <thead><tr><th>Fraction · 分数</th><th>Compared with <span class="fr"><span>1</span><span>2</span></span> · 与二分之一比较</th><th>Reason · 理由</th></tr></thead>
+        <tbody>
+          <tr><td>2/5</td><td>Less · 小于</td><td>2 of 5 equal parts is less than half. · 5份中的2份不到一半。</td></tr>
+          <tr><td>4/8</td><td>Equal · 等于</td><td>Half of 8 parts is 4 parts. · 8份的一半是4份。</td></tr>
+          <tr><td>5/9</td><td>Greater · 大于</td><td>5 parts is more than half of 9 parts. · 9份的一半不到5份。</td></tr>
+          <tr><td>3/7</td><td>Less · 小于</td><td>Half of 7 is 3 1/2 parts, and 3 is less. · 7份的一半是3份半，3份更少。</td></tr>
+          <tr><td>7/12</td><td>Greater · 大于</td><td>Half of 12 is 6 parts, and 7 is more. · 12份的一半是6份，7份更多。</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Challenge · 挑战：</strong>Without using a common denominator, compare <span class="fr"><span>3</span><span>7</span></span> and <span class="fr"><span>5</span><span>8</span></span>. · 不通分，比较 <span class="fr"><span>3</span><span>7</span></span> 和 <span class="fr"><span>5</span><span>8</span></span>。</p>
+      <details class="compare-details"><summary>Show one way to reason · 查看一种推理方法</summary><p><span class="fr"><span>3</span><span>7</span></span> is less than one-half because half of 7 is 3 1/2. <span class="fr"><span>5</span><span>8</span></span> is greater than one-half because half of 8 is 4. Therefore, <span class="fr"><span>3</span><span>7</span></span> &lt; <span class="fr"><span>1</span><span>2</span></span> &lt; <span class="fr"><span>5</span><span>8</span></span>. · <span class="fr"><span>3</span><span>7</span></span> 小于二分之一，因为7份的一半是3份半；<span class="fr"><span>5</span><span>8</span></span> 大于二分之一，因为8份的一半是4份。因此 <span class="fr"><span>3</span><span>7</span></span> &lt; <span class="fr"><span>1</span><span>2</span></span> &lt; <span class="fr"><span>5</span><span>8</span></span>。</p></details>
+    </article>
+
+    <article class="compare-stage">
+      <h3>Equivalent fractions · 等值分数</h3>
+      <p>Start with one-half. Fold, draw, or shade a shape; then divide each half into 2, 3, 4, or 5 equal pieces. What changes? What stays the same? · 从二分之一开始。通过折纸、画图或涂色，再把每一半平均分成2份、3份、4份或5份。什么变了？什么没有变？</p>
+      <div class="compare-pair"><span><span class="fr"><span>1</span><span>2</span></span></span><span>=</span><span><span class="fr"><span>2</span><span>4</span></span></span></div>
+      <div class="fraction-bar" role="img" aria-label="One half: one of two equal parts is shaded" style="grid-template-columns:repeat(2,1fr)"><span class="filled"></span><span></span></div>
+      <div class="fraction-bar teal" role="img" aria-label="Two fourths: two of four equal parts are shaded" style="grid-template-columns:repeat(4,1fr)"><span class="filled"></span><span class="filled"></span><span></span><span></span></div>
+      <div class="compare-sim" id="equivalent-sim" role="group" aria-labelledby="equivalent-sim-title">
+        <h4 id="equivalent-sim-title">Make an equivalent fraction · 生成等值分数</h4>
+        <p>Choose a fraction, then multiply <strong>both</strong> its numerator and denominator by the same number. Watch the shaded amount stay the same. · 选择一个分数，再把它的<strong>分子和分母同时</strong>乘以同一个数，观察涂色部分的大小保持不变。</p>
+        <div class="compare-controls">
+          <label>Numerator · 分子 <input id="eq-n" type="number" min="1" max="12" value="1"></label>
+          <label>Denominator · 分母 <input id="eq-d" type="number" min="2" max="12" value="2"></label>
+          <label>Multiply both by · 同乘
+            <select id="eq-factor">
+              <option value="2">2 · 2/2</option>
+              <option value="3">3 · 3/3</option>
+            </select>
+          </label>
+        </div>
+        <p class="compare-pair" id="eq-equation" aria-live="polite"></p>
+        <div id="eq-bars"></div>
+        <p class="compare-answer" id="eq-result" aria-live="polite"></p>
+        <p><strong>Remember · 记住：</strong>Multiplying only the numerator or only the denominator usually changes the value. To keep the fraction equal, multiply both by the same nonzero number. · 只乘分子或只乘分母，通常会改变分数的大小。要保持分数相等，分子和分母必须同时乘以同一个非零数。</p>
+      </div>
+      <ul>
+        <li>There are more pieces after we divide each part again. · 每一份再分之后，份数变多了。</li>
+        <li>The number of shaded pieces also increases. · 涂色的份数也增加了。</li>
+        <li>The actual shaded amount does not change. · 涂色部分实际表示的大小没有改变。</li>
+      </ul>
+      <details class="compare-details"><summary>After exploring, state the rule · 探究后，再来总结规律</summary><p>To make an equivalent fraction, multiply or divide the numerator and denominator by the same nonzero number. For example, <span class="fr"><span>1</span><span>2</span></span> = <span class="fr"><span>1×2</span><span>2×2</span></span> = <span class="fr"><span>2</span><span>4</span></span> = <span class="fr"><span>3</span><span>6</span></span> = <span class="fr"><span>4</span><span>8</span></span> = <span class="fr"><span>5</span><span>10</span></span>. · 要得到等值分数，分子和分母同时乘或除以同一个非零数。例如：<span class="fr"><span>1</span><span>2</span></span> = <span class="fr"><span>1×2</span><span>2×2</span></span> = <span class="fr"><span>2</span><span>4</span></span> = <span class="fr"><span>3</span><span>6</span></span> = <span class="fr"><span>4</span><span>8</span></span> = <span class="fr"><span>5</span><span>10</span></span>。</p></details>
+    </article>
+
+    <article class="compare-stage">
+      <h3>Unlike numerators and denominators · 分子、分母都不同的分数比较</h3>
+      <p>Compare <span class="fr"><span>2</span><span>3</span></span> and <span class="fr"><span>3</span><span>4</span></span>. To compare them fairly, rename both using twelfths: 12 is a common denominator for 3 and 4. · 比较 <span class="fr"><span>2</span><span>3</span></span> 和 <span class="fr"><span>3</span><span>4</span></span>。为了公平比较，可以把它们都改写成以十二为分母的分数：12是3和4的公分母。</p>
+      <div class="compare-pair"><span><span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>8</span><span>12</span></span></span><span>&lt;</span><span><span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>9</span><span>12</span></span></span></div>
+      <div class="fraction-bar" role="img" aria-label="Eight twelfths shaded" style="grid-template-columns:repeat(12,1fr)"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span><span></span></div>
+      <div class="fraction-bar orange" role="img" aria-label="Nine twelfths shaded" style="grid-template-columns:repeat(12,1fr)"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span><span></span></div>
+      <p class="eq"><span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>8</span><span>12</span></span> &lt; <span class="fr"><span>9</span><span>12</span></span> = <span class="fr"><span>3</span><span>4</span></span></p>
+      <div class="compare-callout"><strong>Common denominator · 公分母：</strong>Rewrite the fractions as equivalent fractions with the same denominator. Then compare the numerators. This builds on the equal-sized parts we have already explored. · 把分数改写成分母相同的等值分数，再比较分子。这样比较时，每一份的大小就相同了。<br><strong>We compare by reasoning about equal parts—not by memorizing cross-multiplication.</strong><br>我们通过理解相同大小的份来比较，而不是只记交叉相乘的步骤。</div>
+    </article>
   </section>
 
   <section id="div">
@@ -221,6 +581,230 @@ const M=(w,n,d)=>!n?String(w):(w?w:'')+F(n,d);
 const mixedOf=(n,d)=>{const w=Math.floor(n/d),r=n%d,g=r?gcd(r,d):1;return [w,r/g,r?d/g:1]};
 const NS='http://www.w3.org/2000/svg';
 const COL=['#7962cb','#087f79','#f07846','#3b82c4'];
+
+/* fraction comparison simulators */
+function boundedInput(id,min,max){
+  const input=$(id);
+  const value=Number(input.value);
+  const safe=Number.isFinite(value)?Math.max(min,Math.min(max,Math.floor(value))):min;
+  input.value=safe;
+  return safe;
+}
+function comparisonBar(n,d,color,label){
+  const cells=Math.ceil(n/d)*d;
+  let html='<div class="fraction-bar '+color+'" role="img" aria-label="'+label+': '+n+' of '+d+' equal parts in each whole are shaded" style="grid-template-columns:repeat('+d+',minmax(0,1fr));height:'+Math.ceil(n/d)*30+'px">';
+  for(let i=0;i<cells;i++)html+='<span'+(i<n?' class="filled"':'')+'></span>';
+  return html+'</div>';
+}
+function initLearningPathSimulators(){
+  const likeUpdate=()=>{
+    const d=boundedInput('likeop-d',2,12),a=boundedInput('likeop-a',0,d),b=boundedInput('likeop-b',0,d),sign=$('likeop-sign').value;
+    $('likeop-a').max=d;$('likeop-b').max=d;
+    const result=sign==='+'?a+b:a-b;
+    const resultText=result<0?'−'+F(-result,d):F(result,d);
+    $('likeop-equation').innerHTML=F(a,d)+' '+(sign==='+'?'+':'−')+' '+F(b,d)+' = '+resultText;
+    $('likeop-bars').innerHTML=result<0
+      ?'<p>For a nonnegative result, choose a first fraction at least as large as the second. · 若要得到非负结果，请选择不小于第二个分数的第一个分数。</p>'
+      :comparisonBar(a,d,'','First fraction · 第一个分数')+comparisonBar(b,d,'teal','Second fraction · 第二个分数')+comparisonBar(result,d,'orange','Result · 结果');
+  };
+  ['likeop-a','likeop-b','likeop-d','likeop-sign'].forEach(id=>$(id).addEventListener('input',likeUpdate));
+  $('likeop-sign').addEventListener('change',likeUpdate);
+  likeUpdate();
+
+  const typeUpdate=()=>{
+    const n=boundedInput('type-n',1,40),d=boundedInput('type-d',2,12),[whole,remainder,rd]=mixedOf(n,d);
+    $('type-result').innerHTML=n<d
+      ?F(n,d)+' is a proper fraction, less than 1. · '+n+'/'+d+' 是真分数，小于1。'
+      :n===d
+        ?F(n,d)+' = 1 whole. · '+n+'/'+d+' 等于1个整体。'
+        :F(n,d)+' is an improper fraction: '+F(n,d)+' = '+M(whole,remainder,rd)+'. · '+n+'/'+d+' 是假分数，等于 '+whole+(remainder?' '+remainder+'/'+rd:'')+'。';
+    $('type-bar').innerHTML=comparisonBar(n,d,'teal','Fraction amount · 分数表示的大小');
+  };
+  ['type-n','type-d'].forEach(id=>$(id).addEventListener('input',typeUpdate));
+  typeUpdate();
+
+  const simplifyUpdate=()=>{
+    const d=boundedInput('simplify-d',2,24),n=boundedInput('simplify-n',1,24),factor=gcd(n,d);
+    $('simplify-equation').innerHTML=factor===1
+      ?F(n,d)+' is already in simplest form. · '+n+'/'+d+' 已经是最简分数。'
+      :F(n,d)+' ÷ '+factor+'/'+factor+' = '+F(n/factor,d/factor)+' · Divide top and bottom by '+factor+'. · 分子和分母同时除以'+factor+'。';
+    $('simplify-bars').innerHTML=comparisonBar(n,d,'','Original fraction · 原分数')+comparisonBar(n/factor,d/factor,'teal','Simplified fraction · 约分后的分数');
+  };
+  ['simplify-n','simplify-d'].forEach(id=>$(id).addEventListener('input',simplifyUpdate));
+  simplifyUpdate();
+
+  const commonUpdate=()=>{
+    const d1=boundedInput('common-d1',2,12),d2=boundedInput('common-d2',2,12);
+    const n1=boundedInput('common-n1',1,d1-1),n2=boundedInput('common-n2',1,d2-1),den=lcm(d1,d2);
+    $('common-n1').max=d1-1;$('common-n2').max=d2-1;
+    const a=n1*den/d1,b=n2*den/d2;
+    $('common-equation').innerHTML=F(n1,d1)+' = '+F(n1+'×'+(den/d1),d1+'×'+(den/d1))+' = '+F(a,den)+'; '+F(n2,d2)+' = '+F(n2+'×'+(den/d2),d2+'×'+(den/d2))+' = '+F(b,den);
+    $('common-bars').innerHTML=comparisonBar(a,den,'','Fraction 1 rewritten · 分数1改写后')+comparisonBar(b,den,'teal','Fraction 2 rewritten · 分数2改写后');
+  };
+  ['common-n1','common-d1','common-n2','common-d2'].forEach(id=>$(id).addEventListener('input',commonUpdate));
+  commonUpdate();
+
+  const unlikeCompareUpdate=()=>{
+    const d1=boundedInput('unlikecmp-d1',2,12),d2=boundedInput('unlikecmp-d2',2,12);
+    const n1=boundedInput('unlikecmp-n1',1,d1-1),n2=boundedInput('unlikecmp-n2',1,d2-1),den=lcm(d1,d2);
+    $('unlikecmp-n1').max=d1-1;$('unlikecmp-n2').max=d2-1;
+    const a=n1*den/d1,b=n2*den/d2,symbol=a<b?'&lt;':a>b?'&gt;':'=';
+    $('unlikecmp-equation').innerHTML=F(n1,d1)+' = '+F(a,den)+' '+symbol+' '+F(b,den)+' = '+F(n2,d2);
+    $('unlikecmp-bars').innerHTML=comparisonBar(a,den,'','Fraction 1 in common parts · 分数1通分后')+comparisonBar(b,den,'teal','Fraction 2 in common parts · 分数2通分后');
+  };
+  ['unlikecmp-n1','unlikecmp-d1','unlikecmp-n2','unlikecmp-d2'].forEach(id=>$(id).addEventListener('input',unlikeCompareUpdate));
+  unlikeCompareUpdate();
+
+  const multiplyUpdate=()=>{
+    const d=boundedInput('multfrac-d',2,8),n=boundedInput('multfrac-n',1,d-1),whole=boundedInput('multfrac-w',2,5),product=n*whole;
+    $('multfrac-n').max=d-1;
+    const [w,r,rd]=mixedOf(product,d),answer=r?M(w,r,rd):String(w);
+    $('multfrac-equation').innerHTML=whole+' × '+F(n,d)+' = '+Array.from({length:whole},()=>F(n,d)).join(' + ')+' = '+F(product,d)+' = '+answer;
+    $('multfrac-bars').innerHTML=comparisonBar(product,d,'teal','Repeated equal groups · 相同份数的累加');
+  };
+  ['multfrac-n','multfrac-d','multfrac-w'].forEach(id=>$(id).addEventListener('input',multiplyUpdate));
+  multiplyUpdate();
+}
+initLearningPathSimulators();
+function initSameDenominator(){
+  const ids=['sd-n1','sd-n2','sd-d'];
+  const update=()=>{
+    const d=boundedInput('sd-d',2,12);
+    const n1=boundedInput('sd-n1',1,12),n2=boundedInput('sd-n2',1,12);
+    const symbol=n1<n2?'&lt;':n1>n2?'&gt;':'=';
+    const relation=n1<n2?'less than · 小于':n1>n2?'greater than · 大于':'equal to · 等于';
+    $('sd-equation').innerHTML=F(n1,d)+' '+symbol+' '+F(n2,d);
+    $('sd-bars').innerHTML=comparisonBar(n1,d,'','First fraction · 第一个分数')+comparisonBar(n2,d,'teal','Second fraction · 第二个分数');
+    const explanation=n1===n2?'The fractions are equal. · 两个分数相等。':'The fractions have the same denominator, so compare the numerators. · 分母相同，比较分子即可。';
+    $('sd-result').innerHTML=explanation;
+    $('sd-result').setAttribute('aria-label',n1+'/'+d+' is '+relation+' '+n2+'/'+d+'. '+explanation);
+  };
+  ids.forEach(id=>$(id).addEventListener('input',update));
+  update();
+}
+function initSameNumerator(prefix){
+  const ids=[prefix+'-n',prefix+'-d1',prefix+'-d2'];
+  const update=()=>{
+    const n=boundedInput(prefix+'-n',1,12);
+    const d1=boundedInput(prefix+'-d1',2,12),d2=boundedInput(prefix+'-d2',2,12);
+    const firstGreater=d1<d2,symbol=d1===d2?'=':firstGreater?'&gt;':'&lt;';
+    $(''+prefix+'-equation').innerHTML=F(n,d1)+' '+symbol+' '+F(n,d2);
+    $(''+prefix+'-bars').innerHTML=comparisonBar(n,d1,'','First fraction · 第一个分数')+comparisonBar(n,d2,'teal','Second fraction · 第二个分数');
+    const relation=d1===d2?'equal to · 等于':firstGreater?'greater than · 大于':'less than · 小于';
+    $(''+prefix+'-result').innerHTML=F(n,d1)+' '+symbol+' '+F(n,d2)+' — Same numerator: the fraction with the smaller denominator is greater. · 分子相同，分母较小的分数更大。';
+    if(d1===d2)$(''+prefix+'-result').innerHTML=F(n,d1)+' = '+F(n,d2)+' — The denominators are also the same, so the fractions are equal. · 分子、分母都相同，两个分数相等。';
+    $(''+prefix+'-result').setAttribute('aria-label',n+'/'+d1+' is '+relation+' '+n+'/'+d2+'. Same numerator: the smaller denominator gives the greater fraction when denominators differ. · 分子相同，分母较小的分数更大。');
+  };
+  ids.forEach(id=>$(id).addEventListener('input',update));
+  update();
+}
+function initEquivalentFractionSimulator(){
+  const update=()=>{
+    const d=boundedInput('eq-d',2,12);
+    const n=boundedInput('eq-n',1,d);
+    const factor=Number($('eq-factor').value);
+    $('eq-n').max=d;
+    $('eq-equation').innerHTML=F(n,d)+' = '+F(n+' × '+factor,d+' × '+factor)+' = '+F(n*factor,d*factor);
+    $('eq-bars').innerHTML=
+      '<p><strong>Original fraction · 原来的分数</strong></p>'+
+      comparisonBar(n,d,'','Original fraction · 原来的分数')+
+      '<p><strong>After multiplying both by '+factor+' · 分子和分母同时乘以'+factor+'后</strong></p>'+
+      comparisonBar(n*factor,d*factor,'teal','Equivalent fraction · 等值分数');
+    $('eq-result').innerHTML=n+'/'+d+' and '+(n*factor)+'/'+(d*factor)+' name the same amount. · '+n+'/'+d+' 和 '+(n*factor)+'/'+(d*factor)+' 表示相同的大小。';
+  };
+  ['eq-n','eq-d'].forEach(id=>$(id).addEventListener('input',update));
+  $('eq-factor').addEventListener('change',update);
+  update();
+}
+initSameDenominator();
+initSameNumerator('sn-a');
+initSameNumerator('sn-b');
+initEquivalentFractionSimulator();
+function initNumberLineSimulator(){
+  const inputIds=['nl1-d','nl1-a','nl1-b','nl2-d','nl2-a','nl2-b'];
+  const update=()=>{
+    const rows=[1,2].map(row=>{
+      const d=boundedInput('nl'+row+'-d',2,12);
+      const a=boundedInput('nl'+row+'-a',0,d),b=boundedInput('nl'+row+'-b',0,d);
+      $('nl'+row+'-a').max=d;
+      $('nl'+row+'-b').max=d;
+      return {row,d,a,b};
+    });
+    const left=110,right=750,width=right-left,yPositions=[66,154],colors={a:'#7962cb',b:'#f07846'};
+    let svg='<title id="numberline-sim-svg-title">Adjustable fraction number lines · 可调分数数轴</title><desc id="numberline-sim-svg-desc">Two number lines divided into the selected number of equal parts. Matching points show equivalent fractions. · 两条数轴按所选份数平均分割，重合的点表示等值分数。</desc>';
+    rows.forEach(({row,d,a,b},index)=>{
+      const y=yPositions[index];
+      svg+='<text x="12" y="'+(y+5)+'" font-size="14" font-weight="800" fill="#172c3a">Line '+row+' · 数轴'+(row===1?'一':'二')+'</text>';
+      svg+='<line x1="'+left+'" y1="'+y+'" x2="'+right+'" y2="'+y+'" stroke="#172c3a" stroke-width="2.5"/>';
+      for(let part=0;part<=d;part++){
+        const x=left+width*part/d;
+        svg+='<line x1="'+x+'" y1="'+(y-7)+'" x2="'+x+'" y2="'+(y+7)+'" stroke="#172c3a" stroke-width="1.5"/>';
+      }
+      svg+='<text x="'+left+'" y="'+(y+22)+'" text-anchor="middle" font-size="12" fill="#637681">0</text><text x="'+right+'" y="'+(y+22)+'" text-anchor="middle" font-size="12" fill="#637681">1</text>';
+      [{key:'a',n:a,label:'A',labelY:y-20},{key:'b',n:b,label:'B',labelY:y+42}].forEach(point=>{
+        const x=left+width*point.n/d,anchor=x<left+28?'start':x>right-28?'end':'middle';
+        svg+='<circle cx="'+x+'" cy="'+y+'" r="7" fill="'+colors[point.key]+'" stroke="#fff" stroke-width="2"/>';
+        svg+='<text x="'+x+'" y="'+point.labelY+'" text-anchor="'+anchor+'" font-size="14" font-weight="850" fill="'+colors[point.key]+'">'+point.label+': '+point.n+'/'+d+'</text>';
+      });
+    });
+    const matches=[];
+    rows[0]&&rows[1]&&[['a','a'],['a','b'],['b','a'],['b','b']].forEach(([topKey,bottomKey])=>{
+      const topNumerator=topKey==='a'?rows[0].a:rows[0].b;
+      const bottomNumerator=bottomKey==='a'?rows[1].a:rows[1].b;
+      if(topNumerator*rows[1].d===bottomNumerator*rows[0].d){
+        const x=left+width*topNumerator/rows[0].d;
+        svg+='<line x1="'+x+'" y1="'+(yPositions[0]+8)+'" x2="'+x+'" y2="'+(yPositions[1]-8)+'" stroke="#087f79" stroke-width="2" stroke-dasharray="4 4" opacity=".8"/>';
+        matches.push(topKey.toUpperCase()+' ('+topNumerator+'/'+rows[0].d+') = '+bottomKey.toUpperCase()+' ('+bottomNumerator+'/'+rows[1].d+')');
+      }
+    });
+    $('numberline-sim-svg').innerHTML=svg;
+    $('numberline-sim-result').innerHTML=matches.length
+      ?'<strong>Same point · 同一点：</strong> '+matches.join(' · ')+'<br>These fractions are equivalent: they name the same number. · 这些分数是等值分数，它们表示同一个数。'
+      :'<strong>Look for a match · 找一找：</strong> Change a numerator or denominator until a point on Line 1 lines up with a point on Line 2. Fractions at the same position are equivalent. · 修改分子或分母，试着让数轴一上的点与数轴二上的点对齐。位置相同的分数就是等值分数。';
+  };
+  inputIds.forEach(id=>$(id).addEventListener('input',update));
+  update();
+}
+initNumberLineSimulator();
+function initHalfBenchmarkSimulator(){
+  const rows=[
+    {key:'half1',line:'halfline1',result:'half-result1',label:'Fraction 1 · 分数1',color:'#7962cb'},
+    {key:'half2',line:'halfline2',result:'half-result2',label:'Fraction 2 · 分数2',color:'#087f79'}
+  ];
+  const update=row=>{
+    const d=boundedInput(row.key+'-d',2,12);
+    const n=boundedInput(row.key+'-n',0,d);
+    $(row.key+'-n').max=d;
+    const left=120,right=740,width=right-left,y=42,x=left+width*n/d,half=left+width/2;
+    let svg='<title>'+row.label+' compared with one-half · 与二分之一比较</title>';
+    svg+='<desc>'+n+'/'+d+' and 1/2 on a number line. The dashed orange mark shows one-half. · 数轴上标出'+n+'/'+d+'和1/2，橙色虚线表示二分之一。</desc>';
+    svg+='<text x="12" y="47" font-size="14" font-weight="800" fill="#172c3a">'+row.label+'</text>';
+    svg+='<line x1="'+left+'" y1="'+y+'" x2="'+right+'" y2="'+y+'" stroke="#172c3a" stroke-width="2.5"/>';
+    for(let part=0;part<=d;part++){
+      const tick=left+width*part/d;
+      svg+='<line x1="'+tick+'" y1="'+(y-7)+'" x2="'+tick+'" y2="'+(y+7)+'" stroke="#172c3a" stroke-width="1.5"/>';
+    }
+    svg+='<line x1="'+half+'" y1="12" x2="'+half+'" y2="78" stroke="#f07846" stroke-width="3" stroke-dasharray="6 5"/>';
+    svg+='<circle cx="'+x+'" cy="'+y+'" r="7" fill="'+row.color+'" stroke="#fff" stroke-width="2"/>';
+    const anchor=x<left+35?'start':x>right-35?'end':'middle';
+    svg+='<text x="'+x+'" y="19" text-anchor="'+anchor+'" font-size="14" font-weight="850" fill="'+row.color+'">'+n+'/'+d+'</text>';
+    svg+='<text x="'+left+'" y="84" text-anchor="middle" font-size="12" fill="#637681">0</text>';
+    svg+='<text x="'+half+'" y="94" text-anchor="middle" font-size="13" font-weight="850" fill="#f07846">1/2</text>';
+    svg+='<text x="'+right+'" y="84" text-anchor="middle" font-size="12" fill="#637681">1</text>';
+    $(row.line).innerHTML=svg;
+    const relation=2*n<d
+      ?'<strong>'+F(n,d)+' &lt; '+F(1,2)+' — Less than one-half · 小于二分之一</strong>'
+      :2*n>d
+        ?'<strong>'+F(n,d)+' &gt; '+F(1,2)+' — Greater than one-half · 大于二分之一</strong>'
+        :'<strong>'+F(n,d)+' = '+F(1,2)+' — Equal to one-half · 等于二分之一</strong>';
+    $(row.result).innerHTML=relation;
+  };
+  rows.forEach(row=>{
+    [row.key+'-n',row.key+'-d'].forEach(id=>$(id).addEventListener('change',()=>update(row)));
+    update(row);
+  });
+}
+initHalfBenchmarkSimulator();
 
 /* bars: rows of {label,filled,parts,wholes,color,cut} drawn as unit bars */
 function bars(rows,W){
